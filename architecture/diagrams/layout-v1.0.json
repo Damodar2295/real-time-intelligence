@@ -1,0 +1,1388 @@
+{
+  "width": 2780,
+  "height": 1980,
+  "nodes": {
+    "title": {
+      "id": "title",
+      "label": "VANTAGE Intelligence | Consolidated layered architecture",
+      "x": 40,
+      "y": 20,
+      "w": 2700,
+      "h": 55,
+      "kind": "title",
+      "fs": 34,
+      "bold": true,
+      "parent": "1",
+      "heading": false
+    },
+    "subtitle": {
+      "id": "subtitle",
+      "label": "v1.0 \u2022 08 Oct 2026 \u2022 Logical design review baseline \u2022 Source-supported does not mean deployed or production-approved",
+      "x": 40,
+      "y": 80,
+      "w": 2700,
+      "h": 35,
+      "kind": "title",
+      "fs": 18,
+      "bold": false,
+      "parent": "1",
+      "heading": false
+    },
+    "G01": {
+      "id": "G01",
+      "label": "Signal Management  [M05 / P05]",
+      "x": 40,
+      "y": 150,
+      "w": 520,
+      "h": 1110,
+      "kind": "band",
+      "fs": 22,
+      "bold": true,
+      "parent": "1",
+      "heading": true
+    },
+    "C53": {
+      "id": "C53",
+      "label": "Signal Management UI\nManage catalog; view signals\nNot \u201cPolicy Manager\u201d [M05.5]",
+      "x": 70,
+      "y": 220,
+      "w": 460,
+      "h": 95,
+      "kind": "box",
+      "fs": 17,
+      "bold": false,
+      "parent": "G01",
+      "heading": false
+    },
+    "C13": {
+      "id": "C13",
+      "label": "Signal Catalog\nApplicable signal definitions [M04 / M05]",
+      "x": 70,
+      "y": 355,
+      "w": 460,
+      "h": 85,
+      "kind": "box",
+      "fs": 17,
+      "bold": false,
+      "parent": "G01",
+      "heading": false
+    },
+    "C67": {
+      "id": "C67",
+      "label": "Signal Taxonomy\nDomain \u2192 Group \u2192 Signal [P01 / P05]",
+      "x": 70,
+      "y": 480,
+      "w": 450,
+      "h": 65,
+      "kind": "box",
+      "fs": 15,
+      "bold": false,
+      "parent": "G01",
+      "heading": false
+    },
+    "C64": {
+      "id": "C64",
+      "label": "Entity Dictionary\nProducts, fees, benefits, credit concepts [P05]",
+      "x": 70,
+      "y": 570,
+      "w": 450,
+      "h": 65,
+      "kind": "box",
+      "fs": 15,
+      "bold": false,
+      "parent": "G01",
+      "heading": false
+    },
+    "C65": {
+      "id": "C65",
+      "label": "Curated Examples\nPositive / Negative [P02 / P05]",
+      "x": 70,
+      "y": 660,
+      "w": 450,
+      "h": 65,
+      "kind": "box",
+      "fs": 15,
+      "bold": false,
+      "parent": "G01",
+      "heading": false
+    },
+    "C66": {
+      "id": "C66",
+      "label": "Regulatory / Policy Mappings\nReference metadata; not a policy service [P05]",
+      "x": 70,
+      "y": 750,
+      "w": 450,
+      "h": 65,
+      "kind": "box",
+      "fs": 15,
+      "bold": false,
+      "parent": "G01",
+      "heading": false
+    },
+    "C52": {
+      "id": "C52",
+      "label": "Signal Definitions / schema\nDetection method \u2022 criteria \u2022 thresholds\nUnified deterministic / semantic / LLM definition\nExact schema still under agreement [M05 / P01\u2013P02]",
+      "x": 70,
+      "y": 875,
+      "w": 460,
+      "h": 125,
+      "kind": "box",
+      "fs": 16,
+      "bold": false,
+      "parent": "G01",
+      "heading": false
+    },
+    "schema-note": {
+      "id": "schema-note",
+      "label": "Planning fields [P01\u2013P02]\nsignal_id / name / description / domain / group\ndetection_method / detection_config\napplicable_products / applicable_speakers\nentity_refs / example_refs / requirement_refs\nregulatory_refs / severity / version / status\nTypes, requiredness and lifecycle rules: OPEN",
+      "x": 70,
+      "y": 1030,
+      "w": 460,
+      "h": 200,
+      "kind": "support",
+      "fs": 15,
+      "bold": false,
+      "parent": "G01",
+      "heading": false
+    },
+    "sources": {
+      "id": "sources",
+      "label": "Conversation sources / adapters",
+      "x": 620,
+      "y": 150,
+      "w": 1600,
+      "h": 170,
+      "kind": "band",
+      "fs": 22,
+      "bold": true,
+      "parent": "1",
+      "heading": true
+    },
+    "C02": {
+      "id": "C02",
+      "label": "Transcript Emulator\nSeparate module/service [U06]\nConcurrent streams requested [M05]",
+      "x": 650,
+      "y": 215,
+      "w": 440,
+      "h": 80,
+      "kind": "box",
+      "fs": 17,
+      "bold": false,
+      "parent": "sources",
+      "heading": false
+    },
+    "C01": {
+      "id": "C01",
+      "label": "Genesys Cloud\nFuture live source [A02 / M05]\nOAuth in reference; live setup TBD",
+      "x": 1140,
+      "y": 215,
+      "w": 410,
+      "h": 80,
+      "kind": "future",
+      "fs": 16,
+      "bold": false,
+      "parent": "sources",
+      "heading": false
+    },
+    "C58": {
+      "id": "C58",
+      "label": "Future Genesys / outreach adapters\nProvider contracts not established [M05.4]",
+      "x": 1610,
+      "y": 215,
+      "w": 570,
+      "h": 80,
+      "kind": "future",
+      "fs": 16,
+      "bold": false,
+      "parent": "sources",
+      "heading": false
+    },
+    "L01": {
+      "id": "L01",
+      "label": "Interaction Streaming  [A01 / M05]",
+      "x": 620,
+      "y": 355,
+      "w": 1600,
+      "h": 285,
+      "kind": "band",
+      "fs": 22,
+      "bold": true,
+      "parent": "1",
+      "heading": true
+    },
+    "C57": {
+      "id": "C57",
+      "label": "Default WebSocket adapter\nInitial adapter construct\nPackaging within Ingestor: OPEN",
+      "x": 650,
+      "y": 435,
+      "w": 295,
+      "h": 120,
+      "kind": "box",
+      "fs": 17,
+      "bold": false,
+      "parent": "L01",
+      "heading": false
+    },
+    "C56": {
+      "id": "C56",
+      "label": "Ingestor service / Call Ingestor  [M05.2\u20134 / P05]",
+      "x": 995,
+      "y": 425,
+      "w": 1180,
+      "h": 175,
+      "kind": "box",
+      "fs": 20,
+      "bold": true,
+      "parent": "L01",
+      "heading": true
+    },
+    "C68": {
+      "id": "C68",
+      "label": "Session management\ncall_id = session / correlation ID\nIndependent calls [M05.4]",
+      "x": 1020,
+      "y": 490,
+      "w": 345,
+      "h": 85,
+      "kind": "box",
+      "fs": 15,
+      "bold": false,
+      "parent": "C56",
+      "heading": false
+    },
+    "C05": {
+      "id": "C05",
+      "label": "Normalize Transcript Event\nSpeaker / timestamp [P05]\nCleanup rules remain open",
+      "x": 1410,
+      "y": 490,
+      "w": 345,
+      "h": 85,
+      "kind": "box",
+      "fs": 15,
+      "bold": false,
+      "parent": "C56",
+      "heading": false
+    },
+    "C69": {
+      "id": "C69",
+      "label": "Segmentation / buffering\nWindowing \u2192 mini-batches\nSize / ordering rules: OPEN",
+      "x": 1800,
+      "y": 490,
+      "w": 345,
+      "h": 85,
+      "kind": "box",
+      "fs": 15,
+      "bold": false,
+      "parent": "C56",
+      "heading": false
+    },
+    "C47": {
+      "id": "C47",
+      "label": "Context Cache  [M04 / P05]\nIn-memory, same conversation only\nRecent utterance window + identified signals\nBounded hot-path context; TTL / owner OPEN",
+      "x": 2290,
+      "y": 425,
+      "w": 450,
+      "h": 140,
+      "kind": "support",
+      "fs": 16,
+      "bold": false,
+      "parent": "1",
+      "heading": false
+    },
+    "context-note": {
+      "id": "context-note",
+      "label": "Storage distinction\nKeep recent detection context separate from the larger conversation log.\nNo unlimited-history dependency or mandatory entity enrichment inferred.",
+      "x": 2290,
+      "y": 605,
+      "w": 450,
+      "h": 135,
+      "kind": "support",
+      "fs": 16,
+      "bold": false,
+      "parent": "1",
+      "heading": false
+    },
+    "L02": {
+      "id": "L02",
+      "label": "Real-time Signal Detection  [A01 / M02 / M05]",
+      "x": 620,
+      "y": 700,
+      "w": 1600,
+      "h": 525,
+      "kind": "band",
+      "fs": 22,
+      "bold": true,
+      "parent": "1",
+      "heading": true
+    },
+    "C54": {
+      "id": "C54",
+      "label": "Call-metadata applicability\nSelect catalog signals for this call\nBefore detection [M04]",
+      "x": 650,
+      "y": 770,
+      "w": 320,
+      "h": 95,
+      "kind": "box",
+      "fs": 17,
+      "bold": false,
+      "parent": "L02",
+      "heading": false
+    },
+    "C59": {
+      "id": "C59",
+      "label": "Detector service / Signal Detector\nConfigured method; not automatic all-path execution\nScheduling and fallback policy: OPEN [M05 / P05]",
+      "x": 1040,
+      "y": 770,
+      "w": 700,
+      "h": 95,
+      "kind": "box",
+      "fs": 17,
+      "bold": false,
+      "parent": "L02",
+      "heading": false
+    },
+    "C39": {
+      "id": "C39",
+      "label": "Deterministic Detector [A05]",
+      "x": 650,
+      "y": 1000,
+      "w": 330,
+      "h": 160,
+      "kind": "box",
+      "fs": 16,
+      "bold": true,
+      "parent": "L02",
+      "heading": true
+    },
+    "C14": {
+      "id": "C14",
+      "label": "Rules",
+      "x": 670,
+      "y": 1060,
+      "w": 135,
+      "h": 35,
+      "kind": "box",
+      "fs": 14,
+      "bold": false,
+      "parent": "C39",
+      "heading": false
+    },
+    "C15": {
+      "id": "C15",
+      "label": "Regex",
+      "x": 825,
+      "y": 1060,
+      "w": 135,
+      "h": 35,
+      "kind": "box",
+      "fs": 14,
+      "bold": false,
+      "parent": "C39",
+      "heading": false
+    },
+    "C16": {
+      "id": "C16",
+      "label": "Fuzzy",
+      "x": 670,
+      "y": 1110,
+      "w": 135,
+      "h": 35,
+      "kind": "box",
+      "fs": 14,
+      "bold": false,
+      "parent": "C39",
+      "heading": false
+    },
+    "C17": {
+      "id": "C17",
+      "label": "Entity rules",
+      "x": 825,
+      "y": 1110,
+      "w": 135,
+      "h": 35,
+      "kind": "box",
+      "fs": 14,
+      "bold": false,
+      "parent": "C39",
+      "heading": false
+    },
+    "semantic": {
+      "id": "semantic",
+      "label": "Semantic strategy [M02 / M05]\nTop-K + reranker retained; thresholds unspecified",
+      "x": 1020,
+      "y": 940,
+      "w": 640,
+      "h": 265,
+      "kind": "support",
+      "fs": 16,
+      "bold": true,
+      "parent": "L02",
+      "heading": true
+    },
+    "C18": {
+      "id": "C18",
+      "label": "Embedding\nUtterance vector",
+      "x": 1040,
+      "y": 1010,
+      "w": 170,
+      "h": 65,
+      "kind": "box",
+      "fs": 15,
+      "bold": false,
+      "parent": "semantic",
+      "heading": false
+    },
+    "C19": {
+      "id": "C19",
+      "label": "Vector Search\nSimilarity retrieval",
+      "x": 1240,
+      "y": 1010,
+      "w": 180,
+      "h": 65,
+      "kind": "box",
+      "fs": 14,
+      "bold": false,
+      "parent": "semantic",
+      "heading": false
+    },
+    "C35": {
+      "id": "C35",
+      "label": "Top-K candidates\nK not selected",
+      "x": 1450,
+      "y": 1010,
+      "w": 185,
+      "h": 65,
+      "kind": "box",
+      "fs": 15,
+      "bold": false,
+      "parent": "semantic",
+      "heading": false
+    },
+    "C36": {
+      "id": "C36",
+      "label": "Reranker\nBGE label in S02\nExact model OPEN",
+      "x": 1240,
+      "y": 1110,
+      "w": 180,
+      "h": 75,
+      "kind": "box",
+      "fs": 15,
+      "bold": false,
+      "parent": "semantic",
+      "heading": false
+    },
+    "C60": {
+      "id": "C60",
+      "label": "LLM-based detection\nCandidate + requirement + context\nModel / endpoint / invocation policy OPEN\nDistinct from later generation\n[M05.3 / P04 / P05]",
+      "x": 1730,
+      "y": 1000,
+      "w": 450,
+      "h": 160,
+      "kind": "box",
+      "fs": 16,
+      "bold": false,
+      "parent": "L02",
+      "heading": false
+    },
+    "output": {
+      "id": "output",
+      "label": "Signal evidence, resolution and output  [A05 / A09 / P05]",
+      "x": 620,
+      "y": 1265,
+      "w": 1600,
+      "h": 320,
+      "kind": "band",
+      "fs": 22,
+      "bold": true,
+      "parent": "1",
+      "heading": true
+    },
+    "C21": {
+      "id": "C21",
+      "label": "Signal Evidence\n[A05 / A06]",
+      "x": 1040,
+      "y": 1340,
+      "w": 285,
+      "h": 75,
+      "kind": "box",
+      "fs": 17,
+      "bold": false,
+      "parent": "output",
+      "heading": false
+    },
+    "C22": {
+      "id": "C22",
+      "label": "Signal Resolution\nMerge / acceptance policy OPEN",
+      "x": 1400,
+      "y": 1340,
+      "w": 285,
+      "h": 75,
+      "kind": "box",
+      "fs": 16,
+      "bold": false,
+      "parent": "output",
+      "heading": false
+    },
+    "C23": {
+      "id": "C23",
+      "label": "Detected Signal\nSignal ID \u2022 domain/group \u2022 evidence\nConfidence \u2022 entities \u2022 regulatory mapping\nReference result fields [P05]",
+      "x": 1760,
+      "y": 1320,
+      "w": 420,
+      "h": 110,
+      "kind": "box",
+      "fs": 16,
+      "bold": false,
+      "parent": "output",
+      "heading": false
+    },
+    "C24": {
+      "id": "C24",
+      "label": "Signal Events\nPOC output [A09]",
+      "x": 650,
+      "y": 1485,
+      "w": 310,
+      "h": 70,
+      "kind": "box",
+      "fs": 17,
+      "bold": false,
+      "parent": "output",
+      "heading": false
+    },
+    "C25": {
+      "id": "C25",
+      "label": "Real-Time Signal Workbench\nEvidence + latency display [A10]",
+      "x": 1040,
+      "y": 1485,
+      "w": 490,
+      "h": 70,
+      "kind": "box",
+      "fs": 17,
+      "bold": false,
+      "parent": "output",
+      "heading": false
+    },
+    "transport-note": {
+      "id": "transport-note",
+      "label": "Delivery mechanism: SSE / WebSocket proposed in S03\nFinal event contract / publication transport remain OPEN",
+      "x": 1610,
+      "y": 1485,
+      "w": 570,
+      "h": 70,
+      "kind": "support",
+      "fs": 15,
+      "bold": false,
+      "parent": "output",
+      "heading": false
+    },
+    "C61": {
+      "id": "C61",
+      "label": "Vector DB  [M05.8 / P05]\nPostgreSQL / \u201cp vector\u201d as reported\nSignal examples + semantic representations\nExact instance / extension / readiness OPEN",
+      "x": 2290,
+      "y": 885,
+      "w": 450,
+      "h": 135,
+      "kind": "support",
+      "fs": 16,
+      "bold": false,
+      "parent": "1",
+      "heading": false
+    },
+    "C63": {
+      "id": "C63",
+      "label": "BigQuery \u2014 Utterance & Call Log\nREFERENCE OPTION ONLY [P05 / U06]\nPersist utterances and detected results\nNot selected prototype storage",
+      "x": 2290,
+      "y": 1265,
+      "w": 450,
+      "h": 135,
+      "kind": "future",
+      "fs": 16,
+      "bold": false,
+      "parent": "1",
+      "heading": false
+    },
+    "C62": {
+      "id": "C62",
+      "label": "GKE \u2014 \u201csales profit\u201d environment\nProvisioning reportedly started [M05.8]\nDeployment map / readiness unverified",
+      "x": 2290,
+      "y": 1450,
+      "w": 450,
+      "h": 100,
+      "kind": "support",
+      "fs": 16,
+      "bold": false,
+      "parent": "1",
+      "heading": false
+    },
+    "C70": {
+      "id": "C70",
+      "label": "Common Git repository / monorepo\nModules + architecture together [M05.9]\nNo repo URL or module paths supplied",
+      "x": 2290,
+      "y": 1590,
+      "w": 450,
+      "h": 100,
+      "kind": "support",
+      "fs": 16,
+      "bold": false,
+      "parent": "1",
+      "heading": false
+    },
+    "C44": {
+      "id": "C44",
+      "label": "End-to-end logging / tracing [M05 / A08]\nAll stages; event history and latency\nP50 / P95 / P99; backend unspecified\nDeterministic internal target \u2264100\u2013150 ms\nPOC target only; end-to-end SLA TBD",
+      "x": 2290,
+      "y": 1730,
+      "w": 450,
+      "h": 160,
+      "kind": "support",
+      "fs": 16,
+      "bold": false,
+      "parent": "1",
+      "heading": false
+    },
+    "L03": {
+      "id": "L03",
+      "label": "Contextual Generation \u2014 later [A01]",
+      "x": 620,
+      "y": 1670,
+      "w": 720,
+      "h": 180,
+      "kind": "band",
+      "fs": 22,
+      "bold": true,
+      "parent": "1",
+      "heading": true
+    },
+    "C27": {
+      "id": "C27",
+      "label": "Selective deeper context / generation\nWhen detected signal warrants it\nImplementation not defined",
+      "x": 660,
+      "y": 1730,
+      "w": 640,
+      "h": 90,
+      "kind": "box",
+      "fs": 17,
+      "bold": false,
+      "parent": "L03",
+      "heading": false
+    },
+    "L04": {
+      "id": "L04",
+      "label": "Activation \u2014 later [A01 / A10]",
+      "x": 1400,
+      "y": 1670,
+      "w": 820,
+      "h": 180,
+      "kind": "band",
+      "fs": 22,
+      "bold": true,
+      "parent": "1",
+      "heading": true
+    },
+    "C28": {
+      "id": "C28",
+      "label": "Activation\nSignal / recommendation delivery",
+      "x": 1440,
+      "y": 1730,
+      "w": 345,
+      "h": 90,
+      "kind": "box",
+      "fs": 16,
+      "bold": false,
+      "parent": "L04",
+      "heading": false
+    },
+    "C29": {
+      "id": "C29",
+      "label": "Downstream Consumers\nBoundary / contract OPEN",
+      "x": 1835,
+      "y": 1730,
+      "w": 345,
+      "h": 90,
+      "kind": "box",
+      "fs": 16,
+      "bold": false,
+      "parent": "L04",
+      "heading": false
+    },
+    "C55": {
+      "id": "C55",
+      "label": "Composite signals \u2014 LOW PRIORITY [M05.6]\nPrior signal + new signal \u2192 third signal\nRule / window / lifecycle definition still open",
+      "x": 40,
+      "y": 1300,
+      "w": 520,
+      "h": 110,
+      "kind": "future",
+      "fs": 17,
+      "bold": false,
+      "parent": "1",
+      "heading": false
+    },
+    "open-note": {
+      "id": "open-note",
+      "label": "Unresolved design choices\nEntity-first narrowing vs earlier objections [P03 / M01\u20133]\nReranker \u2194 LLM sequencing; acceptance policy\nAdapter packaging; full-log persistence\nSchema agreement, batch limits and cache lifecycle\nSeparate trained/configured classifier remains deferred",
+      "x": 40,
+      "y": 1450,
+      "w": 520,
+      "h": 185,
+      "kind": "conflict",
+      "fs": 16,
+      "bold": false,
+      "parent": "1",
+      "heading": false
+    },
+    "scaling-note": {
+      "id": "scaling-note",
+      "label": "Earlier scaling reference retained [A04]\nInternal Transcript Stream \u2192 partitions \u2192 workers\nConversation-keyed processing; counts illustrative\nNot a mandated broker in the current prototype",
+      "x": 40,
+      "y": 1670,
+      "w": 520,
+      "h": 130,
+      "kind": "support",
+      "fs": 16,
+      "bold": false,
+      "parent": "1",
+      "heading": false
+    },
+    "legend": {
+      "id": "legend",
+      "label": "Solid: source-supported logical flow   \u00b7\u00b7\u00b7 Dotted: configuration   \u2013 \u2013 Amber: future / proposed / reference\nBoxes are logical responsibilities unless explicitly named services; no GKE pod, trust boundary, or data-store hosting inferred.\nAll 70 inventory records have a disposition in diagram-coverage.md. Full source and relationship IDs remain in the records.",
+      "x": 40,
+      "y": 1900,
+      "w": 2700,
+      "h": 75,
+      "kind": "title",
+      "fs": 15,
+      "bold": false,
+      "parent": "1",
+      "heading": false
+    }
+  },
+  "edges": [
+    {
+      "id": "R83",
+      "a": "C53",
+      "b": "C13",
+      "label": "manage",
+      "points": [],
+      "kind": "config",
+      "sa": "bottom",
+      "ta": "top",
+      "evidence": "R83"
+    },
+    {
+      "id": "R77",
+      "a": "C67",
+      "b": "C52",
+      "label": "",
+      "points": [
+        [
+          545,
+          512.5
+        ],
+        [
+          545,
+          850
+        ],
+        [
+          300,
+          850
+        ]
+      ],
+      "kind": "config",
+      "sa": "right",
+      "ta": "top",
+      "evidence": "R77"
+    },
+    {
+      "id": "R75",
+      "a": "C64",
+      "b": "C52",
+      "label": "",
+      "points": [
+        [
+          545,
+          602.5
+        ],
+        [
+          545,
+          850
+        ],
+        [
+          300,
+          850
+        ]
+      ],
+      "kind": "config",
+      "sa": "right",
+      "ta": "top",
+      "evidence": "R75"
+    },
+    {
+      "id": "R74",
+      "a": "C65",
+      "b": "C52",
+      "label": "",
+      "points": [
+        [
+          545,
+          692.5
+        ],
+        [
+          545,
+          850
+        ],
+        [
+          300,
+          850
+        ]
+      ],
+      "kind": "config",
+      "sa": "right",
+      "ta": "top",
+      "evidence": "R74"
+    },
+    {
+      "id": "R76",
+      "a": "C66",
+      "b": "C52",
+      "label": "",
+      "points": [
+        [
+          545,
+          782.5
+        ],
+        [
+          545,
+          850
+        ],
+        [
+          300,
+          850
+        ]
+      ],
+      "kind": "config",
+      "sa": "right",
+      "ta": "top",
+      "evidence": "R76"
+    },
+    {
+      "id": "R88",
+      "a": "C52",
+      "b": "C13",
+      "label": "",
+      "points": [
+        [
+          55,
+          937
+        ],
+        [
+          55,
+          397
+        ]
+      ],
+      "kind": "config",
+      "sa": "left",
+      "ta": "left",
+      "evidence": "R88"
+    },
+    {
+      "id": "R90",
+      "a": "C01",
+      "b": "C58",
+      "label": "",
+      "points": [],
+      "kind": "future",
+      "sa": "right",
+      "ta": "left",
+      "evidence": "R90"
+    },
+    {
+      "id": "R65",
+      "a": "C02",
+      "b": "C57",
+      "label": "",
+      "points": [
+        [
+          870,
+          340
+        ],
+        [
+          797,
+          340
+        ]
+      ],
+      "kind": "data",
+      "sa": "bottom",
+      "ta": "top",
+      "evidence": "R65"
+    },
+    {
+      "id": "R66",
+      "a": "C57",
+      "b": "C56",
+      "label": "",
+      "points": [],
+      "kind": "data",
+      "sa": "right",
+      "ta": "left",
+      "evidence": "R66"
+    },
+    {
+      "id": "R68",
+      "a": "C56",
+      "b": "C47",
+      "label": "maintain context",
+      "points": [],
+      "kind": "data",
+      "sa": "right",
+      "ta": "left",
+      "evidence": "R68"
+    },
+    {
+      "id": "R92",
+      "a": "C56",
+      "b": "C54",
+      "label": "utterance / metadata",
+      "points": [
+        [
+          1585,
+          675
+        ],
+        [
+          810,
+          675
+        ]
+      ],
+      "kind": "data",
+      "sa": "bottom",
+      "ta": "top",
+      "evidence": "R92"
+    },
+    {
+      "id": "R62",
+      "a": "C13",
+      "b": "C54",
+      "label": "catalog eligibility",
+      "points": [
+        [
+          595,
+          397
+        ],
+        [
+          595,
+          817
+        ]
+      ],
+      "kind": "config",
+      "sa": "right",
+      "ta": "left",
+      "evidence": "R62"
+    },
+    {
+      "id": "R91",
+      "a": "C54",
+      "b": "C59",
+      "label": "",
+      "points": [],
+      "kind": "data",
+      "sa": "right",
+      "ta": "left",
+      "evidence": "R91"
+    },
+    {
+      "id": "R70",
+      "a": "C52",
+      "b": "C59",
+      "label": "signal configuration",
+      "points": [
+        [
+          580,
+          937
+        ],
+        [
+          580,
+          665
+        ],
+        [
+          1390,
+          665
+        ]
+      ],
+      "kind": "config",
+      "sa": "right",
+      "ta": "top",
+      "evidence": "R70"
+    },
+    {
+      "id": "R69",
+      "a": "C47",
+      "b": "C59",
+      "label": "conversation context",
+      "points": [
+        [
+          2275,
+          495
+        ],
+        [
+          2275,
+          760
+        ],
+        [
+          1800,
+          760
+        ],
+        [
+          1800,
+          817
+        ]
+      ],
+      "kind": "data",
+      "sa": "left",
+      "ta": "right",
+      "evidence": "R69"
+    },
+    {
+      "id": "R71",
+      "a": "C59",
+      "b": "C39",
+      "label": "",
+      "points": [
+        [
+          1390,
+          895
+        ],
+        [
+          815,
+          895
+        ]
+      ],
+      "kind": "data",
+      "sa": "bottom",
+      "ta": "top",
+      "evidence": "R71"
+    },
+    {
+      "id": "R72",
+      "a": "C59",
+      "b": "C18",
+      "label": "",
+      "points": [
+        [
+          1390,
+          910
+        ],
+        [
+          1125,
+          910
+        ]
+      ],
+      "kind": "data",
+      "sa": "bottom",
+      "ta": "top",
+      "evidence": "R72"
+    },
+    {
+      "id": "R73",
+      "a": "C59",
+      "b": "C60",
+      "label": "",
+      "points": [
+        [
+          1390,
+          925
+        ],
+        [
+          1955,
+          925
+        ]
+      ],
+      "kind": "data",
+      "sa": "bottom",
+      "ta": "top",
+      "evidence": "R73"
+    },
+    {
+      "id": "R26",
+      "a": "C18",
+      "b": "C19",
+      "label": "",
+      "points": [],
+      "kind": "data",
+      "sa": "right",
+      "ta": "left",
+      "evidence": "R26"
+    },
+    {
+      "id": "R45",
+      "a": "C19",
+      "b": "C35",
+      "label": "",
+      "points": [],
+      "kind": "data",
+      "sa": "right",
+      "ta": "left",
+      "evidence": "R45"
+    },
+    {
+      "id": "R46",
+      "a": "C35",
+      "b": "C36",
+      "label": "",
+      "points": [
+        [
+          1542,
+          1147
+        ]
+      ],
+      "kind": "data",
+      "sa": "bottom",
+      "ta": "right",
+      "evidence": "R46"
+    },
+    {
+      "id": "R21-R24",
+      "a": "C39",
+      "b": "C21",
+      "label": "evidence",
+      "points": [
+        [
+          815,
+          1377
+        ]
+      ],
+      "kind": "data",
+      "sa": "bottom",
+      "ta": "left",
+      "evidence": "R21,R22,R23,R24"
+    },
+    {
+      "id": "R30",
+      "a": "C21",
+      "b": "C22",
+      "label": "",
+      "points": [],
+      "kind": "data",
+      "sa": "right",
+      "ta": "left",
+      "evidence": "R30"
+    },
+    {
+      "id": "R31",
+      "a": "C22",
+      "b": "C23",
+      "label": "",
+      "points": [],
+      "kind": "data",
+      "sa": "right",
+      "ta": "left",
+      "evidence": "R31"
+    },
+    {
+      "id": "R47",
+      "a": "C36",
+      "b": "C22",
+      "label": "resolution path: proposed [S02]",
+      "points": [
+        [
+          1330,
+          1240
+        ],
+        [
+          1542,
+          1240
+        ]
+      ],
+      "kind": "future",
+      "sa": "bottom",
+      "ta": "top",
+      "evidence": "R47"
+    },
+    {
+      "id": "R82",
+      "a": "C60",
+      "b": "C23",
+      "label": "result [P05]",
+      "points": [],
+      "kind": "data",
+      "sa": "bottom",
+      "ta": "top",
+      "evidence": "R82"
+    },
+    {
+      "id": "R32",
+      "a": "C22",
+      "b": "C24",
+      "label": "",
+      "points": [
+        [
+          1542,
+          1460
+        ],
+        [
+          805,
+          1460
+        ]
+      ],
+      "kind": "data",
+      "sa": "bottom",
+      "ta": "top",
+      "evidence": "R32"
+    },
+    {
+      "id": "R33",
+      "a": "C24",
+      "b": "C25",
+      "label": "",
+      "points": [],
+      "kind": "data",
+      "sa": "right",
+      "ta": "left",
+      "evidence": "R33"
+    },
+    {
+      "id": "R79",
+      "a": "C19",
+      "b": "C61",
+      "label": "Top-K retrieval",
+      "points": [
+        [
+          1330,
+          1090
+        ],
+        [
+          1685,
+          1090
+        ],
+        [
+          1685,
+          880
+        ],
+        [
+          2240,
+          880
+        ],
+        [
+          2240,
+          952
+        ]
+      ],
+      "kind": "data",
+      "sa": "bottom",
+      "ta": "left",
+      "evidence": "R79"
+    },
+    {
+      "id": "R78",
+      "a": "C65",
+      "b": "C61",
+      "label": "",
+      "points": [
+        [
+          610,
+          692
+        ],
+        [
+          610,
+          125
+        ],
+        [
+          2760,
+          125
+        ],
+        [
+          2760,
+          840
+        ],
+        [
+          2515,
+          840
+        ]
+      ],
+      "kind": "config",
+      "sa": "right",
+      "ta": "top",
+      "evidence": "R78"
+    },
+    {
+      "id": "R80",
+      "a": "C56",
+      "b": "C63",
+      "label": "utterances: reference option",
+      "points": [
+        [
+          2250,
+          512
+        ],
+        [
+          2250,
+          1245
+        ],
+        [
+          2515,
+          1245
+        ]
+      ],
+      "kind": "future",
+      "sa": "right",
+      "ta": "top",
+      "evidence": "R80"
+    },
+    {
+      "id": "R81",
+      "a": "C23",
+      "b": "C63",
+      "label": "results",
+      "points": [],
+      "kind": "future",
+      "sa": "right",
+      "ta": "left",
+      "evidence": "R81"
+    },
+    {
+      "id": "R35",
+      "a": "C23",
+      "b": "C27",
+      "label": "selective",
+      "points": [
+        [
+          2205,
+          1375
+        ],
+        [
+          2205,
+          1635
+        ],
+        [
+          980,
+          1635
+        ]
+      ],
+      "kind": "data",
+      "sa": "right",
+      "ta": "top",
+      "evidence": "R35"
+    },
+    {
+      "id": "R36",
+      "a": "C27",
+      "b": "C28",
+      "label": "eventual [A10]",
+      "points": [],
+      "kind": "data",
+      "sa": "right",
+      "ta": "left",
+      "evidence": "R36"
+    },
+    {
+      "id": "R37",
+      "a": "C28",
+      "b": "C29",
+      "label": "",
+      "points": [],
+      "kind": "data",
+      "sa": "right",
+      "ta": "left",
+      "evidence": "R37"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+# Input reference photos must never be committed.
+*.[jJ][pP][gG]
+*.[jJ][pP][eE][gG]
+/architecture&implementation plan/
+/design&planning/
+/reranker based signal detection piepline/
+
+# Local/editor and Python artifacts
+.DS_Store
+__pycache__/
+*.py[cod]
+.venv/

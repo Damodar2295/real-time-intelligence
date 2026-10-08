@@ -1,0 +1,1765 @@
+{
+  "version": "1.1",
+  "date": "2026-10-08",
+  "components": [
+    {
+      "id": "C01",
+      "name": "Genesys Cloud",
+      "responsibility": "Live conversation source",
+      "concern": "External source",
+      "inputs": "Live interaction",
+      "outputs": "Conversation events",
+      "source": "A02",
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "C02",
+      "name": "Transcript Emulator",
+      "responsibility": "Separate Transcript Emulator module/service supplies simulated WebSocket call streams; multiple concurrent streams requested",
+      "concern": "Conversation Sources (POC)",
+      "inputs": "UNKNOWN",
+      "outputs": "Simulated transcript",
+      "source": "A08,A09,M05.1,M05.4,U06",
+      "status": "CONFIRMED",
+      "implementation_priority": "Separate module/service confirmed by U06; concurrency readiness not verified"
+    },
+    {
+      "id": "C03",
+      "name": "Genesys Connector",
+      "responsibility": "Acquire live events; source also calls this Genesys / WebSocket Connector",
+      "concern": "Interaction Streaming",
+      "inputs": "Genesys notification events; emulator in POC view",
+      "outputs": "Received events",
+      "source": "A02,A04,A09,M05.3,M05.4",
+      "status": "CONFIRMED",
+      "implementation_priority": "Future Genesys provider integration; default WebSocket adapter first; OAuth remains source-specific reference requirement"
+    },
+    {
+      "id": "C04",
+      "name": "Demultiplexer",
+      "responsibility": "Separate events by conversation_id",
+      "concern": "Interaction Streaming",
+      "inputs": "Multiplexed conversation events",
+      "outputs": "Conversation-routed events",
+      "source": "A02,A03,M04.1,M04.2,M04.3",
+      "status": "CONFIRMED",
+      "implementation_priority": "Call distinction reinforced by M04; exact identity fields and mapping of the interface workstream to existing Demultiplexer remain unconfirmed"
+    },
+    {
+      "id": "C05",
+      "name": "Normalize Transcript Event",
+      "responsibility": "Map events into the internal transcript contract",
+      "concern": "Interaction Streaming",
+      "inputs": "Received/routed transcript event",
+      "outputs": "Normalized event",
+      "source": "A03,A04,M05.2",
+      "status": "CONFIRMED",
+      "implementation_priority": "Normalization responsibility explicitly in Ingestor; event mapping versus text-cleanup rules still unspecified"
+    },
+    {
+      "id": "C06",
+      "name": "Internal Transcript Stream",
+      "responsibility": "Route using interaction_id / conversation_id",
+      "concern": "Interaction Streaming",
+      "inputs": "Normalized transcript events",
+      "outputs": "Partitioned events",
+      "source": "A04",
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "C07",
+      "name": "Partition 1 / Partition 2 / Partition 3",
+      "responsibility": "Illustrative stream partitions; no fixed count confirmed",
+      "concern": "Interaction Streaming",
+      "inputs": "Keyed stream",
+      "outputs": "Worker input",
+      "source": "A04",
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "C08",
+      "name": "Processing Worker A / Processing Worker B / Processing Worker C",
+      "responsibility": "Process events for conversation context; count illustrative",
+      "concern": "Interaction Streaming",
+      "inputs": "Partition events",
+      "outputs": "Conversation context",
+      "source": "A04",
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "C09",
+      "name": "Conversation Context A / Conversation Context B / Conversation Context C",
+      "responsibility": "Provide bounded context; limits unknown",
+      "concern": "Interaction Streaming",
+      "inputs": "Worker processing",
+      "outputs": "Bounded conversation context",
+      "source": "A04,A05,M04.1,M04.4",
+      "status": "CONFIRMED",
+      "implementation_priority": "M04 requires same-conversation in-memory context; physical equivalence with existing context/cache records is unresolved"
+    },
+    {
+      "id": "C10",
+      "name": "Event Mapper",
+      "responsibility": "POC event mapping; equivalence to Normalize Transcript Event unconfirmed",
+      "concern": "Interaction Streaming (POC)",
+      "inputs": "Connector output",
+      "outputs": "Context Buffer input",
+      "source": "A09",
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "C11",
+      "name": "Context Buffer",
+      "responsibility": "POC buffering; equivalence to worker context or microbuffer unconfirmed",
+      "concern": "Interaction Streaming (POC)",
+      "inputs": "Mapped events",
+      "outputs": "Detection input in POC view",
+      "source": "A09",
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "C12",
+      "name": "Transcript Event / Detection Input",
+      "responsibility": "Logical input to detection",
+      "concern": "Real-time Signal Detection",
+      "inputs": "Transcript events; bounded context available",
+      "outputs": "Detection input",
+      "source": "A05,A06",
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "C13",
+      "name": "Signal Catalog",
+      "responsibility": "Catalog of signal definitions with predefined detection method; metadata applicability retained; unified definition across deterministic, semantic and LLM methods requested",
+      "concern": "Detection (POC)",
+      "inputs": "Signal definitions; schema UNKNOWN",
+      "outputs": "Detector configuration",
+      "source": "A09,A10,M01.1,M03.5,M04.1,M04.2,M04.3,M05.1,M05.5,P01,P02,P05",
+      "status": "CONFIRMED",
+      "implementation_priority": "Current prototype requirement; planned attributes documented; exact schema/ownership and persistence not approved"
+    },
+    {
+      "id": "C14",
+      "name": "Rules",
+      "responsibility": "Deterministic detection capability",
+      "concern": "Real-time Signal Detection",
+      "inputs": "Transcript input; catalog configuration",
+      "outputs": "Signal evidence",
+      "source": "A05,A06,A09",
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "C15",
+      "name": "Regex",
+      "responsibility": "Deterministic detection capability",
+      "concern": "Real-time Signal Detection",
+      "inputs": "Transcript input; catalog configuration",
+      "outputs": "Signal evidence",
+      "source": "A05,A06,A09",
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "C16",
+      "name": "Fuzzy",
+      "responsibility": "Deterministic detection capability",
+      "concern": "Real-time Signal Detection",
+      "inputs": "Transcript input; catalog configuration",
+      "outputs": "Signal evidence",
+      "source": "A05,A06,A09",
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "C17",
+      "name": "Entity",
+      "responsibility": "Deterministic detection capability",
+      "concern": "Real-time Signal Detection",
+      "inputs": "Transcript input; catalog configuration",
+      "outputs": "Signal evidence",
+      "source": "A05,A06,A09,M03.4",
+      "status": "CONFIRMED",
+      "implementation_priority": "Entity-role necessity to be justified by actual cases; semantic entity/intent mapping discussed, not approved as mandatory extraction or replacement of deterministic entity rules"
+    },
+    {
+      "id": "C18",
+      "name": "Embedding",
+      "responsibility": "Embed transcript for semantic retrieval",
+      "concern": "Real-time Signal Detection / Semantic / Intent",
+      "inputs": "Transcript",
+      "outputs": "Embedding",
+      "source": "A05,A06,M02.2",
+      "status": "CONFIRMED",
+      "implementation_priority": "Current POC focus stated in M02.2; execution schedule and implementation completion UNKNOWN"
+    },
+    {
+      "id": "C19",
+      "name": "Vector Search",
+      "responsibility": "Retrieve top-K signal candidates using separate embeddings/cosine similarity as described in the meeting; model and reference corpus details unconfirmed",
+      "concern": "Real-time Signal Detection / Semantic / Intent",
+      "inputs": "Embedding; reference corpus unspecified",
+      "outputs": "Semantic matches / candidates",
+      "source": "A05,A06,M01.6,M02.2,M02.1",
+      "status": "CONFIRMED",
+      "implementation_priority": "Current POC focus stated in M02.2; execution schedule and implementation completion UNKNOWN"
+    },
+    {
+      "id": "C20",
+      "name": "Classifier",
+      "responsibility": "Classify transcript/context; exact ordering relative to retrieval disputed",
+      "concern": "Real-time Signal Detection / Semantic / Intent",
+      "inputs": "Transcript/context per A06; vector output per A05",
+      "outputs": "Intent/category or evidence",
+      "source": "A05,A06,S02,M02.2",
+      "status": "CONFIRMED",
+      "implementation_priority": "Deferred for current experimentation per M02.2; not permanently removed"
+    },
+    {
+      "id": "C21",
+      "name": "Signal Evidence",
+      "responsibility": "Collect detection evidence; source also uses Evidence Aggregator / Merge Evidence",
+      "concern": "Real-time Signal Detection",
+      "inputs": "Detector evidence",
+      "outputs": "Evidence for resolution",
+      "source": "A05,A06",
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "C22",
+      "name": "Signal Resolution",
+      "responsibility": "Common threshold-based acceptance stage for deterministic, semantic and LLM results; applies configured threshold criteria to decide accepted signals",
+      "concern": "Real-time Signal Detection",
+      "inputs": "Detection results/evidence from configured deterministic, semantic and LLM methods; scoring representation UNKNOWN",
+      "outputs": "Accepted signal; rejected/no-signal handling unspecified",
+      "source": "A05,A06,A09,S02,U07",
+      "status": "CONFIRMED",
+      "implementation_priority": "Shared resolution approved by U07. Threshold values, per-signal/per-method scope, deterministic score semantics and independent-versus-combined acceptance remain OPEN"
+    },
+    {
+      "id": "C23",
+      "name": "Detected Signal",
+      "responsibility": "Logical detection output",
+      "concern": "Real-time Signal Detection",
+      "inputs": "Accepted result from Signal Resolution",
+      "outputs": "Reference result fields: Signal ID, Domain / Group, Evidence, Confidence, Entities, Regulatory mapping; requiredness/schema UNKNOWN",
+      "source": "A05,P05,U07",
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "C24",
+      "name": "Signal Events",
+      "responsibility": "Publish signal output in POC",
+      "concern": "Signal Output (POC)",
+      "inputs": "Resolution result",
+      "outputs": "Signal events",
+      "source": "A09,A10",
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "C25",
+      "name": "Real-Time Signal Workbench",
+      "responsibility": "POC signal display; evidence and latency visible in demonstration",
+      "concern": "Signal Output (POC)",
+      "inputs": "Signal events",
+      "outputs": "Displayed signal/evidence/latency",
+      "source": "A09,A10",
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "C26",
+      "name": "Optional Signal Store",
+      "responsibility": "Optional signal persistence; no technology selected",
+      "concern": "Signal Output (POC)",
+      "inputs": "Signal events",
+      "outputs": "Stored signals",
+      "source": "A09,A10",
+      "status": "PROPOSED"
+    },
+    {
+      "id": "C27",
+      "name": "Contextual Generation",
+      "responsibility": "Selectively invoke deeper context assembly when a detected signal warrants it",
+      "concern": "Contextual Generation",
+      "inputs": "Detected signal; selection policy UNKNOWN",
+      "outputs": "Recommendation / contextual output unspecified",
+      "source": "A01",
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "C28",
+      "name": "Activation",
+      "responsibility": "Deliver signal, recommendation or experience to consumers",
+      "concern": "Activation",
+      "inputs": "Signal / recommendation / experience",
+      "outputs": "Consumer delivery",
+      "source": "A01,A10",
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "C29",
+      "name": "Downstream Consumers",
+      "responsibility": "Receive signals or resulting experience",
+      "concern": "External/internal boundary UNKNOWN",
+      "inputs": "Published signal / activation output",
+      "outputs": "UNKNOWN",
+      "source": "A01,S03",
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "C30",
+      "name": "Upstream Utterance / Microbuffered Sentence",
+      "responsibility": "Independent microbatches are explicitly required for the demo execution flow; existing source label retained; batch creation ownership, flush policy and boundaries UNKNOWN",
+      "concern": "Placement relative to streaming components UNKNOWN",
+      "inputs": "Utterances",
+      "outputs": "Buffered sentence",
+      "source": "S01,M01.3,M04.1,M04.2,M04.3",
+      "status": "CONFIRMED",
+      "implementation_priority": "Current demo requirement; not evidence that microbatching is implemented"
+    },
+    {
+      "id": "C31",
+      "name": "Normalize Transcript",
+      "responsibility": "POC text cleanup; distinct from event-contract normalization until confirmed",
+      "concern": "Detection preprocessing placement UNKNOWN",
+      "inputs": "Buffered sentence",
+      "outputs": "Cleaned transcript",
+      "source": "S01,M01.3",
+      "status": "PROPOSED"
+    },
+    {
+      "id": "C32",
+      "name": "Entity / Target Keyword(s) Extraction",
+      "responsibility": "Identify configured entities; compulsory placement challenged",
+      "concern": "Detection preprocessing placement CONFLICTING",
+      "inputs": "Normalized transcript",
+      "outputs": "Entity / target keywords",
+      "source": "S01,M01.4,M01.7,M02.3,M03.4,P03,P05",
+      "status": "CONFLICTING",
+      "implementation_priority": "CONFLICTING: new reference places entity/context extraction before candidate retrieval; earlier meetings challenge mandatory entity preprocessing; no forced stage added"
+    },
+    {
+      "id": "C33",
+      "name": "Conversation Context Cache",
+      "responsibility": "Proposed in-memory recent-entity cache; source operations Update Conversation Context Cache (Async) / Load Entity from Conversation Context Cache",
+      "concern": "Placement CONFLICTING",
+      "inputs": "Found entity / cache lookup",
+      "outputs": "Cached entity context",
+      "source": "S01,M01.4,M01.7,M02.3",
+      "status": "PROPOSED",
+      "implementation_priority": "Entity-appending proposal remains challenged; no approved required preprocessing"
+    },
+    {
+      "id": "C34",
+      "name": "Enrich Transcript",
+      "responsibility": "Append entity context before semantic similarity; efficacy unvalidated",
+      "concern": "Placement CONFLICTING",
+      "inputs": "Transcript and extracted / cached entity",
+      "outputs": "Enriched transcript",
+      "source": "S01,M01.4,M01.6,M02.3",
+      "status": "CONFLICTING",
+      "implementation_priority": "Entity-appending proposal remains challenged; no approved required preprocessing"
+    },
+    {
+      "id": "C35",
+      "name": "Top-K Candidate Signals",
+      "responsibility": "Top-K candidate stage explicitly included in current semantic-path direction; K remains UNKNOWN; ten/fifteen candidates and top three reranked results are examples",
+      "concern": "Semantic POC path",
+      "inputs": "Similarity results",
+      "outputs": "Candidate signals",
+      "source": "S02,M01.6,M02.1,M02.2",
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "C36",
+      "name": "BGE Reranker",
+      "responsibility": "Reranker role explicitly included after top-K in semantic path; meeting describes joint utterance\u2013signal-description scoring. Existing BGE label retained from S02; exact BGE variant/version and validated performance UNKNOWN",
+      "concern": "Semantic POC path",
+      "inputs": "Utterance paired with candidate signal descriptions; original versus normalized/enriched utterance UNKNOWN",
+      "outputs": "Reranked relevance results; output count, scores/thresholds and final acceptance contract UNKNOWN",
+      "source": "S02,M01.6,M02.1,M02.2,P04,P05,M05.3",
+      "status": "CONFIRMED",
+      "implementation_priority": "Top-K + reranker retained from M02; latest references do not show reranker or explicitly remove it. Exact model and placement relative to LLM unresolved"
+    },
+    {
+      "id": "C37",
+      "name": "Async: Store Detection Data for Classifier Training",
+      "responsibility": "Persist detection data asynchronously for later training",
+      "concern": "Placement UNKNOWN",
+      "inputs": "Reranker output per image",
+      "outputs": "Training data",
+      "source": "S02,S03",
+      "status": "PROPOSED",
+      "implementation_priority": "UNKNOWN: classifier deferral does not explicitly decide training-data storage"
+    },
+    {
+      "id": "C38",
+      "name": "Classifier Detector / Load Configured Classifier / Signal Classification",
+      "responsibility": "Source pipeline classifier branch; trained classifier suggested as future option",
+      "concern": "Semantic POC path",
+      "inputs": "Detection pipeline input / configured classifier",
+      "outputs": "Classification result",
+      "source": "S02,M01.2,M02.2",
+      "status": "PROPOSED",
+      "implementation_priority": "Deferred for current experimentation per M02.2; not permanently removed"
+    },
+    {
+      "id": "C39",
+      "name": "Deterministic Detector / Combine Results",
+      "responsibility": "POC wrapper and aggregation for Rule, Regex, Fuzzy, NER / Entity Rules",
+      "concern": "Real-time Signal Detection (POC)",
+      "inputs": "Normalized or enriched transcript; ingress disputed",
+      "outputs": "Combined results",
+      "source": "S01,S02,M02.2",
+      "status": "CONFIRMED",
+      "implementation_priority": "Current POC focus stated in M02.2; execution schedule and implementation completion UNKNOWN"
+    },
+    {
+      "id": "C40",
+      "name": "Publish Signal to SSE / WebSocket",
+      "responsibility": "Source pipeline publication mechanism; final transport choice unknown",
+      "concern": "Placement relative to Activation UNKNOWN",
+      "inputs": "Positive Signal Detected? result",
+      "outputs": "Signal for Downstream Consumers",
+      "source": "S03",
+      "status": "PROPOSED"
+    },
+    {
+      "id": "C41",
+      "name": "VANTAGE signal management",
+      "responsibility": "Meeting reports editing signals, examples and Amex taxonomy; reuse is a proposal",
+      "concern": "Ownership / deployment boundary UNKNOWN",
+      "inputs": "Signal definitions / few-shot examples",
+      "outputs": "Potential consumed signal catalog",
+      "source": "M01.1,M04.2",
+      "status": "PROPOSED",
+      "implementation_priority": "Earlier VANTAGE reuse proposal retained; new console build request does not establish replacement versus extension/reuse"
+    },
+    {
+      "id": "C42",
+      "name": "Mini-based detection mechanism",
+      "responsibility": "Explicit POC action to add LLM classification; GPT 4.1 mini access attempted, availability unconfirmed",
+      "concern": "Detection methodology; mapping to cognitive concern UNKNOWN",
+      "inputs": "Utterances; few-shot retrieval proposed",
+      "outputs": "Classification result; output contract UNKNOWN",
+      "source": "M01.2,M01.8,M02.2,M05.3",
+      "status": "CONFIRMED",
+      "implementation_priority": "LLM detection method now explicitly in scope (C60); specific GPT 4.1 mini endpoint/access remains UNKNOWN"
+    },
+    {
+      "id": "C43",
+      "name": "Few-shot example retrieval",
+      "responsibility": "Proposed vector search to supply examples to an LLM; distinct from signal-candidate retrieval",
+      "concern": "Placement UNKNOWN",
+      "inputs": "Utterance; example corpus UNKNOWN",
+      "outputs": "Few-shot examples for LLM",
+      "source": "M01.2",
+      "status": "PROPOSED"
+    },
+    {
+      "id": "C44",
+      "name": "Latency instrumentation / Observability",
+      "responsibility": "End-to-end logging and tracing of event history and per-stage latency; preserve P50/P95/P99 requirement",
+      "concern": "Cross-cutting requirement; service boundary not defined",
+      "inputs": "Stage timestamps / event trace",
+      "outputs": "Latency measurements",
+      "source": "A07,A08,M05.7",
+      "status": "CONFIRMED",
+      "implementation_priority": "Required across prototype modules; telemetry backend and instrumentation contract unspecified"
+    },
+    {
+      "id": "C45",
+      "name": "Conversation signal history (descriptive capability)",
+      "responsibility": "Remember signals identified earlier in the same conversation for later detection; no separate history store/service established",
+      "concern": "UNKNOWN; no physical or layer placement decided",
+      "inputs": "Earlier pivot signal in this conversation; trigger meaning unresolved",
+      "outputs": "Occurrence information available to subsequent detection",
+      "source": "M02.4,M04.1,M04.4",
+      "status": "CONFIRMED",
+      "implementation_priority": "Business-scenario requirement; realization UNKNOWN"
+    },
+    {
+      "id": "C46",
+      "name": "Sequence-dependent detection (descriptive capability)",
+      "responsibility": "Detect from a prior transfer-to-digital pivot plus another pattern in its near vicinity; precise second event and timing semantics not supplied; latest notes also describe an earlier occurrence requiring subsequent speech, without deciding satisfaction versus missing-disclosure detection",
+      "concern": "UNKNOWN; no separate engine/service approved",
+      "inputs": "Earlier occurrence and required subsequent speech/pattern; exact trigger and obligation definitions UNKNOWN",
+      "outputs": "Detection result; signal identity and downstream handling UNKNOWN",
+      "source": "M02.4,M03.3",
+      "status": "CONFIRMED",
+      "implementation_priority": "Business-scenario requirement; realization UNKNOWN"
+    },
+    {
+      "id": "C47",
+      "name": "Context Cache (earlier label: memory caching)",
+      "responsibility": "Maintain recent conversation window/state and earlier identified signals in memory; Ingestor maintains context, Signal Detector consumes it. Larger conversation storage is distinct; no unlimited hot-path history requirement",
+      "concern": "Interaction Streaming support; in-memory same-call context, physical owner/topology unspecified",
+      "inputs": "Earlier utterances/windows and identified signals within the same conversation; exact stored representation UNKNOWN",
+      "outputs": "Same-conversation context for detection on independent microbatches",
+      "source": "M02.3,M02.4,M04.1,M04.4,M05.2,P05",
+      "status": "CONFIRMED",
+      "implementation_priority": "Explicit current requirement; ownership, memory topology, retention and equivalence to C09/C11/C33/C45 UNKNOWN"
+    },
+    {
+      "id": "C48",
+      "name": "Verbatim disclosure detection (descriptive capability)",
+      "responsibility": "Check whether the specified disclosure was said verbatim; occurrence generates a trigger in the described scenario. No matching algorithm or separate service selected",
+      "concern": "UNKNOWN; pattern-based scenario, no runtime placement confirmed",
+      "inputs": "Conversation transcript and required disclosure wording; exact wording/speaker/tolerance UNKNOWN",
+      "outputs": "Trigger when the required wording occurs; downstream interface UNKNOWN",
+      "source": "M03.2",
+      "status": "CONFIRMED",
+      "implementation_priority": "One of the scenario types requested for business-case validation; not implemented evidence"
+    },
+    {
+      "id": "C49",
+      "name": "Domain-scoped signal/entity evaluation (descriptive capability)",
+      "responsibility": "Proposed restriction of call evaluation to signals/entities associated with the defined domain, excluding remaining ones; applicability to real time explicitly posed as a question",
+      "concern": "UNKNOWN; no placement relative to retrieval, reranking or deterministic evaluation decided",
+      "inputs": "Defined domain and associated signal/entity list; how domain is assigned UNKNOWN",
+      "outputs": "Evaluation of selected signals/entities; exclusion behavior proposed, contract UNKNOWN",
+      "source": "M03.5,M04.2,M04.3",
+      "status": "PROPOSED",
+      "implementation_priority": "Domain/entity-specific model remains PROPOSED; M04 separately confirms call-metadata-based signal applicability (C54), not the domain ontology or entity extraction"
+    },
+    {
+      "id": "C50",
+      "name": "Signal-domain and related-entity associations (descriptive metadata)",
+      "responsibility": "Represent the domain of a signal and its related entities in the discussed model; metadata requirement proposed for reuse, not a new store or catalog schema",
+      "concern": "UNKNOWN; association with C13/C41 not established",
+      "inputs": "Configured domain, signal and entity associations; source/owner/cardinality UNKNOWN",
+      "outputs": "Associated signal/entity list for proposed scoped evaluation",
+      "source": "M03.5,P01,P02,P05",
+      "status": "PROPOSED",
+      "implementation_priority": "Domain/group and entity_refs explicitly documented as planned catalog metadata; schema acceptance and dynamic scope policy remain unresolved"
+    },
+    {
+      "id": "C51",
+      "name": "interfacing layer (meeting wording)",
+      "responsibility": "WebSocket-only current demo scope; handle two or three calls concurrently, distinguish calls and attribute outcomes; normalization assigned here at responsibility level, exact transformation unknown",
+      "concern": "UNKNOWN; logical responsibility only, no new enterprise layer or deployment boundary",
+      "inputs": "WebSocket call packets and call identity; schema UNKNOWN",
+      "outputs": "Distinguished input for per-call execution; normalized form unspecified",
+      "source": "M04.1,M05.2,M05.4",
+      "status": "CONFIRMED",
+      "implementation_priority": "Logical interface responsibility refined by named Ingestor service C56/default adapter C57; not an additional service"
+    },
+    {
+      "id": "C52",
+      "name": "Signal Definitions / signal schema",
+      "responsibility": "One definition covering deterministic, semantic and LLM detection, criteria and method-specific parameters; planned catalog attributes in P01/P02",
+      "concern": "UNKNOWN; logical responsibility only, no new enterprise layer or deployment boundary",
+      "inputs": "Signal definitions and applicability requirements; fields UNKNOWN",
+      "outputs": "Schema to be defined; serialization/versioning UNKNOWN",
+      "source": "M04.2,M05.5,P01,P02,P05",
+      "status": "CONFIRMED",
+      "implementation_priority": "Basic unit definitions first; precise types/constraints/enums and version semantics UNKNOWN"
+    },
+    {
+      "id": "C53",
+      "name": "Signal Management UI (earlier: management console)",
+      "responsibility": "Manage catalog and view signals; use Signal Management terminology, not Policy Manager. P05 calls the grouping Signal Manager",
+      "concern": "UNKNOWN; logical responsibility only, no new enterprise layer or deployment boundary",
+      "inputs": "Signal definitions/configuration; workflow and roles UNKNOWN",
+      "outputs": "Managed signal definitions; persistence/publishing interface UNKNOWN",
+      "source": "M04.2,M05.1,M05.5,P05",
+      "status": "CONFIRMED",
+      "implementation_priority": "Build capability requested, similar to VANTAGE; reuse/integration boundary not settled"
+    },
+    {
+      "id": "C54",
+      "name": "Call-metadata signal applicability selection (descriptive capability)",
+      "responsibility": "Determine which catalog signals apply to a call based on its metadata before applying detection mechanisms; exact filter algorithm/placement unspecified",
+      "concern": "UNKNOWN; logical responsibility only, no new enterprise layer or deployment boundary",
+      "inputs": "Catalog signals and call metadata; metadata origin, keys and predicates UNKNOWN",
+      "outputs": "Applicable signal set for the call",
+      "source": "M04.2,M04.3,M05.3,M05.5,P01,P02",
+      "status": "CONFIRMED",
+      "implementation_priority": "Applicability before detection retained; candidate scope fields applicable_products/applicable_speakers shown in planning, exact predicate semantics UNKNOWN"
+    },
+    {
+      "id": "C55",
+      "name": "Prior-signal plus new-signal composition (descriptive capability)",
+      "responsibility": "Composite signal capability: two signals can lead to a third; acknowledged as a low-priority task, not a current implemented mechanism",
+      "concern": "UNKNOWN; logical responsibility only, no new enterprise layer or deployment boundary",
+      "inputs": "Earlier same-call signal occurrence and new signal; conditions UNKNOWN",
+      "outputs": "Possible derived third signal; identity and output lifecycle UNKNOWN",
+      "source": "M04.4,M05.6",
+      "status": "CONFIRMED",
+      "implementation_priority": "LOW PRIORITY; basic signal definitions first. Operators/windows/recursion/output handling UNKNOWN"
+    },
+    {
+      "id": "C56",
+      "name": "Ingestor service / Call Ingestor",
+      "responsibility": "Consume WebSocket inputs; normalize, manage independent sessions, segment/buffer/window utterances; maintain recent context and preserve larger conversation",
+      "concern": "Interaction Streaming",
+      "inputs": "Adapted call transcript packets",
+      "outputs": "Utterance/event microbatches, maintained context, stored utterances",
+      "source": "M05.2,M05.4,P05",
+      "status": "CONFIRMED",
+      "implementation_priority": "Current logical prototype scope; implementation not verified"
+    },
+    {
+      "id": "C57",
+      "name": "Default WebSocket adapter",
+      "responsibility": "Initial adapter construct for WebSocket input; DTO/provider abstraction requested. Logical entry ahead of ingestion processing; package may be inside Ingestor",
+      "concern": "Interaction Streaming ingress",
+      "inputs": "Emulated WebSocket transcript",
+      "outputs": "Input consumable by Ingestor; contract details UNKNOWN",
+      "source": "M05.4",
+      "status": "CONFIRMED",
+      "implementation_priority": "Current logical prototype scope; implementation not verified"
+    },
+    {
+      "id": "C58",
+      "name": "Genesys / outreach adapters",
+      "responsibility": "Future provider-specific adapters to replace/connect alongside default source construct; strategy pattern suggested, not mandated",
+      "concern": "Future Interaction Streaming integration",
+      "inputs": "Provider events",
+      "outputs": "Adapted events",
+      "source": "M05.4",
+      "status": "PROPOSED",
+      "implementation_priority": "Future adapters; provider contracts/deployments not established"
+    },
+    {
+      "id": "C59",
+      "name": "Detector service / Signal Detector",
+      "responsibility": "Use utterance/event, conversation context and signal configuration; apply configured deterministic, semantic or LLM detection",
+      "concern": "Real-time Signal Detection",
+      "inputs": "Microbatches/events, same-call context, applicable signal definitions",
+      "outputs": "Detection evidence/results",
+      "source": "M05.1,M05.3,P05",
+      "status": "CONFIRMED",
+      "implementation_priority": "Current logical prototype scope; implementation not verified"
+    },
+    {
+      "id": "C60",
+      "name": "LLM-based detection",
+      "responsibility": "Evaluate candidate against requirement and conversation context; third method explicitly in scope, separate from later Contextual Generation",
+      "concern": "Real-time Signal Detection",
+      "inputs": "Candidate/definition, requirement, conversation context",
+      "outputs": "Detection result; exact model/prompt/output contract UNKNOWN",
+      "source": "M05.3,P04,P05",
+      "status": "CONFIRMED",
+      "implementation_priority": "Current logical prototype scope; implementation not verified"
+    },
+    {
+      "id": "C61",
+      "name": "Vector DB \u2014 PostgreSQL / \u201cp vector\u201d (meeting wording)",
+      "responsibility": "Configure reported PostgreSQL vector instance and insert initial embeddings; reference stores signal examples/semantic representations",
+      "concern": "Semantic support store; deployment location UNKNOWN",
+      "inputs": "Curated examples / embeddings; retrieval query",
+      "outputs": "Semantic nearest matches",
+      "source": "M05.8,P04,P05",
+      "status": "CONFIRMED",
+      "implementation_priority": "Technology reported; intended pgvector extension/name/version and exact \u201csales profit\u201d instance require confirmation; no provisioning verified"
+    },
+    {
+      "id": "C62",
+      "name": "\u201csales profit\u201d GKE instance",
+      "responsibility": "Shared target environment discussed for module deployment; provisioning reportedly started",
+      "concern": "Deployment support, not a logical processing layer",
+      "inputs": "Modules to deploy",
+      "outputs": "Runtime environment; topology UNKNOWN",
+      "source": "M05.8",
+      "status": "CONFIRMED",
+      "implementation_priority": "Reported provisioning in progress; module mapping, readiness, cluster identity and namespace unknown"
+    },
+    {
+      "id": "C63",
+      "name": "BigQuery \u2014 Utterance & Call Log",
+      "responsibility": "Persist utterances and detected results in reference design",
+      "concern": "Reference persistence option",
+      "inputs": "Call Ingestor utterances; detected results",
+      "outputs": "Persisted utterance/call/result data",
+      "source": "P05,U06",
+      "status": "PROPOSED",
+      "implementation_priority": "Reference-design option for now, explicitly confirmed by U06; not selected prototype persistence"
+    },
+    {
+      "id": "C64",
+      "name": "Entity Dictionary",
+      "responsibility": "Products, fees, benefits, credit concepts and features referenced by signal definitions",
+      "concern": "Signal Management",
+      "inputs": "Curated entity definitions; source/owner UNKNOWN",
+      "outputs": "Referenced entities for signal definitions",
+      "source": "P02,P05",
+      "status": "CONFIRMED",
+      "implementation_priority": "Current logical prototype scope; implementation not verified"
+    },
+    {
+      "id": "C65",
+      "name": "Curated Examples \u2014 Positive / Negative",
+      "responsibility": "Provide signal examples for definitions and vector representations",
+      "concern": "Signal Management",
+      "inputs": "Curated positive/negative examples",
+      "outputs": "Example references / embedding inputs",
+      "source": "P02,P04,P05",
+      "status": "CONFIRMED",
+      "implementation_priority": "Current logical prototype scope; implementation not verified"
+    },
+    {
+      "id": "C66",
+      "name": "Regulatory / Policy Mappings",
+      "responsibility": "Map signal definitions to requirements/regulatory references; mapping governance unspecified",
+      "concern": "Signal Management metadata",
+      "inputs": "Requirement and regulatory mappings",
+      "outputs": "Mapping references in definitions/results",
+      "source": "P01,P02,P05",
+      "status": "CONFIRMED",
+      "implementation_priority": "Source metadata labels only; not legal validation or a Policy Manager service"
+    },
+    {
+      "id": "C67",
+      "name": "Signal Taxonomy \u2014 Domain \u2192 Group \u2192 Signal",
+      "responsibility": "Organize catalog definitions",
+      "concern": "Signal Management",
+      "inputs": "Domain/group/signal classifications",
+      "outputs": "Taxonomy references in definitions/results",
+      "source": "P01,P05,P07",
+      "status": "CONFIRMED",
+      "implementation_priority": "Current logical prototype scope; implementation not verified"
+    },
+    {
+      "id": "C68",
+      "name": "Session management",
+      "responsibility": "Keep multiple interaction streams independent; use call ID as session/correlation ID for prototype",
+      "concern": "Ingestor responsibility",
+      "inputs": "Incoming call ID",
+      "outputs": "Session identity for batches/context/results; precise contract UNKNOWN",
+      "source": "M05.2,M05.4",
+      "status": "CONFIRMED",
+      "implementation_priority": "Current logical prototype scope; implementation not verified"
+    },
+    {
+      "id": "C69",
+      "name": "Segmentation / buffering / windowing",
+      "responsibility": "Build and track utterance chunks/microbatches per call; sequencing raised as needed",
+      "concern": "Ingestor responsibility",
+      "inputs": "Normalized transcript events",
+      "outputs": "Independent per-call mini-batches",
+      "source": "M05.2,M05.4,P05",
+      "status": "CONFIRMED",
+      "implementation_priority": "Current logical prototype scope; implementation not verified"
+    },
+    {
+      "id": "C70",
+      "name": "Common Git repository / monorepo",
+      "responsibility": "Keep modules and architecture together in one development ecosystem",
+      "concern": "Development organization, not runtime layer",
+      "inputs": "Module code and architecture documents",
+      "outputs": "Shared repository",
+      "source": "M05.9",
+      "status": "CONFIRMED",
+      "implementation_priority": "Requested organization; repository provisioning/path/module directory names not supplied"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "R01",
+      "source_component": "C01",
+      "target_component": "C03",
+      "flow": "Notification events; setup: Authenticate OAuth \u2192 Create Notification Channel \u2192 Subscribe to Required Topics",
+      "evidence": "A02",
+      "status": "CONFIRMED",
+      "mechanism": "OAuth setup; Genesys WebSocket"
+    },
+    {
+      "id": "R02",
+      "source_component": "C02",
+      "target_component": "C03",
+      "flow": "Simulated transcript input in POC source diagram",
+      "evidence": "A09",
+      "status": "CONFIRMED",
+      "mechanism": "UNKNOWN"
+    },
+    {
+      "id": "R03",
+      "source_component": "C03",
+      "target_component": "C04",
+      "flow": "Multiplexed events for routing",
+      "evidence": "A02,A03",
+      "status": "CONFIRMED",
+      "mechanism": "conversation_id"
+    },
+    {
+      "id": "R04",
+      "source_component": "C04",
+      "target_component": "C05",
+      "flow": "Routed events normalized by ingestion",
+      "evidence": "A03",
+      "status": "CONFIRMED",
+      "mechanism": "UNKNOWN"
+    },
+    {
+      "id": "R05",
+      "source_component": "C05",
+      "target_component": "C06",
+      "flow": "Publish normalized internal transcript events",
+      "evidence": "A03,A04",
+      "status": "CONFIRMED",
+      "mechanism": "UNKNOWN"
+    },
+    {
+      "id": "R06",
+      "source_component": "C06",
+      "target_component": "C07",
+      "flow": "Keyed events to illustrative partitions",
+      "evidence": "A04",
+      "status": "CONFIRMED",
+      "mechanism": "interaction_id / conversation_id; broker UNKNOWN"
+    },
+    {
+      "id": "R07",
+      "source_component": "C07",
+      "target_component": "C08",
+      "flow": "Partition events to processing workers",
+      "evidence": "A04",
+      "status": "CONFIRMED",
+      "mechanism": "UNKNOWN"
+    },
+    {
+      "id": "R08",
+      "source_component": "C08",
+      "target_component": "C09",
+      "flow": "Maintain conversation context",
+      "evidence": "A04",
+      "status": "CONFIRMED",
+      "mechanism": "UNKNOWN"
+    },
+    {
+      "id": "R09",
+      "source_component": "C09",
+      "target_component": "C12",
+      "flow": "Bounded context accessible to detection; logical dependency, not a specified transport",
+      "evidence": "A05",
+      "status": "CONFIRMED",
+      "mechanism": "UNKNOWN"
+    },
+    {
+      "id": "R10",
+      "source_component": "C03",
+      "target_component": "C10",
+      "flow": "POC received events",
+      "evidence": "A09",
+      "status": "CONFIRMED",
+      "mechanism": "UNKNOWN"
+    },
+    {
+      "id": "R11",
+      "source_component": "C10",
+      "target_component": "C11",
+      "flow": "POC mapped events",
+      "evidence": "A09",
+      "status": "CONFIRMED",
+      "mechanism": "UNKNOWN"
+    },
+    {
+      "id": "R12",
+      "source_component": "C11",
+      "target_component": "C13",
+      "flow": "Arrow as drawn in POC; runtime event path versus configuration boundary unclear",
+      "evidence": "A09",
+      "status": "CONFLICTING",
+      "mechanism": "UNKNOWN"
+    },
+    {
+      "id": "R13",
+      "source_component": "C13",
+      "target_component": "C14",
+      "flow": "Catalog supplies detection configuration (logical dependency)",
+      "evidence": "A09,A10",
+      "status": "CONFIRMED",
+      "mechanism": "UNKNOWN"
+    },
+    {
+      "id": "R17",
+      "source_component": "C12",
+      "target_component": "C14",
+      "flow": "Deterministic evaluation of transcript input; scheduling unspecified",
+      "evidence": "A05,A06",
+      "status": "CONFIRMED",
+      "mechanism": "UNKNOWN"
+    },
+    {
+      "id": "R21",
+      "source_component": "C14",
+      "target_component": "C21",
+      "flow": "Detection evidence",
+      "evidence": "A05",
+      "status": "CONFIRMED",
+      "mechanism": "UNKNOWN"
+    },
+    {
+      "id": "R14",
+      "source_component": "C13",
+      "target_component": "C15",
+      "flow": "Catalog supplies detection configuration (logical dependency)",
+      "evidence": "A09,A10",
+      "status": "CONFIRMED",
+      "mechanism": "UNKNOWN"
+    },
+    {
+      "id": "R18",
+      "source_component": "C12",
+      "target_component": "C15",
+      "flow": "Deterministic evaluation of transcript input; scheduling unspecified",
+      "evidence": "A05,A06",
+      "status": "CONFIRMED",
+      "mechanism": "UNKNOWN"
+    },
+    {
+      "id": "R22",
+      "source_component": "C15",
+      "target_component": "C21",
+      "flow": "Detection evidence",
+      "evidence": "A05",
+      "status": "CONFIRMED",
+      "mechanism": "UNKNOWN"
+    },
+    {
+      "id": "R15",
+      "source_component": "C13",
+      "target_component": "C16",
+      "flow": "Catalog supplies detection configuration (logical dependency)",
+      "evidence": "A09,A10",
+      "status": "CONFIRMED",
+      "mechanism": "UNKNOWN"
+    },
+    {
+      "id": "R19",
+      "source_component": "C12",
+      "target_component": "C16",
+      "flow": "Deterministic evaluation of transcript input; scheduling unspecified",
+      "evidence": "A05,A06",
+      "status": "CONFIRMED",
+      "mechanism": "UNKNOWN"
+    },
+    {
+      "id": "R23",
+      "source_component": "C16",
+      "target_component": "C21",
+      "flow": "Detection evidence",
+      "evidence": "A05",
+      "status": "CONFIRMED",
+      "mechanism": "UNKNOWN"
+    },
+    {
+      "id": "R16",
+      "source_component": "C13",
+      "target_component": "C17",
+      "flow": "Catalog supplies detection configuration (logical dependency)",
+      "evidence": "A09,A10",
+      "status": "CONFIRMED",
+      "mechanism": "UNKNOWN"
+    },
+    {
+      "id": "R20",
+      "source_component": "C12",
+      "target_component": "C17",
+      "flow": "Deterministic evaluation of transcript input; scheduling unspecified",
+      "evidence": "A05,A06",
+      "status": "CONFIRMED",
+      "mechanism": "UNKNOWN"
+    },
+    {
+      "id": "R24",
+      "source_component": "C17",
+      "target_component": "C21",
+      "flow": "Detection evidence",
+      "evidence": "A05",
+      "status": "CONFIRMED",
+      "mechanism": "UNKNOWN"
+    },
+    {
+      "id": "R25",
+      "source_component": "C12",
+      "target_component": "C18",
+      "flow": "Transcript for semantic embedding; applicability/scheduling unresolved",
+      "evidence": "A05,A06",
+      "status": "CONFIRMED",
+      "mechanism": "UNKNOWN"
+    },
+    {
+      "id": "R26",
+      "source_component": "C18",
+      "target_component": "C19",
+      "flow": "Embedding for vector retrieval",
+      "evidence": "A05,A06",
+      "status": "CONFIRMED",
+      "mechanism": "UNKNOWN"
+    },
+    {
+      "id": "R27",
+      "source_component": "C19",
+      "target_component": "C20",
+      "flow": "Vector-search output to classifier in A05; independent classifier in A06/S02",
+      "evidence": "A05,A06,S02,M02.2",
+      "status": "CONFLICTING",
+      "mechanism": "UNKNOWN",
+      "current_scope": "Earlier reference relationship retained; classifier implementation deferred per M02.2; no active POC classifier wiring newly approved"
+    },
+    {
+      "id": "R28",
+      "source_component": "C12",
+      "target_component": "C20",
+      "flow": "Transcript/context directly to classifier in A06; A05 shows serial retrieval",
+      "evidence": "A05,A06,S02,M02.2",
+      "status": "CONFLICTING",
+      "mechanism": "UNKNOWN",
+      "current_scope": "Earlier reference relationship retained; classifier implementation deferred per M02.2; no active POC classifier wiring newly approved"
+    },
+    {
+      "id": "R29",
+      "source_component": "C20",
+      "target_component": "C21",
+      "flow": "Classification evidence",
+      "evidence": "A05,M02.2",
+      "status": "CONFIRMED",
+      "mechanism": "UNKNOWN",
+      "current_scope": "Earlier reference relationship retained; classifier implementation deferred per M02.2; no active POC classifier wiring newly approved"
+    },
+    {
+      "id": "R30",
+      "source_component": "C21",
+      "target_component": "C22",
+      "flow": "Aggregate evidence for resolution",
+      "evidence": "A05,A06",
+      "status": "CONFIRMED",
+      "mechanism": "UNKNOWN"
+    },
+    {
+      "id": "R31",
+      "source_component": "C22",
+      "target_component": "C23",
+      "flow": "Publish logical accepted signal after shared threshold-based resolution",
+      "evidence": "A05,U07",
+      "status": "CONFIRMED",
+      "mechanism": "UNKNOWN"
+    },
+    {
+      "id": "R32",
+      "source_component": "C22",
+      "target_component": "C24",
+      "flow": "Signal output events",
+      "evidence": "A09,A10,U07",
+      "status": "CONFIRMED",
+      "mechanism": "UNKNOWN",
+      "current_scope": "Signal output from shared resolution; all configured method results must pass acceptance before this publication path"
+    },
+    {
+      "id": "R33",
+      "source_component": "C24",
+      "target_component": "C25",
+      "flow": "POC signal display",
+      "evidence": "A09,A10",
+      "status": "CONFIRMED",
+      "mechanism": "UNKNOWN"
+    },
+    {
+      "id": "R34",
+      "source_component": "C24",
+      "target_component": "C26",
+      "flow": "Optional persistence",
+      "evidence": "A09,A10",
+      "status": "PROPOSED",
+      "mechanism": "UNKNOWN"
+    },
+    {
+      "id": "R35",
+      "source_component": "C23",
+      "target_component": "C27",
+      "flow": "Selective deeper context assembly when signal warrants it",
+      "evidence": "A01",
+      "status": "CONFIRMED",
+      "mechanism": "UNKNOWN"
+    },
+    {
+      "id": "R36",
+      "source_component": "C27",
+      "target_component": "C28",
+      "flow": "Eventual contextual reasoning \u2192 activation; interface not specified",
+      "evidence": "A10",
+      "status": "CONFIRMED",
+      "mechanism": "UNKNOWN"
+    },
+    {
+      "id": "R37",
+      "source_component": "C28",
+      "target_component": "C29",
+      "flow": "Signal, recommendation or experience delivery",
+      "evidence": "A01",
+      "status": "CONFIRMED",
+      "mechanism": "UNKNOWN"
+    },
+    {
+      "id": "R38",
+      "source_component": "C30",
+      "target_component": "C31",
+      "flow": "Microbuffered transcript for cleanup",
+      "evidence": "S01,M01.3",
+      "status": "PROPOSED",
+      "mechanism": "UNKNOWN"
+    },
+    {
+      "id": "R39",
+      "source_component": "C31",
+      "target_component": "C32",
+      "flow": "Pre-detection entity extraction; placement challenged",
+      "evidence": "S01,M01.7,M02.3",
+      "status": "CONFLICTING",
+      "mechanism": "UNKNOWN",
+      "current_scope": "Entity-appending approach remains challenged; benefit and mandatory placement unconfirmed"
+    },
+    {
+      "id": "R40",
+      "source_component": "C32",
+      "target_component": "C33",
+      "flow": "Entity found: update cache asynchronously; absent: load cached entity",
+      "evidence": "S01,M01.4",
+      "status": "PROPOSED",
+      "mechanism": "In-memory proposed; async update depicted"
+    },
+    {
+      "id": "R41",
+      "source_component": "C32",
+      "target_component": "C34",
+      "flow": "Found entity enriches transcript",
+      "evidence": "S01,M01.4,M02.3",
+      "status": "PROPOSED",
+      "mechanism": "UNKNOWN",
+      "current_scope": "Entity-appending approach remains challenged; benefit and mandatory placement unconfirmed"
+    },
+    {
+      "id": "R42",
+      "source_component": "C33",
+      "target_component": "C34",
+      "flow": "Cached entity enriches transcript when entity absent",
+      "evidence": "S01,M01.4,M02.3",
+      "status": "PROPOSED",
+      "mechanism": "UNKNOWN",
+      "current_scope": "Entity-appending approach remains challenged; benefit and mandatory placement unconfirmed"
+    },
+    {
+      "id": "R43",
+      "source_component": "C34",
+      "target_component": "C12",
+      "flow": "Enrichment as shared upstream detection dependency is challenged",
+      "evidence": "S01,M01.7,M02.3",
+      "status": "CONFLICTING",
+      "mechanism": "UNKNOWN",
+      "current_scope": "Entity-appending approach remains challenged; benefit and mandatory placement unconfirmed"
+    },
+    {
+      "id": "R44",
+      "source_component": "C31",
+      "target_component": "C39",
+      "flow": "Direct deterministic bypass shown as dotted line; relation to second ingress unresolved",
+      "evidence": "S01,M01.3",
+      "status": "CONFLICTING",
+      "mechanism": "UNKNOWN"
+    },
+    {
+      "id": "R45",
+      "source_component": "C19",
+      "target_component": "C35",
+      "flow": "Vector retrieval produces top-K candidate signals in the current semantic-path direction; K UNKNOWN",
+      "evidence": "S02,M01.6,M02.1,M02.2",
+      "status": "CONFIRMED",
+      "mechanism": "UNKNOWN"
+    },
+    {
+      "id": "R46",
+      "source_component": "C35",
+      "target_component": "C36",
+      "flow": "Top-K candidates supply signal descriptions for reranking against the utterance; retained count UNKNOWN",
+      "evidence": "S02,M01.6,M02.1,M02.2",
+      "status": "CONFIRMED",
+      "mechanism": "Joint utterance\u2013candidate description scoring described in meeting; model version and API UNKNOWN"
+    },
+    {
+      "id": "R47",
+      "source_component": "C36",
+      "target_component": "C22",
+      "flow": "Reranker results to resolution",
+      "evidence": "S02,U07",
+      "status": "CONFIRMED",
+      "mechanism": "UNKNOWN",
+      "current_scope": "Current baseline: semantic reranker results enter shared threshold-based resolution; numeric thresholds and scoring contract not chosen"
+    },
+    {
+      "id": "R48",
+      "source_component": "C36",
+      "target_component": "C37",
+      "flow": "Async training-data storage",
+      "evidence": "S02,S03",
+      "status": "PROPOSED",
+      "mechanism": "UNKNOWN"
+    },
+    {
+      "id": "R49",
+      "source_component": "C38",
+      "target_component": "C22",
+      "flow": "Classifier results to resolution",
+      "evidence": "S02,M02.2",
+      "status": "PROPOSED",
+      "mechanism": "UNKNOWN",
+      "current_scope": "Earlier reference relationship retained; classifier implementation deferred per M02.2; no active POC classifier wiring newly approved"
+    },
+    {
+      "id": "R50",
+      "source_component": "C39",
+      "target_component": "C22",
+      "flow": "Combined deterministic results to resolution",
+      "evidence": "S02",
+      "status": "CONFIRMED",
+      "mechanism": "UNKNOWN"
+    },
+    {
+      "id": "R51",
+      "source_component": "C22",
+      "target_component": "C40",
+      "flow": "Signal Detected? Yes branch",
+      "evidence": "S03",
+      "status": "PROPOSED",
+      "mechanism": "SSE / WebSocket alternatives"
+    },
+    {
+      "id": "R52",
+      "source_component": "C40",
+      "target_component": "C29",
+      "flow": "Publish detected signal",
+      "evidence": "S03",
+      "status": "PROPOSED",
+      "mechanism": "SSE / WebSocket alternatives"
+    },
+    {
+      "id": "R53",
+      "source_component": "C41",
+      "target_component": "C13",
+      "flow": "Reuse VANTAGE-managed signals as catalog; integration undecided",
+      "evidence": "M01.1",
+      "status": "PROPOSED",
+      "mechanism": "UNKNOWN"
+    },
+    {
+      "id": "R54",
+      "source_component": "C43",
+      "target_component": "C42",
+      "flow": "Retrieve examples and pass to LLM",
+      "evidence": "M01.2",
+      "status": "PROPOSED",
+      "mechanism": "Vector search proposed; API unknown"
+    },
+    {
+      "id": "R55",
+      "source_component": "C12",
+      "target_component": "C36",
+      "flow": "Utterance is paired with each candidate signal description for reranker evaluation; representation/preprocessing unresolved",
+      "evidence": "M02.1",
+      "status": "CONFIRMED",
+      "mechanism": "Logical input dependency only; no direct network call or bypass implied"
+    },
+    {
+      "id": "R56",
+      "source_component": "C23",
+      "target_component": "C45",
+      "flow": "Remember occurrence of the pivot signal for that conversation; exact pivot trigger unresolved",
+      "evidence": "M02.4",
+      "status": "CONFIRMED",
+      "mechanism": "Functional state requirement; persistence, API and implementation UNKNOWN"
+    },
+    {
+      "id": "R57",
+      "source_component": "C45",
+      "target_component": "C46",
+      "flow": "Earlier pivot occurrence contributes to detection with a later pattern in the same conversation",
+      "evidence": "M02.4",
+      "status": "CONFIRMED",
+      "mechanism": "Logical dependency; near-vicinity definition and evaluation owner UNKNOWN"
+    },
+    {
+      "id": "R58",
+      "source_component": "C12",
+      "target_component": "C48",
+      "flow": "Evaluate conversation transcript for verbatim disclosure occurrence; text representation, boundaries and tolerance unspecified",
+      "evidence": "M03.2",
+      "status": "CONFIRMED",
+      "mechanism": "Scenario-level input dependency; no regex, fuzzy or exact-string implementation selected"
+    },
+    {
+      "id": "R59",
+      "source_component": "C50",
+      "target_component": "C49",
+      "flow": "Use domain-associated signal/entity list to restrict checks; exclude remaining signals/entities in the proposed model",
+      "evidence": "M03.5",
+      "status": "PROPOSED",
+      "mechanism": "Configuration dependency proposed; ownership, domain assignment and filter placement UNKNOWN"
+    },
+    {
+      "id": "R60",
+      "source_component": "C51",
+      "target_component": "C30",
+      "flow": "Distinguished per-call input proceeds to independent microbatch processing; batching ownership and exact normalization order not settled",
+      "evidence": "M04.1,M04.3",
+      "status": "CONFIRMED",
+      "mechanism": "Logical dependency only; API, service boundary and scheduling UNKNOWN"
+    },
+    {
+      "id": "R61",
+      "source_component": "C47",
+      "target_component": "C12",
+      "flow": "Detection processing consults context from the same conversation for each independent microbatch; identity propagation contract UNKNOWN",
+      "evidence": "M04.1,M04.4",
+      "status": "CONFIRMED",
+      "mechanism": "Logical dependency only; API, service boundary and scheduling UNKNOWN"
+    },
+    {
+      "id": "R62",
+      "source_component": "C13",
+      "target_component": "C54",
+      "flow": "Evaluate catalog signal applicability using call metadata before applying detection mechanisms; catalog provider and metadata source unspecified",
+      "evidence": "M04.2,M04.3",
+      "status": "CONFIRMED",
+      "mechanism": "Logical dependency only; API, service boundary and scheduling UNKNOWN"
+    },
+    {
+      "id": "R63",
+      "source_component": "C47",
+      "target_component": "C55",
+      "flow": "Previously identified same-call signals provide earlier occurrence information for proposed composition",
+      "evidence": "M04.4,M05.6",
+      "status": "CONFIRMED",
+      "mechanism": "Logical dependency only; API, service boundary and scheduling UNKNOWN",
+      "current_scope": "Low-priority composite requirement only; not an active deployed edge"
+    },
+    {
+      "id": "R64",
+      "source_component": "C23",
+      "target_component": "C55",
+      "flow": "A new signal can be combined with a previous same-call signal to determine a third; no recursion or publication policy specified",
+      "evidence": "M04.4,M05.6",
+      "status": "CONFIRMED",
+      "mechanism": "Logical dependency only; API, service boundary and scheduling UNKNOWN",
+      "current_scope": "Low-priority composite requirement only; not an active deployed edge"
+    },
+    {
+      "id": "R65",
+      "source_component": "C02",
+      "target_component": "C57",
+      "flow": "Emulator supplies transcripts to WebSocket interface; concurrency extension requested",
+      "evidence": "M05.1,M05.4",
+      "status": "CONFIRMED",
+      "mechanism": "Logical data relationship; protocol unspecified unless stated"
+    },
+    {
+      "id": "R66",
+      "source_component": "C57",
+      "target_component": "C56",
+      "flow": "Default adapter supplies input to ingestion processing; packaging unresolved",
+      "evidence": "M05.4",
+      "status": "CONFIRMED",
+      "mechanism": "Logical data relationship; protocol unspecified unless stated"
+    },
+    {
+      "id": "R67",
+      "source_component": "C56",
+      "target_component": "C59",
+      "flow": "Utterance/event chunks to detector",
+      "evidence": "M05.1,M05.2,P05",
+      "status": "CONFIRMED",
+      "mechanism": "Logical data relationship; protocol unspecified unless stated"
+    },
+    {
+      "id": "R68",
+      "source_component": "C56",
+      "target_component": "C47",
+      "flow": "Maintain recent same-call conversation context",
+      "evidence": "M05.2,P05",
+      "status": "CONFIRMED",
+      "mechanism": "Logical data relationship; protocol unspecified unless stated"
+    },
+    {
+      "id": "R69",
+      "source_component": "C47",
+      "target_component": "C59",
+      "flow": "Conversation context for detection",
+      "evidence": "P05,M05.2",
+      "status": "CONFIRMED",
+      "mechanism": "Logical data relationship; protocol unspecified unless stated"
+    },
+    {
+      "id": "R70",
+      "source_component": "C52",
+      "target_component": "C59",
+      "flow": "Detection method, criteria and parameters configure detector",
+      "evidence": "M05.3,M05.5,P05",
+      "status": "CONFIRMED",
+      "mechanism": "Logical configuration relationship; protocol unspecified unless stated"
+    },
+    {
+      "id": "R71",
+      "source_component": "C59",
+      "target_component": "C39",
+      "flow": "Configured deterministic evaluation",
+      "evidence": "M05.3,P05",
+      "status": "CONFIRMED",
+      "mechanism": "Logical data relationship; protocol unspecified unless stated"
+    },
+    {
+      "id": "R72",
+      "source_component": "C59",
+      "target_component": "C18",
+      "flow": "Semantic branch embeds utterance for vector retrieval",
+      "evidence": "M05.3,P04,P05",
+      "status": "CONFIRMED",
+      "mechanism": "Logical data relationship; protocol unspecified unless stated"
+    },
+    {
+      "id": "R73",
+      "source_component": "C59",
+      "target_component": "C60",
+      "flow": "Configured LLM evaluation",
+      "evidence": "M05.3,P05",
+      "status": "CONFIRMED",
+      "mechanism": "Logical data relationship; protocol unspecified unless stated"
+    },
+    {
+      "id": "R74",
+      "source_component": "C65",
+      "target_component": "C52",
+      "flow": "Positive/negative examples inform signal definitions",
+      "evidence": "P05",
+      "status": "CONFIRMED",
+      "mechanism": "Logical configuration relationship; protocol unspecified unless stated"
+    },
+    {
+      "id": "R75",
+      "source_component": "C64",
+      "target_component": "C52",
+      "flow": "Entity references inform definitions",
+      "evidence": "P05",
+      "status": "CONFIRMED",
+      "mechanism": "Logical configuration relationship; protocol unspecified unless stated"
+    },
+    {
+      "id": "R76",
+      "source_component": "C66",
+      "target_component": "C52",
+      "flow": "Requirement/regulatory mappings inform definitions",
+      "evidence": "P05",
+      "status": "CONFIRMED",
+      "mechanism": "Logical configuration relationship; protocol unspecified unless stated"
+    },
+    {
+      "id": "R77",
+      "source_component": "C67",
+      "target_component": "C52",
+      "flow": "Taxonomy organizes signal definitions",
+      "evidence": "P05",
+      "status": "CONFIRMED",
+      "mechanism": "Logical configuration relationship; protocol unspecified unless stated"
+    },
+    {
+      "id": "R78",
+      "source_component": "C65",
+      "target_component": "C61",
+      "flow": "Examples/embeddings populate vector database; embedding generation process not fully specified",
+      "evidence": "M05.8,P05",
+      "status": "CONFIRMED",
+      "mechanism": "Logical data relationship; protocol unspecified unless stated"
+    },
+    {
+      "id": "R79",
+      "source_component": "C19",
+      "target_component": "C61",
+      "flow": "Top-K semantic retrieval against vector representations",
+      "evidence": "P04,P05",
+      "status": "CONFIRMED",
+      "mechanism": "Logical data relationship; protocol unspecified unless stated"
+    },
+    {
+      "id": "R80",
+      "source_component": "C56",
+      "target_component": "C63",
+      "flow": "Persist utterances",
+      "evidence": "P05,U06",
+      "status": "PROPOSED",
+      "mechanism": "Logical data relationship; protocol unspecified unless stated"
+    },
+    {
+      "id": "R81",
+      "source_component": "C23",
+      "target_component": "C63",
+      "flow": "Persist detected results",
+      "evidence": "P05,U06",
+      "status": "PROPOSED",
+      "mechanism": "Logical data relationship; protocol unspecified unless stated"
+    },
+    {
+      "id": "R82",
+      "source_component": "C60",
+      "target_component": "C23",
+      "flow": "LLM strategy contributes detected-signal result; shared resolution policy unspecified",
+      "evidence": "P05",
+      "status": "CONFIRMED",
+      "mechanism": "Logical data relationship; protocol unspecified unless stated",
+      "current_scope": "SUPERSEDED in current diagram by U07/R93: LLM results now pass through Signal Resolution. Retained only as P05 source history; not an active bypass."
+    },
+    {
+      "id": "R83",
+      "source_component": "C53",
+      "target_component": "C13",
+      "flow": "UI manages signal catalog; no API or database chosen",
+      "evidence": "M05.1,M05.5",
+      "status": "CONFIRMED",
+      "mechanism": "Logical management relationship; protocol unspecified unless stated"
+    },
+    {
+      "id": "R84",
+      "source_component": "C56",
+      "target_component": "C68",
+      "flow": "Ingestor owns session management responsibility",
+      "evidence": "M05.2,M05.4",
+      "status": "CONFIRMED",
+      "mechanism": "Logical containment relationship; protocol unspecified unless stated"
+    },
+    {
+      "id": "R85",
+      "source_component": "C56",
+      "target_component": "C69",
+      "flow": "Ingestor owns segmentation/buffering responsibility",
+      "evidence": "M05.2,M05.4",
+      "status": "CONFIRMED",
+      "mechanism": "Logical containment relationship; protocol unspecified unless stated"
+    },
+    {
+      "id": "R86",
+      "source_component": "C56",
+      "target_component": "C05",
+      "flow": "Ingestor owns normalization responsibility; exact rules unknown",
+      "evidence": "M05.2,M05.4",
+      "status": "CONFIRMED",
+      "mechanism": "Logical containment relationship; protocol unspecified unless stated"
+    },
+    {
+      "id": "R87",
+      "source_component": "C59",
+      "target_component": "C54",
+      "flow": "Before detection, determine which catalog signals apply to the call",
+      "evidence": "M04.3,M05.3",
+      "status": "CONFIRMED",
+      "mechanism": "Logical logical responsibility relationship; protocol unspecified unless stated"
+    },
+    {
+      "id": "R88",
+      "source_component": "C52",
+      "target_component": "C13",
+      "flow": "Unified signal definitions are maintained in the catalog",
+      "evidence": "M05.5",
+      "status": "CONFIRMED",
+      "mechanism": "Logical definition relationship; protocol unspecified unless stated"
+    },
+    {
+      "id": "R89",
+      "source_component": "C59",
+      "target_component": "C21",
+      "flow": "Detection produces evidence for source-documented resolution; method-specific merge/wait semantics unresolved",
+      "evidence": "A05,A06,P05",
+      "status": "CONFIRMED",
+      "mechanism": "Logical data relationship; protocol unspecified unless stated"
+    },
+    {
+      "id": "R90",
+      "source_component": "C01",
+      "target_component": "C58",
+      "flow": "Future Genesys source can use a provider adapter; not current prototype integration",
+      "evidence": "M05.4",
+      "status": "PROPOSED",
+      "mechanism": "Logical dependency; protocol unspecified"
+    },
+    {
+      "id": "R91",
+      "source_component": "C54",
+      "target_component": "C59",
+      "flow": "Applicable catalog signals govern detector evaluation; logical ordering, not a separate service call",
+      "evidence": "M04.3,M05.3",
+      "status": "CONFIRMED",
+      "mechanism": "Logical dependency; protocol unspecified"
+    },
+    {
+      "id": "R92",
+      "source_component": "C56",
+      "target_component": "C54",
+      "flow": "Call utterance/event and metadata context enter applicability evaluation before detection; metadata origin unspecified",
+      "evidence": "M04.3,M05.2",
+      "status": "CONFIRMED",
+      "mechanism": "Logical dependency; protocol unspecified"
+    },
+    {
+      "id": "R93",
+      "source_component": "C60",
+      "target_component": "C22",
+      "flow": "LLM result enters common threshold-based Signal Resolution before an accepted signal is produced",
+      "evidence": "U07",
+      "status": "CONFIRMED",
+      "mechanism": "Logical acceptance flow; API and scheduling unspecified",
+      "current_scope": "Replaces historical direct LLM-to-Detected-Signal path R82 in the current baseline"
+    }
+  ],
+  "sources": {
+    "A01": [
+      "architecture&implementation plan/Architecture&implementationplan1.jpeg",
+      "Four primary concerns; proposed architecture; selective deeper context after a detected signal."
+    ],
+    "A02": [
+      "architecture&implementation plan/arch2.jpeg",
+      "Genesys Cloud \u2192 Authenticate OAuth \u2192 Create Notification Channel \u2192 Subscribe to Required Topics \u2192 Genesys WebSocket \u2192 multiplexed events \u2192 demultiplex by conversation_id."
+    ],
+    "A03": [
+      "architecture&implementation plan/arch3.jpeg",
+      "Demultiplex using conversation identifier; normalize internal transcript contract; publish to internal conversation stream."
+    ],
+    "A04": [
+      "architecture&implementation plan/arch4.jpeg",
+      "Connector \u2192 normalization \u2192 keyed internal stream \u2192 partitions \u2192 workers \u2192 conversation context."
+    ],
+    "A05": [
+      "architecture&implementation plan/arch5.jpeg",
+      "Bounded context; deterministic and semantic paths; embedding \u2192 vector search \u2192 classifier; signal evidence \u2192 resolution \u2192 detected signal."
+    ],
+    "A06": [
+      "architecture&implementation plan/arch6.jpeg",
+      "Deterministic sufficient; selective semantic processing; independent evaluation when semantics inherently required; also standalone classifier path."
+    ],
+    "A07": [
+      "architecture&implementation plan/arch7.jpeg",
+      "Initial engineering latency targets, not production SLAs."
+    ],
+    "A08": [
+      "architecture&implementation plan/arch8.jpeg",
+      "POC scope; stage P50/P95/P99; event traceability; no final end-to-end SLA."
+    ],
+    "A09": [
+      "architecture&implementation plan/arch9.jpeg",
+      "POC sources \u2192 connector \u2192 event mapper \u2192 context buffer; signal catalog \u2192 rule families \u2192 resolution \u2192 signal events \u2192 workbench / optional store."
+    ],
+    "A10": [
+      "architecture&implementation plan/arch10.jpeg",
+      "Signal output and POC success criteria; eventual selective contextual reasoning \u2192 activation."
+    ],
+    "S01": [
+      "reranker based signal detection piepline/signaldetectionpipeline1.jpeg",
+      "Microbuffered input \u2192 normalize \u2192 entity extraction; found: async context update; missing: cache lookup; enrich \u2192 detection. Direct normalized-to-deterministic dotted path also shown."
+    ],
+    "S02": [
+      "reranker based signal detection piepline/signaldetectionpipeline2.jpeg",
+      "Semantic, classifier and deterministic branches; top-K \u2192 BGE Reranker; async training storage; combined results and classifier \u2192 resolution."
+    ],
+    "S03": [
+      "reranker based signal detection piepline/signaldetectionpipeline3.jpeg",
+      "Resolution \u2192 signal detected? \u2192 yes: publish via SSE / WebSocket \u2192 downstream consumers."
+    ],
+    "M01": [
+      "sources/meeting-001-extract.md",
+      "Meeting supplied in chat; date and speakers not provided. Excerpts indexed M01.1\u2013M01.8."
+    ],
+    "M02": [
+      "sources/meeting-002-extract.md",
+      "Second user-supplied meeting continuation; actual date/speakers unknown. M02.1\u2013M02.7."
+    ],
+    "U02": [
+      "sources/meeting-002-extract.md#user-direction",
+      "User direction outside quoted meeting: continue brainstorming and records; do not modify/design architecture diagram now; final design later."
+    ],
+    "M03": [
+      "sources/meeting-003-extract.md",
+      "Third meeting continuation; M03.1\u2013M03.6. Three scenario types; proposed domain scoping; exact business labels unresolved."
+    ],
+    "M04": [
+      "sources/meeting-004-extract.md",
+      "Fourth meeting continuation: interface concurrency, signal definition/management, metadata applicability, execution microbatches, same-call memory and proposed signal composition."
+    ],
+    "M05": [
+      "sources/meeting-005-extract.md",
+      "Latest implementation discussion, M05.1\u2013M05.10; date of meeting not independently established."
+    ],
+    "U05": [
+      "sources/meeting-005-extract.md#user-direction",
+      "User explicitly requests consolidated/finalized layered diagram now; earlier hold lifted."
+    ],
+    "P01": [
+      "design&planning/signal_catalog_datamodel_planning.jpeg",
+      "Signal Catalog Data Model Planning; Domain \u2192 Group \u2192 Signal and candidate fields."
+    ],
+    "P02": [
+      "design&planning/signal_ctalog_datamodelling2.jpeg",
+      "Remaining candidate signal attributes, example refs, version and lifecycle status."
+    ],
+    "P03": [
+      "design&planning/design1.jpeg",
+      "Example entity/context extraction, candidate narrowing, deterministic value checks and omission behavior."
+    ],
+    "P04": [
+      "design&planning/design2.jpeg",
+      "Semantic examples/threshold retrieval and LLM review of candidate against requirement/context."
+    ],
+    "P05": [
+      "design&planning/design3.jpeg",
+      "Signal Manager config, Call Ingestor, Context Cache, Signal Detector, three strategies, Vector DB, detected signal and BigQuery persistence."
+    ],
+    "P06": [
+      "design&planning/proposed_detection_scenario1.jpeg",
+      "Proposed credit impact, fees/pricing, rewards/benefits scenario families and source spreadsheet names."
+    ],
+    "P07": [
+      "design&planning/proposed_detectionscenario2.jpeg",
+      "Proposed spending/payment/employee features; All_NoPresetSpending Limit and transfer-to-digital source labels; taxonomy example."
+    ],
+    "U06": [
+      "sources/meeting-005-extract.md#user-clarifications",
+      "User clarifies separate emulator module/service; BigQuery reference-design option for now."
+    ],
+    "U07": [
+      "sources/resolution-and-presentation-approval.md",
+      "User proposes threshold-based resolution for all three paths and then explicitly authorizes applying discussed changes, including presentation cleanup."
+    ]
+  },
+  "diagram_version": "1.1",
+  "diagram_status": "User-approved presentation cleanup and shared threshold-based resolution; threshold semantics remain open.",
+  "layers": [
+    {
+      "id": "L01",
+      "name": "Interaction Streaming",
+      "role": "Primary concern; now detailed by default adapter and Ingestor",
+      "source": "A01,M05.2,M05.4"
+    },
+    {
+      "id": "L02",
+      "name": "Real-time Signal Detection",
+      "role": "Primary concern; configured deterministic, semantic and LLM methods",
+      "source": "A01,M05.3"
+    },
+    {
+      "id": "L03",
+      "name": "Contextual Generation",
+      "role": "Later selective deeper context/generation, distinct from LLM detection",
+      "source": "A01,M04.5"
+    },
+    {
+      "id": "L04",
+      "name": "Activation",
+      "role": "Downstream delivery concern",
+      "source": "A01,A10"
+    },
+    {
+      "id": "G01",
+      "name": "Signal Management",
+      "role": "Supporting capability grouping, not an invented deployment tier",
+      "source": "M05.5,P05"
+    },
+    {
+      "id": "G02",
+      "name": "Storage and platform support",
+      "role": "Layout grouping of explicitly mentioned stores/platforms, not a new architectural layer",
+      "source": "M05.8,P05"
+    }
+  ]
+}
