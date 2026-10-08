@@ -1,0 +1,14 @@
+{
+  "baseline_sha256": "d3b9470aa2d77a60ba5262280d2a5146bab114bf715492202032bb93dc4631a0",
+  "vertices": 57,
+  "edges": 35,
+  "checks": [
+    "Exact node/edge IDs, decoded labels, parents and endpoints match baseline",
+    "All diagram text retained",
+    "XML parsing",
+    "Text-height fit",
+    "Child containment",
+    "No sibling-box overlap"
+  ],
+  "native_diagrams_net_render_verified": false
+}

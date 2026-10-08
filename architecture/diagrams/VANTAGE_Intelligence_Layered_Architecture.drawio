@@ -1,47 +1,185 @@
 <?xml version='1.0' encoding='utf-8'?>
-<mxfile host="app.diagrams.net" type="device" version="24.7.17">
+<mxfile host="app.diagrams.net" type="device">
   <diagram id="vantage-logical-v01" name="Consolidated layered architecture">
     <mxGraphModel grid="1" gridSize="10" page="1" pageScale="1" pageWidth="2780" pageHeight="1980" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="title" value="VANTAGE Intelligence | Consolidated layered architecture" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#ffffff;fontColor=#17324f;fontSize=34;spacing=12;align=left;verticalAlign=middle;fontStyle=1;" vertex="1" parent="1">
+        <mxCell id="title" value="VANTAGE Intelligence | Consolidated layered architecture" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#FFFFFF;strokeColor=#FFFFFF;fontColor=#17324F;fontFamily=Arial;fontSize=34;spacing=12;align=left;verticalAlign=middle;fontStyle=1;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="40" y="20" width="2700" height="55" />
         </mxCell>
-        <mxCell id="subtitle" value="v1.1 • 08 Oct 2026 • Logical design review baseline • Source-supported does not mean deployed or production-approved" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#ffffff;fontColor=#17324f;fontSize=18;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="1">
+        <mxCell id="subtitle" value="v1.1 • 08 Oct 2026 • Logical design review baseline • Source-supported does not mean deployed or production-approved" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#FFFFFF;strokeColor=#FFFFFF;fontColor=#17324F;fontFamily=Arial;fontSize=18;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="40" y="80" width="2700" height="35" />
         </mxCell>
-        <mxCell id="G01" value="Signal Management  [M05 / P05]" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#edf3fa;strokeColor=#bacbdd;fontColor=#17324f;fontSize=22;spacing=12;align=left;verticalAlign=top;fontStyle=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="1">
+        <mxCell id="G01" value="Signal Management  [M05 / P05]" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#F3F7FB;strokeColor=#C3D2E1;fontColor=#17324F;fontFamily=Arial;fontSize=22;spacing=12;align=left;verticalAlign=top;shape=swimlane;horizontal=1;startSize=50;fillColor=#126C70;swimlaneFillColor=#F3F7FB;fontColor=#FFFFFF;fontStyle=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="40" y="150" width="520" height="1110" />
         </mxCell>
-        <mxCell id="C53" value="Signal Management UI&#10;Manage catalog; view signals [M05.5]" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#7188a2;fontColor=#17324f;fontSize=17;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="G01">
+        <mxCell id="C53" value="&lt;b&gt;Signal Management UI&lt;/b&gt;&lt;br&gt;Manage catalog; view signals [M05.5]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9AAFBE;fontColor=#17324F;fontFamily=Arial;fontSize=17;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="G01">
           <mxGeometry as="geometry" x="30" y="70" width="460" height="95" />
         </mxCell>
-        <mxCell id="C13" value="Signal Catalog&#10;Applicable signal definitions [M04 / M05]" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#7188a2;fontColor=#17324f;fontSize=17;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="G01">
+        <mxCell id="C13" value="&lt;b&gt;Signal Catalog&lt;/b&gt;&lt;br&gt;Applicable signal definitions [M04 / M05]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9AAFBE;fontColor=#17324F;fontFamily=Arial;fontSize=17;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="G01">
           <mxGeometry as="geometry" x="30" y="205" width="460" height="85" />
         </mxCell>
-        <mxCell id="C67" value="Signal Taxonomy&#10;Domain → Group → Signal [P01 / P05]" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#7188a2;fontColor=#17324f;fontSize=15;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="G01">
+        <mxCell id="C67" value="&lt;b&gt;Signal Taxonomy&lt;/b&gt;&lt;br&gt;Domain → Group → Signal [P01 / P05]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9AAFBE;fontColor=#17324F;fontFamily=Arial;fontSize=15;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="G01">
           <mxGeometry as="geometry" x="30" y="330" width="450" height="65" />
         </mxCell>
-        <mxCell id="C64" value="Entity Dictionary&#10;Products, fees, benefits, credit concepts [P05]" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#7188a2;fontColor=#17324f;fontSize=15;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="G01">
+        <mxCell id="C64" value="&lt;b&gt;Entity Dictionary&lt;/b&gt;&lt;br&gt;Products, fees, benefits, credit concepts [P05]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9AAFBE;fontColor=#17324F;fontFamily=Arial;fontSize=15;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="G01">
           <mxGeometry as="geometry" x="30" y="420" width="450" height="65" />
         </mxCell>
-        <mxCell id="C65" value="Curated Examples&#10;Positive / Negative [P02 / P05]" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#7188a2;fontColor=#17324f;fontSize=15;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="G01">
+        <mxCell id="C65" value="&lt;b&gt;Curated Examples&lt;/b&gt;&lt;br&gt;Positive / Negative [P02 / P05]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9AAFBE;fontColor=#17324F;fontFamily=Arial;fontSize=15;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="G01">
           <mxGeometry as="geometry" x="30" y="510" width="450" height="65" />
         </mxCell>
-        <mxCell id="C66" value="Regulatory / Policy Mappings&#10;Reference metadata; not a policy service [P05]" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#7188a2;fontColor=#17324f;fontSize=15;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="G01">
+        <mxCell id="C66" value="&lt;b&gt;Regulatory / Policy Mappings&lt;/b&gt;&lt;br&gt;Reference metadata; not a policy service [P05]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9AAFBE;fontColor=#17324F;fontFamily=Arial;fontSize=15;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="G01">
           <mxGeometry as="geometry" x="30" y="600" width="450" height="65" />
         </mxCell>
-        <mxCell id="C52" value="Signal Definitions / schema&#10;Detection method • criteria • thresholds&#10;Unified deterministic / semantic / LLM definition&#10;Exact schema still under agreement [M05 / P01–P02]" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#7188a2;fontColor=#17324f;fontSize=16;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="G01">
+        <mxCell id="C52" value="&lt;b&gt;Signal Definitions / schema&lt;/b&gt;&lt;br&gt;Detection method • criteria • thresholds&lt;br&gt;Unified deterministic / semantic / LLM definition&lt;br&gt;Exact schema still under agreement [M05 / P01–P02]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9AAFBE;fontColor=#17324F;fontFamily=Arial;fontSize=16;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="G01">
           <mxGeometry as="geometry" x="30" y="725" width="460" height="125" />
         </mxCell>
-        <mxCell id="schema-note" value="Planning fields [P01–P02]&#10;signal_id / name / description / domain / group&#10;detection_method / detection_config&#10;applicable_products / applicable_speakers&#10;entity_refs / example_refs / requirement_refs&#10;regulatory_refs / severity / version / status&#10;Types, requiredness and lifecycle rules: OPEN" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#f5f7fa;strokeColor=#b7c4d2;fontColor=#17324f;fontSize=15;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="G01">
+        <mxCell id="schema-note" value="&lt;b&gt;Planning fields [P01–P02]&lt;/b&gt;&lt;br&gt;signal_id / name / description / domain / group&lt;br&gt;detection_method / detection_config&lt;br&gt;applicable_products / applicable_speakers&lt;br&gt;entity_refs / example_refs / requirement_refs&lt;br&gt;regulatory_refs / severity / version / status&lt;br&gt;Types, requiredness and lifecycle rules: OPEN" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F9FC;strokeColor=#C3D2E1;fontColor=#17324F;fontFamily=Arial;fontSize=15;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="G01">
           <mxGeometry as="geometry" x="30" y="880" width="460" height="200" />
         </mxCell>
-        <mxCell id="R83" value="manage" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#5e7692;fontColor=#45617d;fontSize=13;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;dashed=1;dashPattern=2 4;" edge="1" parent="1" source="C53" target="C13">
+        <mxCell id="sources" value="Conversation sources / adapters" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#F3F7FB;strokeColor=#C3D2E1;fontColor=#17324F;fontFamily=Arial;fontSize=22;spacing=12;align=left;verticalAlign=top;shape=swimlane;horizontal=1;startSize=50;fillColor=#193954;swimlaneFillColor=#F3F7FB;fontColor=#FFFFFF;fontStyle=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="620" y="150" width="1600" height="170" />
+        </mxCell>
+        <mxCell id="C02" value="&lt;b&gt;Transcript Emulator&lt;/b&gt;&lt;br&gt;Separate module/service [U06]&lt;br&gt;Concurrent streams requested [M05]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9AAFBE;fontColor=#17324F;fontFamily=Arial;fontSize=17;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="sources">
+          <mxGeometry as="geometry" x="30" y="65" width="440" height="80" />
+        </mxCell>
+        <mxCell id="C01" value="&lt;b&gt;Genesys Cloud&lt;/b&gt;&lt;br&gt;Future live source [A02 / M05]&lt;br&gt;OAuth in reference; live setup TBD" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFAED;strokeColor=#B38A36;fontColor=#17324F;fontFamily=Arial;fontSize=16;spacing=12;align=left;verticalAlign=middle;dashed=1;dashPattern=7 4;" vertex="1" parent="sources">
+          <mxGeometry as="geometry" x="520" y="65" width="410" height="80" />
+        </mxCell>
+        <mxCell id="C58" value="&lt;b&gt;Future Genesys / outreach adapters&lt;/b&gt;&lt;br&gt;Provider contracts not established [M05.4]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFAED;strokeColor=#B38A36;fontColor=#17324F;fontFamily=Arial;fontSize=16;spacing=12;align=left;verticalAlign=middle;dashed=1;dashPattern=7 4;" vertex="1" parent="sources">
+          <mxGeometry as="geometry" x="990" y="65" width="570" height="80" />
+        </mxCell>
+        <mxCell id="L01" value="Interaction Streaming  [A01 / M05]" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#F3F7FB;strokeColor=#C3D2E1;fontColor=#17324F;fontFamily=Arial;fontSize=22;spacing=12;align=left;verticalAlign=top;shape=swimlane;horizontal=1;startSize=50;fillColor=#193954;swimlaneFillColor=#F3F7FB;fontColor=#FFFFFF;fontStyle=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="620" y="355" width="1600" height="285" />
+        </mxCell>
+        <mxCell id="C57" value="&lt;b&gt;Default WebSocket adapter&lt;/b&gt;&lt;br&gt;Initial adapter construct&lt;br&gt;Packaging within Ingestor: OPEN" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9AAFBE;fontColor=#17324F;fontFamily=Arial;fontSize=17;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="L01">
+          <mxGeometry as="geometry" x="30" y="80" width="295" height="120" />
+        </mxCell>
+        <mxCell id="C56" value="Ingestor service / Call Ingestor  [M05.2–4 / P05]" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#FFFFFF;strokeColor=#9AAFBE;fontColor=#17324F;fontFamily=Arial;fontSize=20;spacing=12;align=left;verticalAlign=top;fontStyle=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="L01">
+          <mxGeometry as="geometry" x="375" y="70" width="1180" height="175" />
+        </mxCell>
+        <mxCell id="C68" value="&lt;b&gt;Session management&lt;/b&gt;&lt;br&gt;call_id = session / correlation ID&lt;br&gt;Independent calls [M05.4]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9AAFBE;fontColor=#17324F;fontFamily=Arial;fontSize=15;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="C56">
+          <mxGeometry as="geometry" x="25" y="65" width="345" height="85" />
+        </mxCell>
+        <mxCell id="C05" value="&lt;b&gt;Normalize Transcript Event&lt;/b&gt;&lt;br&gt;Speaker / timestamp [P05]&lt;br&gt;Cleanup rules remain open" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9AAFBE;fontColor=#17324F;fontFamily=Arial;fontSize=15;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="C56">
+          <mxGeometry as="geometry" x="415" y="65" width="345" height="85" />
+        </mxCell>
+        <mxCell id="C69" value="&lt;b&gt;Segmentation / buffering&lt;/b&gt;&lt;br&gt;Windowing → mini-batches&lt;br&gt;Size / ordering rules: OPEN" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9AAFBE;fontColor=#17324F;fontFamily=Arial;fontSize=15;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="C56">
+          <mxGeometry as="geometry" x="805" y="65" width="345" height="85" />
+        </mxCell>
+        <mxCell id="C47" value="&lt;b&gt;Context Cache  [M04 / P05]&lt;/b&gt;&lt;br&gt;In-memory, same conversation only&lt;br&gt;Recent utterance window + identified signals&lt;br&gt;Bounded hot-path context; TTL / owner OPEN" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F9FC;strokeColor=#C3D2E1;fontColor=#17324F;fontFamily=Arial;fontSize=16;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="2290" y="425" width="450" height="140" />
+        </mxCell>
+        <mxCell id="context-note" value="&lt;b&gt;Storage distinction&lt;/b&gt;&lt;br&gt;Keep recent detection context separate from the larger conversation log.&lt;br&gt;No unlimited-history dependency or mandatory entity enrichment inferred." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F9FC;strokeColor=#C3D2E1;fontColor=#17324F;fontFamily=Arial;fontSize=16;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="2290" y="605" width="450" height="135" />
+        </mxCell>
+        <mxCell id="L02" value="Real-time Signal Detection  [A01 / M02 / M05]" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#F3F7FB;strokeColor=#C3D2E1;fontColor=#17324F;fontFamily=Arial;fontSize=22;spacing=12;align=left;verticalAlign=top;shape=swimlane;horizontal=1;startSize=50;fillColor=#126C70;swimlaneFillColor=#F3F7FB;fontColor=#FFFFFF;fontStyle=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="620" y="700" width="1600" height="525" />
+        </mxCell>
+        <mxCell id="C54" value="&lt;b&gt;Call-metadata applicability&lt;/b&gt;&lt;br&gt;Select catalog signals for this call&lt;br&gt;Before detection [M04]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9AAFBE;fontColor=#17324F;fontFamily=Arial;fontSize=17;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="L02">
+          <mxGeometry as="geometry" x="30" y="70" width="320" height="95" />
+        </mxCell>
+        <mxCell id="C59" value="&lt;b&gt;Detector service / Signal Detector&lt;/b&gt;&lt;br&gt;Configured method; not automatic all-path execution&lt;br&gt;Scheduling and fallback policy: OPEN [M05 / P05]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9AAFBE;fontColor=#17324F;fontFamily=Arial;fontSize=17;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="L02">
+          <mxGeometry as="geometry" x="420" y="70" width="700" height="95" />
+        </mxCell>
+        <mxCell id="C39" value="Deterministic Detector [A05]" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#FFFFFF;strokeColor=#9AAFBE;fontColor=#17324F;fontFamily=Arial;fontSize=16;spacing=12;align=left;verticalAlign=top;fontStyle=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="L02">
+          <mxGeometry as="geometry" x="30" y="310" width="330" height="160" />
+        </mxCell>
+        <mxCell id="C14" value="&lt;b&gt;Rules&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9AAFBE;fontColor=#17324F;fontFamily=Arial;fontSize=14;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="C39">
+          <mxGeometry as="geometry" x="20" y="50" width="135" height="35" />
+        </mxCell>
+        <mxCell id="C15" value="&lt;b&gt;Regex&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9AAFBE;fontColor=#17324F;fontFamily=Arial;fontSize=14;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="C39">
+          <mxGeometry as="geometry" x="175" y="50" width="135" height="35" />
+        </mxCell>
+        <mxCell id="C16" value="&lt;b&gt;Fuzzy&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9AAFBE;fontColor=#17324F;fontFamily=Arial;fontSize=14;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="C39">
+          <mxGeometry as="geometry" x="20" y="100" width="135" height="35" />
+        </mxCell>
+        <mxCell id="C17" value="&lt;b&gt;Entity rules&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9AAFBE;fontColor=#17324F;fontFamily=Arial;fontSize=14;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="C39">
+          <mxGeometry as="geometry" x="175" y="100" width="135" height="35" />
+        </mxCell>
+        <mxCell id="semantic" value="Semantic strategy [M02 / M05]&#10;Top-K + reranker retained; thresholds unspecified" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#F7F9FC;strokeColor=#C3D2E1;fontColor=#17324F;fontFamily=Arial;fontSize=16;spacing=12;align=left;verticalAlign=top;fontStyle=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="L02">
+          <mxGeometry as="geometry" x="400" y="240" width="640" height="265" />
+        </mxCell>
+        <mxCell id="C18" value="&lt;b&gt;Embedding&lt;/b&gt;&lt;br&gt;Utterance vector" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9AAFBE;fontColor=#17324F;fontFamily=Arial;fontSize=15;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="semantic">
+          <mxGeometry as="geometry" x="20" y="70" width="170" height="65" />
+        </mxCell>
+        <mxCell id="C19" value="&lt;b&gt;Vector Search&lt;/b&gt;&lt;br&gt;Similarity retrieval" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9AAFBE;fontColor=#17324F;fontFamily=Arial;fontSize=14;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="semantic">
+          <mxGeometry as="geometry" x="220" y="70" width="180" height="65" />
+        </mxCell>
+        <mxCell id="C35" value="&lt;b&gt;Top-K candidates&lt;/b&gt;&lt;br&gt;K not selected" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9AAFBE;fontColor=#17324F;fontFamily=Arial;fontSize=15;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="semantic">
+          <mxGeometry as="geometry" x="430" y="70" width="185" height="65" />
+        </mxCell>
+        <mxCell id="C36" value="&lt;b&gt;Reranker&lt;/b&gt;&lt;br&gt;BGE label in S02&lt;br&gt;Exact model OPEN" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9AAFBE;fontColor=#17324F;fontFamily=Arial;fontSize=15;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="semantic">
+          <mxGeometry as="geometry" x="220" y="170" width="180" height="75" />
+        </mxCell>
+        <mxCell id="C60" value="&lt;b&gt;LLM-based detection&lt;/b&gt;&lt;br&gt;Candidate + requirement + context&lt;br&gt;Model / endpoint / invocation policy OPEN&lt;br&gt;Distinct from later generation&lt;br&gt;[M05.3 / P04 / P05]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9AAFBE;fontColor=#17324F;fontFamily=Arial;fontSize=16;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="L02">
+          <mxGeometry as="geometry" x="1110" y="310" width="450" height="160" />
+        </mxCell>
+        <mxCell id="output" value="Signal evidence, resolution and output  [A05 / A09 / P05]" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#F3F7FB;strokeColor=#C3D2E1;fontColor=#17324F;fontFamily=Arial;fontSize=22;spacing=12;align=left;verticalAlign=top;shape=swimlane;horizontal=1;startSize=50;fillColor=#126C70;swimlaneFillColor=#F3F7FB;fontColor=#FFFFFF;fontStyle=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="620" y="1265" width="1600" height="320" />
+        </mxCell>
+        <mxCell id="C21" value="&lt;b&gt;Signal Evidence&lt;/b&gt;&lt;br&gt;[A05 / A06]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9AAFBE;fontColor=#17324F;fontFamily=Arial;fontSize=17;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="output">
+          <mxGeometry as="geometry" x="420" y="55" width="285" height="110" />
+        </mxCell>
+        <mxCell id="C22" value="Signal Resolution&#10;Threshold-based acceptance [U07]" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#E1F3EF;strokeColor=#126C70;fontColor=#17324F;fontFamily=Arial;fontSize=16;spacing=12;align=left;verticalAlign=middle;strokeWidth=2.5;fontStyle=1;" vertex="1" parent="output">
+          <mxGeometry as="geometry" x="780" y="55" width="285" height="110" />
+        </mxCell>
+        <mxCell id="C23" value="&lt;b&gt;Detected Signal&lt;/b&gt;&lt;br&gt;Signal ID • domain/group • evidence&lt;br&gt;Confidence • entities • regulatory mapping&lt;br&gt;Reference result fields [P05]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9AAFBE;fontColor=#17324F;fontFamily=Arial;fontSize=16;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="output">
+          <mxGeometry as="geometry" x="1140" y="55" width="420" height="110" />
+        </mxCell>
+        <mxCell id="C24" value="&lt;b&gt;Signal Events&lt;/b&gt;&lt;br&gt;POC output [A09]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9AAFBE;fontColor=#17324F;fontFamily=Arial;fontSize=17;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="output">
+          <mxGeometry as="geometry" x="30" y="220" width="310" height="70" />
+        </mxCell>
+        <mxCell id="C25" value="&lt;b&gt;Real-Time Signal Workbench&lt;/b&gt;&lt;br&gt;Evidence + latency display [A10]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9AAFBE;fontColor=#17324F;fontFamily=Arial;fontSize=17;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="output">
+          <mxGeometry as="geometry" x="420" y="220" width="490" height="70" />
+        </mxCell>
+        <mxCell id="transport-note" value="&lt;b&gt;Delivery mechanism: SSE / WebSocket proposed in S03&lt;/b&gt;&lt;br&gt;Final event contract / publication transport remain OPEN" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F9FC;strokeColor=#C3D2E1;fontColor=#17324F;fontFamily=Arial;fontSize=15;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="output">
+          <mxGeometry as="geometry" x="990" y="220" width="570" height="70" />
+        </mxCell>
+        <mxCell id="C61" value="&lt;b&gt;Vector DB  [M05.8 / P05]&lt;/b&gt;&lt;br&gt;PostgreSQL / “p vector” as reported&lt;br&gt;Signal examples + semantic representations&lt;br&gt;Exact instance / extension / readiness OPEN" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F9FC;strokeColor=#C3D2E1;fontColor=#17324F;fontFamily=Arial;fontSize=16;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="2290" y="885" width="450" height="135" />
+        </mxCell>
+        <mxCell id="C63" value="&lt;b&gt;BigQuery — Utterance &amp;amp; Call Log&lt;/b&gt;&lt;br&gt;REFERENCE OPTION ONLY [P05 / U06]&lt;br&gt;Persist utterances and detected results&lt;br&gt;Not selected prototype storage" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFAED;strokeColor=#B38A36;fontColor=#17324F;fontFamily=Arial;fontSize=16;spacing=12;align=left;verticalAlign=middle;dashed=1;dashPattern=7 4;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="2290" y="1265" width="450" height="135" />
+        </mxCell>
+        <mxCell id="C62" value="&lt;b&gt;GKE — “sales profit” environment&lt;/b&gt;&lt;br&gt;Provisioning reportedly started [M05.8]&lt;br&gt;Deployment map / readiness unverified" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F9FC;strokeColor=#C3D2E1;fontColor=#17324F;fontFamily=Arial;fontSize=16;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="2290" y="1450" width="450" height="100" />
+        </mxCell>
+        <mxCell id="C70" value="&lt;b&gt;Common Git repository / monorepo&lt;/b&gt;&lt;br&gt;Modules + architecture together [M05.9]&lt;br&gt;No repo URL or module paths supplied" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F9FC;strokeColor=#C3D2E1;fontColor=#17324F;fontFamily=Arial;fontSize=16;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="2290" y="1590" width="450" height="100" />
+        </mxCell>
+        <mxCell id="C44" value="&lt;b&gt;End-to-end logging / tracing [M05 / A08]&lt;/b&gt;&lt;br&gt;All stages; event history and latency&lt;br&gt;P50 / P95 / P99; backend unspecified&lt;br&gt;Deterministic internal target ≤100–150 ms&lt;br&gt;POC target only; end-to-end SLA TBD" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F9FC;strokeColor=#C3D2E1;fontColor=#17324F;fontFamily=Arial;fontSize=16;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="2290" y="1730" width="450" height="160" />
+        </mxCell>
+        <mxCell id="L03" value="Contextual Generation — later [A01]" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#F3F7FB;strokeColor=#C3D2E1;fontColor=#17324F;fontFamily=Arial;fontSize=22;spacing=12;align=left;verticalAlign=top;shape=swimlane;horizontal=1;startSize=50;fillColor=#193954;swimlaneFillColor=#F3F7FB;fontColor=#FFFFFF;fontStyle=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="620" y="1670" width="720" height="180" />
+        </mxCell>
+        <mxCell id="C27" value="&lt;b&gt;Selective deeper context / generation&lt;/b&gt;&lt;br&gt;When detected signal warrants it&lt;br&gt;Implementation not defined" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9AAFBE;fontColor=#17324F;fontFamily=Arial;fontSize=17;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="L03">
+          <mxGeometry as="geometry" x="40" y="60" width="640" height="90" />
+        </mxCell>
+        <mxCell id="L04" value="Activation — later [A01 / A10]" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#F3F7FB;strokeColor=#C3D2E1;fontColor=#17324F;fontFamily=Arial;fontSize=22;spacing=12;align=left;verticalAlign=top;shape=swimlane;horizontal=1;startSize=50;fillColor=#193954;swimlaneFillColor=#F3F7FB;fontColor=#FFFFFF;fontStyle=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1400" y="1670" width="820" height="180" />
+        </mxCell>
+        <mxCell id="C28" value="&lt;b&gt;Activation&lt;/b&gt;&lt;br&gt;Signal / recommendation delivery" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9AAFBE;fontColor=#17324F;fontFamily=Arial;fontSize=16;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="L04">
+          <mxGeometry as="geometry" x="40" y="60" width="345" height="90" />
+        </mxCell>
+        <mxCell id="C29" value="&lt;b&gt;Downstream Consumers&lt;/b&gt;&lt;br&gt;Boundary / contract OPEN" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9AAFBE;fontColor=#17324F;fontFamily=Arial;fontSize=16;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="L04">
+          <mxGeometry as="geometry" x="435" y="60" width="345" height="90" />
+        </mxCell>
+        <mxCell id="C55" value="&lt;b&gt;Composite Signals [M05.6]&lt;/b&gt;&lt;br&gt;Prior signal + new signal → third signal&lt;br&gt;Rule / window / lifecycle definition still open" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFAED;strokeColor=#B38A36;fontColor=#17324F;fontFamily=Arial;fontSize=17;spacing=12;align=left;verticalAlign=middle;dashed=1;dashPattern=7 4;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="1300" width="520" height="110" />
+        </mxCell>
+        <mxCell id="scaling-note" value="&lt;b&gt;Earlier scaling reference retained [A04]&lt;/b&gt;&lt;br&gt;Internal Transcript Stream → partitions → workers&lt;br&gt;Conversation-keyed processing; counts illustrative&lt;br&gt;Not a mandated broker in the current prototype" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F9FC;strokeColor=#C3D2E1;fontColor=#17324F;fontFamily=Arial;fontSize=16;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="1450" width="520" height="130" />
+        </mxCell>
+        <mxCell id="legend" value="Solid: source-supported logical flow   ··· Dotted: configuration   – – Amber: future / proposed / reference&#10;Boxes are logical responsibilities unless explicitly named services; no GKE pod, trust boundary, or data-store hosting inferred.&#10;All 70 inventory records have a disposition in diagram-coverage.md. Full source and relationship IDs remain in the records." style="rounded=0;whiteSpace=wrap;html=0;fillColor=#FFFFFF;strokeColor=#FFFFFF;fontColor=#17324F;fontFamily=Arial;fontSize=15;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="1900" width="2700" height="75" />
+        </mxCell>
+        <mxCell id="R83" value="manage" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52728B;strokeWidth=1.8;fontColor=#35556E;fontFamily=Arial;fontSize=13;labelBackgroundColor=#FFFFFF;labelBorderColor=none;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=1;entryX=0.5;entryY=0;dashed=1;dashPattern=2 4;" edge="1" parent="1" source="C53" target="C13">
           <mxGeometry as="geometry" relative="1" />
         </mxCell>
-        <mxCell id="R77" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#5e7692;fontColor=#45617d;fontSize=13;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0.5;entryY=0;dashed=1;dashPattern=2 4;" edge="1" parent="1" source="C67" target="C52">
+        <mxCell id="R77" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52728B;strokeWidth=1.8;fontColor=#35556E;fontFamily=Arial;fontSize=13;labelBackgroundColor=#FFFFFF;labelBorderColor=none;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0.5;entryY=0;dashed=1;dashPattern=2 4;" edge="1" parent="1" source="C67" target="C52">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
               <mxPoint x="545" y="512.5" />
@@ -50,7 +188,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="R75" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#5e7692;fontColor=#45617d;fontSize=13;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0.5;entryY=0;dashed=1;dashPattern=2 4;" edge="1" parent="1" source="C64" target="C52">
+        <mxCell id="R75" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52728B;strokeWidth=1.8;fontColor=#35556E;fontFamily=Arial;fontSize=13;labelBackgroundColor=#FFFFFF;labelBorderColor=none;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0.5;entryY=0;dashed=1;dashPattern=2 4;" edge="1" parent="1" source="C64" target="C52">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
               <mxPoint x="545" y="602.5" />
@@ -59,7 +197,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="R74" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#5e7692;fontColor=#45617d;fontSize=13;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0.5;entryY=0;dashed=1;dashPattern=2 4;" edge="1" parent="1" source="C65" target="C52">
+        <mxCell id="R74" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52728B;strokeWidth=1.8;fontColor=#35556E;fontFamily=Arial;fontSize=13;labelBackgroundColor=#FFFFFF;labelBorderColor=none;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0.5;entryY=0;dashed=1;dashPattern=2 4;" edge="1" parent="1" source="C65" target="C52">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
               <mxPoint x="545" y="692.5" />
@@ -68,7 +206,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="R76" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#5e7692;fontColor=#45617d;fontSize=13;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0.5;entryY=0;dashed=1;dashPattern=2 4;" edge="1" parent="1" source="C66" target="C52">
+        <mxCell id="R76" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52728B;strokeWidth=1.8;fontColor=#35556E;fontFamily=Arial;fontSize=13;labelBackgroundColor=#FFFFFF;labelBorderColor=none;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0.5;entryY=0;dashed=1;dashPattern=2 4;" edge="1" parent="1" source="C66" target="C52">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
               <mxPoint x="545" y="782.5" />
@@ -77,7 +215,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="R88" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#5e7692;fontColor=#45617d;fontSize=13;labelBackgroundColor=#ffffff;exitX=0;exitY=0.5;entryX=0;entryY=0.5;dashed=1;dashPattern=2 4;" edge="1" parent="1" source="C52" target="C13">
+        <mxCell id="R88" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52728B;strokeWidth=1.8;fontColor=#35556E;fontFamily=Arial;fontSize=13;labelBackgroundColor=#FFFFFF;labelBorderColor=none;jumpStyle=arc;jumpSize=8;exitX=0;exitY=0.5;entryX=0;entryY=0.5;dashed=1;dashPattern=2 4;" edge="1" parent="1" source="C52" target="C13">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
               <mxPoint x="55" y="937" />
@@ -85,40 +223,10 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="sources" value="Conversation sources / adapters" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#edf3fa;strokeColor=#bacbdd;fontColor=#17324f;fontSize=22;spacing=12;align=left;verticalAlign=top;fontStyle=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="620" y="150" width="1600" height="170" />
-        </mxCell>
-        <mxCell id="C02" value="Transcript Emulator&#10;Separate module/service [U06]&#10;Concurrent streams requested [M05]" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#7188a2;fontColor=#17324f;fontSize=17;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="sources">
-          <mxGeometry as="geometry" x="30" y="65" width="440" height="80" />
-        </mxCell>
-        <mxCell id="C01" value="Genesys Cloud&#10;Future live source [A02 / M05]&#10;OAuth in reference; live setup TBD" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#fff8e8;strokeColor=#b79345;fontColor=#17324f;fontSize=16;spacing=12;align=left;verticalAlign=middle;dashed=1;" vertex="1" parent="sources">
-          <mxGeometry as="geometry" x="520" y="65" width="410" height="80" />
-        </mxCell>
-        <mxCell id="C58" value="Future Genesys / outreach adapters&#10;Provider contracts not established [M05.4]" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#fff8e8;strokeColor=#b79345;fontColor=#17324f;fontSize=16;spacing=12;align=left;verticalAlign=middle;dashed=1;" vertex="1" parent="sources">
-          <mxGeometry as="geometry" x="990" y="65" width="570" height="80" />
-        </mxCell>
-        <mxCell id="R90" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#af8a42;fontColor=#45617d;fontSize=13;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;dashed=1;dashPattern=7 4;" edge="1" parent="1" source="C01" target="C58">
+        <mxCell id="R90" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#B38A36;strokeWidth=1.8;fontColor=#35556E;fontFamily=Arial;fontSize=13;labelBackgroundColor=#FFFFFF;labelBorderColor=none;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;dashed=1;dashPattern=7 4;" edge="1" parent="1" source="C01" target="C58">
           <mxGeometry as="geometry" relative="1" />
         </mxCell>
-        <mxCell id="L01" value="Interaction Streaming  [A01 / M05]" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#edf3fa;strokeColor=#bacbdd;fontColor=#17324f;fontSize=22;spacing=12;align=left;verticalAlign=top;fontStyle=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="620" y="355" width="1600" height="285" />
-        </mxCell>
-        <mxCell id="C57" value="Default WebSocket adapter&#10;Initial adapter construct&#10;Packaging within Ingestor: OPEN" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#7188a2;fontColor=#17324f;fontSize=17;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="L01">
-          <mxGeometry as="geometry" x="30" y="80" width="295" height="120" />
-        </mxCell>
-        <mxCell id="C56" value="Ingestor service / Call Ingestor  [M05.2–4 / P05]" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#7188a2;fontColor=#17324f;fontSize=20;spacing=12;align=left;verticalAlign=top;fontStyle=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="L01">
-          <mxGeometry as="geometry" x="375" y="70" width="1180" height="175" />
-        </mxCell>
-        <mxCell id="C68" value="Session management&#10;call_id = session / correlation ID&#10;Independent calls [M05.4]" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#7188a2;fontColor=#17324f;fontSize=15;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="C56">
-          <mxGeometry as="geometry" x="25" y="65" width="345" height="85" />
-        </mxCell>
-        <mxCell id="C05" value="Normalize Transcript Event&#10;Speaker / timestamp [P05]&#10;Cleanup rules remain open" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#7188a2;fontColor=#17324f;fontSize=15;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="C56">
-          <mxGeometry as="geometry" x="415" y="65" width="345" height="85" />
-        </mxCell>
-        <mxCell id="C69" value="Segmentation / buffering&#10;Windowing → mini-batches&#10;Size / ordering rules: OPEN" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#7188a2;fontColor=#17324f;fontSize=15;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="C56">
-          <mxGeometry as="geometry" x="805" y="65" width="345" height="85" />
-        </mxCell>
-        <mxCell id="R65" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#5e7692;fontColor=#45617d;fontSize=13;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="C02" target="C57">
+        <mxCell id="R65" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52728B;strokeWidth=1.8;fontColor=#35556E;fontFamily=Arial;fontSize=13;labelBackgroundColor=#FFFFFF;labelBorderColor=none;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="C02" target="C57">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
               <mxPoint x="870" y="340" />
@@ -126,28 +234,13 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="R66" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#5e7692;fontColor=#45617d;fontSize=13;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="C57" target="C56">
+        <mxCell id="R66" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52728B;strokeWidth=1.8;fontColor=#35556E;fontFamily=Arial;fontSize=13;labelBackgroundColor=#FFFFFF;labelBorderColor=none;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="C57" target="C56">
           <mxGeometry as="geometry" relative="1" />
         </mxCell>
-        <mxCell id="C47" value="Context Cache  [M04 / P05]&#10;In-memory, same conversation only&#10;Recent utterance window + identified signals&#10;Bounded hot-path context; TTL / owner OPEN" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#f5f7fa;strokeColor=#b7c4d2;fontColor=#17324f;fontSize=16;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="2290" y="425" width="450" height="140" />
-        </mxCell>
-        <mxCell id="R68" value="maintain context" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#5e7692;fontColor=#45617d;fontSize=13;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="C56" target="C47">
+        <mxCell id="R68" value="maintain context" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52728B;strokeWidth=1.8;fontColor=#35556E;fontFamily=Arial;fontSize=13;labelBackgroundColor=#FFFFFF;labelBorderColor=none;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="C56" target="C47">
           <mxGeometry as="geometry" relative="1" />
         </mxCell>
-        <mxCell id="context-note" value="Storage distinction&#10;Keep recent detection context separate from the larger conversation log.&#10;No unlimited-history dependency or mandatory entity enrichment inferred." style="rounded=0;whiteSpace=wrap;html=0;fillColor=#f5f7fa;strokeColor=#b7c4d2;fontColor=#17324f;fontSize=16;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="2290" y="605" width="450" height="135" />
-        </mxCell>
-        <mxCell id="L02" value="Real-time Signal Detection  [A01 / M02 / M05]" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#edf3fa;strokeColor=#bacbdd;fontColor=#17324f;fontSize=22;spacing=12;align=left;verticalAlign=top;fontStyle=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="620" y="700" width="1600" height="525" />
-        </mxCell>
-        <mxCell id="C54" value="Call-metadata applicability&#10;Select catalog signals for this call&#10;Before detection [M04]" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#7188a2;fontColor=#17324f;fontSize=17;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="L02">
-          <mxGeometry as="geometry" x="30" y="70" width="320" height="95" />
-        </mxCell>
-        <mxCell id="C59" value="Detector service / Signal Detector&#10;Configured method; not automatic all-path execution&#10;Scheduling and fallback policy: OPEN [M05 / P05]" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#7188a2;fontColor=#17324f;fontSize=17;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="L02">
-          <mxGeometry as="geometry" x="420" y="70" width="700" height="95" />
-        </mxCell>
-        <mxCell id="R92" value="utterance / metadata" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#5e7692;fontColor=#45617d;fontSize=13;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="C56" target="C54">
+        <mxCell id="R92" value="utterance / metadata" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52728B;strokeWidth=1.8;fontColor=#35556E;fontFamily=Arial;fontSize=13;labelBackgroundColor=#FFFFFF;labelBorderColor=none;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="C56" target="C54">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
               <mxPoint x="1585" y="675" />
@@ -155,7 +248,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="R62" value="catalog eligibility" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#5e7692;fontColor=#45617d;fontSize=13;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;dashed=1;dashPattern=2 4;" edge="1" parent="1" source="C13" target="C54">
+        <mxCell id="R62" value="catalog eligibility" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52728B;strokeWidth=1.8;fontColor=#35556E;fontFamily=Arial;fontSize=13;labelBackgroundColor=#FFFFFF;labelBorderColor=none;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;dashed=1;dashPattern=2 4;" edge="1" parent="1" source="C13" target="C54">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
               <mxPoint x="595" y="397" />
@@ -163,10 +256,10 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="R91" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#5e7692;fontColor=#45617d;fontSize=13;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="C54" target="C59">
+        <mxCell id="R91" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52728B;strokeWidth=1.8;fontColor=#35556E;fontFamily=Arial;fontSize=13;labelBackgroundColor=#FFFFFF;labelBorderColor=none;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="C54" target="C59">
           <mxGeometry as="geometry" relative="1" />
         </mxCell>
-        <mxCell id="R70" value="signal configuration" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#5e7692;fontColor=#45617d;fontSize=13;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0.5;entryY=0;dashed=1;dashPattern=2 4;" edge="1" parent="1" source="C52" target="C59">
+        <mxCell id="R70" value="signal configuration" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52728B;strokeWidth=1.8;fontColor=#35556E;fontFamily=Arial;fontSize=13;labelBackgroundColor=#FFFFFF;labelBorderColor=none;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0.5;entryY=0;dashed=1;dashPattern=2 4;" edge="1" parent="1" source="C52" target="C59">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
               <mxPoint x="580" y="937" />
@@ -175,7 +268,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="R69" value="conversation context" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#5e7692;fontColor=#45617d;fontSize=13;labelBackgroundColor=#ffffff;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="C47" target="C59">
+        <mxCell id="R69" value="conversation context" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52728B;strokeWidth=1.8;fontColor=#35556E;fontFamily=Arial;fontSize=13;labelBackgroundColor=#FFFFFF;labelBorderColor=none;jumpStyle=arc;jumpSize=8;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="C47" target="C59">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
               <mxPoint x="2275" y="495" />
@@ -185,40 +278,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="C39" value="Deterministic Detector [A05]" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#7188a2;fontColor=#17324f;fontSize=16;spacing=12;align=left;verticalAlign=top;fontStyle=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="L02">
-          <mxGeometry as="geometry" x="30" y="300" width="330" height="160" />
-        </mxCell>
-        <mxCell id="C14" value="Rules" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#7188a2;fontColor=#17324f;fontSize=14;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="C39">
-          <mxGeometry as="geometry" x="20" y="60" width="135" height="35" />
-        </mxCell>
-        <mxCell id="C15" value="Regex" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#7188a2;fontColor=#17324f;fontSize=14;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="C39">
-          <mxGeometry as="geometry" x="175" y="60" width="135" height="35" />
-        </mxCell>
-        <mxCell id="C16" value="Fuzzy" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#7188a2;fontColor=#17324f;fontSize=14;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="C39">
-          <mxGeometry as="geometry" x="20" y="110" width="135" height="35" />
-        </mxCell>
-        <mxCell id="C17" value="Entity rules" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#7188a2;fontColor=#17324f;fontSize=14;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="C39">
-          <mxGeometry as="geometry" x="175" y="110" width="135" height="35" />
-        </mxCell>
-        <mxCell id="semantic" value="Semantic strategy [M02 / M05]&#10;Top-K + reranker retained; thresholds unspecified" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#f5f7fa;strokeColor=#b7c4d2;fontColor=#17324f;fontSize=16;spacing=12;align=left;verticalAlign=top;fontStyle=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="L02">
-          <mxGeometry as="geometry" x="400" y="240" width="640" height="265" />
-        </mxCell>
-        <mxCell id="C18" value="Embedding&#10;Utterance vector" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#7188a2;fontColor=#17324f;fontSize=15;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="semantic">
-          <mxGeometry as="geometry" x="20" y="70" width="170" height="65" />
-        </mxCell>
-        <mxCell id="C19" value="Vector Search&#10;Similarity retrieval" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#7188a2;fontColor=#17324f;fontSize=14;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="semantic">
-          <mxGeometry as="geometry" x="220" y="70" width="180" height="65" />
-        </mxCell>
-        <mxCell id="C35" value="Top-K candidates&#10;K not selected" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#7188a2;fontColor=#17324f;fontSize=15;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="semantic">
-          <mxGeometry as="geometry" x="430" y="70" width="185" height="65" />
-        </mxCell>
-        <mxCell id="C36" value="Reranker&#10;BGE label in S02&#10;Exact model OPEN" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#7188a2;fontColor=#17324f;fontSize=15;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="semantic">
-          <mxGeometry as="geometry" x="220" y="170" width="180" height="75" />
-        </mxCell>
-        <mxCell id="C60" value="LLM-based detection&#10;Candidate + requirement + context&#10;Model / endpoint / invocation policy OPEN&#10;Distinct from later generation&#10;[M05.3 / P04 / P05]" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#7188a2;fontColor=#17324f;fontSize=16;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="L02">
-          <mxGeometry as="geometry" x="1110" y="300" width="450" height="160" />
-        </mxCell>
-        <mxCell id="R71" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#5e7692;fontColor=#45617d;fontSize=13;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="C59" target="C39">
+        <mxCell id="R71" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52728B;strokeWidth=1.8;fontColor=#35556E;fontFamily=Arial;fontSize=13;labelBackgroundColor=#FFFFFF;labelBorderColor=none;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="C59" target="C39">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
               <mxPoint x="1390" y="895" />
@@ -226,7 +286,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="R72" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#5e7692;fontColor=#45617d;fontSize=13;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="C59" target="C18">
+        <mxCell id="R72" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52728B;strokeWidth=1.8;fontColor=#35556E;fontFamily=Arial;fontSize=13;labelBackgroundColor=#FFFFFF;labelBorderColor=none;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="C59" target="C18">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
               <mxPoint x="1390" y="910" />
@@ -234,7 +294,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="R73" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#5e7692;fontColor=#45617d;fontSize=13;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="C59" target="C60">
+        <mxCell id="R73" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52728B;strokeWidth=1.8;fontColor=#35556E;fontFamily=Arial;fontSize=13;labelBackgroundColor=#FFFFFF;labelBorderColor=none;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="C59" target="C60">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
               <mxPoint x="1390" y="925" />
@@ -242,45 +302,33 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="R26" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#5e7692;fontColor=#45617d;fontSize=13;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="C18" target="C19">
+        <mxCell id="R26" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52728B;strokeWidth=1.8;fontColor=#35556E;fontFamily=Arial;fontSize=13;labelBackgroundColor=#FFFFFF;labelBorderColor=none;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="C18" target="C19">
           <mxGeometry as="geometry" relative="1" />
         </mxCell>
-        <mxCell id="R45" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#5e7692;fontColor=#45617d;fontSize=13;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="C19" target="C35">
+        <mxCell id="R45" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52728B;strokeWidth=1.8;fontColor=#35556E;fontFamily=Arial;fontSize=13;labelBackgroundColor=#FFFFFF;labelBorderColor=none;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="C19" target="C35">
           <mxGeometry as="geometry" relative="1" />
         </mxCell>
-        <mxCell id="R46" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#5e7692;fontColor=#45617d;fontSize=13;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=1;entryY=0.5;" edge="1" parent="1" source="C35" target="C36">
+        <mxCell id="R46" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52728B;strokeWidth=1.8;fontColor=#35556E;fontFamily=Arial;fontSize=13;labelBackgroundColor=#FFFFFF;labelBorderColor=none;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=1;entryX=1;entryY=0.5;" edge="1" parent="1" source="C35" target="C36">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
               <mxPoint x="1542" y="1147" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="output" value="Signal evidence, resolution and output  [A05 / A09 / P05]" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#edf3fa;strokeColor=#bacbdd;fontColor=#17324f;fontSize=22;spacing=12;align=left;verticalAlign=top;fontStyle=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="620" y="1265" width="1600" height="320" />
-        </mxCell>
-        <mxCell id="C21" value="Signal Evidence&#10;[A05 / A06]" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#7188a2;fontColor=#17324f;fontSize=17;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="output">
-          <mxGeometry as="geometry" x="420" y="75" width="285" height="75" />
-        </mxCell>
-        <mxCell id="C22" value="Signal Resolution&#10;Threshold-based acceptance [U07]" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#7188a2;fontColor=#17324f;fontSize=16;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="output">
-          <mxGeometry as="geometry" x="780" y="65" width="285" height="95" />
-        </mxCell>
-        <mxCell id="C23" value="Detected Signal&#10;Signal ID • domain/group • evidence&#10;Confidence • entities • regulatory mapping&#10;Reference result fields [P05]" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#7188a2;fontColor=#17324f;fontSize=16;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="output">
-          <mxGeometry as="geometry" x="1140" y="55" width="420" height="110" />
-        </mxCell>
-        <mxCell id="R21-R24" value="evidence" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#5e7692;fontColor=#45617d;fontSize=13;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0;entryY=0.5;" edge="1" parent="1" source="C39" target="C21">
+        <mxCell id="R21-R24" value="evidence" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52728B;strokeWidth=1.8;fontColor=#35556E;fontFamily=Arial;fontSize=13;labelBackgroundColor=#FFFFFF;labelBorderColor=none;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=1;entryX=0;entryY=0.5;" edge="1" parent="1" source="C39" target="C21">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
-              <mxPoint x="815" y="1377" />
+              <mxPoint x="815" y="1375" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="R30" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#5e7692;fontColor=#45617d;fontSize=13;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="C21" target="C22">
+        <mxCell id="R30" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52728B;strokeWidth=1.8;fontColor=#35556E;fontFamily=Arial;fontSize=13;labelBackgroundColor=#FFFFFF;labelBorderColor=none;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="C21" target="C22">
           <mxGeometry as="geometry" relative="1" />
         </mxCell>
-        <mxCell id="R31" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#5e7692;fontColor=#45617d;fontSize=13;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="C22" target="C23">
+        <mxCell id="R31" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52728B;strokeWidth=1.8;fontColor=#35556E;fontFamily=Arial;fontSize=13;labelBackgroundColor=#FFFFFF;labelBorderColor=none;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="C22" target="C23">
           <mxGeometry as="geometry" relative="1" />
         </mxCell>
-        <mxCell id="R47" value="semantic result" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#5e7692;fontColor=#45617d;fontSize=13;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="C36" target="C22">
+        <mxCell id="R47" value="semantic result" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52728B;strokeWidth=1.8;fontColor=#35556E;fontFamily=Arial;fontSize=13;labelBackgroundColor=#FFFFFF;labelBorderColor=none;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="C36" target="C22">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
               <mxPoint x="1330" y="1240" />
@@ -288,21 +336,15 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="R93" value="LLM result" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#5e7692;fontColor=#45617d;fontSize=13;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.8;entryY=0;" edge="1" parent="1" source="C60" target="C22">
+        <mxCell id="R93" value="LLM result" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52728B;strokeWidth=1.8;fontColor=#35556E;fontFamily=Arial;fontSize=13;labelBackgroundColor=#FFFFFF;labelBorderColor=none;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=1;entryX=0.8;entryY=0;" edge="1" parent="1" source="C60" target="C22">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
-              <mxPoint x="1955" y="1295" />
-              <mxPoint x="1628" y="1295" />
+              <mxPoint x="1955" y="1255" />
+              <mxPoint x="1628" y="1255" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="C24" value="Signal Events&#10;POC output [A09]" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#7188a2;fontColor=#17324f;fontSize=17;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="output">
-          <mxGeometry as="geometry" x="30" y="220" width="310" height="70" />
-        </mxCell>
-        <mxCell id="C25" value="Real-Time Signal Workbench&#10;Evidence + latency display [A10]" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#7188a2;fontColor=#17324f;fontSize=17;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="output">
-          <mxGeometry as="geometry" x="420" y="220" width="490" height="70" />
-        </mxCell>
-        <mxCell id="R32" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#5e7692;fontColor=#45617d;fontSize=13;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="C22" target="C24">
+        <mxCell id="R32" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52728B;strokeWidth=1.8;fontColor=#35556E;fontFamily=Arial;fontSize=13;labelBackgroundColor=#FFFFFF;labelBorderColor=none;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="C22" target="C24">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
               <mxPoint x="1542" y="1460" />
@@ -310,27 +352,21 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="R33" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#5e7692;fontColor=#45617d;fontSize=13;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="C24" target="C25">
+        <mxCell id="R33" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52728B;strokeWidth=1.8;fontColor=#35556E;fontFamily=Arial;fontSize=13;labelBackgroundColor=#FFFFFF;labelBorderColor=none;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="C24" target="C25">
           <mxGeometry as="geometry" relative="1" />
         </mxCell>
-        <mxCell id="transport-note" value="Delivery mechanism: SSE / WebSocket proposed in S03&#10;Final event contract / publication transport remain OPEN" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#f5f7fa;strokeColor=#b7c4d2;fontColor=#17324f;fontSize=15;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="output">
-          <mxGeometry as="geometry" x="990" y="220" width="570" height="70" />
-        </mxCell>
-        <mxCell id="C61" value="Vector DB  [M05.8 / P05]&#10;PostgreSQL / “p vector” as reported&#10;Signal examples + semantic representations&#10;Exact instance / extension / readiness OPEN" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#f5f7fa;strokeColor=#b7c4d2;fontColor=#17324f;fontSize=16;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="2290" y="885" width="450" height="135" />
-        </mxCell>
-        <mxCell id="R79" value="Top-K retrieval" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#5e7692;fontColor=#45617d;fontSize=13;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0;entryY=0.5;" edge="1" parent="1" source="C19" target="C61">
+        <mxCell id="R79" value="Top-K retrieval" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52728B;strokeWidth=1.8;fontColor=#35556E;fontFamily=Arial;fontSize=13;labelBackgroundColor=#FFFFFF;labelBorderColor=none;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=1;entryX=0;entryY=0.5;" edge="1" parent="1" source="C19" target="C61">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
               <mxPoint x="1330" y="1090" />
               <mxPoint x="1685" y="1090" />
-              <mxPoint x="1685" y="880" />
-              <mxPoint x="2240" y="880" />
+              <mxPoint x="1685" y="975" />
+              <mxPoint x="2240" y="975" />
               <mxPoint x="2240" y="952" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="R78" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#5e7692;fontColor=#45617d;fontSize=13;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0.5;entryY=0;dashed=1;dashPattern=2 4;" edge="1" parent="1" source="C65" target="C61">
+        <mxCell id="R78" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52728B;strokeWidth=1.8;fontColor=#35556E;fontFamily=Arial;fontSize=13;labelBackgroundColor=#FFFFFF;labelBorderColor=none;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0.5;entryY=0;dashed=1;dashPattern=2 4;" edge="1" parent="1" source="C65" target="C61">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
               <mxPoint x="610" y="692" />
@@ -341,10 +377,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="C63" value="BigQuery — Utterance &amp; Call Log&#10;REFERENCE OPTION ONLY [P05 / U06]&#10;Persist utterances and detected results&#10;Not selected prototype storage" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#fff8e8;strokeColor=#b79345;fontColor=#17324f;fontSize=16;spacing=12;align=left;verticalAlign=middle;dashed=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="2290" y="1265" width="450" height="135" />
-        </mxCell>
-        <mxCell id="R80" value="utterances: reference option" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#af8a42;fontColor=#45617d;fontSize=13;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0.5;entryY=0;dashed=1;dashPattern=7 4;" edge="1" parent="1" source="C56" target="C63">
+        <mxCell id="R80" value="utterances: reference option" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#B38A36;strokeWidth=1.8;fontColor=#35556E;fontFamily=Arial;fontSize=13;labelBackgroundColor=#FFFFFF;labelBorderColor=none;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0.5;entryY=0;dashed=1;dashPattern=7 4;" edge="1" parent="1" source="C56" target="C63">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
               <mxPoint x="2250" y="512" />
@@ -353,34 +386,10 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="R81" value="results" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#af8a42;fontColor=#45617d;fontSize=13;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;dashed=1;dashPattern=7 4;" edge="1" parent="1" source="C23" target="C63">
+        <mxCell id="R81" value="results" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#B38A36;strokeWidth=1.8;fontColor=#35556E;fontFamily=Arial;fontSize=13;labelBackgroundColor=#FFFFFF;labelBorderColor=none;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;dashed=1;dashPattern=7 4;" edge="1" parent="1" source="C23" target="C63">
           <mxGeometry as="geometry" relative="1" />
         </mxCell>
-        <mxCell id="C62" value="GKE — “sales profit” environment&#10;Provisioning reportedly started [M05.8]&#10;Deployment map / readiness unverified" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#f5f7fa;strokeColor=#b7c4d2;fontColor=#17324f;fontSize=16;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="2290" y="1450" width="450" height="100" />
-        </mxCell>
-        <mxCell id="C70" value="Common Git repository / monorepo&#10;Modules + architecture together [M05.9]&#10;No repo URL or module paths supplied" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#f5f7fa;strokeColor=#b7c4d2;fontColor=#17324f;fontSize=16;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="2290" y="1590" width="450" height="100" />
-        </mxCell>
-        <mxCell id="C44" value="End-to-end logging / tracing [M05 / A08]&#10;All stages; event history and latency&#10;P50 / P95 / P99; backend unspecified&#10;Deterministic internal target ≤100–150 ms&#10;POC target only; end-to-end SLA TBD" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#f5f7fa;strokeColor=#b7c4d2;fontColor=#17324f;fontSize=16;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="2290" y="1730" width="450" height="160" />
-        </mxCell>
-        <mxCell id="L03" value="Contextual Generation — later [A01]" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#edf3fa;strokeColor=#bacbdd;fontColor=#17324f;fontSize=22;spacing=12;align=left;verticalAlign=top;fontStyle=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="620" y="1670" width="720" height="180" />
-        </mxCell>
-        <mxCell id="C27" value="Selective deeper context / generation&#10;When detected signal warrants it&#10;Implementation not defined" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#7188a2;fontColor=#17324f;fontSize=17;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="L03">
-          <mxGeometry as="geometry" x="40" y="60" width="640" height="90" />
-        </mxCell>
-        <mxCell id="L04" value="Activation — later [A01 / A10]" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#edf3fa;strokeColor=#bacbdd;fontColor=#17324f;fontSize=22;spacing=12;align=left;verticalAlign=top;fontStyle=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1400" y="1670" width="820" height="180" />
-        </mxCell>
-        <mxCell id="C28" value="Activation&#10;Signal / recommendation delivery" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#7188a2;fontColor=#17324f;fontSize=16;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="L04">
-          <mxGeometry as="geometry" x="40" y="60" width="345" height="90" />
-        </mxCell>
-        <mxCell id="C29" value="Downstream Consumers&#10;Boundary / contract OPEN" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#7188a2;fontColor=#17324f;fontSize=16;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="L04">
-          <mxGeometry as="geometry" x="435" y="60" width="345" height="90" />
-        </mxCell>
-        <mxCell id="R35" value="selective" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#5e7692;fontColor=#45617d;fontSize=13;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0.5;entryY=0;" edge="1" parent="1" source="C23" target="C27">
+        <mxCell id="R35" value="selective" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52728B;strokeWidth=1.8;fontColor=#35556E;fontFamily=Arial;fontSize=13;labelBackgroundColor=#FFFFFF;labelBorderColor=none;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0.5;entryY=0;" edge="1" parent="1" source="C23" target="C27">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
               <mxPoint x="2205" y="1375" />
@@ -389,20 +398,11 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="R36" value="eventual [A10]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#5e7692;fontColor=#45617d;fontSize=13;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="C27" target="C28">
+        <mxCell id="R36" value="eventual [A10]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52728B;strokeWidth=1.8;fontColor=#35556E;fontFamily=Arial;fontSize=13;labelBackgroundColor=#FFFFFF;labelBorderColor=none;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="C27" target="C28">
           <mxGeometry as="geometry" relative="1" />
         </mxCell>
-        <mxCell id="R37" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#5e7692;fontColor=#45617d;fontSize=13;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="C28" target="C29">
+        <mxCell id="R37" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#52728B;strokeWidth=1.8;fontColor=#35556E;fontFamily=Arial;fontSize=13;labelBackgroundColor=#FFFFFF;labelBorderColor=none;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="C28" target="C29">
           <mxGeometry as="geometry" relative="1" />
-        </mxCell>
-        <mxCell id="C55" value="Composite Signals [M05.6]&#10;Prior signal + new signal → third signal&#10;Rule / window / lifecycle definition still open" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#fff8e8;strokeColor=#b79345;fontColor=#17324f;fontSize=17;spacing=12;align=left;verticalAlign=middle;dashed=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="40" y="1300" width="520" height="110" />
-        </mxCell>
-        <mxCell id="scaling-note" value="Earlier scaling reference retained [A04]&#10;Internal Transcript Stream → partitions → workers&#10;Conversation-keyed processing; counts illustrative&#10;Not a mandated broker in the current prototype" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#f5f7fa;strokeColor=#b7c4d2;fontColor=#17324f;fontSize=16;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="40" y="1450" width="520" height="130" />
-        </mxCell>
-        <mxCell id="legend" value="Solid: source-supported logical flow   ··· Dotted: configuration   – – Amber: future / proposed / reference&#10;Boxes are logical responsibilities unless explicitly named services; no GKE pod, trust boundary, or data-store hosting inferred.&#10;All 70 inventory records have a disposition in diagram-coverage.md. Full source and relationship IDs remain in the records." style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#ffffff;fontColor=#17324f;fontSize=15;spacing=12;align=left;verticalAlign=middle;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="40" y="1900" width="2700" height="75" />
         </mxCell>
       </root>
     </mxGraphModel>

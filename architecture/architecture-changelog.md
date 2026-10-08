@@ -64,3 +64,11 @@ See validation-report.md for checks and limitations. Future entries should appen
 - Relabeled shared Signal Resolution as threshold-based acceptance. Semantic-to-resolution now confirmed; LLM direct-to-detected-result bypass replaced by R93 to resolver.
 - Kept the existing resolver-to-accepted-signal/event publication paths. Did not choose threshold values, per-method semantics or a multi-method aggregation policy.
 - Updated inventory, relationships, provenance and questions; retained original review as historical. BigQuery/future qualifiers unchanged.
+
+## v1.1 presentation refinement — 2026-10-08
+
+- Promoted the reviewed layout to the canonical editable diagram and previews; no separate manager-review directory is published.
+- Strengthened layer headings, component labels and connector-label backgrounds; aligned result artifacts and emphasized common Signal Resolution.
+- Preserved all 57 vertex IDs, 35 edge IDs, decoded labels, containment relationships and connector endpoints. No architecture decision or model changed.
+- Archived the preceding v1.1 presentation and renderer. Updated the canonical renderer to reproduce the refined XML/SVG and check semantic equivalence against that archive.
+- Added the three-minute walkthrough and five-decision agenda under reviews. Native diagrams.net rendering remains unverified.

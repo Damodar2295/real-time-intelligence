@@ -10,3 +10,7 @@
 - Source audit distinguishes LLM detection from later Contextual Generation, bounded context from full conversation storage, schema planning from approval, and reported infrastructure from verified readiness.
 - A companion SVG/PNG preview is generated from the same geometry and visually inspected. Native diagrams.net rendering/import is not verified; connector routing/text wrapping may differ in that application.
 - Graph checks verify that deterministic, semantic and LLM results reach accepted signals and event publication through the resolver, with no bypass. Threshold values/scope, score semantics and multi-method acceptance remain open. No implementation tests, performance benchmarks, vendor access checks, deployment or production approval claimed.
+
+## Presentation refinement
+
+The canonical diagram now uses the reviewed presentation. Exact node/edge IDs, decoded labels, parents and endpoints match the archived v1.1 baseline. XML, text-height fit, containment and sibling-box checks pass. The structured architecture model is unchanged. The SVG-derived PNG was visually reviewed; native diagrams.net rendering remains unverified. See diagrams/layout-validation.json for reproducible check results.

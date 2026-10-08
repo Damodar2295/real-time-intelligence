@@ -10,3 +10,6 @@
 __pycache__/
 *.py[cod]
 .venv/
+
+# Local presentation working folder
+/architecture/manager-review/

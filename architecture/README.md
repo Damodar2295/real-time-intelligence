@@ -4,6 +4,7 @@ Recorded 2026-10-08. U05 explicitly lifts the earlier diagram hold. This is the 
 
 - [Editable layered architecture](diagrams/VANTAGE_Intelligence_Layered_Architecture.drawio)
 - [Architecture preview](diagrams/VANTAGE_Intelligence_Layered_Architecture.preview.png)
+- [Three-minute walkthrough and five key decisions](reviews/architecture-walkthrough.md)
 - [Component inventory](component-inventory.md)
 - [Relationships](integration-matrix.md)
 - [Layer definitions](layer-definitions.md)
