@@ -103,3 +103,20 @@ The resolution ownership portion of Q09/Q43 is answered: all invoked methods use
 | Q48 | When multiple methods evaluate a signal, can any qualifying result establish it or must results satisfy a combination rule? When is resolution final? | No any-path, consensus, weighted aggregation or wait policy was approved |
 
 Existing history-update ownership, reranker input representation, activation route, schema and cache-lifecycle questions remain. Removing the diagram panel does not resolve them.
+
+## v1.2 — audio and distributed ingestion
+
+The queue placement question raised after M06 is answered by M07: incoming event stream → buffering queue → ingestion processing workers. The logical multi-conversation producer/listener precedes the queue. Exact packaging, protocol and message contract remain open. Separate emulator and reference-only BigQuery decisions remain settled.
+
+| ID | Open question | Why it matters |
+|---|---|---|
+| Q49 | Which Genesys live audio interface/access is available, with what channels, timestamps, format and connection lifecycle? | Requested audio hook is not a verified integration |
+| Q50 | Which streaming STT engine/hosting and partial/final revision, speaker, timestamp and confidence contract will be used? | Determines quality, latency and canonical event mapping |
+| Q51 | Do provider transcripts coexist with new STT, replace it, or serve a fallback/comparison role? | Feedback does not retire the existing source path |
+| Q52 | What producer validation and event envelope precede enqueueing; what exact payload, broker, queue/topic/partition model and dispatch mechanism are chosen? | Placement is known; protocol and physical topology are not |
+| Q53 | What acknowledgments, durability, producer retry, duplicate handling, replay and backpressure rules meet the input-preservation requirement? | A buffer alone does not prove no loss or exactly-once outcomes |
+| Q54 | How are per-call order and context ownership maintained across workers, retries, thread concurrency, failover and scale changes? | Call ID alone does not serialize updates or provide state recovery |
+| Q55 | What workload and queue-age/throughput objectives drive worker scaling; what limits or actions apply when input exceeds processing capacity? | Elasticity must not be mistaken for unlimited capacity or acceptable latency |
+| Q56 | What live-audio demo and quality/latency comparison will establish business value beyond transcript emulation? | Reported upstream delay is unmeasured; faster/more accurate STT has not been established |
+
+Existing Q33/Q36/Q38/Q45 remain relevant and now apply to distributed ingestion workers. Q47/Q48 threshold and acceptance questions are unchanged. Observe queue wait and audio/transcription time separately when evaluating the existing latency targets; those targets have not been extended into new audio-to-output SLAs.

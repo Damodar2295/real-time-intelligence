@@ -34,3 +34,11 @@ Diagram uses logical ownership containers, not cloud trust zones or deployment b
 ## v1.1
 
 No layer or service boundary changes. All configured detection methods now use shared threshold-based Signal Resolution. Presentation-only removals do not change stored decisions or composite priority.
+
+## v1.2 boundary clarification
+
+Conversation acquisition gains proposed live audio hook and streaming STT capabilities. These produce transcripts for Interaction Streaming; they do not change detector inputs to audio.
+
+Interaction Streaming now explicitly comprises source adaptation, a multi-conversation ingress listener, a buffering queue and concurrent ingestion workers. Listener means producer/entry responsibility; worker-side Ingestor retains session management, normalization, segmentation/windowing and context maintenance. C08 represents the processing pool and C56 its common service responsibilities. No thread-per-call or fixed service-to-pod mapping is asserted.
+
+Detection and its shared threshold resolver are unchanged. Audio-native understanding, another post-normalization broker, one queue per call and an independent dispatcher service are not inferred.

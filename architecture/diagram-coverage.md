@@ -1,4 +1,4 @@
-# Diagram coverage — v1.1
+# Diagram coverage — v1.2
 
 Every inventory record is either drawn or has an explicit disposition. This is a logical architecture view; historical experiments and unconfirmed physical structures are retained in records without becoming invented baseline services.
 
@@ -11,7 +11,7 @@ Every inventory record is either drawn or has an explicit disposition. This is a
 | C05 | Normalize Transcript Event | C05 | Independently editable native shape; source/status qualifiers retained. |
 | C06 | Internal Transcript Stream | scaling-note | Earlier A04 keyed stream architecture retained as scaling reference; broker not selected. |
 | C07 | Partition 1 / Partition 2 / Partition 3 | scaling-note | Partitions are illustrative earlier scaling detail, not mandated current instance count. |
-| C08 | Processing Worker A / Processing Worker B / Processing Worker C | scaling-note | Processing workers retained as scaling reference; placement/deployment not invented. |
+| C08 | Ingestion worker pool / service nodes | C08; worker-a / worker-b / worker-n | Current M07 worker pool; three visual instances are illustrative, not a selected count. C56 common responsibilities shown inside. |
 | C09 | Conversation Context A / Conversation Context B / Conversation Context C | C47; earlier A04 record | Conversation context requirement retained; physical equivalence of historical contexts remains open. |
 | C10 | Event Mapper | C56 responsibility; inventory | Event Mapper historical name retained, not silently asserted as a distinct new service. |
 | C11 | Context Buffer | C69 responsibility; inventory | Context Buffer name retained; not asserted identical to entity cache/full log. |
@@ -59,7 +59,7 @@ Every inventory record is either drawn or has an explicit disposition. This is a
 | C53 | Signal Management UI (earlier: management console) | C53 | Independently editable native shape; source/status qualifiers retained. |
 | C54 | Call-metadata signal applicability selection (descriptive capability) | C54 | Independently editable native shape; source/status qualifiers retained. |
 | C55 | Prior-signal plus new-signal composition (descriptive capability) | C55 | Independently editable native shape; source/status qualifiers retained. |
-| C56 | Ingestor service / Call Ingestor | C56 | Independently editable native shape; source/status qualifiers retained. |
+| C56 | Ingestor service / Call Ingestor | C56 inside C08 | Common responsibilities across ingestion workers; R100 expressed by containment. |
 | C57 | Default WebSocket adapter | C57 | Independently editable native shape; source/status qualifiers retained. |
 | C58 | Genesys / outreach adapters | C58 | Independently editable native shape; source/status qualifiers retained. |
 | C59 | Detector service / Signal Detector | C59 | Independently editable native shape; source/status qualifiers retained. |
@@ -74,3 +74,14 @@ Every inventory record is either drawn or has an explicit disposition. This is a
 | C68 | Session management | C68 | Independently editable native shape; source/status qualifiers retained. |
 | C69 | Segmentation / buffering / windowing | C69 | Independently editable native shape; source/status qualifiers retained. |
 | C70 | Common Git repository / monorepo | C70 | Independently editable native shape; source/status qualifiers retained. |
+
+## v1.2 additions
+
+| ID | Name | Diagram / record location | Disposition |
+|---|---|---|---|
+| C71 | Live audio hook / connector | C71 | Proposed target capability, amber dashed; access/interface unverified. |
+| C72 | Streaming speech-to-text | C72 | Proposed target capability, amber dashed; engine not selected. |
+| C73 | Multi-conversation ingress listener | C73 | Concurrent producer responsibility; no separate deployment asserted. |
+| C74 | Message queue / broker | C74 | Required buffering boundary before ingestion workers; product and guarantees open. |
+
+R94–R99 are drawn. R100 is C56 containment inside C08. R66 is absent from the active diagram and qualified as superseded in the integration matrix. R05–R08 remain historical A04 references. All 74 inventory IDs have a disposition; visual worker instances map to C08.

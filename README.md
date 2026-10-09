@@ -1,6 +1,6 @@
 # Real-Time Intelligence — Architecture
 
-Source-backed VANTAGE Intelligence architecture, currently **v1.1**. This repository contains the editable logical design, diagram renderer, component/relationship inventory, meeting extracts, decision history and review records. It is an architecture baseline, not an implemented or production-approved service stack.
+Source-backed VANTAGE Intelligence architecture, currently **v1.2**. This repository contains the editable logical design, diagram renderer, component/relationship inventory, meeting extracts, decision history and review records. It is an architecture baseline, not an implemented or production-approved service stack.
 
 ## Start here
 
@@ -28,4 +28,4 @@ The renderer uses Python's standard library and writes native editable draw.io X
 
 **Original input JPEG/JPG images are intentionally excluded.** The original image folders are not included, and `.gitignore` blocks JPEG/JPG files. Source IDs and filenames remain as external evidence locators in the records; they do not imply those source files are present in the repository. Generated PNG/SVG diagram previews are included.
 
-Meeting extracts are architecture-relevant summaries, not full recordings. Earlier model/diagram versions are retained for traceability. Historical statements and reviews should be read together with the current model and subsequent decisions. The principal-architect review describes v1.0; v1.1 applies the approved presentation changes and shared threshold-based resolution.
+Meeting extracts are architecture-relevant summaries, not full recordings. Earlier model/diagram versions are retained for traceability. Historical statements and reviews should be read together with the current model and subsequent decisions. The principal-architect review describes v1.0; v1.2 applies the approved presentation changes and shared threshold-based resolution.

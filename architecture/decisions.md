@@ -97,3 +97,16 @@ D44 emulator separation is RESOLVED: separate module/service. Adapter packaging 
 | D48 | Threshold scope and multi-method acceptance rule | UNKNOWN | Per-method/per-signal recommendation not explicitly selected; no values, aggregation formula, any-path rule or mandatory all-method execution inferred |
 
 M05 composite implementation priority and unaddressed review questions remain unchanged. BigQuery remains reference-only. D46 supersedes v1.0's unresolved resolver-bypass layout, not every remaining orchestration question.
+
+## v1.2 — manager feedback M06/M07
+
+| ID | Decision / direction | Status | Effect |
+|---|---|---|---|
+| D49 | Distinguish Transcript Emulator as test/simulation source | CONFIRMED presentation direction | Purple test styling; separate module/service preserved |
+| D50 | Include live audio acquisition followed by streaming STT in target architecture | PROPOSED target capability; requested visibility confirmed | C71/C72 and R94–R96 shown as proposed; vendor interface, engine, access and measured benefit unverified |
+| D51 | Buffer incoming events in a queue before ingestion processing workers | CONFIRMED manager direction | Listener C73 → queue C74 → worker pool C08; R66 direct adapter bypass superseded |
+| D52 | Process concurrent sessions on scalable service nodes with call/session identity | CONFIRMED requirement | C08 executes C56 responsibilities; illustrative replicas, no fixed node count or thread-per-call rule |
+| D53 | Select Kafka, per-call queues or exactly-once delivery | NOT DECIDED | Kafka is an example; topology, dispatch, durability and retry semantics remain open |
+| D54 | Replace transcript-based detection with direct audio understanding | NOT DECIDED | Exploratory mention only; no fourth detector or audio-native bypass added |
+
+Input preservation and elasticity are requirements, not demonstrated guarantees. M07 clarifies the queue's logical position ahead of ingestion workers. Earlier A04 normalized stream/partitions remain historical reference rather than an added broker in the current runtime flow.

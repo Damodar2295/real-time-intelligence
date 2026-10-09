@@ -65,10 +65,16 @@ See validation-report.md for checks and limitations. Future entries should appen
 - Kept the existing resolver-to-accepted-signal/event publication paths. Did not choose threshold values, per-method semantics or a multi-method aggregation policy.
 - Updated inventory, relationships, provenance and questions; retained original review as historical. BigQuery/future qualifiers unchanged.
 
-## v1.1 presentation refinement — 2026-10-08
+## v1.2 — 2026-10-09 — live audio vision and concurrent ingestion
 
-- Promoted the reviewed layout to the canonical editable diagram and previews; no separate manager-review directory is published.
-- Strengthened layer headings, component labels and connector-label backgrounds; aligned result artifacts and emphasized common Signal Resolution.
-- Preserved all 57 vertex IDs, 35 edge IDs, decoded labels, containment relationships and connector endpoints. No architecture decision or model changed.
-- Archived the preceding v1.1 presentation and renderer. Updated the canonical renderer to reproduce the refined XML/SVG and check semantic equivalence against that archive.
-- Added the three-minute walkthrough and five-decision agenda under reviews. Native diagrams.net rendering remains unverified.
+- Preserve the latest published v1.1 refined diagram/preview/renderer and model snapshot.
+- Add M06/M07 evidence and questions. Mark emulator as a purple test source; add proposed live audio hook and streaming STT producing transcript input.
+- Add multi-conversation ingress listener C73 and queue C74; reuse C08 as an illustrative scalable ingestion worker pool executing C56 responsibilities.
+- Replace active R66 adapter-to-Ingestor shortcut with R97–R100. Preserve R66 and earlier A04 stream/partition relationships as qualified history.
+- Retain every downstream detector/resolver connection and label, reference-only BigQuery and future provider qualifiers. No broker, STT model, replica count, retry guarantee or automatic scaling mechanism selected.
+- Model: 74 components and 100 relationships; diagram: 65 editable vertices and 40 connectors. Worker instances are visual examples of C08; R100 is represented by containment.
+- Update inventory, integration matrix, coverage, requirements and validation. This local revision is not a deployment or production approval.
+
+## v1.2 presentation cleanup — 2026-10-09
+
+Removed all visible meeting, architecture-image, planning-image and user-decision reference codes from diagram labels and connector captions. Preserved internal IDs, source records, every component/connection, geometry and technical metrics (P50/P95/P99 and latency target). Archived the annotated version; regenerated canonical draw.io/SVG/PNG for demonstration.

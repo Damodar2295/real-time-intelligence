@@ -1,4 +1,4 @@
-"""Render v1.2 live-audio vision and queued concurrent ingestion architecture."""
+"""Presentation-refined v1.1 diagram; no model changes."""
 from pathlib import Path
 import copy, hashlib, html, json, textwrap
 import xml.etree.ElementTree as E
@@ -6,15 +6,25 @@ import xml.etree.ElementTree as E
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'diagrams'
 OUT.mkdir(exist_ok=True)
-source = json.loads((ROOT / 'diagrams/layout-v1.2.json').read_text())
+source = json.loads((ROOT / 'diagrams/layout-v1.1.json').read_text())
 N = copy.deepcopy(source['nodes'])
 edges = copy.deepcopy(source['edges'])
 W, H = source['width'], source['height']
-bands = {'G01','sources','L01','L02','output','L03','L04','C08'}
+# Align acceptance artifacts and increase clearance around connector labels.
+for i in ['C21', 'C22', 'C23']:
+    N[i]['y'], N[i]['h'] = 1320, 110
+N['C39']['y'] = N['C60']['y'] = 1010
+# Route retrieval in the inter-strategy gutter, avoiding the strategy heading.
+next(e for e in edges if e['id'] == 'R79')['points'] = [(1330,1090),(1685,1090),(1685,975),(2240,975),(2240,952)]
+next(e for e in edges if e['id'] == 'R93')['points'] = [(1955,1255),(1628,1255)]
+# Match relocated result-row midpoints.
+next(e for e in edges if e['id'] == 'R21-R24')['points'] = [(815,1375)]
+next(e for e in edges if e['id'] == 'R88')['points'] = [(55,937),(55,397)]
+
+bands = {'G01','sources','L01','L02','output','L03','L04'}
 navy, teal, ink = '#193954', '#126C70', '#17324F'
 
 def palette(n):
-    if n['kind'] == 'test': return '#F0EAF9', '#8A6AB0'
     if n['id'] == 'C22': return '#E1F3EF', teal
     if n['kind'] == 'future': return '#FFFAED', '#B38A36'
     if n['kind'] == 'conflict': return '#FFF0EA', '#BC7B67'
@@ -123,15 +133,6 @@ class Plain(HTMLParser):
         if tag=='br':self.s+='\n'
     def handle_data(self,data):self.s+=data
 
-def presentation_label(value):
-    """Remove visible provenance codes, retaining technical values and qualifiers."""
-    import re
-    value = re.sub(r'\s*\[(?:[AMPSU]\d{2}[^\]]*)\]', '', value)
-    value = value.replace('BGE label in S02', 'BGE reference')
-    value = value.replace('proposed in S03', 'proposed')
-    value = value.replace('M07 now places a queue before ingestion workers', 'Queue precedes ingestion workers')
-    return '\n'.join(line.rstrip() for line in value.split('\n') if line.strip())
-
 def semantics(path):
     cells=E.parse(path).findall('.//mxCell'); out={}
     for c in cells:
@@ -139,25 +140,10 @@ def semantics(path):
         value=c.get('value','')
         if 'html=1;' in c.get('style',''):
             p=Plain();p.feed(value);value=p.s
-        out[c.get('id')]=(presentation_label(value),c.get('parent'),c.get('vertex'),c.get('edge'),c.get('source'),c.get('target'))
+        out[c.get('id')]=(value,c.get('parent'),c.get('vertex'),c.get('edge'),c.get('source'),c.get('target'))
     return out
-baseline=ROOT/'diagrams/archive/VANTAGE_Intelligence_Layered_Architecture.v1.1-refined.drawio'
-before=semantics(baseline); after=semantics(OUT/'VANTAGE_Intelligence_Layered_Architecture.drawio')
-allowed={'subtitle','C02','L01','C57','C56','C68','C47','C70','scaling-note','legend'}
-assert set(before)-set(after)=={'R66'}
-for i,v in before.items():
-    if i not in allowed and i!='R66': assert after[i]==v,('Unintended technical change',i)
-model=json.loads((ROOT/'architecture-model.json').read_text())
-model_refs={r['id']:r for r in model['relationships']}
-for e in edges:
-    for rid in e['evidence'].split(','):assert rid in model_refs,rid
-    if ',' not in e['evidence']:
-        rr=model_refs[e['evidence']]
-        assert (e['a'],e['b'])==(rr['source_component'],rr['target_component']),e['id']
-assert N['C56']['parent']=='C08'
-assert 'R66' not in after and 'R82' not in after
-for rid in ['R94','R95','R96','R97','R98','R99']:assert rid in after
-assert 'Kafka' not in N['C74']['label']
+baseline=ROOT/'diagrams/archive/VANTAGE_Intelligence_Layered_Architecture.v1.1.drawio'
+assert semantics(baseline)==semantics(OUT/'VANTAGE_Intelligence_Layered_Architecture.drawio'),'Semantic difference'
 ns=list(N.values())
 for i,a in enumerate(ns):
     if a['parent'] in N:
@@ -166,6 +152,6 @@ for i,a in enumerate(ns):
     for b in ns[i+1:]:
         if a['parent']==b['parent']:
             assert not(min(a['x']+a['w'],b['x']+b['w'])>max(a['x'],b['x']) and min(a['y']+a['h'],b['y']+b['h'])>max(a['y'],b['y'])),(a['id'],b['id'])
-report={'baseline_sha256':hashlib.sha256(baseline.read_bytes()).hexdigest(),'vertices':len(N),'edges':len(edges),'checks':['Downstream labels match v1.1 after provenance cleanup; parents/endpoints unchanged except documented v1.2 additions','Queue precedes ingestion workers; audio connections remain proposed; historical direct adapter bypass absent','Every visible relationship matches source-model endpoints','XML parsing','Text-height fit','Child containment','No sibling-box overlap'],'native_diagrams_net_render_verified':False}
+report={'baseline_sha256':hashlib.sha256(baseline.read_bytes()).hexdigest(),'vertices':len(N),'edges':len(edges),'checks':['Exact node/edge IDs, decoded labels, parents and endpoints match baseline','All diagram text retained','XML parsing','Text-height fit','Child containment','No sibling-box overlap'],'native_diagrams_net_render_verified':False}
 (OUT/'layout-validation.json').write_text(json.dumps(report,indent=2)+'\n')
 print(json.dumps(report,indent=2))

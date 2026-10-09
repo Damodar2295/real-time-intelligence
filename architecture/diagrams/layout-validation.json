@@ -1,10 +1,11 @@
 {
-  "baseline_sha256": "d3b9470aa2d77a60ba5262280d2a5146bab114bf715492202032bb93dc4631a0",
-  "vertices": 57,
-  "edges": 35,
+  "baseline_sha256": "e2bbc1b6d79c564b6f360f98197ae1911a72eff187e02f5040aa64c301808e49",
+  "vertices": 65,
+  "edges": 40,
   "checks": [
-    "Exact node/edge IDs, decoded labels, parents and endpoints match baseline",
-    "All diagram text retained",
+    "Downstream labels match v1.1 after provenance cleanup; parents/endpoints unchanged except documented v1.2 additions",
+    "Queue precedes ingestion workers; audio connections remain proposed; historical direct adapter bypass absent",
+    "Every visible relationship matches source-model endpoints",
     "XML parsing",
     "Text-height fit",
     "Child containment",

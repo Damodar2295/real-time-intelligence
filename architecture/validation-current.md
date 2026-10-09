@@ -1,16 +1,15 @@
-# Current validation — v1.1
+# Current validation — v1.2
 
-- Parsed native draw.io XML successfully: one editable page, 57 vertex shapes, 35 connectors; unique IDs and valid parent/connector references.
-- Containers use native parent/child cells. Components and connectors are editable; no embedded flattened diagram.
-- Renderer checked conservative text fit, child containment and peer-box overlap. All passed after layout adjustments.
-- Model has 70 unique component/capability/metadata IDs and 93 unique relationship IDs, with valid endpoints/status/source references.
-- Every inventory record has a disposition in [diagram-coverage.md](diagram-coverage.md). Every visible connector has model relationship evidence. Historical LLM bypass R82 is absent from the current diagram; R93 enters Signal Resolution.
-- Preserved v0.1 diagram/preview archive and v0.4 structured snapshot. U07 authorizes this update; v1.0 diagram/model also archived.
-- Confirmed emulator is separate. BigQuery and its writes stay reference-only. Future provider adapters remain dashed; semantic and LLM result paths now enter confirmed shared resolution. No GKE deployment topology, unselected classifier, entity-first mandatory preprocessing, authentication removal or telemetry backend invented.
-- Source audit distinguishes LLM detection from later Contextual Generation, bounded context from full conversation storage, schema planning from approval, and reported infrastructure from verified readiness.
-- A companion SVG/PNG preview is generated from the same geometry and visually inspected. Native diagrams.net rendering/import is not verified; connector routing/text wrapping may differ in that application.
-- Graph checks verify that deterministic, semantic and LLM results reach accepted signals and event publication through the resolver, with no bypass. Threshold values/scope, score semantics and multi-method acceptance remain open. No implementation tests, performance benchmarks, vendor access checks, deployment or production approval claimed.
+- Native editable draw.io XML parses: one page, 65 vertices and 40 connectors. Model has 74 components and 100 source relationships.
+- Every displayed connector references a model relationship; individual connector endpoints match the model. Worker instances are visual examples of C08. R100 is represented by C56 containment within C08.
+- Compared with archived published v1.1: every unchanged node label, parent and edge endpoint is preserved. Explicit changes are limited to M06/M07 source/ingestion scope, related annotations and current repository status. No downstream detector/resolver wiring changed.
+- Historical R66 direct adapter-to-Ingestor connection is absent. Active adapter → listener → queue → worker-pool flow is present; audio/STT → listener links remain proposed. R82 LLM bypass remains absent.
+- Text-height estimates, child containment and sibling-box non-overlap checks pass. SVG-derived PNG visually inspected; native diagrams.net import/rendering has not been verified.
+- Prior v1.1 refined presentation and model archived. No broker/STT engine, queue count, thread-per-call implementation, at-most/at-least/exactly-once guarantee or production SLA selected.
+- Input preservation, multi-call isolation and elasticity are requirements, not benchmarked guarantees. No runtime code, vendor access or deployment has been tested by this diagram update.
 
-## Presentation refinement
+Machine-readable presentation checks: diagrams/layout-validation.json. Reproduce draw.io and SVG with `python3 architecture/tools/render_architecture.py`; PNG is a separate SVG raster export.
 
-The canonical diagram now uses the reviewed presentation. Exact node/edge IDs, decoded labels, parents and endpoints match the archived v1.1 baseline. XML, text-height fit, containment and sibling-box checks pass. The structured architecture model is unchanged. The SVG-derived PNG was visually reviewed; native diagrams.net rendering remains unverified. See diagrams/layout-validation.json for reproducible check results.
+## Demonstration label cleanup
+
+All visible source-reference codes removed. Compared with archived v1.2: only labels changed; 65 shapes, 40 connectors, endpoints, containment, styles and layout coordinates remain identical. Technical percentile and latency values retained. XML/text-fit checks passed; updated preview visually inspected. Source references remain in records and internal IDs, not visible labels.

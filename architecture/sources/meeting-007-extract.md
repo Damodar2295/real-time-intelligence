@@ -1,0 +1,13 @@
+# Meeting 007 — concurrent calls, buffering queue and ingestion workers
+
+Recorded 2026-10-09 from the user-supplied continuation. Requirements and architecture direction are source-supported; technology, implementation and delivery guarantees are unverified.
+
+- **M07.1 — Multi-conversation listener and queue boundary.** A listener accepts multiple conversation IDs concurrently. The supplied clarification places a message queue between the incoming event stream and processing nodes, decoupling ingestion processing from event arrival. This answers the earlier placement question at a logical level: queue before ingestion workers, not a newly chosen queue after detector input.
+- **M07.2 — Queue/worker pattern.** Processing service nodes consume buffered requests concurrently. Distribute work based on availability and support independent horizontal/elastic scaling. The dispatch mechanism, broker protocol, subscription model, worker count, scaling trigger and deployment topology are not selected. Kafka is an example, not an approved technology.
+- **M07.3 — Session identity and concurrency.** Call/session ID distinguishes conversations throughout processing. Threads are discussed as an implementation direction; no language, thread-per-call model or fixed mapping between a call and a worker is agreed. Parallel calls do not settle safe simultaneous processing of successive events within one call.
+- **M07.4 — Buffering and input preservation.** Buffer incoming requests so processing capacity does not immediately determine acceptance. “Should not lose the input” expresses a requirement; it is not proof of durability or exactly-once delivery. Persistence, acknowledgments, producer retries, recovery, replay, duplicate handling, backpressure and overload behavior need definition.
+- **M07.5 — No per-call queue decision.** The exchange mentions call/session IDs and a “separate queue system,” but does not establish one physical queue per call. Draw a logical queue/broker boundary without asserting topic, queue or partition count.
+
+The latest flow supplements the earlier A04 stream/partition/worker reference. Do not duplicate it as a second mandatory post-normalization broker. The v1.2 diagram reuses worker capability C08 and represents worker instances illustratively. C56 shows common Ingestor responsibilities within that pool, not another downstream service.
+
+M06's audio hook and STT remain proposed target capabilities. Their output enters the transcript ingress responsibility logically; exact adaptation and transport are not decided. Existing three detector methods and shared threshold-based resolution are unchanged.

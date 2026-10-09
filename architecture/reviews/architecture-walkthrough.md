@@ -1,4 +1,4 @@
-# Manager walkthrough and decisions
+# Manager walkthrough and decisions — historical v1.1
 
 Based on the v1.1 logical baseline and subsequent publishing context. This is a presentation and decision agenda, not an amendment to the architecture. Timing below is approximately three minutes at a measured speaking pace, including short pauses to point at the diagram.
 
@@ -47,3 +47,5 @@ Ranking is a review recommendation. No answer, owner or deadline is presumed.
 - Catalog and Definitions are not confirmed separate services. Similarly, applicability and adapter boxes do not establish separate deployment units.
 - Emulator separation and BigQuery's reference-only status are answered questions, not items to reopen. GKE/PostgreSQL readiness, physical deployment and future provider integration remain unverified.
 - The GitHub repository has now been created and populated with architecture artifacts. The unchanged baseline's older repository label records its earlier knowledge, not the current publishing state.
+
+This walkthrough predates v1.2. The current diagram adds proposed live audio acquisition/STT, an ingress listener, queue and ingestion worker pool. Use the current diagram and M06/M07 records for those changes. Exact and semantic LLM response caches remain discussion proposals and are not drawn.

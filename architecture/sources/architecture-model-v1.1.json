@@ -1,6 +1,6 @@
 {
-  "version": "1.2",
-  "date": "2026-10-09",
+  "version": "1.1",
+  "date": "2026-10-08",
   "components": [
     {
       "id": "C01",
@@ -8,18 +8,18 @@
       "responsibility": "Live conversation source",
       "concern": "External source",
       "inputs": "Live interaction",
-      "outputs": "Conversation events; live call audio acquisition requested, interface unverified",
-      "source": "A02,M06.2",
+      "outputs": "Conversation events",
+      "source": "A02",
       "status": "CONFIRMED"
     },
     {
       "id": "C02",
       "name": "Transcript Emulator",
-      "responsibility": "Separate Transcript Emulator module/service supplies simulated WebSocket call streams; multiple concurrent streams requested; test/simulation source, visually distinguished from live acquisition",
+      "responsibility": "Separate Transcript Emulator module/service supplies simulated WebSocket call streams; multiple concurrent streams requested",
       "concern": "Conversation Sources (POC)",
       "inputs": "UNKNOWN",
       "outputs": "Simulated transcript",
-      "source": "A08,A09,M05.1,M05.4,U06,M06.4",
+      "source": "A08,A09,M05.1,M05.4,U06",
       "status": "CONFIRMED",
       "implementation_priority": "Separate module/service confirmed by U06; concurrency readiness not verified"
     },
@@ -78,14 +78,13 @@
     },
     {
       "id": "C08",
-      "name": "Ingestion processing worker pool / service nodes",
-      "responsibility": "Concurrent service nodes consume buffered call events and execute Ingestor responsibilities; horizontal elasticity requested. Worker/thread counts and dispatch mechanism unselected.",
+      "name": "Processing Worker A / Processing Worker B / Processing Worker C",
+      "responsibility": "Process events for conversation context; count illustrative",
       "concern": "Interaction Streaming",
-      "inputs": "Queued call-identified transcript events; earlier A04 partition input retained as historical reference",
-      "outputs": "Ingestor processing of independent sessions",
-      "source": "A04,M07.1,M07.2,M07.3",
-      "status": "CONFIRMED",
-      "implementation_priority": "Current requested queue-and-worker direction; topology, concurrency model, per-call ordering and scaling rules unverified"
+      "inputs": "Partition events",
+      "outputs": "Conversation context",
+      "source": "A04",
+      "status": "CONFIRMED"
     },
     {
       "id": "C09",
@@ -589,11 +588,11 @@
     {
       "id": "C56",
       "name": "Ingestor service / Call Ingestor",
-      "responsibility": "Ingestion workers process queued call transcript events; normalize, manage sessions, segment/buffer/window utterances; maintain recent context and preserve larger conversation",
+      "responsibility": "Consume WebSocket inputs; normalize, manage independent sessions, segment/buffer/window utterances; maintain recent context and preserve larger conversation",
       "concern": "Interaction Streaming",
-      "inputs": "Queued transcript events carrying call/session identity; contract details open",
+      "inputs": "Adapted call transcript packets",
       "outputs": "Utterance/event microbatches, maintained context, stored utterances",
-      "source": "M05.2,M05.4,P05,M07.1,M07.2",
+      "source": "M05.2,M05.4,P05",
       "status": "CONFIRMED",
       "implementation_priority": "Current logical prototype scope; implementation not verified"
     },
@@ -603,8 +602,8 @@
       "responsibility": "Initial adapter construct for WebSocket input; DTO/provider abstraction requested. Logical entry ahead of ingestion processing; package may be inside Ingestor",
       "concern": "Interaction Streaming ingress",
       "inputs": "Emulated WebSocket transcript",
-      "outputs": "Adapted input for multi-conversation ingress listener; event contract open",
-      "source": "M05.4,M07.1",
+      "outputs": "Input consumable by Ingestor; contract details UNKNOWN",
+      "source": "M05.4",
       "status": "CONFIRMED",
       "implementation_priority": "Current logical prototype scope; implementation not verified"
     },
@@ -725,9 +724,9 @@
       "concern": "Ingestor responsibility",
       "inputs": "Incoming call ID",
       "outputs": "Session identity for batches/context/results; precise contract UNKNOWN",
-      "source": "M05.2,M05.4,M07.3",
+      "source": "M05.2,M05.4",
       "status": "CONFIRMED",
-      "implementation_priority": "Call ID links concurrent input and processing; call isolation required, ordering and worker ownership not specified"
+      "implementation_priority": "Current logical prototype scope; implementation not verified"
     },
     {
       "id": "C69",
@@ -749,51 +748,7 @@
       "outputs": "Shared repository",
       "source": "M05.9",
       "status": "CONFIRMED",
-      "implementation_priority": "Architecture published to https://github.com/Damodar2295/real-time-intelligence; runtime module implementation and deployment not verified"
-    },
-    {
-      "id": "C71",
-      "name": "Live audio hook / acquisition connector",
-      "responsibility": "Acquire streaming call audio from Genesys Cloud",
-      "concern": "Conversation acquisition",
-      "inputs": "Genesys live audio; interface/access unknown",
-      "outputs": "Streaming audio",
-      "source": "M06.2",
-      "status": "PROPOSED",
-      "implementation_priority": "Requested target capability; no vendor interface, entitlement, format or deployment selected"
-    },
-    {
-      "id": "C72",
-      "name": "Streaming speech-to-text",
-      "responsibility": "Convert acquired audio to a stream of transcript events for Interaction Streaming",
-      "concern": "Conversation acquisition / transcription",
-      "inputs": "Streaming call audio",
-      "outputs": "Transcript events; partial/final, speaker and timing contract open",
-      "source": "M06.3",
-      "status": "PROPOSED",
-      "implementation_priority": "Requested target capability; engine, hosting and latency/quality unverified"
-    },
-    {
-      "id": "C73",
-      "name": "Multi-conversation ingress listener",
-      "responsibility": "Accept concurrent transcript event streams and publish call-identified events to a buffering queue",
-      "concern": "Interaction Streaming entry responsibility",
-      "inputs": "Adapted transcript streams; proposed STT output",
-      "outputs": "Call/session-identified queued input",
-      "source": "M07.1,M07.2,M07.3",
-      "status": "CONFIRMED",
-      "implementation_priority": "Logical producer/listener responsibility, not an additional confirmed deployment service; mapping and validation contract open"
-    },
-    {
-      "id": "C74",
-      "name": "Message queue / broker",
-      "responsibility": "Buffer incoming call events and decouple event arrival from ingestion processing workers",
-      "concern": "Interaction Streaming buffering boundary",
-      "inputs": "Call/session-identified events",
-      "outputs": "Buffered events consumed by available processing nodes",
-      "source": "M07.1,M07.2,M07.4",
-      "status": "CONFIRMED",
-      "implementation_priority": "Broker unselected; Kafka is an example only. Queue count, partitions, durability, acknowledgments, dispatch and no-loss guarantees undefined"
+      "implementation_priority": "Requested organization; repository provisioning/path/module directory names not supplied"
     }
   ],
   "relationships": [
@@ -840,8 +795,7 @@
       "flow": "Publish normalized internal transcript events",
       "evidence": "A03,A04",
       "status": "CONFIRMED",
-      "mechanism": "UNKNOWN",
-      "scope_note": "Earlier A04 logical reference retained; not an extra post-normalization queue or fixed partition/worker topology in v1.2."
+      "mechanism": "UNKNOWN"
     },
     {
       "id": "R06",
@@ -850,8 +804,7 @@
       "flow": "Keyed events to illustrative partitions",
       "evidence": "A04",
       "status": "CONFIRMED",
-      "mechanism": "interaction_id / conversation_id; broker UNKNOWN",
-      "scope_note": "Earlier A04 logical reference retained; not an extra post-normalization queue or fixed partition/worker topology in v1.2."
+      "mechanism": "interaction_id / conversation_id; broker UNKNOWN"
     },
     {
       "id": "R07",
@@ -860,8 +813,7 @@
       "flow": "Partition events to processing workers",
       "evidence": "A04",
       "status": "CONFIRMED",
-      "mechanism": "UNKNOWN",
-      "scope_note": "Earlier A04 logical reference retained; not an extra post-normalization queue or fixed partition/worker topology in v1.2."
+      "mechanism": "UNKNOWN"
     },
     {
       "id": "R08",
@@ -870,8 +822,7 @@
       "flow": "Maintain conversation context",
       "evidence": "A04",
       "status": "CONFIRMED",
-      "mechanism": "UNKNOWN",
-      "scope_note": "Earlier A04 logical reference retained; not an extra post-normalization queue or fixed partition/worker topology in v1.2."
+      "mechanism": "UNKNOWN"
     },
     {
       "id": "R09",
@@ -1405,8 +1356,7 @@
       "flow": "Default adapter supplies input to ingestion processing; packaging unresolved",
       "evidence": "M05.4",
       "status": "CONFIRMED",
-      "mechanism": "Logical data relationship; protocol unspecified unless stated",
-      "scope_note": "SUPERSEDED active direct adapter-to-Ingestor edge by M07/R97-R100: listener and queue precede ingestion workers; retained as M05 historical relationship."
+      "mechanism": "Logical data relationship; protocol unspecified unless stated"
     },
     {
       "id": "R67",
@@ -1652,69 +1602,6 @@
       "status": "CONFIRMED",
       "mechanism": "Logical acceptance flow; API and scheduling unspecified",
       "current_scope": "Replaces historical direct LLM-to-Detected-Signal path R82 in the current baseline"
-    },
-    {
-      "id": "R94",
-      "source_component": "C01",
-      "target_component": "C71",
-      "flow": "Acquire live call audio",
-      "evidence": "M06.2",
-      "status": "PROPOSED",
-      "mechanism": "Logical flow; concrete protocol/technology open"
-    },
-    {
-      "id": "R95",
-      "source_component": "C71",
-      "target_component": "C72",
-      "flow": "Streaming audio enters speech-to-text",
-      "evidence": "M06.2,M06.3",
-      "status": "PROPOSED",
-      "mechanism": "Logical flow; concrete protocol/technology open"
-    },
-    {
-      "id": "R96",
-      "source_component": "C72",
-      "target_component": "C73",
-      "flow": "Produced transcript stream enters Interaction Streaming through ingress listener; protocol unspecified",
-      "evidence": "M06.3,M07.1",
-      "status": "PROPOSED",
-      "mechanism": "Logical flow; concrete protocol/technology open"
-    },
-    {
-      "id": "R97",
-      "source_component": "C57",
-      "target_component": "C73",
-      "flow": "Adapted transcript stream enters multi-conversation ingress listener",
-      "evidence": "M05.4,M07.1",
-      "status": "CONFIRMED",
-      "mechanism": "Logical flow; concrete protocol/technology open"
-    },
-    {
-      "id": "R98",
-      "source_component": "C73",
-      "target_component": "C74",
-      "flow": "Publish incoming events with call/session identity into buffering queue",
-      "evidence": "M07.1,M07.2,M07.3",
-      "status": "CONFIRMED",
-      "mechanism": "Logical flow; concrete protocol/technology open"
-    },
-    {
-      "id": "R99",
-      "source_component": "C74",
-      "target_component": "C08",
-      "flow": "Workers consume buffered events; distribution according to availability is required, implementation unselected",
-      "evidence": "M07.1,M07.2",
-      "status": "CONFIRMED",
-      "mechanism": "Logical flow; concrete protocol/technology open"
-    },
-    {
-      "id": "R100",
-      "source_component": "C08",
-      "target_component": "C56",
-      "flow": "Worker pool executes Ingestor responsibilities; containment, not another downstream service hop",
-      "evidence": "M07.1,M07.2",
-      "status": "CONFIRMED",
-      "mechanism": "Logical containment"
     }
   ],
   "sources": {
@@ -1833,24 +1720,16 @@
     "U07": [
       "sources/resolution-and-presentation-approval.md",
       "User proposes threshold-based resolution for all three paths and then explicitly authorizes applying discussed changes, including presentation cleanup."
-    ],
-    "M06": [
-      "sources/meeting-006-extract.md",
-      "Manager requests live audio acquisition and streaming transcription; emulator is test source; vendor performance claims unverified."
-    ],
-    "M07": [
-      "sources/meeting-007-extract.md",
-      "Queue buffers incoming events ahead of ingestion service workers; concurrent sessions identified by call ID; elastic worker direction, broker and guarantees open."
     ]
   },
-  "diagram_version": "1.2",
-  "diagram_status": "Manager feedback adds proposed live audio/transcription and confirmed queue-before-ingestion-worker direction; vendor, delivery, scheduling and topology contracts remain open.",
+  "diagram_version": "1.1",
+  "diagram_status": "User-approved presentation cleanup and shared threshold-based resolution; threshold semantics remain open.",
   "layers": [
     {
       "id": "L01",
       "name": "Interaction Streaming",
-      "role": "Primary concern; default adapter/listener, buffering queue and concurrent Ingestor workers",
-      "source": "A01,M05.2,M05.4,M07"
+      "role": "Primary concern; now detailed by default adapter and Ingestor",
+      "source": "A01,M05.2,M05.4"
     },
     {
       "id": "L02",

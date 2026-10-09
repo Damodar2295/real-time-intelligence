@@ -286,3 +286,10 @@ U06 explicitly confirms C02 as a separate module/service and C63/R80/R81 as refe
 ## v1.1 — U07
 
 [Direct user approval](sources/resolution-and-presentation-approval.md) supports C22 shared threshold acceptance, C23 accepted-result input, current R47/R31/R32, and new R93 LLM-to-resolution. R82 remains historical only. C53 label cleanup, removal of open-note and C55 heading cleanup are presentation-only. No threshold values, per-method policy or aggregation rule inferred.
+
+## v1.2 — M06/M07
+
+- [M06 manager audio feedback](sources/meeting-006-extract.md): C02 test role, proposed C71 live audio acquisition and C72 streaming transcription. R94–R96 express target logical data flow, not verified vendor integration.
+- [M07 queue continuation](sources/meeting-007-extract.md): C73 concurrent ingress listener, C74 buffering queue, reused C08 ingestion worker pool and C56 worker responsibilities. R97–R100 replace the direct R66 adapter-to-Ingestor route. R100 is shown by containment.
+- Worker A/B/N are illustrative instances of C08, not three new services or a selected replica count. Kafka and direct audio understanding are mentioned but not selected.
+- R05–R08 retain earlier A04 provenance; they do not mandate another post-normalization queue.

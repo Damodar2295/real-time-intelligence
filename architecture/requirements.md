@@ -79,3 +79,12 @@ Preserve previous latency targets as engineering targets, not SLAs. Larger conve
 
 - REQ33: Results from configured deterministic, semantic and LLM methods pass through common threshold-based Signal Resolution before acceptance/publication. [U07]
 - Threshold values, scope, score representation and multi-result acceptance/wait behavior remain undefined. This does not require every signal to invoke all three methods.
+
+## v1.2 — live audio and queued ingestion requirements
+
+- Distinguish emulator/test traffic from target live-audio acquisition (M06.2–4).
+- Show proposed live audio acquisition → streaming STT → transcript ingress; no selected interface/engine or performance guarantee (M06).
+- Accept multiple call-identified event streams, buffer through a queue before ingestion workers, and process concurrent sessions on scalable service nodes (M07.1–3).
+- Preserve input as a requirement; define durability/retry/overload contracts before claiming no loss (M07.4).
+- Keep batching/session normalization as worker-side Ingestor responsibilities. Queue buffering and per-call utterance windowing are distinct responsibilities.
+- Preserve call-isolated bounded context; define ownership/order/recovery across nodes (M07; Q54).

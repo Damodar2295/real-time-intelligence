@@ -123,15 +123,6 @@ class Plain(HTMLParser):
         if tag=='br':self.s+='\n'
     def handle_data(self,data):self.s+=data
 
-def presentation_label(value):
-    """Remove visible provenance codes, retaining technical values and qualifiers."""
-    import re
-    value = re.sub(r'\s*\[(?:[AMPSU]\d{2}[^\]]*)\]', '', value)
-    value = value.replace('BGE label in S02', 'BGE reference')
-    value = value.replace('proposed in S03', 'proposed')
-    value = value.replace('M07 now places a queue before ingestion workers', 'Queue precedes ingestion workers')
-    return '\n'.join(line.rstrip() for line in value.split('\n') if line.strip())
-
 def semantics(path):
     cells=E.parse(path).findall('.//mxCell'); out={}
     for c in cells:
@@ -139,7 +130,7 @@ def semantics(path):
         value=c.get('value','')
         if 'html=1;' in c.get('style',''):
             p=Plain();p.feed(value);value=p.s
-        out[c.get('id')]=(presentation_label(value),c.get('parent'),c.get('vertex'),c.get('edge'),c.get('source'),c.get('target'))
+        out[c.get('id')]=(value,c.get('parent'),c.get('vertex'),c.get('edge'),c.get('source'),c.get('target'))
     return out
 baseline=ROOT/'diagrams/archive/VANTAGE_Intelligence_Layered_Architecture.v1.1-refined.drawio'
 before=semantics(baseline); after=semantics(OUT/'VANTAGE_Intelligence_Layered_Architecture.drawio')
@@ -166,6 +157,6 @@ for i,a in enumerate(ns):
     for b in ns[i+1:]:
         if a['parent']==b['parent']:
             assert not(min(a['x']+a['w'],b['x']+b['w'])>max(a['x'],b['x']) and min(a['y']+a['h'],b['y']+b['h'])>max(a['y'],b['y'])),(a['id'],b['id'])
-report={'baseline_sha256':hashlib.sha256(baseline.read_bytes()).hexdigest(),'vertices':len(N),'edges':len(edges),'checks':['Downstream labels match v1.1 after provenance cleanup; parents/endpoints unchanged except documented v1.2 additions','Queue precedes ingestion workers; audio connections remain proposed; historical direct adapter bypass absent','Every visible relationship matches source-model endpoints','XML parsing','Text-height fit','Child containment','No sibling-box overlap'],'native_diagrams_net_render_verified':False}
+report={'baseline_sha256':hashlib.sha256(baseline.read_bytes()).hexdigest(),'vertices':len(N),'edges':len(edges),'checks':['Unchanged downstream labels, parents and endpoints match v1.1; explicit allowlist for M06/M07 changes','Queue precedes ingestion workers; audio connections remain proposed; historical direct adapter bypass absent','Every visible relationship matches source-model endpoints','XML parsing','Text-height fit','Child containment','No sibling-box overlap'],'native_diagrams_net_render_verified':False}
 (OUT/'layout-validation.json').write_text(json.dumps(report,indent=2)+'\n')
 print(json.dumps(report,indent=2))
