@@ -1,0 +1,13 @@
+{
+  "page": "GCP / GKE Technical Level 1",
+  "vertices": 31,
+  "connectors": 25,
+  "size": [
+    3000,
+    1810
+  ],
+  "single_page": true,
+  "managed_services_outside_gke": true,
+  "no_embedded_images": true,
+  "text_fit_and_geometry_checks": true
+}
