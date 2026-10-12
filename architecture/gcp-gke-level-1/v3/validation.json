@@ -1,0 +1,13 @@
+{
+  "page": "Enterprise Technical Level 1 \u00b7 V3",
+  "vertices": 35,
+  "connectors": 25,
+  "size": [
+    3760,
+    2100
+  ],
+  "embedded_icons": 26,
+  "prior_connections_preserved": true,
+  "previous_files_unchanged": true,
+  "managed_services_outside_gke": true
+}
