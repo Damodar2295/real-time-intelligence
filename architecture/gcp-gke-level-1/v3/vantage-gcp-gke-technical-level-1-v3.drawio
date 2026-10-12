@@ -5,17 +5,26 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="page-title" value="&lt;b&gt;VANTAGE Intelligence | Enterprise Technical Level 1 · V3&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=30;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#FFFFFF;spacing=14;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;spacing=0;" vertex="1" parent="1" sourceRefs="">
-          <mxGeometry as="geometry" x="40" y="20" width="3680" height="75" />
-        </mxCell>
-        <mxCell id="page-subtitle" value="GCP / GKE implementation proposal • Editable architecture • 12 October 2026 • Technology selections remain subject to approval" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=17;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#FFFFFF;spacing=14;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;spacing=0;" vertex="1" parent="1" sourceRefs="">
-          <mxGeometry as="geometry" x="40" y="98" width="3680" height="35" />
-        </mxCell>
         <mxCell id="gcp" value="GOOGLE CLOUD  |  Confirmed target platform" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=21;fontColor=#002663;fillColor=#EAF4FF;strokeColor=#B7C9D3;spacing=14;align=left;verticalAlign=middle;shape=swimlane;startSize=44;horizontal=1;fillColor=#002663;swimlaneFillColor=#EAF4FF;fontColor=#FFFFFF;fontStyle=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="1" sourceRefs="">
           <mxGeometry as="geometry" x="420" y="160" width="2840" height="1760" />
         </mxCell>
         <mxCell id="gke" value="GKE APPLICATION RUNTIME  |  Confirmed target; workload boundaries proposed" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=21;fontColor=#002663;fillColor=#EAF4FF;strokeColor=#B7C9D3;spacing=14;align=left;verticalAlign=middle;shape=swimlane;startSize=44;horizontal=1;fillColor=#006FCF;swimlaneFillColor=#EAF4FF;fontColor=#FFFFFF;fontStyle=1;container=1;collapsible=0;recursiveResize=0;spacingLeft=84;" vertex="1" parent="gcp" sourceRefs="">
           <mxGeometry as="geometry" x="35" y="420" width="2770" height="1000" />
+        </mxCell>
+        <mxCell id="ingestion-zone" value="" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=18;fontColor=#002663;fillColor=#F4F9FF;strokeColor=#83ADD3;spacing=14;align=left;verticalAlign=middle;dashed=1;dashPattern=2 5;strokeWidth=2;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="gke" sourceRefs="">
+          <mxGeometry as="geometry" x="20" y="45" width="975" height="730" />
+        </mxCell>
+        <mxCell id="detection-zone" value="" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=18;fontColor=#002663;fillColor=#F0F6FC;strokeColor=#83ADD3;spacing=14;align=left;verticalAlign=middle;dashed=1;dashPattern=2 5;strokeWidth=2;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="gke" sourceRefs="">
+          <mxGeometry as="geometry" x="1055" y="45" width="990" height="730" />
+        </mxCell>
+        <mxCell id="resolution-zone" value="" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=18;fontColor=#002663;fillColor=#F4F7FA;strokeColor=#83ADD3;spacing=14;align=left;verticalAlign=middle;dashed=1;dashPattern=2 5;strokeWidth=2;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="gke" sourceRefs="">
+          <mxGeometry as="geometry" x="2200" y="45" width="535" height="940" />
+        </mxCell>
+        <mxCell id="page-title" value="&lt;b&gt;VANTAGE Intelligence | Enterprise Technical Level 1 · V3&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=30;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#FFFFFF;spacing=14;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;spacing=0;" vertex="1" parent="1" sourceRefs="">
+          <mxGeometry as="geometry" x="40" y="20" width="3680" height="75" />
+        </mxCell>
+        <mxCell id="page-subtitle" value="GCP / GKE implementation proposal • Editable architecture • 12 October 2026 • Technology selections remain subject to approval" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=17;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#FFFFFF;spacing=14;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;spacing=0;" vertex="1" parent="1" sourceRefs="">
+          <mxGeometry as="geometry" x="40" y="98" width="3680" height="35" />
         </mxCell>
         <mxCell id="managed-label" value="&lt;b&gt;MANAGED CLOUD SERVICES&lt;/b&gt;&lt;br&gt;Outside GKE • Proposed selections" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=20;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#FFFFFF;spacing=14;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;spacing=0;" vertex="1" parent="gcp" sourceRefs="">
           <mxGeometry as="geometry" x="45" y="55" width="1100" height="70" />
@@ -44,38 +53,38 @@
         <mxCell id="model" value="&lt;b&gt;Vertex AI endpoint&lt;/b&gt;&lt;br&gt;LLM inference • PROPOSED&lt;br&gt;Enterprise gateway alternative" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=20;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#B29145;spacing=14;align=left;verticalAlign=middle;spacingLeft=84;dashed=1;dashPattern=7 4;" vertex="1" parent="gcp" sourceRefs="C60">
           <mxGeometry as="geometry" x="2350" y="140" width="435" height="160" />
         </mxCell>
-        <mxCell id="bridge" value="&lt;b&gt;Audio acquisition&lt;/b&gt;&lt;br&gt;Genesys stream / STT client&lt;br&gt;Transcript event output" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=20;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#B29145;spacing=14;align=left;verticalAlign=middle;spacingLeft=84;dashed=1;dashPattern=7 4;" vertex="1" parent="gke" sourceRefs="C71">
-          <mxGeometry as="geometry" x="35" y="90" width="380" height="150" />
+        <mxCell id="bridge" value="&lt;b&gt;Audio acquisition&lt;/b&gt;&lt;br&gt;Genesys stream / STT client&lt;br&gt;Transcript event output" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=20;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#B29145;spacing=14;align=left;verticalAlign=middle;spacingLeft=84;dashed=1;dashPattern=7 4;" vertex="1" parent="ingestion-zone" sourceRefs="C71">
+          <mxGeometry as="geometry" x="15" y="45" width="380" height="150" />
         </mxCell>
-        <mxCell id="ingress" value="&lt;b&gt;Transcript ingress&lt;/b&gt;&lt;br&gt;Source adaptation&lt;br&gt;Call / session identity" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=20;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#B29145;spacing=14;align=left;verticalAlign=middle;spacingLeft=84;dashed=1;dashPattern=7 4;" vertex="1" parent="gke" sourceRefs="C57,C73">
-          <mxGeometry as="geometry" x="35" y="350" width="380" height="150" />
+        <mxCell id="ingress" value="&lt;b&gt;Transcript ingress&lt;/b&gt;&lt;br&gt;Source adaptation&lt;br&gt;Call / session identity" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=20;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#B29145;spacing=14;align=left;verticalAlign=middle;spacingLeft=84;dashed=1;dashPattern=7 4;" vertex="1" parent="ingestion-zone" sourceRefs="C57,C73">
+          <mxGeometry as="geometry" x="15" y="305" width="380" height="150" />
         </mxCell>
-        <mxCell id="worker" value="&lt;b&gt;Ingestion worker pool&lt;/b&gt;&lt;br&gt;Normalize • sessions&lt;br&gt;Segmentation / microbatches" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=20;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#B29145;spacing=14;align=left;verticalAlign=middle;spacingLeft=84;dashed=1;dashPattern=7 4;" vertex="1" parent="gke" sourceRefs="C08,C56">
-          <mxGeometry as="geometry" x="555" y="350" width="410" height="150" />
+        <mxCell id="worker" value="&lt;b&gt;Ingestion worker pool&lt;/b&gt;&lt;br&gt;Normalize • sessions&lt;br&gt;Segmentation / microbatches" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=20;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#B29145;spacing=14;align=left;verticalAlign=middle;spacingLeft=84;dashed=1;dashPattern=7 4;" vertex="1" parent="ingestion-zone" sourceRefs="C08,C56">
+          <mxGeometry as="geometry" x="535" y="305" width="410" height="150" />
         </mxCell>
-        <mxCell id="coord" value="&lt;b&gt;Detector coordination&lt;/b&gt;&lt;br&gt;Catalog applicability&lt;br&gt;Select configured method(s)" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=20;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#B29145;spacing=14;align=left;verticalAlign=middle;spacingLeft=84;dashed=1;dashPattern=7 4;" vertex="1" parent="gke" sourceRefs="C54,C59">
-          <mxGeometry as="geometry" x="1075" y="350" width="410" height="150" />
+        <mxCell id="coord" value="&lt;b&gt;Detector coordination&lt;/b&gt;&lt;br&gt;Catalog applicability&lt;br&gt;Select configured method(s)" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=20;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#B29145;spacing=14;align=left;verticalAlign=middle;spacingLeft=84;dashed=1;dashPattern=7 4;" vertex="1" parent="detection-zone" sourceRefs="C54,C59">
+          <mxGeometry as="geometry" x="20" y="305" width="410" height="150" />
         </mxCell>
-        <mxCell id="rules" value="&lt;b&gt;Deterministic detection&lt;/b&gt;&lt;br&gt;Rules • regex • fuzzy&lt;br&gt;Entity checks" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=20;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#B29145;spacing=14;align=left;verticalAlign=middle;spacingLeft=84;dashed=1;dashPattern=7 4;" vertex="1" parent="gke" sourceRefs="C39">
-          <mxGeometry as="geometry" x="1595" y="110" width="420" height="150" />
+        <mxCell id="rules" value="&lt;b&gt;Deterministic detection&lt;/b&gt;&lt;br&gt;Rules • regex • fuzzy&lt;br&gt;Entity checks" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=20;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#B29145;spacing=14;align=left;verticalAlign=middle;spacingLeft=84;dashed=1;dashPattern=7 4;" vertex="1" parent="detection-zone" sourceRefs="C39">
+          <mxGeometry as="geometry" x="540" y="65" width="420" height="150" />
         </mxCell>
-        <mxCell id="semantic" value="&lt;b&gt;Semantic detection&lt;/b&gt;&lt;br&gt;Embed → top-K → rerank&lt;br&gt;Model / hosting OPEN" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=20;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#B29145;spacing=14;align=left;verticalAlign=middle;spacingLeft=84;dashed=1;dashPattern=7 4;" vertex="1" parent="gke" sourceRefs="C18,C19,C36">
-          <mxGeometry as="geometry" x="1595" y="350" width="420" height="150" />
+        <mxCell id="semantic" value="&lt;b&gt;Semantic detection&lt;/b&gt;&lt;br&gt;Embed → top-K → rerank&lt;br&gt;Model / hosting OPEN" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=20;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#B29145;spacing=14;align=left;verticalAlign=middle;spacingLeft=84;dashed=1;dashPattern=7 4;" vertex="1" parent="detection-zone" sourceRefs="C18,C19,C36">
+          <mxGeometry as="geometry" x="540" y="305" width="420" height="150" />
         </mxCell>
-        <mxCell id="llm" value="&lt;b&gt;LLM detection adapter&lt;/b&gt;&lt;br&gt;Candidate + requirement&lt;br&gt;Conversation context" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=20;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#B29145;spacing=14;align=left;verticalAlign=middle;spacingLeft=84;dashed=1;dashPattern=7 4;" vertex="1" parent="gke" sourceRefs="C60">
-          <mxGeometry as="geometry" x="1595" y="590" width="420" height="150" />
+        <mxCell id="llm" value="&lt;b&gt;LLM detection adapter&lt;/b&gt;&lt;br&gt;Candidate + requirement&lt;br&gt;Conversation context" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=20;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#B29145;spacing=14;align=left;verticalAlign=middle;spacingLeft=84;dashed=1;dashPattern=7 4;" vertex="1" parent="detection-zone" sourceRefs="C60">
+          <mxGeometry as="geometry" x="540" y="545" width="420" height="150" />
         </mxCell>
-        <mxCell id="resolver" value="&lt;b&gt;Shared Signal Resolution&lt;/b&gt;&lt;br&gt;Threshold-based acceptance&lt;br&gt;Calibration / combination OPEN" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=20;fontColor=#002663;fillColor=#EAF4FF;strokeColor=#006FCF;spacing=14;align=left;verticalAlign=middle;spacingLeft=84;strokeWidth=2;" vertex="1" parent="gke" sourceRefs="C22">
-          <mxGeometry as="geometry" x="2215" y="350" width="505" height="165" />
+        <mxCell id="resolver" value="&lt;b&gt;Shared Signal Resolution&lt;/b&gt;&lt;br&gt;Threshold-based acceptance&lt;br&gt;Calibration / combination OPEN" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=20;fontColor=#002663;fillColor=#EAF4FF;strokeColor=#006FCF;spacing=14;align=left;verticalAlign=middle;spacingLeft=84;strokeWidth=2;" vertex="1" parent="resolution-zone" sourceRefs="C22">
+          <mxGeometry as="geometry" x="15" y="305" width="505" height="165" />
         </mxCell>
-        <mxCell id="publisher" value="&lt;b&gt;Signal publication API&lt;/b&gt;&lt;br&gt;Accepted signal events&lt;br&gt;Delivery + persistence proposed" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=20;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#B29145;spacing=14;align=left;verticalAlign=middle;spacingLeft=84;dashed=1;dashPattern=7 4;" vertex="1" parent="gke" sourceRefs="C24,C40">
-          <mxGeometry as="geometry" x="2215" y="660" width="505" height="145" />
+        <mxCell id="publisher" value="&lt;b&gt;Signal publication API&lt;/b&gt;&lt;br&gt;Accepted signal events&lt;br&gt;Delivery + persistence proposed" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=20;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#B29145;spacing=14;align=left;verticalAlign=middle;spacingLeft=84;dashed=1;dashPattern=7 4;" vertex="1" parent="resolution-zone" sourceRefs="C24,C40">
+          <mxGeometry as="geometry" x="15" y="615" width="505" height="145" />
         </mxCell>
         <mxCell id="management" value="&lt;b&gt;Signal Management UI / API&lt;/b&gt;&lt;br&gt;Catalog • definitions • curated examples&lt;br&gt;Activation / versioning workflow OPEN" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=20;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#B29145;spacing=14;align=left;verticalAlign=middle;spacingLeft=84;dashed=1;dashPattern=7 4;" vertex="1" parent="gke" sourceRefs="C53,C13,C52">
           <mxGeometry as="geometry" x="555" y="795" width="870" height="130" />
         </mxCell>
-        <mxCell id="later" value="&lt;b&gt;Contextual generation / activation&lt;/b&gt;&lt;br&gt;LATER • selective follow-on" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=20;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#B29145;spacing=14;align=left;verticalAlign=middle;spacingLeft=84;dashed=1;dashPattern=7 4;" vertex="1" parent="gke" sourceRefs="C27,C28">
-          <mxGeometry as="geometry" x="2215" y="860" width="505" height="110" />
+        <mxCell id="later" value="&lt;b&gt;Contextual generation / activation&lt;/b&gt;&lt;br&gt;LATER • selective follow-on" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=20;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#B29145;spacing=14;align=left;verticalAlign=middle;spacingLeft=84;dashed=1;dashPattern=7 4;" vertex="1" parent="resolution-zone" sourceRefs="C27,C28">
+          <mxGeometry as="geometry" x="15" y="815" width="505" height="110" />
         </mxCell>
         <mxCell id="workbench" value="&lt;b&gt;Signal workbench&lt;/b&gt;&lt;br&gt;Evidence + latency display&lt;br&gt;Hosting / access OPEN" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=20;fontColor=#002663;fillColor=#EEF3F8;strokeColor=#839CAE;spacing=14;align=left;verticalAlign=middle;spacingLeft=84;" vertex="1" parent="1" sourceRefs="C25">
           <mxGeometry as="geometry" x="3310" y="1240" width="410" height="145" />
@@ -98,14 +107,14 @@
         <mxCell id="governance" value="&lt;b&gt;ENTERPRISE GOVERNANCE&lt;/b&gt;&lt;br&gt;Access • retention • privacy • audit&lt;br&gt;Ownership and policies OPEN" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=21;fontColor=#002663;fillColor=#EAF4FF;strokeColor=#B7C9D3;spacing=14;align=left;verticalAlign=middle;" vertex="1" parent="gcp" sourceRefs="">
           <mxGeometry as="geometry" x="2010" y="1550" width="745" height="150" />
         </mxCell>
-        <mxCell id="label-ingestion" value="&lt;b&gt;1  INTERACTION INGESTION&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=20;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#FFFFFF;spacing=14;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;spacing=0;" vertex="1" parent="gke" sourceRefs="">
-          <mxGeometry as="geometry" x="35" y="50" width="1400" height="36" />
+        <mxCell id="label-ingestion" value="&lt;b&gt;1  INTERACTION INGESTION&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=20;fontColor=#002663;fillColor=#006FCF;strokeColor=#006FCF;spacing=14;align=left;verticalAlign=middle;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="ingestion-zone" sourceRefs="">
+          <mxGeometry as="geometry" x="15" y="0" width="945" height="42" />
         </mxCell>
-        <mxCell id="label-detection" value="&lt;b&gt;2  DETECTION &amp;amp; ORCHESTRATION&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=20;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#FFFFFF;spacing=14;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;spacing=0;" vertex="1" parent="gke" sourceRefs="">
-          <mxGeometry as="geometry" x="1595" y="50" width="600" height="36" />
+        <mxCell id="label-detection" value="&lt;b&gt;2  DETECTION &amp;amp; ORCHESTRATION&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=20;fontColor=#002663;fillColor=#006FCF;strokeColor=#006FCF;spacing=14;align=left;verticalAlign=middle;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="detection-zone" sourceRefs="">
+          <mxGeometry as="geometry" x="15" y="0" width="960" height="42" />
         </mxCell>
-        <mxCell id="label-resolution" value="&lt;b&gt;3  RESOLUTION &amp;amp; OUTPUT&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=20;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#FFFFFF;spacing=14;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;spacing=0;" vertex="1" parent="gke" sourceRefs="">
-          <mxGeometry as="geometry" x="2215" y="50" width="500" height="36" />
+        <mxCell id="label-resolution" value="&lt;b&gt;3  RESOLUTION &amp;amp; OUTPUT&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=20;fontColor=#002663;fillColor=#006FCF;strokeColor=#006FCF;spacing=14;align=left;verticalAlign=middle;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="resolution-zone" sourceRefs="">
+          <mxGeometry as="geometry" x="15" y="0" width="505" height="42" />
         </mxCell>
         <mxCell id="legend" value="&lt;b&gt;CONNECTIONS &amp;amp; SCOPE&lt;/b&gt;&lt;br&gt;Solid blue: documented processing   •   Amber dashed: proposed interface   •   Dotted blue: configuration / telemetry   •   Purple: test input&lt;br&gt;GCP / GKE are confirmed targets. Dashed component borders indicate proposed implementation. Workload groups do not imply separate Kubernetes Deployments." style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=22;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#FFFFFF;spacing=14;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;spacing=0;" vertex="1" parent="1" sourceRefs="">
           <mxGeometry as="geometry" x="40" y="1950" width="3680" height="110" />

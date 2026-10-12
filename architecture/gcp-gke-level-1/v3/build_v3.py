@@ -5,7 +5,7 @@ import xml.etree.ElementTree as ET
 
 OUT=Path(__file__).resolve().parent
 NAVY='#002663'; TEAL='#006FCF'; INK='#002663'; GRAY='#3872A5'
-COLORS={'normal':('#FFFFFF','#A5BAC8'),'support':('#EAF4FF','#B7C9D3'),'future':('#FFFFFF','#B29145'),'test':('#F1EBFA','#9879B9'),'decision':('#EAF4FF','#006FCF'),'external':('#EEF3F8','#839CAE')}
+COLORS={'normal':('#FFFFFF','#A5BAC8'),'support':('#EAF4FF','#B7C9D3'),'future':('#FFFFFF','#B29145'),'test':('#F1EBFA','#9879B9'),'decision':('#EAF4FF','#006FCF'),'external':('#EEF3F8','#839CAE'),'section':('#006FCF','#006FCF'),'zone':('#F4F9FF','#83ADD3')}
 class View:
  def __init__(self,name,w,h):self.name=name;self.w=w;self.h=h;self.nodes={};self.edges=[]
  def box(self,i,title,body,x,y,w,h,kind='normal',parent='1',refs='',fs=18):
@@ -42,7 +42,7 @@ class View:
    assert n['x']>=0 and n['y']>=0 and n['x']+n['w']<=self.w and n['y']+n['h']<=self.h,n['id']
    t,b=self.lines(n);assert (len(t)+len(b))*n['fs']*1.22+(8 if t and b else 0)<=n['h']-(8 if n['kind']=='title' else 16),(self.name,n['id'],t,b)
    if n['parent']!='1':
-    p=self.nodes[n['parent']];assert p['x']<=n['x'] and p['y']+42<=n['y'] and n['x']+n['w']<=p['x']+p['w'] and n['y']+n['h']<=p['y']+p['h'],n['id']
+    p=self.nodes[n['parent']];assert p['x']<=n['x'] and p['y']+(0 if p['kind']=='zone' else 42)<=n['y'] and n['x']+n['w']<=p['x']+p['w'] and n['y']+n['h']<=p['y']+p['h'],n['id']
   ns=list(self.nodes.values())
   for k,a in enumerate(ns):
    for b in ns[k+1:]:
@@ -63,23 +63,28 @@ class View:
   def rect(n):
    if n['kind']=='title':return
    fill,stroke=COLORS[n['kind']]
+   fill=n.get('zone_fill',fill)
    attrs=dict(x=n['x'],y=n['y'],width=n['w'],height=n['h'],fill=fill,stroke=stroke,stroke_width=2 if n['kind']=='decision' else 1)
    if n['kind']=='future':attrs['stroke_dasharray']='7 4'
+   if n['kind']=='zone':attrs.update(stroke_dasharray='2 5',stroke_width=2)
    s('rect',**attrs)
    if n['band']:s('rect',x=n['x'],y=n['y'],width=n['w'],height=44,fill=n['color'])
   for n in self.nodes.values():
    fill,stroke=COLORS.get(n['kind'],('#FFFFFF','#FFFFFF'))
+   fill=n.get('zone_fill',fill)
    style=f'rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize={n["fs"]};fontColor={INK};fillColor={fill};strokeColor={stroke};spacing=14;align=left;verticalAlign=middle;'
    value=('<b>'+html.escape(n['title'])+'</b>' if n['title'] else '')+('<br>' if n['title'] and n['body'] else '')+html.escape(n['body']).replace('\n','<br>')
    if n['band']:
     value=html.escape(n['title']);style+=f'shape=swimlane;startSize=44;horizontal=1;fillColor={n["color"]};swimlaneFillColor={fill};fontColor=#FFFFFF;fontStyle=1;container=1;collapsible=0;recursiveResize=0;'
    if n.get('icon'):style+='spacingLeft=84;'
+   if n['kind']=='zone':style+='dashed=1;dashPattern=2 5;strokeWidth=2;container=1;collapsible=0;recursiveResize=0;'
+   if n['kind']=='section':style+='fontColor=#FFFFFF;fontStyle=1;'
    if n['kind']=='future':style+='dashed=1;dashPattern=7 4;'
    if n['kind']=='title':style+='strokeColor=none;fillColor=none;spacing=0;'
    if n['kind']=='decision':style+='strokeWidth=2;'
    c=ET.SubElement(root,'mxCell',id=n['id'],value=value,style=style,vertex='1',parent=n['parent'],sourceRefs=n['refs'])
    parent=self.nodes.get(n['parent'],{'x':0,'y':0});ET.SubElement(c,'mxGeometry',x=str(n['x']-parent['x']),y=str(n['y']-parent['y']),width=str(n['w']),height=str(n['h']),attrib={'as':'geometry'})
-   if n['band']:rect(n)
+   if n['band'] or n['kind']=='zone':rect(n)
   for e in self.edges:
    pts=self.points(e);future=e['kind']=='future';col='#8A5DB0' if e['kind']=='test' else ('#AA8539' if future else GRAY)
    attrs=dict(points=' '.join(f'{x},{y}' for x,y in pts),fill='none',stroke=col,stroke_width=1.8,marker_end='url(#test)' if e['kind']=='test' else ('url(#future)' if future else 'url(#arrow)'))
@@ -103,12 +108,12 @@ class View:
     ar=ET.SubElement(ge,'Array',attrib={'as':'points'})
     for x,y in pts[1:-1]:ET.SubElement(ar,'mxPoint',x=str(x),y=str(y))
   for n in self.nodes.values():
-   if not n['band']:rect(n)
+   if not n['band'] and n['kind']!='zone':rect(n)
    t,b=self.lines(n);lh=n['fs']*1.22;total=(len(t)+len(b))*lh+(8 if t and b else 0)
    y=n['y']+29 if n['band'] else n['y']+(n['h']-total)/2+n['fs']
    for bold,ls in [(True,t),(False,b)]:
     for line in ls:
-     s('text',x=n['x']+(0 if n['kind']=='title' else (84 if n.get('icon') else 14)),y=round(y,1),font_family='Arial',font_size=n['fs'],font_weight='bold' if bold else 'normal',fill='white' if n['band'] else INK).text=line;y+=lh
+     s('text',x=n['x']+(0 if n['kind']=='title' else (84 if n.get('icon') else 14)),y=round(y,1),font_family='Arial',font_size=n['fs'],font_weight='bold' if bold else 'normal',fill='white' if n['band'] or n['kind']=='section' else INK).text=line;y+=lh
     if bold and t and b:y+=8
   for e in self.edges:
    if e['label']:
@@ -214,8 +219,8 @@ v.link('resolver','later','Selective follow-on','future','bottom','left',[(2635,
 v.link('later','consumers','Delivery contract OPEN','future',refs='R36,R37')
 v.link('gke','telemetry','Logs / metrics / traces','config','bottom','top',[(1840,1640),(860,1640)],'C44')
 # Concise descriptive zone labels; no legacy source-reference numbers.
-for i,t,x,y,w in [('ingestion','1  INTERACTION INGESTION',490,630,1400),('detection','2  DETECTION & ORCHESTRATION',2050,630,600),('resolution','3  RESOLUTION & OUTPUT',2670,630,500)]:
- v.box('label-'+i,t,'',x,y,w,36,'title','gke',fs=20)
+for i,t,x,y,w in [('ingestion','1  INTERACTION INGESTION',490,625,380),('detection','2  DETECTION & ORCHESTRATION',2050,625,420),('resolution','3  RESOLUTION & OUTPUT',2670,625,505)]:
+ v.box('label-'+i,t,'',x,y,w,42,'section','gke',fs=20)
 v.box('legend','CONNECTIONS & SCOPE','Solid blue: documented processing   •   Amber dashed: proposed interface   •   Dotted blue: configuration / telemetry   •   Purple: test input\nGCP / GKE are confirmed targets. Dashed component borders indicate proposed implementation. Workload groups do not imply separate Kubernetes Deployments.',40,1950,3680,110,'title',fs=22)
 v.nodes['gke']['icon']='google_kubernetes_engine.svg'
 # Titles shorter for legibility; full unresolved details remain in the decision notes.
@@ -232,6 +237,19 @@ for e in v.edges:
  if e['label']=='HTTPS inference':e['label_pos']=(2605,600)
  if e['label']=='Catalog • SQL / TLS':e['label_pos']=(1950,1380)
  if e['label']=='Persist result • proposed':e['label_pos']=(3020,275)
+# Visual process containers: grouping only, not additional service boundaries.
+for ident,x,w,h,tint,members in [
+ ('ingestion-zone',475,975,730,'#F4F9FF',['bridge','ingress','worker','label-ingestion']),
+ ('detection-zone',1510,990,730,'#F0F6FC',['coord','rules','semantic','llm','label-detection']),
+ ('resolution-zone',2655,535,940,'#F4F7FA',['resolver','publisher','later','label-resolution'])]:
+ v.box(ident,'','',x,625,w,h,'zone','gke')
+ v.nodes[ident]['zone_fill']=tint
+ for member in members:v.nodes[member]['parent']=ident
+v.nodes['label-ingestion'].update(x=490,w=945)
+v.nodes['label-detection'].update(x=1525,w=960)
+# Background containers precede their editable children in both exports.
+first=['gcp','gke','ingestion-zone','detection-zone','resolution-zone']
+v.nodes={**{k:v.nodes[k] for k in first},**{k:n for k,n in v.nodes.items() if k not in first}}
 mx=ET.Element('mxfile',host='app.diagrams.net',type='device')
 report=v.export(mx,'vantage-gcp-gke-technical-level-1-v3')
 ET.indent(mx);ET.ElementTree(mx).write(OUT/'vantage-gcp-gke-technical-level-1-v3.drawio',encoding='utf-8',xml_declaration=True)

@@ -4,7 +4,7 @@
 
 ## Checks completed
 
-- One editable draw.io page, 35 component/container/text vertices, 26 embedded icon cells and 25 connectors.
+- One editable draw.io page, 38 component/container/text vertices, 26 embedded icon cells and 25 connectors.
 - All 25 previous technical-view source/target pairs preserved; no new data interfaces introduced.
 - Previous files verified unchanged using saved SHA-256 hashes.
 - All embedded SVG payloads decoded and parsed successfully. No external icon URL dependencies.
@@ -23,3 +23,11 @@ The preview is an SVG/PNG rendering from the generator's graph, not an export fr
 ## Architecture self-review
 
 GKE workloads are identifiable; managed dependencies remain outside GKE. Queue-before-workers, same-call bounded context, catalog applicability, selectively invoked deterministic/semantic/LLM paths, and shared resolution are preserved. Proposed products and packaging stay qualified. Later generation/activation is separate. Context write-back ownership, score calibration and combination, model hosting, storage retention and consumer contracts remain open in the decision notes.
+
+## Section-heading refinement
+
+The three processing headings now use distinct editable blue boxes with white text. All 25 connector endpoints and labels remain unchanged; the updated preview was rendered and inspected. This local refinement has not yet been pushed to GitHub.
+
+## Process-group containers
+
+Added three native editable containers with pale fills and dotted blue borders: Interaction Ingestion (including ingestion workers), Detection & Orchestration (including detector coordination and all three methods), and Resolution & Output. These are visual groupings, not additional deployment or security boundaries. Signal Management remains shared support. All 25 source/target pairs and connector labels remain unchanged. Rendered and visually inspected; not yet pushed to GitHub.

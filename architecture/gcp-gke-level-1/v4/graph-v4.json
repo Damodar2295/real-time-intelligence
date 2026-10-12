@@ -1,0 +1,1197 @@
+{
+  "nodes": {
+    "gcp": {
+      "id": "gcp",
+      "title": "GOOGLE CLOUD  |  Confirmed target platform",
+      "body": "",
+      "x": 420,
+      "y": 160,
+      "w": 2840,
+      "h": 1720,
+      "kind": "support",
+      "parent": "1",
+      "refs": "",
+      "fs": 21,
+      "band": true,
+      "color": "#002663",
+      "decision_status": "CONFIRMED target; deployment NOT VERIFIED"
+    },
+    "gke": {
+      "id": "gke",
+      "title": "GKE APPLICATION RUNTIME  |  Confirmed target; workload boundaries proposed",
+      "body": "",
+      "x": 455,
+      "y": 540,
+      "w": 2770,
+      "h": 1000,
+      "kind": "support",
+      "parent": "gcp",
+      "refs": "",
+      "fs": 21,
+      "band": true,
+      "color": "#006FCF",
+      "icon": "google_kubernetes_engine.svg",
+      "decision_status": "CONFIRMED target; deployment NOT VERIFIED"
+    },
+    "ingestion-zone": {
+      "id": "ingestion-zone",
+      "title": "",
+      "body": "",
+      "x": 475,
+      "y": 585,
+      "w": 975,
+      "h": 730,
+      "kind": "zone",
+      "parent": "gke",
+      "refs": "",
+      "fs": 18,
+      "band": false,
+      "zone_fill": "#F4F9FF"
+    },
+    "detection-zone": {
+      "id": "detection-zone",
+      "title": "",
+      "body": "",
+      "x": 1510,
+      "y": 585,
+      "w": 990,
+      "h": 730,
+      "kind": "zone",
+      "parent": "gke",
+      "refs": "",
+      "fs": 18,
+      "band": false,
+      "zone_fill": "#F0F6FC"
+    },
+    "resolution-zone": {
+      "id": "resolution-zone",
+      "title": "",
+      "body": "",
+      "x": 2655,
+      "y": 585,
+      "w": 535,
+      "h": 940,
+      "kind": "zone",
+      "parent": "gke",
+      "refs": "",
+      "fs": 18,
+      "band": false,
+      "zone_fill": "#F4F7FA"
+    },
+    "page-title": {
+      "id": "page-title",
+      "title": "VANTAGE Intelligence | Enterprise Technical Level 1 | V4",
+      "body": "",
+      "x": 40,
+      "y": 15,
+      "w": 3680,
+      "h": 55,
+      "kind": "title",
+      "parent": "1",
+      "refs": "",
+      "fs": 30,
+      "band": false
+    },
+    "page-subtitle": {
+      "id": "page-subtitle",
+      "title": "",
+      "body": "Status: DRAFT \u2014 EARB review  |  Target: GCP / GKE  |  Owner: UNASSIGNED  |  Review date: 12 October 2026\nBaseline: latest local V3 + logical model v1.2  |  Target confirmation does not indicate deployment or production approval",
+      "x": 40,
+      "y": 78,
+      "w": 3680,
+      "h": 66,
+      "kind": "title",
+      "parent": "1",
+      "refs": "",
+      "fs": 20,
+      "band": false
+    },
+    "managed-label": {
+      "id": "managed-label",
+      "title": "MANAGED CLOUD SERVICES",
+      "body": "Outside GKE \u2022 Proposed selections",
+      "x": 465,
+      "y": 215,
+      "w": 1100,
+      "h": 70,
+      "kind": "title",
+      "parent": "gcp",
+      "refs": "",
+      "fs": 20,
+      "band": false
+    },
+    "genesys": {
+      "id": "genesys",
+      "title": "Genesys Cloud",
+      "body": "Live call source\nAudio interface OPEN",
+      "x": 35,
+      "y": 630,
+      "w": 340,
+      "h": 150,
+      "kind": "external",
+      "parent": "1",
+      "refs": "C01",
+      "fs": 20,
+      "band": false,
+      "icon": "neutral-cloud.svg",
+      "decision_status": "CONFIRMED behavior; implementation OPEN",
+      "status_label": "CONFIRMED ROLE"
+    },
+    "test": {
+      "id": "test",
+      "title": "Transcript emulator",
+      "body": "Separate TEST service\nConcurrent call streams",
+      "x": 35,
+      "y": 890,
+      "w": 340,
+      "h": 150,
+      "kind": "test",
+      "parent": "1",
+      "refs": "C02",
+      "fs": 20,
+      "band": false,
+      "icon": "neutral-service.svg",
+      "decision_status": "CONFIRMED behavior; implementation OPEN",
+      "status_label": "CONFIRMED ROLE"
+    },
+    "provider": {
+      "id": "provider",
+      "title": "Provider integration",
+      "body": "Authentication \u2022 format \u2022 reconnect\nContracts OPEN",
+      "x": 35,
+      "y": 1180,
+      "w": 340,
+      "h": 140,
+      "kind": "support",
+      "parent": "1",
+      "refs": "",
+      "fs": 20,
+      "band": false,
+      "decision_status": "OPEN ownership / controls"
+    },
+    "stt": {
+      "id": "stt",
+      "title": "Speech-to-Text",
+      "body": "Streaming recognition\ngRPC / TLS \u2022 PROPOSED",
+      "x": 490,
+      "y": 300,
+      "w": 435,
+      "h": 160,
+      "kind": "future",
+      "parent": "gcp",
+      "refs": "C72",
+      "fs": 20,
+      "band": false,
+      "icon": "speech-to-text.svg",
+      "decision_status": "PROPOSED implementation",
+      "status_label": "PROPOSED"
+    },
+    "queue": {
+      "id": "queue",
+      "title": "Cloud Pub/Sub",
+      "body": "Transcript topic + subscription\nCall ordering semantics OPEN",
+      "x": 1040,
+      "y": 300,
+      "w": 435,
+      "h": 160,
+      "kind": "future",
+      "parent": "gcp",
+      "refs": "C74",
+      "fs": 20,
+      "band": false,
+      "icon": "pubsub.svg",
+      "decision_status": "PROPOSED implementation",
+      "status_label": "PROPOSED"
+    },
+    "state": {
+      "id": "state",
+      "title": "Memorystore for Redis",
+      "body": "Bounded same-call context\nHistory writer / recovery OPEN",
+      "x": 1640,
+      "y": 300,
+      "w": 435,
+      "h": 160,
+      "kind": "future",
+      "parent": "gcp",
+      "refs": "C47",
+      "fs": 20,
+      "band": false,
+      "icon": "memorystore.svg",
+      "decision_status": "PROPOSED implementation",
+      "status_label": "PROPOSED"
+    },
+    "sql": {
+      "id": "sql",
+      "title": "Cloud SQL \u00b7 PostgreSQL",
+      "body": "pgvector \u2022 catalog \u2022 results\nHosting and storage PROPOSED",
+      "x": 2210,
+      "y": 300,
+      "w": 435,
+      "h": 160,
+      "kind": "future",
+      "parent": "gcp",
+      "refs": "C61",
+      "fs": 20,
+      "band": false,
+      "icon": "cloud_sql.svg",
+      "decision_status": "PROPOSED implementation",
+      "status_label": "PROPOSED"
+    },
+    "model": {
+      "id": "model",
+      "title": "Vertex AI endpoint",
+      "body": "LLM inference \u2022 PROPOSED\nEnterprise gateway alternative",
+      "x": 2770,
+      "y": 300,
+      "w": 435,
+      "h": 160,
+      "kind": "future",
+      "parent": "gcp",
+      "refs": "C60",
+      "fs": 20,
+      "band": false,
+      "icon": "vertexai.svg",
+      "decision_status": "PROPOSED implementation",
+      "status_label": "PROPOSED"
+    },
+    "bridge": {
+      "id": "bridge",
+      "title": "Audio acquisition",
+      "body": "Genesys stream / STT client\nTranscript event output",
+      "x": 490,
+      "y": 630,
+      "w": 380,
+      "h": 150,
+      "kind": "future",
+      "parent": "ingestion-zone",
+      "refs": "C71",
+      "fs": 20,
+      "band": false,
+      "icon": "neutral-audio.svg",
+      "decision_status": "PROPOSED implementation",
+      "status_label": "PROPOSED"
+    },
+    "ingress": {
+      "id": "ingress",
+      "title": "Transcript ingress",
+      "body": "Source adaptation\nCall / session identity",
+      "x": 490,
+      "y": 890,
+      "w": 380,
+      "h": 150,
+      "kind": "future",
+      "parent": "ingestion-zone",
+      "refs": "C57,C73",
+      "fs": 20,
+      "band": false,
+      "icon": "neutral-service.svg",
+      "decision_status": "PROPOSED implementation",
+      "status_label": "PROPOSED"
+    },
+    "worker": {
+      "id": "worker",
+      "title": "Ingestion worker pool",
+      "body": "Normalize \u2022 sessions\nSegmentation / microbatches",
+      "x": 1010,
+      "y": 890,
+      "w": 410,
+      "h": 150,
+      "kind": "future",
+      "parent": "ingestion-zone",
+      "refs": "C08,C56",
+      "fs": 20,
+      "band": false,
+      "icon": "neutral-service.svg",
+      "decision_status": "PROPOSED implementation",
+      "status_label": "PROPOSED"
+    },
+    "coord": {
+      "id": "coord",
+      "title": "Detector coordination",
+      "body": "Select applicable method(s)\nScheduling / completion OPEN",
+      "x": 1530,
+      "y": 890,
+      "w": 410,
+      "h": 150,
+      "kind": "future",
+      "parent": "detection-zone",
+      "refs": "C54,C59",
+      "fs": 20,
+      "band": false,
+      "icon": "neutral-branch.svg",
+      "decision_status": "PROPOSED implementation",
+      "status_label": "PROPOSED"
+    },
+    "rules": {
+      "id": "rules",
+      "title": "Deterministic detection",
+      "body": "Rules \u2022 regex \u2022 fuzzy\nEntity checks",
+      "x": 2050,
+      "y": 650,
+      "w": 420,
+      "h": 150,
+      "kind": "future",
+      "parent": "detection-zone",
+      "refs": "C39",
+      "fs": 20,
+      "band": false,
+      "icon": "neutral-service.svg",
+      "decision_status": "PROPOSED implementation",
+      "status_label": "PROPOSED"
+    },
+    "semantic": {
+      "id": "semantic",
+      "title": "Semantic detection",
+      "body": "Embed \u2192 top-K \u2192 rerank\nModel / hosting OPEN",
+      "x": 2050,
+      "y": 890,
+      "w": 420,
+      "h": 150,
+      "kind": "future",
+      "parent": "detection-zone",
+      "refs": "C18,C19,C36",
+      "fs": 20,
+      "band": false,
+      "icon": "neutral-search.svg",
+      "decision_status": "PROPOSED implementation",
+      "status_label": "PROPOSED"
+    },
+    "llm": {
+      "id": "llm",
+      "title": "LLM detection adapter",
+      "body": "Candidate + requirement\nConversation context",
+      "x": 2050,
+      "y": 1130,
+      "w": 420,
+      "h": 150,
+      "kind": "future",
+      "parent": "detection-zone",
+      "refs": "C60",
+      "fs": 20,
+      "band": false,
+      "icon": "neutral-service.svg",
+      "decision_status": "PROPOSED implementation",
+      "status_label": "PROPOSED"
+    },
+    "resolver": {
+      "id": "resolver",
+      "title": "Shared Signal Resolution",
+      "body": "Threshold-based acceptance\nCalibration / combination OPEN",
+      "x": 2670,
+      "y": 890,
+      "w": 505,
+      "h": 165,
+      "kind": "decision",
+      "parent": "resolution-zone",
+      "refs": "C22",
+      "fs": 20,
+      "band": false,
+      "icon": "neutral-check.svg",
+      "decision_status": "CONFIRMED behavior; implementation OPEN",
+      "status_label": "CONFIRMED ROLE"
+    },
+    "publisher": {
+      "id": "publisher",
+      "title": "Signal publication API",
+      "body": "Accepted signal events\nDelivery + persistence proposed",
+      "x": 2670,
+      "y": 1200,
+      "w": 505,
+      "h": 145,
+      "kind": "future",
+      "parent": "resolution-zone",
+      "refs": "C24,C40",
+      "fs": 20,
+      "band": false,
+      "icon": "neutral-service.svg",
+      "decision_status": "PROPOSED implementation",
+      "status_label": "PROPOSED"
+    },
+    "management": {
+      "id": "management",
+      "title": "Signal Management UI / API",
+      "body": "Catalog \u2022 definitions \u2022 curated examples\nActivation / versioning workflow OPEN",
+      "x": 1010,
+      "y": 1335,
+      "w": 870,
+      "h": 130,
+      "kind": "future",
+      "parent": "gke",
+      "refs": "C53,C13,C52",
+      "fs": 20,
+      "band": false,
+      "icon": "neutral-screen.svg",
+      "decision_status": "PROPOSED implementation",
+      "status_label": "PROPOSED"
+    },
+    "later": {
+      "id": "later",
+      "title": "Contextual generation / activation",
+      "body": "LATER \u2022 selective follow-on",
+      "x": 2670,
+      "y": 1400,
+      "w": 505,
+      "h": 110,
+      "kind": "future",
+      "parent": "resolution-zone",
+      "refs": "C27,C28",
+      "fs": 20,
+      "band": false,
+      "icon": "neutral-branch.svg",
+      "decision_status": "PROPOSED implementation",
+      "status_label": "PROPOSED"
+    },
+    "workbench": {
+      "id": "workbench",
+      "title": "Signal workbench",
+      "body": "Evidence + latency display\nHosting / access OPEN",
+      "x": 3310,
+      "y": 1200,
+      "w": 410,
+      "h": 145,
+      "kind": "external",
+      "parent": "1",
+      "refs": "C25",
+      "fs": 20,
+      "band": false,
+      "icon": "neutral-screen.svg",
+      "decision_status": "CONFIRMED behavior; implementation OPEN",
+      "status_label": "CONFIRMED ROLE"
+    },
+    "consumers": {
+      "id": "consumers",
+      "title": "Downstream consumers",
+      "body": "LATER integration\nDelivery contract OPEN",
+      "x": 3310,
+      "y": 1440,
+      "w": 410,
+      "h": 140,
+      "kind": "future",
+      "parent": "1",
+      "refs": "C29",
+      "fs": 20,
+      "band": false,
+      "icon": "neutral-screen.svg",
+      "decision_status": "PROPOSED implementation",
+      "status_label": "PROPOSED"
+    },
+    "status": {
+      "id": "status",
+      "title": "DECISION STATUS",
+      "body": "CONFIRMED: agreed target / role\nPROPOSED: implementation choice\nOPEN: contract / owner undecided\nDeployment is NOT VERIFIED",
+      "x": 3310,
+      "y": 300,
+      "w": 410,
+      "h": 191.42857142857144,
+      "kind": "support",
+      "parent": "1",
+      "refs": "",
+      "fs": 20,
+      "band": false
+    },
+    "notes": {
+      "id": "notes",
+      "title": "DATA & TRUST BOUNDARIES",
+      "body": "Runtime boxes are not trust zones.\nIngress / access policy OPEN.\nFull-call storage OPEN.\nBigQuery is reference-only.",
+      "x": 3310,
+      "y": 610,
+      "w": 410,
+      "h": 200,
+      "kind": "support",
+      "parent": "1",
+      "refs": "",
+      "fs": 20,
+      "band": false
+    },
+    "telemetry": {
+      "id": "telemetry",
+      "title": "Cloud Observability",
+      "body": "Logging \u2022 Monitoring \u2022 Trace\nApplication instrumentation required",
+      "x": 490,
+      "y": 1670,
+      "w": 740,
+      "h": 150,
+      "kind": "future",
+      "parent": "gcp",
+      "refs": "C44",
+      "fs": 20,
+      "band": false,
+      "icon": "cloud_logging.svg",
+      "decision_status": "PROPOSED implementation",
+      "status_label": "PROPOSED"
+    },
+    "controls": {
+      "id": "controls",
+      "title": "Identity, secrets & network controls",
+      "body": "Workload Identity / IAM \u2022 Secret Manager\nPrivate connectivity and network policy",
+      "x": 1320,
+      "y": 1670,
+      "w": 1020,
+      "h": 150,
+      "kind": "future",
+      "parent": "gcp",
+      "refs": "",
+      "fs": 20,
+      "band": false,
+      "icon": "secret_manager.svg",
+      "decision_status": "PROPOSED implementation",
+      "status_label": "PROPOSED"
+    },
+    "governance": {
+      "id": "governance",
+      "title": "ENTERPRISE GOVERNANCE",
+      "body": "Access \u2022 retention \u2022 privacy \u2022 audit\nOwnership and policies OPEN",
+      "x": 2430,
+      "y": 1670,
+      "w": 745,
+      "h": 150,
+      "kind": "support",
+      "parent": "gcp",
+      "refs": "",
+      "fs": 21,
+      "band": false,
+      "decision_status": "OPEN ownership / controls"
+    },
+    "label-ingestion": {
+      "id": "label-ingestion",
+      "title": "1  INTERACTION INGESTION",
+      "body": "",
+      "x": 490,
+      "y": 585,
+      "w": 945,
+      "h": 42,
+      "kind": "section",
+      "parent": "ingestion-zone",
+      "refs": "",
+      "fs": 20,
+      "band": false
+    },
+    "label-detection": {
+      "id": "label-detection",
+      "title": "2  DETECTION & ORCHESTRATION",
+      "body": "",
+      "x": 1525,
+      "y": 585,
+      "w": 960,
+      "h": 42,
+      "kind": "section",
+      "parent": "detection-zone",
+      "refs": "",
+      "fs": 20,
+      "band": false
+    },
+    "label-resolution": {
+      "id": "label-resolution",
+      "title": "3  RESOLUTION & OUTPUT",
+      "body": "",
+      "x": 2670,
+      "y": 585,
+      "w": 505,
+      "h": 42,
+      "kind": "section",
+      "parent": "resolution-zone",
+      "refs": "",
+      "fs": 20,
+      "band": false
+    },
+    "legend": {
+      "id": "legend",
+      "title": "CONNECTIONS & SCOPE",
+      "body": "Solid blue: documented data flow   \u2022   Amber dashed: proposed integration   \u2022   Dotted blue: configuration / control   \u2022   Dash-dot blue: telemetry   \u2022   Purple: test input\nShaded process groups are visual only. Security boundaries and control inheritance are OPEN. Stable component / interface IDs are embedded and listed in the V4 matrix.",
+      "x": 40,
+      "y": 1910,
+      "w": 3680,
+      "h": 110,
+      "kind": "title",
+      "parent": "1",
+      "refs": "",
+      "fs": 22,
+      "band": false
+    }
+  },
+  "edges": [
+    {
+      "id": "edge-1",
+      "a": "genesys",
+      "b": "bridge",
+      "label": "Audio \u2022 interface OPEN",
+      "kind": "future",
+      "sa": "right",
+      "ta": "left",
+      "pts": [],
+      "refs": "R94",
+      "decision_status": "PROPOSED interface",
+      "protocol_status": "OPEN / not specified"
+    },
+    {
+      "id": "edge-2",
+      "a": "bridge",
+      "b": "stt",
+      "label": "gRPC / TLS + results",
+      "kind": "future",
+      "sa": "top",
+      "ta": "bottom",
+      "pts": [
+        [
+          680,
+          489.2857142857143
+        ],
+        [
+          707.5,
+          489.2857142857143
+        ]
+      ],
+      "refs": "R95",
+      "label_pos": [
+        700,
+        487.14285714285717
+      ],
+      "decision_status": "PROPOSED interface",
+      "protocol_status": "PROPOSED"
+    },
+    {
+      "id": "edge-3",
+      "a": "bridge",
+      "b": "ingress",
+      "label": "Transcript events",
+      "kind": "data",
+      "sa": "bottom",
+      "ta": "top",
+      "pts": [],
+      "refs": "R96",
+      "decision_status": "CONFIRMED logical relationship",
+      "protocol_status": "OPEN / not specified"
+    },
+    {
+      "id": "edge-4",
+      "a": "test",
+      "b": "ingress",
+      "label": "WebSocket",
+      "kind": "test",
+      "sa": "right",
+      "ta": "left",
+      "pts": [],
+      "refs": "R65",
+      "decision_status": "CONFIRMED logical relationship",
+      "protocol_status": "DOCUMENTED WebSocket"
+    },
+    {
+      "id": "edge-5",
+      "a": "ingress",
+      "b": "queue",
+      "label": "Publish API / TLS",
+      "kind": "future",
+      "sa": "right",
+      "ta": "bottom",
+      "pts": [
+        [
+          940,
+          965
+        ],
+        [
+          940,
+          489.2857142857143
+        ],
+        [
+          1257.5,
+          489.2857142857143
+        ]
+      ],
+      "refs": "R98",
+      "label_pos": [
+        985,
+        670
+      ],
+      "decision_status": "PROPOSED interface",
+      "protocol_status": "PROPOSED"
+    },
+    {
+      "id": "edge-6",
+      "a": "queue",
+      "b": "worker",
+      "label": "StreamingPull / ack",
+      "kind": "future",
+      "sa": "bottom",
+      "ta": "top",
+      "pts": [
+        [
+          1257.5,
+          510
+        ],
+        [
+          1215,
+          510
+        ]
+      ],
+      "refs": "R99",
+      "label_pos": [
+        1295,
+        760
+      ],
+      "decision_status": "PROPOSED interface",
+      "protocol_status": "PROPOSED"
+    },
+    {
+      "id": "edge-7",
+      "a": "worker",
+      "b": "coord",
+      "label": "Microbatch \u2022 gRPC proposed",
+      "kind": "data",
+      "sa": "right",
+      "ta": "left",
+      "pts": [],
+      "refs": "R92",
+      "label_pos": [
+        1475,
+        875
+      ],
+      "decision_status": "CONFIRMED logical relationship",
+      "protocol_status": "PROPOSED"
+    },
+    {
+      "id": "edge-8",
+      "a": "worker",
+      "b": "state",
+      "label": "Redis / TLS",
+      "kind": "future",
+      "sa": "top",
+      "ta": "bottom",
+      "pts": [
+        [
+          1215,
+          840
+        ],
+        [
+          1480,
+          840
+        ],
+        [
+          1480,
+          478.57142857142856
+        ],
+        [
+          1857.5,
+          478.57142857142856
+        ]
+      ],
+      "refs": "R68",
+      "label_pos": [
+        1510,
+        690
+      ],
+      "decision_status": "PROPOSED interface",
+      "protocol_status": "PROPOSED"
+    },
+    {
+      "id": "edge-9",
+      "a": "state",
+      "b": "coord",
+      "label": "Same-call context",
+      "kind": "future",
+      "sa": "bottom",
+      "ta": "top",
+      "pts": [
+        [
+          1857.5,
+          493.57142857142856
+        ],
+        [
+          1735,
+          493.57142857142856
+        ]
+      ],
+      "refs": "R69",
+      "label_pos": [
+        1735,
+        785
+      ],
+      "decision_status": "PROPOSED interface",
+      "protocol_status": "OPEN / not specified"
+    },
+    {
+      "id": "edge-10",
+      "a": "coord",
+      "b": "rules",
+      "label": "",
+      "kind": "data",
+      "sa": "right",
+      "ta": "left",
+      "pts": [
+        [
+          1995,
+          965
+        ],
+        [
+          1995,
+          725
+        ]
+      ],
+      "refs": "R71",
+      "decision_status": "CONFIRMED logical relationship",
+      "protocol_status": "OPEN / not specified"
+    },
+    {
+      "id": "edge-11",
+      "a": "coord",
+      "b": "semantic",
+      "label": "",
+      "kind": "data",
+      "sa": "right",
+      "ta": "left",
+      "pts": [
+        [
+          1995,
+          965
+        ],
+        [
+          1995,
+          965
+        ]
+      ],
+      "refs": "R72",
+      "decision_status": "CONFIRMED logical relationship",
+      "protocol_status": "OPEN / not specified"
+    },
+    {
+      "id": "edge-12",
+      "a": "coord",
+      "b": "llm",
+      "label": "",
+      "kind": "data",
+      "sa": "right",
+      "ta": "left",
+      "pts": [
+        [
+          1995,
+          965
+        ],
+        [
+          1995,
+          1205
+        ]
+      ],
+      "refs": "R73",
+      "decision_status": "CONFIRMED logical relationship",
+      "protocol_status": "OPEN / not specified"
+    },
+    {
+      "id": "edge-13",
+      "a": "rules",
+      "b": "resolver",
+      "label": "",
+      "kind": "data",
+      "sa": "right",
+      "ta": "left",
+      "pts": [
+        [
+          2545,
+          725
+        ],
+        [
+          2545,
+          972.5
+        ]
+      ],
+      "refs": "R50,R30",
+      "decision_status": "CONFIRMED logical relationship",
+      "protocol_status": "OPEN / not specified"
+    },
+    {
+      "id": "edge-14",
+      "a": "semantic",
+      "b": "resolver",
+      "label": "",
+      "kind": "data",
+      "sa": "right",
+      "ta": "left",
+      "pts": [
+        [
+          2545,
+          965
+        ],
+        [
+          2545,
+          972.5
+        ]
+      ],
+      "refs": "R47",
+      "decision_status": "CONFIRMED logical relationship",
+      "protocol_status": "OPEN / not specified"
+    },
+    {
+      "id": "edge-15",
+      "a": "llm",
+      "b": "resolver",
+      "label": "",
+      "kind": "data",
+      "sa": "right",
+      "ta": "left",
+      "pts": [
+        [
+          2545,
+          1205
+        ],
+        [
+          2545,
+          972.5
+        ]
+      ],
+      "refs": "R93",
+      "decision_status": "CONFIRMED logical relationship",
+      "protocol_status": "OPEN / not specified"
+    },
+    {
+      "id": "edge-16",
+      "a": "llm",
+      "b": "model",
+      "label": "HTTPS inference",
+      "kind": "future",
+      "sa": "right",
+      "ta": "bottom",
+      "pts": [
+        [
+          2605,
+          1205
+        ],
+        [
+          2605,
+          510
+        ],
+        [
+          2987.5,
+          510
+        ]
+      ],
+      "refs": "C60",
+      "label_pos": [
+        2605,
+        491.42857142857144
+      ],
+      "decision_status": "PROPOSED interface",
+      "protocol_status": "PROPOSED"
+    },
+    {
+      "id": "edge-17",
+      "a": "semantic",
+      "b": "sql",
+      "label": "Vector search \u2022 SQL / TLS",
+      "kind": "future",
+      "sa": "top",
+      "ta": "bottom",
+      "pts": [
+        [
+          2260,
+          845
+        ],
+        [
+          2505,
+          845
+        ],
+        [
+          2505,
+          482.85714285714283
+        ],
+        [
+          2427.5,
+          482.85714285714283
+        ]
+      ],
+      "refs": "R79",
+      "label_pos": [
+        2460,
+        830
+      ],
+      "decision_status": "PROPOSED interface",
+      "protocol_status": "PROPOSED"
+    },
+    {
+      "id": "edge-18",
+      "a": "management",
+      "b": "coord",
+      "label": "Catalog configuration",
+      "kind": "config",
+      "sa": "top",
+      "ta": "bottom",
+      "pts": [
+        [
+          1445,
+          1100
+        ],
+        [
+          1735,
+          1100
+        ]
+      ],
+      "refs": "R62,R70",
+      "decision_status": "CONFIRMED logical relationship",
+      "protocol_status": "OPEN / not specified"
+    },
+    {
+      "id": "edge-19",
+      "a": "management",
+      "b": "sql",
+      "label": "Catalog \u2022 SQL / TLS",
+      "kind": "future",
+      "sa": "right",
+      "ta": "left",
+      "pts": [
+        [
+          1910,
+          1400
+        ],
+        [
+          1910,
+          1320
+        ],
+        [
+          1965,
+          1320
+        ],
+        [
+          1965,
+          474.2857142857143
+        ],
+        [
+          2165,
+          474.2857142857143
+        ],
+        [
+          2165,
+          380
+        ]
+      ],
+      "refs": "C13,C52,C53",
+      "label_pos": [
+        1950,
+        1340
+      ],
+      "decision_status": "PROPOSED interface",
+      "protocol_status": "PROPOSED"
+    },
+    {
+      "id": "edge-20",
+      "a": "resolver",
+      "b": "publisher",
+      "label": "Accepted signals",
+      "kind": "data",
+      "sa": "bottom",
+      "ta": "top",
+      "pts": [],
+      "refs": "R32",
+      "decision_status": "CONFIRMED logical relationship",
+      "protocol_status": "OPEN / not specified"
+    },
+    {
+      "id": "edge-21",
+      "a": "publisher",
+      "b": "workbench",
+      "label": "SSE / WebSocket over HTTPS",
+      "kind": "future",
+      "sa": "right",
+      "ta": "left",
+      "pts": [],
+      "refs": "R33,R51",
+      "label_pos": [
+        3260,
+        1180
+      ],
+      "decision_status": "PROPOSED interface",
+      "protocol_status": "PROPOSED"
+    },
+    {
+      "id": "edge-22",
+      "a": "publisher",
+      "b": "sql",
+      "label": "Persist result \u2022 proposed",
+      "kind": "future",
+      "sa": "right",
+      "ta": "top",
+      "pts": [
+        [
+          3245,
+          1272.5
+        ],
+        [
+          3245,
+          280
+        ],
+        [
+          2427.5,
+          280
+        ]
+      ],
+      "refs": "R34",
+      "label_pos": [
+        3020,
+        275
+      ],
+      "decision_status": "PROPOSED interface",
+      "protocol_status": "PROPOSED"
+    },
+    {
+      "id": "edge-23",
+      "a": "resolver",
+      "b": "later",
+      "label": "Selective follow-on",
+      "kind": "future",
+      "sa": "bottom",
+      "ta": "left",
+      "pts": [
+        [
+          2635,
+          1055
+        ],
+        [
+          2635,
+          1455
+        ]
+      ],
+      "refs": "R35",
+      "label_pos": [
+        2615,
+        1375
+      ],
+      "decision_status": "PROPOSED interface",
+      "protocol_status": "OPEN / not specified"
+    },
+    {
+      "id": "edge-24",
+      "a": "later",
+      "b": "consumers",
+      "label": "Delivery contract OPEN",
+      "kind": "future",
+      "sa": "right",
+      "ta": "left",
+      "pts": [],
+      "refs": "R36,R37",
+      "label_pos": [
+        3260,
+        1390
+      ],
+      "decision_status": "PROPOSED interface",
+      "protocol_status": "OPEN / not specified"
+    },
+    {
+      "id": "edge-25",
+      "a": "gke",
+      "b": "telemetry",
+      "label": "Logs / metrics / traces",
+      "kind": "telemetry",
+      "sa": "bottom",
+      "ta": "top",
+      "pts": [
+        [
+          1840,
+          1600
+        ],
+        [
+          860,
+          1600
+        ]
+      ],
+      "refs": "C44",
+      "decision_status": "CONFIRMED telemetry requirement; product PROPOSED",
+      "protocol_status": "OPEN / not specified"
+    }
+  ]
+}

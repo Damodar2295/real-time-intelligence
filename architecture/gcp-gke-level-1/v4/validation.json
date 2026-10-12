@@ -1,0 +1,13 @@
+{
+  "single_page": true,
+  "baseline_vertices_preserved": 38,
+  "interfaces_preserved": 25,
+  "embedded_icons_preserved": 26,
+  "stable_ids": true,
+  "interface_traceability": true,
+  "managed_services_outside_gke": true,
+  "v3_bytes_unchanged": true,
+  "no_connectors_through_unrelated_cards": true,
+  "native_editor_import": "NOT TESTED",
+  "production_controls": "NOT VERIFIED"
+}

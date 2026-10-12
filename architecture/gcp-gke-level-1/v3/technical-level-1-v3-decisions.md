@@ -42,3 +42,11 @@ BigQuery remains reference-only. LLM exact/semantic response caches are not sile
 Open `vantage-gcp-gke-technical-level-1-v3.drawio` in diagrams.net/draw.io. Icons are individually embedded image cells parented to their component; titles, descriptions, containers and connectors remain native editable elements. A component move carries its icon. Icons themselves retain their vendor SVG artwork.
 
 The generator `build_v3.py` reuses the earlier View implementation while keeping all previous files unchanged. Run it from any directory with Python 3. The PNG is rendered separately from SVG. Only one Level 1 diagram is delivered. No GitHub push is part of this request.
+
+## Section-heading refinement
+
+The three processing headings now use distinct editable blue boxes with white text. All 25 connector endpoints and labels remain unchanged; the updated preview was rendered and inspected. This local refinement has not yet been pushed to GitHub.
+
+## Process-group containers
+
+Added three native editable containers with pale fills and dotted blue borders: Interaction Ingestion (including ingestion workers), Detection & Orchestration (including detector coordination and all three methods), and Resolution & Output. These are visual groupings, not additional deployment or security boundaries. Signal Management remains shared support. All 25 source/target pairs and connector labels remain unchanged. Rendered and visually inspected; not yet pushed to GitHub.
