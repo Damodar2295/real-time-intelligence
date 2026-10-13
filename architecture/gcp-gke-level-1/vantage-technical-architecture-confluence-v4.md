@@ -326,6 +326,78 @@ Implement calibrated acceptance/evidence policies, decision provenance and appro
 
 Run agreed load, fault and recovery tests; verify monitoring, privacy and access controls. Evaluate quality with approved golden datasets and business reviewers. Establish version/change controls, incident/run ownership and a governed feedback process. Record evidence for operational and EARB review before any production-readiness claim.
 
+Additional Review Notes — Detector Execution and Enterprise Principles
+Status: Open for architecture review
+Discussion date: 13 October 2026
+Baseline: VANTAGE Intelligence Technical Level 1 V4
+The latest discussion supports selective detection with potentially concurrent execution. It does not establish mandatory execution of all three methods for every utterance, or a universal deterministic → semantic → LLM sequence.
+Call metadata determines which catalog signals are applicable. Each applicable signal’s configuration should determine its detection method or combination of methods. The detailed scheduling, combination and completion rules require agreement.
+The questions below extend the existing V4 decisions; they do not approve new technologies or change the baseline.
+1. Open Questions from the Latest Detection Discussion
+Topic	Open question	Why it matters	Existing reference
+Applicability	Which call metadata fields select applicable signals? What happens when metadata is missing, delayed or changes during the call?	Prevents inappropriate evaluation or missed signals.	V4-D04
+Detection configuration	Does each signal explicitly declare one method, multiple methods, or a conditional sequence?	Makes execution predictable and auditable.	V4-D04
+Runtime selection	Is method selection entirely configuration-driven, or can runtime evidence invoke an additional method? If so, under which approved conditions?	Avoids uncontrolled inference calls and inconsistent behavior.	V4-D04
+Concurrency scope	Can evaluations run concurrently across calls, across signals within one call, and across methods for the same signal? What limits apply to each?	These are different concurrency boundaries with different state and capacity implications.	V4-D02/D04/D07
+Combined detection	Does “combined” mean independent evidence, sequential processing, conditional escalation, or a combination of previously accepted signals?	These behaviors require different contracts and must not be treated as equivalent.	V4-D04/D06/D07
+Trigger behavior	When successive utterances trigger different methods, are those independent evaluations or dependencies within one signal definition?	Prevents accidental introduction of a mandatory detector sequence.	V4-D04
+Completion	For a signal using multiple methods, must resolution wait for all results, or can sufficient evidence permit an earlier decision?	Determines latency and decision finality.	V4-D06
+Threshold purpose	Which thresholds govern candidate retrieval, additional-method invocation and final acceptance?	A retrieval cutoff is not the same as an acceptance threshold.	V4-D06
+Score interpretation	How are deterministic outcomes, semantic/reranker scores and LLM evidence interpreted? Are thresholds method-specific and signal-specific?	Raw outputs are not automatically comparable or calibrated probabilities.	V4-D06
+Conflicting evidence	What happens when methods disagree or provide evidence of different strength?	Prevents arbitrary acceptance or rejection.	V4-D06
+Timeout and partial results	What happens when one method times out, fails or returns invalid output? Is the outcome incomplete, rejected, deferred or eligible for another evaluation?	Failure must not silently become a negative result or successful acceptance.	V4-D04/D06
+Late evidence and revisions	Can later detector evidence or a corrected transcript revise an accepted signal? How is that revision communicated?	Maintains consistency between evidence, stored decisions and the workbench.	V4-D06/D09
+Context consistency	Which conversation-context snapshot does each evaluation use? How are concurrent updates and accepted-signal history made visible?	Prevents inconsistent interpretation of the same conversation.	V4-D07
+Duplicate suppression	How are repeated detections across overlapping windows, retries and transcript revisions identified?	Prevents duplicate actionable alerts.	V4-D06/D09
+Configuration versioning	Which catalog, threshold, prompt, model and index versions apply during an active call?	Enables reproducibility and controlled changes.	V4-D12
+Prior-signal combinations	Are composite signals part of the current prototype? If included, who evaluates them and what sequence/window conditions apply?	Separates combining detector evidence from combining business signals over time.	V4-D07; historical D32
+
+
+2. Proposed Execution Direction for Agreement
+The following is a recommendation, not a completed architecture decision:
+1. Select applicable signals using approved call-metadata criteria.
+2. Use each signal’s configuration to select its detection method or methods.
+3. Allow independent evaluations to execute concurrently within agreed capacity limits.
+4. Preserve call identity, input revision, context reference and configuration versions throughout processing.
+5. Route evidence from invoked methods through Shared Signal Resolution.
+6. Publish accepted signals according to approved completion, duplicate and revision rules.
+Do not infer from this proposal:
+- All three methods execute for every utterance.
+- Every signal follows a fixed detector sequence.
+- Any successful detector result automatically causes acceptance.
+- All configured detectors must always finish before acceptance.
+- One numeric confidence threshold has the same meaning across all methods.
+3. Open Questions Against Enterprise Architecture Principles
+These questions concern unresolved decisions and missing validation evidence. They are not findings that the corresponding implementation capability is absent.
+Principle	Questions requiring agreement	Evidence needed	Priority
+Scalability	What concurrent-call volume, event rate and detection-method mix must be supported? How will workers scale without unsafe same-call state updates? What limits protect STT, model and database dependencies?	Concurrent-call, burst and soak tests; queue-age measurements; resource and quota profiles.	P1; state correctness is P0
+Modularity	Which diagram components are modules versus independently deployed workloads? Who owns orchestration, context updates, accepted-signal history and configuration activation?	Responsibility matrix, versioned contracts and workload-boundary ADR.	P1
+Security	What are the actual project and trust boundaries? Which identities may publish, consume, access context or invoke models? Which controls are inherited? How is sensitive data handled in audio, prompts, logs and results?	Approved access/data-handling policies, control-owner attestations, positive and negative access tests, PII leakage tests.	P0
+Performance	What are the speech-to-visible-result and transcript-to-result objectives? How much delay can windowing, queueing and combined detection introduce? Does the proposed STT path improve measured outcomes?	End-to-end and stage P50/P95/P99 under representative load, including quality and failure measurements.	P1
+Resilience	When are messages acknowledged? How are retries, ordering, dead-letter handling, replay and idempotency coordinated? What happens after worker, cache, model or database failure?	Failure-injection, restore and replay tests against approved recovery objectives.	P0 for delivery/state semantics
+Interoperability	What are the audio and transcript contracts? How are partial/final results, revisions and reconnects represented? Is GKE ingress retained, or is a narrowly scoped Cloud Run alternative justified?	Provider contracts, adapter/consumer compatibility tests and an ingress-runtime decision.	P0 for source contract; P1 for runtime comparison
+Cost Efficiency	What is the cost per call-minute at the expected method mix? How do concurrent evaluation, retries, STT and long-lived connections affect cost? Which limits prevent uncontrolled inference spend?	Attributed infrastructure/model usage, workload-based cost forecast and quality-equivalent optimization comparisons.	P1
+User-Centric Design	How will users understand evidence, freshness, uncertainty and revised signals? Who reviews false positives/negatives? How does feedback enter a governed improvement process?	Agent/SME usability and accessibility testing, adjudication workflow and task-outcome measures.	P1
+Sustainability	How will unnecessary inference, idle capacity and repeated processing be measured and reduced? Who owns dependency/model lifecycle and decommissioning?	Resource-utilization and environmental baseline, methodology-qualified reporting and maintenance plan.	P2
+
+
+Priority interpretation: P0 requires resolution or authorized exception before affected live-data/production use. P1 requires resolution before production release or scaling of the affected capability. P2 is planned improvement unless enterprise policy requires earlier closure.
+The enterprise reference’s Sustainability definition is cropped at its beginning. Its visible wording covers minimizing environmental impact and promoting long-term maintainability; the complete wording remains to be confirmed.
+4. Decisions Requested from the Review Meeting
+Decision requested	Proposed accountable role — to confirm
+Approve configuration-driven method selection and define permitted combined execution patterns.	Detection lead and business signal owner
+Define completion, timeout, conflict, abstention and late-evidence behavior.	Signal owner and ML evaluation lead
+Approve method-specific evidence and threshold semantics.	Business SME and ML evaluation lead
+Assign conversation-state ownership and accepted-signal history writer.	Data architect and ingestion/detection leads
+Approve source contracts, queue semantics and ingress-runtime evaluation scope.	Integration, messaging and GCP platform owners
+Define measurable quality, latency, concurrency and cost acceptance criteria.	Product owner, SRE and FinOps
+Confirm security/privacy responsibilities and human-feedback governance.	Enterprise security, privacy and AI governance owners
+
+
+5. Architecture Review Position
+The current architecture provides a suitable basis for selective, concurrent detection. The next step is to make execution and acceptance semantics explicit and validate them against representative business scenarios.
+Production readiness requires evidence that concurrent processing preserves call isolation, evidence consistency, reliable recovery and acceptable user-visible outcomes. The presence of queues, worker pools, thresholds and managed services in the diagram does not by itself establish those guarantees.
+
 ## 10. References
 
 | Reference | Purpose |
