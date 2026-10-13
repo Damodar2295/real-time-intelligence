@@ -1,31 +1,16 @@
-# Real-Time Intelligence — Architecture
+# VANTAGE Intelligence — Architecture Package
 
-Source-backed VANTAGE Intelligence architecture, currently **v1.2**. This repository contains the editable logical design, diagram renderer, component/relationship inventory, meeting extracts, decision history and review records. It is an architecture baseline, not an implemented or production-approved service stack.
+This branch is the curated sharing package: **V4 baseline and the latest options evaluation only**. “Final” describes repository scope, not production approval. Managed-product choices and the alternatives remain subject to validation and Lumi approval.
 
 ## Start here
 
-- [Architecture records](architecture/README.md)
-- [Editable draw.io diagram](architecture/diagrams/VANTAGE_Intelligence_Layered_Architecture.drawio)
-- [PNG preview](architecture/diagrams/VANTAGE_Intelligence_Layered_Architecture.preview.png)
-- [Component inventory](architecture/component-inventory.md)
-- [Relationships](architecture/integration-matrix.md)
-- [Open questions](architecture/open-questions.md)
-- [Current validation](architecture/validation-current.md)
+- [V4 editable architecture](architecture/gcp-gke-level-1/v4/vantage-gcp-gke-technical-level-1-v4.drawio) · [PNG](architecture/gcp-gke-level-1/v4/vantage-gcp-gke-technical-level-1-v4.png) · [SVG](architecture/gcp-gke-level-1/v4/vantage-gcp-gke-technical-level-1-v4.svg)
+- [Latest editable options diagram — two pages](architecture/gcp-gke-level-1/options-review/vantage-technical-level-1-options-review.drawio)
+- [Options overview PNG](architecture/gcp-gke-level-1/options-review/vantage-options-overview.png) · [Alternatives PNG](architecture/gcp-gke-level-1/options-review/vantage-options-evaluation.png)
+- [Architecture guide](architecture/architecture-guide.md)
+- [Current decisions and open questions](architecture/decisions.md)
+- [Build and validation](architecture/BUILD.md)
 
-![Current architecture](architecture/diagrams/VANTAGE_Intelligence_Layered_Architecture.preview.png)
+V4 diagram files are byte-preserved from the source workspace. The options view is a separate proposal and does not supersede V4. It introduces Lumi context and compares handoff/windowing alternatives without selecting them.
 
-## Regenerate the editable diagram and SVG
-
-From the repository root, with Python 3:
-
-```sh
-python3 architecture/tools/render_architecture.py
-```
-
-The renderer uses Python's standard library and writes native editable draw.io XML, an SVG preview and layout metadata. It validates its source references, geometry and text fit. The committed PNG preview is generated separately from the SVG; regenerate/export that preview after changing the diagram. Open the `.drawio` file in diagrams.net to edit or export it visually.
-
-## Source material and history
-
-**Original input JPEG/JPG images are intentionally excluded.** The original image folders are not included, and `.gitignore` blocks JPEG/JPG files. Source IDs and filenames remain as external evidence locators in the records; they do not imply those source files are present in the repository. Generated PNG/SVG diagram previews are included.
-
-Meeting extracts are architecture-relevant summaries, not full recordings. Earlier model/diagram versions are retained for traceability. Historical statements and reviews should be read together with the current model and subsequent decisions. The principal-architect review describes v1.0; v1.2 applies the approved presentation changes and shared threshold-based resolution.
+Older versions, input JPEGs, meeting material, manager-review material and historical assessment registers are excluded from this branch's current tree. The branch retains normal Git ancestry; historical files remain accessible in earlier commits and on `main`. This is not a history purge.

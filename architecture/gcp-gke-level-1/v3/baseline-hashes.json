@@ -1,8 +1,0 @@
-{
-  "architecture/gcp-gke-level-1/technical-level-1-decisions.md": "33ae897f5085fbe6a63b1f32d0b0b823cb958f539c6ad47c11d629712e0b9a63",
-  "architecture/gcp-gke-level-1/build_diagram.py": "f96dc6231d04b3ce51e21731890b991735eccc6e94587add6cd28f08030e82a7",
-  "architecture/gcp-gke-level-1/vantage-gcp-gke-technical-level-1.drawio": "555ab68cd6984cc57ec25ac4055643a883c8ff9f54a4862d64eab19633546e04",
-  "architecture/gcp-gke-level-1/vantage-gcp-gke-technical-level-1.png": "b49079c663a7947f2c5ec29e7ccda8dc7fb4a7179421c5195e1e90d3ca2749e0",
-  "architecture/gcp-gke-level-1/validation.json": "ba13cc39e22bbab94eeb57c8e1fa21f03d63e01219bd46a18046ddd79b78b174",
-  "architecture/gcp-gke-level-1/vantage-gcp-gke-technical-level-1.svg": "82ba834c2b0cfe04bda334d77f4f1865c8999030a733777a1f8eedb369b2af51"
-}
