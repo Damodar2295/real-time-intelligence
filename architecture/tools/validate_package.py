@@ -13,7 +13,7 @@ def check(condition, message):
     if not condition:
         errors.append(message)
 
-for name, digest in manifest['v4_files'].items():
+for name, digest in manifest.get('current_v4_files', manifest['v4_files']).items():
     path = ROOT / name
     check(path.is_file() and hashlib.sha256(path.read_bytes()).hexdigest() == digest,
           'V4 preservation mismatch: ' + name)
@@ -38,8 +38,8 @@ for node_id in manifest['major_component_ids']:
 ET.parse(v4 / 'vantage-gcp-gke-technical-level-1-v4.svg')
 check(any('data:image/' in c.get('style', '') for c in cells), 'Missing embedded icons')
 readme = (ROOT / 'README.md').read_text()
-check(re.findall(r'^## (\d+)\.', readme, re.M) == [str(i) for i in range(1,23)], 'README section order')
-check('## 2. Final Level 1 Architecture' in readme and
+check(re.findall(r'^## (\d+)\.', readme, re.M) == [str(i) for i in range(3,23)], 'README section order')
+check('## Final Level 1 Architecture' in readme and
       '![Final VANTAGE' in readme.split('## 3.')[0], 'Missing early original diagram')
 check('SafeChain is the mandatory' in readme, 'Missing mandatory SafeChain statement')
 check('Redis Streams is the authoritative' in readme, 'Missing Redis requirement')
@@ -56,11 +56,31 @@ for path in ROOT.rglob('*'):
         for link in re.findall(r'\]\(([^)]+)\)', path.read_text()):
             if not link.startswith(('https://', 'http://', '#')):
                 check((path.parent / link.split('#')[0]).exists(), 'Broken link: ' + link)
+
+# Approved corrections must retain the original graph topology and other nodes.
+import subprocess
+prior = json.loads(subprocess.check_output(['git', 'show', manifest['prior_revision_commit'] + ':architecture/gcp-gke-level-1/v4/graph-v4.json'], cwd=ROOT))
+check(set(prior['nodes']) == set(graph['nodes']), 'Component set changed')
+for key, node in prior['nodes'].items():
+    check(node['parent'] == graph['nodes'][key]['parent'], 'Grouping changed: ' + key)
+    if key not in manifest['approved_graph_changes']:
+        check(node == graph['nodes'][key], 'Unrelated component changed: ' + key)
+for before, after in zip(prior['edges'], graph['edges']):
+    check(all(before[k] == after[k] for k in ('id','a','b','pts')), 'Connection changed: ' + before['id'])
+check(len(prior['edges']) == len(graph['edges']), 'Interface count changed')
+check(graph['nodes']['page-title']['title'] == 'Vantage Real Time Intelligence', 'Wrong title')
+check(graph['nodes']['queue']['title'] == 'Redis Streams', 'Wrong ingress')
+check(graph['nodes']['model']['title'] == 'SafeChain Integration', 'Wrong LLM integration')
+model = tree.find('.//mxGraphModel')
+check(float(model.get('pageWidth')) / float(model.get('pageHeight')) == 16/9, 'Wrong aspect ratio')
+for cell in cells:
+    check(not any(old in cell.get('value','') for old in ('Vertex AI','Pub/Sub','StreamingPull','gateway alternative')), 'Obsolete diagram label')
+
 report = {'package_checks': 'FAIL' if errors else 'PASS', 'errors': errors,
-          'v4_preserved_files': len(manifest['v4_files']),
+          'v4_verified_files': len(manifest['v4_files']),
           'major_components': len(manifest['major_component_ids']),
           'interfaces': len(graph['edges']), 'xml_and_svg': 'PARSED',
-          'architectural_alignment': 'BLOCKED — AR-01 Redis representation; AR-02 mandatory SafeChain representation',
+          'architectural_alignment': 'APPROVED DIAGRAM CORRECTIONS APPLIED; runtime and production approval unverified',
           'native_drawio_import': 'NOT TESTED',
           'runtime_tests': 'NOT AVAILABLE — architecture tooling only'}
 print(json.dumps(report, indent=2))

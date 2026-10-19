@@ -28,7 +28,7 @@
     "architecture/gcp-gke-level-1/v4/vantage-gcp-gke-technical-level-1-v4.png": "f53c63dba3a01e83d139c8100c42a1885c7637fc32b9f1fe44391b0945a1bf7e",
     "architecture/gcp-gke-level-1/v4/vantage-gcp-gke-technical-level-1-v4.svg": "1c53475e706114557d32342eff6a3621883f545d80e3c58aac27eca5ad6d4fcf"
   },
-  "scope": "Documentation correction and review. V4 folder contents must remain byte-identical. No runtime implementation exists in baseline.",
+  "scope": "User-approved in-place V4 title, Redis Streams, SafeChain and presentation corrections. Original hashes retained for provenance; current hashes validate approved outputs. No runtime change.",
   "approval_required": [
     {
       "id": "AR-01",
@@ -39,7 +39,8 @@
       ],
       "existing": "Cloud Pub/Sub, Publish API/TLS, StreamingPull/ack",
       "required": "Redis Streams; consumer groups and agreed Redis delivery contract",
-      "disposition": "Preserve original; correction requires architectural approval"
+      "disposition": "Preserve original; correction requires architectural approval",
+      "status": "APPROVED AND APPLIED \u2014 2026-10-19 targeted correction request; runtime contracts remain open"
     },
     {
       "id": "AR-02",
@@ -52,14 +53,16 @@
       ],
       "existing": "LLM adapter to Vertex AI; enterprise gateway alternative label; SafeChain not represented",
       "required": "Mandatory secure LLM invocation through SafeChain; API/security details not supplied",
-      "disposition": "Preserve original; correction requires architectural approval; no code bypass demonstrated"
+      "disposition": "Preserve original; correction requires architectural approval; no code bypass demonstrated",
+      "status": "APPROVED AND APPLIED \u2014 2026-10-19 targeted correction request; runtime contracts remain open"
     },
     {
       "id": "AR-03",
       "component": "page-subtitle",
       "existing": "DRAFT \u2014 EARB review; 12 October 2026",
       "required": "User designates V4 final authoritative reference; this is not production approval",
-      "disposition": "Keep original label; explain final-reference designation in README"
+      "disposition": "Keep original label; explain final-reference designation in README",
+      "status": "APPROVED AND APPLIED \u2014 2026-10-19 targeted correction request; runtime contracts remain open"
     }
   ],
   "major_component_ids": [
@@ -116,5 +119,40 @@
     "edge-23",
     "edge-24",
     "edge-25"
+  ],
+  "prior_revision_commit": "65bdd048f392e0e31a3fd7656944b8b9c170032a",
+  "current_v4_files": {
+    "architecture/gcp-gke-level-1/v4/build_v4.py": "2d92e59a6bdc72fba8073bc0b82aaa081978c0011754a793e859505c7c9630a7",
+    "architecture/gcp-gke-level-1/v4/graph-v4.json": "f76e2e62a0a6d64492db036ef9041fe88989e44ad2ec3aa3bf242d346c275746",
+    "architecture/gcp-gke-level-1/v4/icons/cloud_logging.svg": "f7fdd93a1847fdebf174c78cce418fac52198be72893116e7787ca3e1659cf38",
+    "architecture/gcp-gke-level-1/v4/icons/cloud_monitoring.svg": "804f66b773fcc5cd59a3fb8e0da9ff3de9b69efa99c23f8e1797943647a8e79e",
+    "architecture/gcp-gke-level-1/v4/icons/cloud_sql.svg": "ffdf8329a098d53313f4a8b10449b33e1cf9f139aaeb4a53e6564c1fad6b8b1b",
+    "architecture/gcp-gke-level-1/v4/icons/google_kubernetes_engine.svg": "5f44dce3df0483bd0b1a344be07129e054f61cb5fa947aea022db3441c25db5e",
+    "architecture/gcp-gke-level-1/v4/icons/identity_and_access_management.svg": "16642a394d5eb28be4ea688870dd6cbbcb943b14a1360ce09ba3a03d561fc1eb",
+    "architecture/gcp-gke-level-1/v4/icons/memorystore.svg": "e1e14c0fa7a2a155cd5626226ea7b49b933641d384c86aa38b1a4fd9470fab6a",
+    "architecture/gcp-gke-level-1/v4/icons/neutral-audio.svg": "7af0ea57b806b16804ac1ab16a406c657bcec50f3d7c76f9391e48c465e6b530",
+    "architecture/gcp-gke-level-1/v4/icons/neutral-branch.svg": "7a06d4748696628d109d79d3da91efa6de78ea7073de62e7ce48943643bef31c",
+    "architecture/gcp-gke-level-1/v4/icons/neutral-check.svg": "28c924f2e3f8b531ccb17023d52ba33a9f14b71f622372bbc1bb724fed7d2360",
+    "architecture/gcp-gke-level-1/v4/icons/neutral-cloud.svg": "0b2a99659446a7e6e27b610eb9089dbb642049ab28a7c7e4ce27e3b8ede03d36",
+    "architecture/gcp-gke-level-1/v4/icons/neutral-screen.svg": "03e8f67819994a8abbf59f78f893dfc799044144e9ffbfd77e53eceede0a65f1",
+    "architecture/gcp-gke-level-1/v4/icons/neutral-search.svg": "2a7707c2a3fac97e2797c4f87ccab56db1f2ebd661448bba71f75635476647e8",
+    "architecture/gcp-gke-level-1/v4/icons/neutral-service.svg": "63b74ffbdddc5c0b4cbdd926eab96aa4f5f277910fc98b51fc5ef697c9ff72d1",
+    "architecture/gcp-gke-level-1/v4/icons/neutral-shield.svg": "66dfaaa28bdd2fdcc781769b9dfa19340a1d3115444f651ea728c03ef7b2c8bf",
+    "architecture/gcp-gke-level-1/v4/icons/pubsub.svg": "bd71cb16b24c5a368fc7913525e093f03e426d06e8917c1f255187e9f6c10217",
+    "architecture/gcp-gke-level-1/v4/icons/secret_manager.svg": "194b0f81870b265064680007e472d011797d01fbdede0bb4ade28e025a22e7b6",
+    "architecture/gcp-gke-level-1/v4/icons/speech-to-text.svg": "4500f0f324e32c72b370d00edf84d981ad93c308e07a963e08520632bd425cc1",
+    "architecture/gcp-gke-level-1/v4/icons/trace.svg": "c8434efa76a4d0d1bcf29e5a2d1d7d520efec8c6c6e4faf7655a423369471405",
+    "architecture/gcp-gke-level-1/v4/icons/vertexai.svg": "d6a643fad5de9e513bba05af22b685572e5e06b92c3e5495b7ecf56666ff79c0",
+    "architecture/gcp-gke-level-1/v4/vantage-gcp-gke-technical-level-1-v4.drawio": "8035baaac8e58c828f12054b83d0a26fdf6b5cbbf89b9e6ddae784b58e3ea30e",
+    "architecture/gcp-gke-level-1/v4/vantage-gcp-gke-technical-level-1-v4.png": "c399b7da6d34e7b5ee2e9f3a6f9bbc09ccaf2e4cee2b51c987d13d3fe3cc508f",
+    "architecture/gcp-gke-level-1/v4/vantage-gcp-gke-technical-level-1-v4.svg": "6a7a8d9fe4e44524f10fff55214ad4a1dc99c5822312bd4d0dfdca834ffc1dc5"
+  },
+  "approved_graph_changes": [
+    "page-title",
+    "page-subtitle",
+    "queue",
+    "model",
+    "managed-label",
+    "later"
   ]
 }

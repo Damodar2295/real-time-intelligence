@@ -162,5 +162,23 @@
       "reason": "Superseded guide or competing options package; recoverable from baseline Git history."
     }
   ],
-  "preserved": "All 24 original V4 files byte-identical; .gitignore unchanged; Git history and other worktrees retained. No application implementation found or removed."
+  "preserved": "All 24 original V4 files byte-identical; .gitignore unchanged; Git history and other worktrees retained. No application implementation found or removed.",
+  "targeted_correction": {
+    "base_commit": "65bdd048f392e0e31a3fd7656944b8b9c170032a",
+    "scope": "Authorized diagram labels, 16:9 centered-title presentation, existing renderer and documentation consistency. No IDs/endpoints or implementation changed.",
+    "modified": [
+      "README.md",
+      "architecture/gcp-gke-level-1/v4/build_v4.py",
+      "architecture/gcp-gke-level-1/v4/graph-v4.json",
+      "architecture/gcp-gke-level-1/v4/vantage-gcp-gke-technical-level-1-v4.drawio",
+      "architecture/gcp-gke-level-1/v4/vantage-gcp-gke-technical-level-1-v4.svg",
+      "architecture/gcp-gke-level-1/v4/vantage-gcp-gke-technical-level-1-v4.png",
+      "architecture/tools/validate_package.py",
+      "architecture/review/v4-preservation.json",
+      "architecture/review/validation.json",
+      "architecture/review/change-audit.json"
+    ],
+    "added": [],
+    "removed": []
+  }
 }

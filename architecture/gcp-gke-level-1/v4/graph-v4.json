@@ -80,22 +80,23 @@
     },
     "page-title": {
       "id": "page-title",
-      "title": "VANTAGE Intelligence | Enterprise Technical Level 1 | V4",
+      "title": "Vantage Real Time Intelligence",
       "body": "",
       "x": 40,
       "y": 15,
       "w": 3680,
-      "h": 55,
+      "h": 62,
       "kind": "title",
       "parent": "1",
       "refs": "",
-      "fs": 30,
-      "band": false
+      "fs": 44,
+      "band": false,
+      "align": "center"
     },
     "page-subtitle": {
       "id": "page-subtitle",
       "title": "",
-      "body": "Status: DRAFT \u2014 EARB review  |  Target: GCP / GKE  |  Owner: UNASSIGNED  |  Review date: 12 October 2026\nBaseline: latest local V3 + logical model v1.2  |  Target confirmation does not indicate deployment or production approval",
+      "body": "Level 1 Architecture  |  V4 \u2014 Final reference  |  Target: Lumi / GCP / GKE  |  Review: 19 October 2026\nApproved diagram corrections; implementation, service hosting and production approval remain unverified.",
       "x": 40,
       "y": 78,
       "w": 3680,
@@ -108,11 +109,11 @@
     },
     "managed-label": {
       "id": "managed-label",
-      "title": "MANAGED CLOUD SERVICES",
-      "body": "Outside GKE \u2022 Proposed selections",
+      "title": "PLATFORM SERVICES & ENTERPRISE INTEGRATIONS",
+      "body": "Outside GKE workload grouping \u2022 Hosting / integration placement subject to confirmation",
       "x": 465,
       "y": 215,
-      "w": 1100,
+      "w": 2200,
       "h": 70,
       "kind": "title",
       "parent": "gcp",
@@ -188,8 +189,8 @@
     },
     "queue": {
       "id": "queue",
-      "title": "Cloud Pub/Sub",
-      "body": "Transcript topic + subscription\nCall ordering semantics OPEN",
+      "title": "Redis Streams",
+      "body": "Event ingress \u2022 consumer groups\nOrdering / recovery OPEN",
       "x": 1040,
       "y": 300,
       "w": 435,
@@ -199,9 +200,9 @@
       "refs": "C74",
       "fs": 20,
       "band": false,
-      "icon": "pubsub.svg",
-      "decision_status": "PROPOSED implementation",
-      "status_label": "PROPOSED"
+      "icon": "neutral-service.svg",
+      "decision_status": "CONFIRMED ingress requirement; hosting OPEN",
+      "status_label": "REQUIRED"
     },
     "state": {
       "id": "state",
@@ -239,8 +240,8 @@
     },
     "model": {
       "id": "model",
-      "title": "Vertex AI endpoint",
-      "body": "LLM inference \u2022 PROPOSED\nEnterprise gateway alternative",
+      "title": "SafeChain Integration",
+      "body": "Required secure LLM access\nAPI / hosting OPEN",
       "x": 2770,
       "y": 300,
       "w": 435,
@@ -250,9 +251,9 @@
       "refs": "C60",
       "fs": 20,
       "band": false,
-      "icon": "vertexai.svg",
-      "decision_status": "PROPOSED implementation",
-      "status_label": "PROPOSED"
+      "icon": "neutral-shield.svg",
+      "decision_status": "CONFIRMED mandatory LLM integration; API / hosting OPEN",
+      "status_label": "REQUIRED"
     },
     "bridge": {
       "id": "bridge",
@@ -427,7 +428,7 @@
     "later": {
       "id": "later",
       "title": "Contextual generation / activation",
-      "body": "LATER \u2022 selective follow-on",
+      "body": "LATER \u2022 selective follow-on\nLLM use requires SafeChain",
       "x": 2670,
       "y": 1400,
       "w": 505,
@@ -679,7 +680,7 @@
       "id": "edge-5",
       "a": "ingress",
       "b": "queue",
-      "label": "Publish API / TLS",
+      "label": "Publish stream entries",
       "kind": "future",
       "sa": "right",
       "ta": "bottom",
@@ -703,13 +704,13 @@
         670
       ],
       "decision_status": "PROPOSED interface",
-      "protocol_status": "PROPOSED"
+      "protocol_status": "Redis Streams selected; envelope / client contract OPEN"
     },
     {
       "id": "edge-6",
       "a": "queue",
       "b": "worker",
-      "label": "StreamingPull / ack",
+      "label": "Consumer-group delivery",
       "kind": "future",
       "sa": "bottom",
       "ta": "top",
@@ -729,7 +730,7 @@
         760
       ],
       "decision_status": "PROPOSED interface",
-      "protocol_status": "PROPOSED"
+      "protocol_status": "Redis Streams selected; ack / recovery policy OPEN"
     },
     {
       "id": "edge-7",
@@ -944,7 +945,7 @@
       "id": "edge-16",
       "a": "llm",
       "b": "model",
-      "label": "HTTPS inference",
+      "label": "Secure LLM invocation",
       "kind": "future",
       "sa": "right",
       "ta": "bottom",
@@ -968,7 +969,7 @@
         491.42857142857144
       ],
       "decision_status": "PROPOSED interface",
-      "protocol_status": "PROPOSED"
+      "protocol_status": "SafeChain mandatory; API / protocol OPEN"
     },
     {
       "id": "edge-17",

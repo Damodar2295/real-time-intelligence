@@ -1,33 +1,28 @@
-# VANTAGE Real-Time Intelligence
+# Vantage Real Time Intelligence
 
-## 1. Overview
+## Overview
 
 VANTAGE identifies meaningful business signals during active customer conversations and delivers accepted detections with evidence to a signal workbench and authorized downstream consumers. Responsibilities are source acquisition, transcript ingress, bounded same-session context, catalog-driven selective deterministic/semantic/LLM detection, shared signal resolution and delivery. Later contextual generation and activation remain separate from core detection.
 
 **Redis Streams is the authoritative real-time ingress requirement. SafeChain is the mandatory internal secure integration for every LLM invocation.** Non-LLM components do not need SafeChain in their execution path. Technical interfaces and runtime implementation are not established by these architectural requirements.
 
-This is the single authoritative README for the V4 review branch. It preserves the exact original diagram and records its inconsistencies with the latest requirements. The repository contains architecture tooling, not a demonstrated application runtime. Named owners and production approval remain outstanding. Review date: 19 October 2026.
+This is the single authoritative README for the V4 review branch. It retains the existing V4 structure and incorporates the approved Redis Streams, SafeChain and presentation corrections in place. The previous diagram remains recoverable in Git commit `65bdd04`. The repository contains architecture tooling, not a demonstrated application runtime. Named owners and production approval remain outstanding. Review date: 19 October 2026.
 
-## 2. Final Level 1 Architecture — V4 Diagram
+## Final Level 1 Architecture
 
-### Final VANTAGE Real-Time Intelligence — Level 1 Architecture
-
-![Final VANTAGE Real-Time Intelligence Level 1 Architecture — preserved V4](architecture/gcp-gke-level-1/v4/vantage-gcp-gke-technical-level-1-v4.png)
+![Final VANTAGE Real-Time Intelligence Level 1 Architecture — V4](architecture/gcp-gke-level-1/v4/vantage-gcp-gke-technical-level-1-v4.png)
 
 **Architecture baseline:** V4 — Final
-**Diagram source:** [Original editable V4 draw.io](architecture/gcp-gke-level-1/v4/vantage-gcp-gke-technical-level-1-v4.drawio)
-**Rendered source:** [Original SVG](architecture/gcp-gke-level-1/v4/vantage-gcp-gke-technical-level-1-v4.svg)
-**Architecture status:** Authoritative reference; approval-required inconsistencies below remain unresolved.
 
-> **Review hold — this package is not validated as architecturally compliant.** The preserved V4 image still shows Cloud Pub/Sub and an LLM adapter-to-Vertex AI edge without SafeChain. Those labels are recorded inconsistencies, not permitted alternatives to Redis Streams or SafeChain. No diagram correction has been applied. “Final” designates the required reference; it does not mean production-ready or fully aligned with the latest decisions. The original image's DRAFT label/date are preserved.
+**Ingress:** Redis Streams
 
-| Issue | Exact V4 representation | Architectural impact | Smallest correction for approval — NOT APPLIED |
-|---|---|---|---|
-| AR-01 | `queue`: Cloud Pub/Sub; `edge-5` Publish API / TLS; `edge-6` StreamingPull / ack | Conflicts with required Redis Streams ingress; developers must not implement the pictured broker protocol | Retain ingress → handoff → worker adjacency; approve Redis Streams card/icon and interface-label correction after Redis contract agreement |
-| AR-02 | `llm` → `model`, `edge-16`: HTTPS inference; Vertex AI card says enterprise gateway alternative; no SafeChain representation | Omits the mandatory secure invocation boundary and could be read as permission for direct provider calls | Retain functional detector/model responsibility; approve explicit SafeChain mediation at the existing inference boundary and remove alternative/bypass ambiguity; service packaging and API remain TBD |
-| AR-03 | Original subtitle says DRAFT — EARB review and 12 October 2026 | Final-reference designation can be mistaken for production approval | Preserve image; distinguish reference status from approval status in this README; any image status edit requires approval |
+**Secure LLM Integration:** SafeChain Integration
 
-V4 groups interaction ingestion, detection/orchestration and resolution/output within the GKE target. Proposed managed services sit outside GKE, while enterprise governance and operational controls are cross-cutting. Catalog configuration selects applicable detection methods; evidence feeds shared resolution; accepted signals reach publication and workbench. Redis and SafeChain are mandatory requirements governing detailed design, but their visual reconciliation requires approval. GCP runtime boundaries are not proven security trust boundaries.
+[Editable V4 draw.io](architecture/gcp-gke-level-1/v4/vantage-gcp-gke-technical-level-1-v4.drawio) · [SVG](architecture/gcp-gke-level-1/v4/vantage-gcp-gke-technical-level-1-v4.svg)
+
+The approved corrections are applied to the existing V4 diagram: the title is **Vantage Real Time Intelligence**, `queue` is Redis Streams, and `model` is SafeChain Integration. All 38 graph elements, 25 interface IDs, endpoint relationships and process groups are retained. AR-01/02 visual inconsistencies are resolved; API contracts, hosting and runtime verification remain open. AR-03 is clarified by “V4 — Final reference”; this is not production approval.
+
+V4 groups interaction ingestion, detection/orchestration and resolution/output within the GKE target. Platform services and the logical enterprise integration boundary appear outside the workload grouping. SafeChain's position preserves V4's layout and does not establish its physical hosting or ownership in GCP. It provides secure access to enterprise-approved LLM models; no additional model node or provider bypass is introduced. Future contextual generation must use SafeChain whenever it invokes an LLM.
 
 ## 3. Architecture Objectives
 
@@ -61,11 +56,11 @@ SafeChain's required role comes from the latest explicit user instruction. Its i
 ## 6. V4 Architecture Walkthrough
 
 1. Genesys source and proposed audio/STT acquisition supply transcripts; emulator supplies test transcripts over the documented WebSocket path. The exact provider contract is open.
-2. Transcript ingress frames updates and preserves call/session identity. Its handoff must use Redis Streams under the current requirement; V4's broker representation is AR-01.
+2. Transcript ingress frames updates and preserves call/session identity. Its handoff must use Redis Streams under the current requirement; V4 now represents this as Redis Streams.
 3. Ingestion workers normalize, handle same-call ordering and prepare windows/microbatches. Worker-side windowing remains the baseline; no relocation to ingress has been approved.
 4. Bounded context is updated by workers and supplied to coordination. Accepted-history writer, expiry and recovery remain open.
 5. Signal Management supplies versioned applicability and detector configuration. Coordination invokes configured methods; all three do not run for every event.
-6. Deterministic and semantic paths produce evidence. The LLM adapter must invoke approved models through SafeChain and validate returned output; V4's missing mediation is AR-02.
+6. Deterministic and semantic paths produce evidence. The LLM adapter must invoke approved models through SafeChain and validate returned output; V4 now explicitly represents SafeChain Integration.
 7. Shared resolution determines acceptance from evidence and agreed threshold semantics. Publication supplies accepted results; later generation/activation is selective and also must use SafeChain if it invokes LLMs.
 8. Operational instrumentation and enterprise controls apply across the flow. Product names and arrows do not establish deployed security or reliability guarantees.
 
@@ -83,7 +78,7 @@ Status **P** means Planned / Contract Required; **D** means local demo behavior 
 | `bridge` — Audio acquisition | Adapt permitted live audio for speech recognition | Active audio/STT session state | Integration / speech; P |
 | `stt` — Speech-to-Text | Produce transcript updates for proposed audio path | Recognition sessions; retention unspecified | Speech / Lumi; P |
 | `ingress` — Transcript ingress | Adapt and frame identifiable transcript updates | Source-to-session mapping; publication work | Ingestion; P |
-| `queue` — Cloud Pub/Sub — original V4 label | Original broker handoff; current requirement is Redis Streams | Pending delivery and retained entries; not conversation truth | Architecture / platform; P |
+| `queue` — Redis Streams | Authoritative real-time stream handoff | Pending delivery and retained entries; not conversation truth | Architecture / platform; P |
 | `worker` — Ingestion worker pool | Prepare coherent per-session detection input | Per-call progress, buffers and window state | Ingestion / detection; P |
 | `state` — Memorystore for Redis | Provide bounded same-call working context | Derived context; prior accepted-history writer unassigned | Data / ingestion; P |
 | `management` — Signal Management UI / API | Maintain versioned taxonomy and detection configuration | Catalog authority and snapshot lifecycle; owner TBD | Catalog / business SME; D |
@@ -92,7 +87,7 @@ Status **P** means Planned / Contract Required; **D** means local demo behavior 
 | `rules` — Deterministic detection | Evaluate configured rules/matching | Rule/config version; does not own call history | Detection / SME; P |
 | `semantic` — Semantic detection | Embed, retrieve top-K and rerank | Model/index/example provenance | ML / data; P |
 | `llm` — LLM detection adapter | Evaluate scoped requirement/context through mandatory SafeChain | Prompt/model/catalog/evaluation provenance | AI platform / security; P |
-| `model` — Vertex AI endpoint | Candidate approved LLM model endpoint behind required SafeChain | Endpoint/model version; no new credentials/config invented | AI platform / Lumi; P |
+| `model` — SafeChain Integration | Mandatory enterprise integration for secure access to approved LLM models | Integration/model version; no new credentials/config invented | AI platform / Lumi; P |
 | `resolver` — Shared Signal Resolution | Accept method evidence under configured signal rules | Decision identity, dedup and finality owner TBD | SME / ML; P |
 | `publisher` — Signal publication API | Deliver accepted signals | Delivery progress; authoritative result store TBD | API / data; P |
 | `workbench` — Signal workbench | Display actionable evidence and latency for review | Display session state; not business source of truth | UI / product; P |
@@ -104,7 +99,7 @@ Status **P** means Planned / Contract Required; **D** means local demo behavior 
 
 ## 8. Component Interaction Matrix
 
-All 25 original interface IDs are retained in V4. The table distinguishes the original edge from the required contract interpretation; it does not alter the XML. Protocols shown in V4 as proposed remain proposals, except that the Redis and SafeChain requirements explicitly prohibit the obsolete interpretations identified in AR-01/02.
+All 25 original interface IDs and endpoint pairs are retained in V4. The approved Redis and SafeChain labels are reflected below. Unrelated proposed protocols remain proposals; SafeChain transport and API details are not inferred.
 
 | Interface | Source → destination | Contract/mechanism and success responsibility | Failure / open binding |
 |---|---|---|---|
@@ -112,8 +107,8 @@ All 25 original interface IDs are retained in V4. The table distinguishes the or
 | `edge-2` | bridge → stt | Audio request / transcript response; gRPC/TLS proposed | Finality, correction, speech ownership and timeout |
 | `edge-3` | bridge → ingress | Identifiable transcript events | Canonical source envelope and continuity |
 | `edge-4` | test → ingress | Documented WebSocket emulator input | Fixture conformity, disconnect/revision cases |
-| `edge-5` | ingress → queue | Redis publication required; original Pub/Sub label AR-01 | Envelope, names, publish retry identity and durability |
-| `edge-6` | queue → worker | Redis consumer groups required; original StreamingPull label AR-01 | Ownership, pending recovery, idempotency and ack boundary |
+| `edge-5` | ingress → queue | Redis Streams entry publication | Envelope, names, publish retry identity and durability |
+| `edge-6` | queue → worker | Redis Streams consumer-group delivery | Ownership, pending recovery, idempotency and ack boundary |
 | `edge-7` | worker → coord | Microbatch / detection input; gRPC remains original proposal | Utterance-to-window mapping and completion contract |
 | `edge-8` | worker → state | Recent conversation-state update; Redis/TLS proposed | Atomicity, expiry and reconstruction |
 | `edge-9` | state → coord | Same-call context; read packaging OPEN | Missing state versus empty history |
@@ -123,7 +118,7 @@ All 25 original interface IDs are retained in V4. The table distinguishes the or
 | `edge-13` | rules → resolver | Deterministic evidence | Do not invent confidence probability |
 | `edge-14` | semantic → resolver | Reranked semantic evidence | Score semantics/calibration and missing candidates |
 | `edge-15` | llm → resolver | Validated LLM evidence | Malformed output, missing evidence and late results |
-| `edge-16` | llm → model | Required interpretation: through SafeChain; original direct-looking edge AR-02 | No bypass; API/auth/config/error contracts not supplied |
+| `edge-16` | llm → model | Secure LLM invocation through SafeChain Integration | No bypass; API/auth/config/error contracts not supplied |
 | `edge-17` | semantic → sql | Vector query/results; SQL/TLS proposed | Compatible index, retrieval failures and data access |
 | `edge-18` | management → coord | Versioned catalog configuration; fetch/push OPEN | Snapshot selection/pinning/rollback |
 | `edge-19` | management → sql | Proposed catalog/example persistence | Authority, validation and publication consistency |
@@ -136,7 +131,7 @@ All 25 original interface IDs are retained in V4. The table distinguishes the or
 
 ## 9. High-Level End-to-End Processing Flows
 
-**Ingestion:** provider/emulator → transcript ingress → required Redis Streams → consumer-group workers → normalization and bounded same-session preparation. Raw Redis envelope and detection request are separate boundaries. The original V4 broker labels remain visible only as AR-01.
+**Ingestion:** provider/emulator → transcript ingress → required Redis Streams → consumer-group workers → normalization and bounded same-session preparation. Raw Redis envelope and detection request are separate boundaries. The V4 broker labels now reflect Redis Streams.
 
 **Intelligence:** prepared request plus catalog snapshot/context → applicability → selected methods → evidence → shared resolution → accepted detections. Concurrency can exist across calls and evaluations; no automatic fixed rule → semantic → LLM chain is selected.
 
@@ -150,7 +145,7 @@ All 25 original interface IDs are retained in V4. The table distinguishes the or
 
 ## 10. Redis Streams Ingress and Processing
 
-Redis Streams is mandatory, not an alternative. No runtime broker code exists in the inspected repository, so this task changes documentation only. The original V4 broker card remains unchanged under AR-01; its display must not be interpreted as implementation permission.
+Redis Streams is mandatory, not an alternative. No runtime broker code exists in the inspected repository. This task updates only the existing diagram, exports and supporting documentation/tooling; Redis processing is not implemented here.
 
 All unspecified items below are **TBD — Detailed Design Decision Required**. These tables identify the engineering contract to agree; they do not introduce invented production values.
 
@@ -218,7 +213,7 @@ A worker crash after state update but before durable scheduling is a critical co
 | Security responsibilities | Mandatory use established; specific auth, filtering, encryption and audit mechanisms not evidenced |
 | Observability | Correlate permitted request/utterance/evaluation and model versions; latency/error metrics proposed; SafeChain telemetry fields TBD |
 | Implementation / tests | No implementation/configuration found; no calls or SafeChain test execution demonstrated |
-| Compliance gap | AR-02 is a documentation/diagram inconsistency, not proof of a running code bypass |
+| Compliance gap | SafeChain is now explicit in V4; runtime integration and bypass prevention remain unverified |
 
 The previous interpretation of SafeChain as a selectable execution feature is superseded. No existing implementation was removed or disabled. Contract acquisition and tests are prerequisites for coding this integration. If SafeChain fails, the required detection outcome and retry/degradation policy must be agreed; silently calling the provider directly is not a proposed recovery path.
 
@@ -246,7 +241,7 @@ All component inputs/outputs, dependencies and mechanisms below refer to §8's s
 | Audio acquisition (`bridge`) | Genesys audio; codec/frame format TBD | Transcript updates from STT interaction | edge-1 input; edge-2 STT dependency; edge-3 ingress output | Target responsibility; detailed binding TBD |
 | Speech-to-Text (`stt`) | Approved audio stream | Partial/final recognition results; source contract TBD | edge-2 bidirectional dependency; gRPC/TLS shown as proposal | Target responsibility; detailed binding TBD |
 | Transcript ingress (`ingress`) | Source/emulator updates | Identifiable processing entries | edges-3/4 input; edge-5 handoff; Redis required, original label conflicts | Target responsibility; detailed binding TBD |
-| Cloud Pub/Sub — original V4 label (`queue`) | Ingress processing entries | Consumer-group delivery under required Redis contract | edges-5/6; original broker names/protocol labels preserved pending approval | Target responsibility; detailed binding TBD |
+| Redis Streams (`queue`) | Ingress processing entries | Consumer-group delivery under required Redis contract | edges-5/6; publish entries and consumer-group delivery; detailed transport binding open | Target responsibility; detailed binding TBD |
 | Ingestion worker pool (`worker`) | Stream deliveries | Normalized windows / detection requests | edge-6 input; edge-7 coordination; edge-8 context update | Target responsibility; detailed binding TBD |
 | Memorystore for Redis (`state`) | Worker context updates | Same-call context for coordination | edge-8 update; edge-9 context read; managed product proposed | Target responsibility; detailed binding TBD |
 | Signal Management UI / API (`management`) | Curated definitions, patterns, examples and detector metadata | Published catalog snapshot and configuration; action mappings | edge-18 coordination; edge-19 proposed persistence; action delivery binding TBD | Documented demo model; runtime binding TBD |
@@ -255,7 +250,7 @@ All component inputs/outputs, dependencies and mechanisms below refer to §8's s
 | Deterministic detection (`rules`) | Selected request and rule configuration | Method evidence | edge-10 input; edge-13 resolver; internal protocol TBD | Target responsibility; detailed binding TBD |
 | Semantic detection (`semantic`) | Selected input and compatible examples/index | Reranked method evidence | edge-11 input; edge-17 retrieval; edge-14 resolver | Target responsibility; detailed binding TBD |
 | LLM detection adapter (`llm`) | Selected request, requirement, permitted context | Validated LLM evidence | edge-12 input; edge-15 resolver; edge-16 requires SafeChain clarification | Target responsibility; detailed binding TBD |
-| Vertex AI endpoint (`model`) | SafeChain-mediated request under contract TBD | Response through SafeChain to caller | Original edge-16 HTTPS inference and gateway-alternative wording unresolved | Target responsibility; detailed binding TBD |
+| SafeChain Integration (`model`) | SafeChain-mediated request under contract TBD | Response through SafeChain to caller | edge-16 secure LLM invocation; SafeChain API / protocol open | Target responsibility; detailed binding TBD |
 | Shared Signal Resolution (`resolver`) | Method evidence and completion/configuration references | Accepted detections | edges-13/14/15 in; edge-20 publication; edge-23 selective later work | Target responsibility; detailed binding TBD |
 | Signal publication API (`publisher`) | Accepted multi-label envelope | Consumer delivery and proposed persisted result | edge-20 input; edge-21 workbench; edge-22 proposed SQL | Target responsibility; detailed binding TBD |
 | Signal workbench (`workbench`) | Authorized accepted detections | User-visible signal review | edge-21; SSE/WebSocket over HTTPS remains proposal | Target responsibility; detailed binding TBD |
@@ -366,7 +361,7 @@ The following component-by-component checks cover responsibility, interaction, r
 | Audio acquisition (`bridge`) | Define continuity, buffering and recovery after STT disconnect | Approved audio capture and STT data handling | Audio receipt-to-transcript delay and dropped frames; limits TBD | Audio and STT ownership unclear |
 | Speech-to-Text (`stt`) | Specify timeout, reconnect and correction behavior | Approved audio service and permitted processing location | Recognition delay, quality and service errors; limits TBD | Service/protocol/version not confirmed |
 | Transcript ingress (`ingress`) | Publish failure, backpressure and stable retry identity required | Validate payload and source authorization; no invented fields | Ingress delay, invalid updates and publish failures; limits TBD | Transport envelope and metadata mapping missing |
-| Cloud Pub/Sub — original V4 label (`queue`) | Ack after success/durable handoff; pending recovery, retry, DLQ, replay and idempotency required | Approved Redis access/hosting and restricted payload retention | Lag, pending age, retries, DLQ, capacity and availability; limits TBD | AR-01: preserved diagram conflicts with Redis requirement |
+| Redis Streams (`queue`) | Ack after success/durable handoff; pending recovery, retry, DLQ, replay and idempotency required | Approved Redis access/hosting and restricted payload retention | Lag, pending age, retries, DLQ, capacity and availability; limits TBD | Redis hosting, ordering and recovery contract unverified |
 | Ingestion worker pool (`worker`) | Ownership, revisions, duplicate effects, ack boundary and restart recovery TBD | Strict same-session isolation and minimum retained text | Window wait, throughput, backlog and state failures; limits TBD | Concurrency and utterance/window mapping are incomplete |
 | Memorystore for Redis (`state`) | Expiry, eviction, reconstruction and missing-state behavior TBD | Session-scoped access and sensitive-text retention | Read/write latency, misses, eviction and recovery; limits TBD | Store choice and history consistency are not settled |
 | Signal Management UI / API (`management`) | Reject invalid config as required; rollback/pinning not defined | Authoring/approval access, source audit and provenance | Validation failures, snapshot activation and version mismatches; limits TBD | Demo validates arrays only; runtime version acquisition absent |
@@ -374,8 +369,8 @@ The following component-by-component checks cover responsibility, interaction, r
 | Detector coordination (`coord`) | Deadlines, partial completion, cancellation and fallback TBD | Supply only allowed same-session context | Selected methods, completion, timeout and in-flight work; limits TBD | Call metadata missing from visible input schema; combined execution undefined |
 | Deterministic detection (`rules`) | Invalid regex/config and failed evaluation differ from no match | Safe config validation and evidence minimization | Evaluation duration, rule errors and outcome rates; limits TBD | Per-family schema and evidence requirements incomplete |
 | Semantic detection (`semantic`) | No candidates distinct from retrieval/inference failure; deadline TBD | Permitted input and retrieved evidence; LLM-backed dependencies must use SafeChain if selected | Embedding/retrieval/reranking latency and quality; limits TBD | Threshold/index compatibility and hosting undecided |
-| LLM detection adapter (`llm`) | SafeChain timeout/error/output contract TBD; no direct-provider bypass fallback | All LLM inference must use SafeChain; actual auth/data controls not supplied | Correlation, latency, timeout and invalid-output counts without sensitive payload leakage; limits TBD | AR-02: diagram omits mandatory SafeChain boundary; implementation absent |
-| Vertex AI endpoint (`model`) | Quota/timeout/error behavior must be negotiated through SafeChain | No direct application-to-model permission inferred | Permitted endpoint latency/availability and usage metrics; limits TBD | SafeChain mediation and endpoint approval not shown |
+| LLM detection adapter (`llm`) | SafeChain timeout/error/output contract TBD; no direct-provider bypass fallback | All LLM inference must use SafeChain; actual auth/data controls not supplied | Correlation, latency, timeout and invalid-output counts without sensitive payload leakage; limits TBD | SafeChain API contract and runtime implementation absent |
+| SafeChain Integration (`model`) | Quota/timeout/error behavior must be negotiated through SafeChain | No direct application-to-model permission inferred | Permitted endpoint latency/availability and usage metrics; limits TBD | SafeChain represented; integration contract and model approval unverified |
 | Shared Signal Resolution (`resolver`) | Conflicts, late evidence, abstention and partial failure TBD | Evidence integrity and decision provenance | Acceptance/rejection, latency and score distributions by method; limits TBD | Threshold scope, score comparability and combined evidence unresolved |
 | Signal publication API (`publisher`) | Slow consumer, retry, duplicate delivery and write/publish consistency TBD | Authorized evidence disclosure; consumer access required | Publication lag, failures and duplicates; limits TBD | Protocol alternatives are labels, not approved APIs |
 | Signal workbench (`workbench`) | Reconnect, stale views and corrected decisions TBD | Role-appropriate evidence access; no raw transcript exposure by default | Visible latency, usability and display errors; limits TBD | UI hosting/access and feedback contract absent |
@@ -387,7 +382,7 @@ The following component-by-component checks cover responsibility, interaction, r
 
 ## 18. Recommended Component Improvements
 
-These are recommendations, not applied runtime changes. Critical means correctness/security/data integrity review gate, not a verified production incident. High means important interface/reliability readiness gap. Medium means operational/scaling/usability improvement. Low would denote nonessential refinement. Existing design refers to the preserved V4 representation.
+These are recommendations, not applied runtime changes. Critical means correctness/security/data integrity review gate, not a verified production incident. High means important interface/reliability readiness gap. Medium means operational/scaling/usability improvement. Low would denote nonessential refinement. Existing design refers to the updated V4 representation; runtime changes remain recommendations only.
 
 | Component | Existing Design | Identified Gap | Recommended Improvement | Priority | Implementation Impact |
 |---|---|---|---|---|---|
@@ -399,7 +394,7 @@ These are recommendations, not applied runtime changes. Critical means correctne
 | Audio acquisition (`bridge`) | Adapt permitted live audio for speech recognition | Audio and STT ownership unclear | Define audio format, session mapping and STT responsibility before adapter work | High | Interface contract clarification; recommendation only |
 | Speech-to-Text (`stt`) | Produce transcript updates for proposed audio path | Service/protocol/version not confirmed | Agree recognition owner, finality and correction contract | High | Interface contract clarification; recommendation only |
 | Transcript ingress (`ingress`) | Adapt and frame identifiable transcript updates | Transport envelope and metadata mapping missing | Separate source framing from worker detection windows; define Redis producer boundary | High | Interface contract clarification; recommendation only |
-| Cloud Pub/Sub — original V4 label (`queue`) | Original broker handoff; current requirement is Redis Streams | AR-01: preserved diagram conflicts with Redis requirement | Approve smallest broker card/icon and protocol-label correction; preserve adjacency; do not apply yet | Critical | Architectural change requiring approval; recommendation only |
+| Redis Streams (`queue`) | Authoritative real-time stream handoff | Redis hosting, ordering and recovery contract unverified | Agree Redis hosting, ordering, acknowledgement and recovery contracts; visual correction applied | Critical | Architectural change requiring approval; recommendation only |
 | Ingestion worker pool (`worker`) | Prepare coherent per-session detection input | Concurrency and utterance/window mapping are incomplete | Agree per-call ownership and processing-to-handoff commit contract | High | Interface contract clarification; recommendation only |
 | Memorystore for Redis (`state`) | Provide bounded same-call working context | Store choice and history consistency are not settled | Assign history writer/visibility and context loss behavior independently of stream delivery | Critical | Interface contract clarification; recommendation only |
 | Signal Management UI / API (`management`) | Maintain versioned taxonomy and detection configuration | Demo validates arrays only; runtime version acquisition absent | Bind supplied Domain/Theme/Signal contracts to reviewed snapshot lifecycle | High | Interface contract clarification; recommendation only |
@@ -407,8 +402,8 @@ These are recommendations, not applied runtime changes. Critical means correctne
 | Detector coordination (`coord`) | Select applicable signals and configured methods | Call metadata missing from visible input schema; combined execution undefined | Agree applicability metadata binding and completion rules | High | Interface contract clarification; recommendation only |
 | Deterministic detection (`rules`) | Evaluate configured rules/matching | Per-family schema and evidence requirements incomplete | Define detector contract and golden matching cases; do not invent numeric probability | High | Interface contract clarification; recommendation only |
 | Semantic detection (`semantic`) | Embed, retrieve top-K and rerank | Threshold/index compatibility and hosting undecided | Version the semantic bundle and evaluate precision/recall and latency | High | Interface contract clarification; recommendation only |
-| LLM detection adapter (`llm`) | Evaluate scoped requirement/context through mandatory SafeChain | AR-02: diagram omits mandatory SafeChain boundary; implementation absent | Approve annotation/integration-boundary correction and obtain actual SafeChain contract | Critical | Architectural change requiring approval; recommendation only |
-| Vertex AI endpoint (`model`) | Candidate approved LLM model endpoint behind required SafeChain | SafeChain mediation and endpoint approval not shown | Remove bypass ambiguity only after diagram approval; preserve endpoint candidate | Critical | Architectural change requiring approval; recommendation only |
+| LLM detection adapter (`llm`) | Evaluate scoped requirement/context through mandatory SafeChain | SafeChain API contract and runtime implementation absent | Obtain actual SafeChain integration contract and verify mandatory routing; visual correction applied | Critical | Architectural change requiring approval; recommendation only |
+| SafeChain Integration (`model`) | Mandatory enterprise integration for secure access to approved LLM models | SafeChain represented; integration contract and model approval unverified | Validate integration ownership, model access and failure behavior; no direct-provider bypass | Critical | Architectural change requiring approval; recommendation only |
 | Shared Signal Resolution (`resolver`) | Accept method evidence under configured signal rules | Threshold scope, score comparability and combined evidence unresolved | Approve method-specific evidence/acceptance contract without changing shared boundary | Critical | Interface contract clarification; recommendation only |
 | Signal publication API (`publisher`) | Deliver accepted signals | Protocol alternatives are labels, not approved APIs | Agree delivery/finality contract and persistence ordering | High | Interface contract clarification; recommendation only |
 | Signal workbench (`workbench`) | Display actionable evidence and latency for review | UI hosting/access and feedback contract absent | Specify multi-label display, evidence provenance and review feedback | Medium | Interface contract clarification; recommendation only |
@@ -423,25 +418,25 @@ These are recommendations, not applied runtime changes. Critical means correctne
 | Decision | Current disposition |
 |---|---|
 | Final reference | Original V4 source, PNG, SVG, graph and generator retained at original paths; no new architecture version |
-| Ingress | Redis Streams mandatory; V4 broker representation AR-01 requires approval to correct |
-| LLM security | SafeChain mandatory; V4 edge-16/model representation AR-02 requires approval to clarify |
+| Ingress | Redis Streams mandatory; approved V4 correction applied (AR-01) |
+| LLM security | SafeChain mandatory; approved V4 correction applied (AR-02) |
 | Platform | Lumi/GCP and GKE target retained; service availability and inherited controls open |
 | Source / context | Separate emulator, proposed audio/STT; bounded same-session context and worker-side windowing retained |
 | Methods | Selective deterministic/semantic/LLM; top-K/reranking retained; classifier execution not added |
 | Acceptance | Shared resolution retained; thresholds, completion and evidence semantics require detailed design |
 | Catalog | Supplied Domain/Theme/Signal schema, current Sales Compliance domain, immutable snapshot identity and multi-label output |
 | Persistence / activation | Hosting and authority open; later action execution does not become core mandatory detection |
-| Repository | One root README, preserved V4 folder, validation/provenance records; no alternate diagrams or meeting/source-photo content |
+| Repository | One root README, existing V4 folder, validation/provenance records; no alternate diagrams or meeting/source-photo content |
 
-All current runtime requirements are documented without pretending the unchanged picture already contains the approved corrections. No architecture-compliance or production-readiness claim is made.
+The approved visual corrections are applied. Their presence does not demonstrate runtime implementation, enterprise compliance or production readiness.
 
 ## 20. Open Design Decisions
 
 | Decision | Required reviewers | Gate |
 |---|---|---|
-| AR-01: approve minimum Redis card/protocol correction | Architect / messaging owner | Before claiming V4 visual alignment |
-| AR-02: approve SafeChain mediation and model-label correction | Architect / AI platform / security | Before claiming secure invocation alignment |
-| AR-03: clarify reference-final versus image DRAFT status | Architecture owner | Before interpreting final as approved production |
+| Redis hosting, publication and consumer-group contracts (AR-01 visual correction completed) | Architect / messaging owner | Before implementation approval |
+| SafeChain API, access and model approval (AR-02 visual correction completed) | Architect / AI platform / security | Before secure invocation implementation |
+| Production approval distinct from final-reference status (AR-03 clarified) | Architecture owner | Before deployment |
 | Provider source contract, STT ownership, finality/revisions | Integration / speech | Before live acquisition |
 | Redis keys/envelope/groups, ownership, ack/retry/DLQ/replay/retention | Ingestion / data / SRE | Before reliable consumer implementation |
 | Catalog-version acquisition/pinning and call metadata delivery | Catalog / ingestion / detection | Before reproducible applicability |
@@ -456,7 +451,7 @@ No approved endpoint names, stream keys, credential fields, model IDs, retry cou
 ## 21. Developer Design Handoff Checklist
 
 - [ ] Assign accountable component and producer/consumer owners.
-- [ ] Resolve AR-01/02 before editing or claiming compliance of V4; preserve the original recovery source.
+- [x] Apply authorized AR-01/02 visual corrections; retain prior source in Git history. Runtime compliance is still unverified.
 - [ ] Obtain provider samples and agree source identity, sequence and finality/revision semantics.
 - [ ] Agree Redis envelope, delivery ownership, acknowledgement and recovery consistency.
 - [ ] Bind the supplied input/output schemas to catalog versioning, metadata selection and windows.
@@ -479,16 +474,16 @@ Run the read-only package checks with Python 3:
 python3 -B architecture/tools/validate_package.py
 ```
 
-The preserved historical generator remains at `architecture/gcp-gke-level-1/v4/build_v4.py`, with its graph and icon dependencies unchanged. **Do not run it in the authoritative V4 folder during this preservation task:** it writes diagram/export files. To inspect reproduction, copy the complete folder to a temporary location and run there. Do not overwrite manual or original diagram content without approval.
+The existing renderer at `architecture/gcp-gke-level-1/v4/build_v4.py` now reads the existing `graph-v4.json` and refreshes draw.io/SVG without reconstructing the architecture. The graph retains original IDs, grouping and endpoints. Rendering writes exports: use a temporary copy for reproduction checks. The high-resolution PNG is rendered from the SVG.
 
-The original PNG/SVG are provided. The PNG was visually inspected; SVG and editable draw.io XML were structurally checked. Native organization draw.io import remains untested. Preservation validation uses SHA-256 for every original V4 file, checks all 25 connector endpoints against the graph, confirms the README opening/embedded path and one README, and verifies documentation coverage of all major components.
+Updated PNG/SVG are provided. The PNG was visually inspected; SVG and editable draw.io XML were structurally checked. Native organization draw.io import remains untested. Validation retains original and current SHA-256 records, checks all 25 endpoint pairs against the prior revision, verifies the exact title and selected labels, checks the 16:9 canvas, and confirms README links and component coverage.
 
-- [Preservation manifest and exact discrepancies](architecture/review/v4-preservation.json)
+- [Original baseline and approved-correction manifest](architecture/review/v4-preservation.json)
 - [Validation results](architecture/review/validation.json)
 - [File scope and change audit](architecture/review/change-audit.json)
 
-Superseded options diagrams and competing guide documents are omitted from this branch's current tree; their original commit remains in Git history. No branch/history rewrite or runtime deletion occurs. Existing V4 tooling/icons and `.gitignore` are preserved. Input JPEGs, manager reviews and meeting artifacts are not copied. The previous local consolidation checkout remains untouched.
+Superseded options diagrams and competing guide documents are omitted from this branch's current tree; their original commit remains in Git history. No branch/history rewrite or runtime deletion occurs. Existing V4 icon assets and `.gitignore` are preserved; obsolete vendor icons are no longer embedded in the diagram. Input JPEGs, manager reviews and meeting artifacts are not copied. The previous local consolidation checkout remains untouched.
 
 Vendor icons are retained as existing assets from [Google Cloud icons](https://cloud.google.com/icons), subject to vendor/internal usage requirements. No additional license or enterprise compliance is asserted.
 
-**Validation scope:** preservation/documentation checks can pass while architectural alignment remains blocked by AR-01/02. Redis, SafeChain, API, load and recovery execution tests are unavailable because runtime code/configuration is absent. No existing code bypass has been demonstrated. This branch is for review of the authoritative V4 and required corrections, not a claim that the runtime is implemented or compliant.
+**Validation scope:** targeted diagram alignment is complete; implementation and production approval remain open. Redis, SafeChain, API, load and recovery execution tests are unavailable because runtime code/configuration is absent. No existing code bypass has been demonstrated. This branch contains the authoritative updated V4; it does not claim that the runtime is implemented or compliant.
