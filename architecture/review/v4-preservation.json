@@ -1,0 +1,120 @@
+{
+  "baseline_commit": "b39a64848e8cf11c41acd0be1bb5e0cad45d21a0",
+  "source_branch": "architecture/final-v4",
+  "publication_branch": "architecture/v4-final-review",
+  "v4_files": {
+    "architecture/gcp-gke-level-1/v4/build_v4.py": "3bd533df42264b520b07c913704361fd72bd572f227c075d5a3e9f519f3e93c7",
+    "architecture/gcp-gke-level-1/v4/graph-v4.json": "10b6f537de364de9d8810f6553ece0dd9661faff44d4517d9cfa7a47899db10a",
+    "architecture/gcp-gke-level-1/v4/icons/cloud_logging.svg": "f7fdd93a1847fdebf174c78cce418fac52198be72893116e7787ca3e1659cf38",
+    "architecture/gcp-gke-level-1/v4/icons/cloud_monitoring.svg": "804f66b773fcc5cd59a3fb8e0da9ff3de9b69efa99c23f8e1797943647a8e79e",
+    "architecture/gcp-gke-level-1/v4/icons/cloud_sql.svg": "ffdf8329a098d53313f4a8b10449b33e1cf9f139aaeb4a53e6564c1fad6b8b1b",
+    "architecture/gcp-gke-level-1/v4/icons/google_kubernetes_engine.svg": "5f44dce3df0483bd0b1a344be07129e054f61cb5fa947aea022db3441c25db5e",
+    "architecture/gcp-gke-level-1/v4/icons/identity_and_access_management.svg": "16642a394d5eb28be4ea688870dd6cbbcb943b14a1360ce09ba3a03d561fc1eb",
+    "architecture/gcp-gke-level-1/v4/icons/memorystore.svg": "e1e14c0fa7a2a155cd5626226ea7b49b933641d384c86aa38b1a4fd9470fab6a",
+    "architecture/gcp-gke-level-1/v4/icons/neutral-audio.svg": "7af0ea57b806b16804ac1ab16a406c657bcec50f3d7c76f9391e48c465e6b530",
+    "architecture/gcp-gke-level-1/v4/icons/neutral-branch.svg": "7a06d4748696628d109d79d3da91efa6de78ea7073de62e7ce48943643bef31c",
+    "architecture/gcp-gke-level-1/v4/icons/neutral-check.svg": "28c924f2e3f8b531ccb17023d52ba33a9f14b71f622372bbc1bb724fed7d2360",
+    "architecture/gcp-gke-level-1/v4/icons/neutral-cloud.svg": "0b2a99659446a7e6e27b610eb9089dbb642049ab28a7c7e4ce27e3b8ede03d36",
+    "architecture/gcp-gke-level-1/v4/icons/neutral-screen.svg": "03e8f67819994a8abbf59f78f893dfc799044144e9ffbfd77e53eceede0a65f1",
+    "architecture/gcp-gke-level-1/v4/icons/neutral-search.svg": "2a7707c2a3fac97e2797c4f87ccab56db1f2ebd661448bba71f75635476647e8",
+    "architecture/gcp-gke-level-1/v4/icons/neutral-service.svg": "63b74ffbdddc5c0b4cbdd926eab96aa4f5f277910fc98b51fc5ef697c9ff72d1",
+    "architecture/gcp-gke-level-1/v4/icons/neutral-shield.svg": "66dfaaa28bdd2fdcc781769b9dfa19340a1d3115444f651ea728c03ef7b2c8bf",
+    "architecture/gcp-gke-level-1/v4/icons/pubsub.svg": "bd71cb16b24c5a368fc7913525e093f03e426d06e8917c1f255187e9f6c10217",
+    "architecture/gcp-gke-level-1/v4/icons/secret_manager.svg": "194b0f81870b265064680007e472d011797d01fbdede0bb4ade28e025a22e7b6",
+    "architecture/gcp-gke-level-1/v4/icons/speech-to-text.svg": "4500f0f324e32c72b370d00edf84d981ad93c308e07a963e08520632bd425cc1",
+    "architecture/gcp-gke-level-1/v4/icons/trace.svg": "c8434efa76a4d0d1bcf29e5a2d1d7d520efec8c6c6e4faf7655a423369471405",
+    "architecture/gcp-gke-level-1/v4/icons/vertexai.svg": "d6a643fad5de9e513bba05af22b685572e5e06b92c3e5495b7ecf56666ff79c0",
+    "architecture/gcp-gke-level-1/v4/vantage-gcp-gke-technical-level-1-v4.drawio": "550f9c3c4fe14acd8dbf0379045315d840bdd63aaf3faf30f97cbbcc2a3af71e",
+    "architecture/gcp-gke-level-1/v4/vantage-gcp-gke-technical-level-1-v4.png": "f53c63dba3a01e83d139c8100c42a1885c7637fc32b9f1fe44391b0945a1bf7e",
+    "architecture/gcp-gke-level-1/v4/vantage-gcp-gke-technical-level-1-v4.svg": "1c53475e706114557d32342eff6a3621883f545d80e3c58aac27eca5ad6d4fcf"
+  },
+  "scope": "Documentation correction and review. V4 folder contents must remain byte-identical. No runtime implementation exists in baseline.",
+  "approval_required": [
+    {
+      "id": "AR-01",
+      "component": "queue",
+      "interfaces": [
+        "edge-5",
+        "edge-6"
+      ],
+      "existing": "Cloud Pub/Sub, Publish API/TLS, StreamingPull/ack",
+      "required": "Redis Streams; consumer groups and agreed Redis delivery contract",
+      "disposition": "Preserve original; correction requires architectural approval"
+    },
+    {
+      "id": "AR-02",
+      "components": [
+        "llm",
+        "model"
+      ],
+      "interfaces": [
+        "edge-16"
+      ],
+      "existing": "LLM adapter to Vertex AI; enterprise gateway alternative label; SafeChain not represented",
+      "required": "Mandatory secure LLM invocation through SafeChain; API/security details not supplied",
+      "disposition": "Preserve original; correction requires architectural approval; no code bypass demonstrated"
+    },
+    {
+      "id": "AR-03",
+      "component": "page-subtitle",
+      "existing": "DRAFT \u2014 EARB review; 12 October 2026",
+      "required": "User designates V4 final authoritative reference; this is not production approval",
+      "disposition": "Keep original label; explain final-reference designation in README"
+    }
+  ],
+  "major_component_ids": [
+    "gcp",
+    "gke",
+    "genesys",
+    "test",
+    "provider",
+    "bridge",
+    "stt",
+    "ingress",
+    "queue",
+    "worker",
+    "state",
+    "management",
+    "sql",
+    "coord",
+    "rules",
+    "semantic",
+    "llm",
+    "model",
+    "resolver",
+    "publisher",
+    "workbench",
+    "later",
+    "consumers",
+    "telemetry",
+    "controls",
+    "governance"
+  ],
+  "interface_ids": [
+    "edge-1",
+    "edge-2",
+    "edge-3",
+    "edge-4",
+    "edge-5",
+    "edge-6",
+    "edge-7",
+    "edge-8",
+    "edge-9",
+    "edge-10",
+    "edge-11",
+    "edge-12",
+    "edge-13",
+    "edge-14",
+    "edge-15",
+    "edge-16",
+    "edge-17",
+    "edge-18",
+    "edge-19",
+    "edge-20",
+    "edge-21",
+    "edge-22",
+    "edge-23",
+    "edge-24",
+    "edge-25"
+  ]
+}
