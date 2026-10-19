@@ -6,7 +6,7 @@ VANTAGE identifies meaningful business signals during active customer conversati
 
 **Redis Streams is the authoritative real-time ingress requirement. SafeChain is the mandatory internal secure integration for every LLM invocation.** Non-LLM components do not need SafeChain in their execution path. Technical interfaces and runtime implementation are not established by these architectural requirements.
 
-This is the single authoritative README for the V4 review branch. It retains the existing V4 structure and incorporates the approved Redis Streams, SafeChain and presentation corrections in place. The previous diagram remains recoverable in Git commit `65bdd04`. The repository contains architecture tooling, not a demonstrated application runtime. Named owners and production approval remain outstanding. Review date: 19 October 2026.
+This is the single authoritative README for the final V4 demonstration branch (`master`). It retains the existing V4 structure and incorporates the approved Redis Streams, SafeChain and presentation corrections in place. The previous diagram remains recoverable in Git commit `65bdd04`. The repository contains architecture tooling, not a demonstrated application runtime. Named owners and production approval remain outstanding. Review date: 19 October 2026.
 
 ## Final Level 1 Architecture
 
@@ -482,7 +482,7 @@ Updated PNG/SVG are provided. The PNG was visually inspected; SVG and editable d
 - [Validation results](architecture/review/validation.json)
 - [File scope and change audit](architecture/review/change-audit.json)
 
-Superseded options diagrams and competing guide documents are omitted from this branch's current tree; their original commit remains in Git history. No branch/history rewrite or runtime deletion occurs. Existing V4 icon assets and `.gitignore` are preserved; obsolete vendor icons are no longer embedded in the diagram. Input JPEGs, manager reviews and meeting artifacts are not copied. The previous local consolidation checkout remains untouched.
+Superseded options diagrams and competing guide documents are omitted from this branch's current tree; their original commit remains in Git history. No branch/history rewrite or runtime deletion occurs. Required V4 icon assets and `.gitignore` are retained; unused Pub/Sub and Vertex AI icon files have been removed from the final `master` tree. Input JPEGs, manager reviews and meeting artifacts are not copied. The previous local consolidation checkout remains untouched.
 
 Vendor icons are retained as existing assets from [Google Cloud icons](https://cloud.google.com/icons), subject to vendor/internal usage requirements. No additional license or enterprise compliance is asserted.
 

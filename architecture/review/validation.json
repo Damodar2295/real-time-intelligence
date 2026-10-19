@@ -1,12 +1,12 @@
 {
   "package_checks": "PASS",
   "errors": [],
-  "v4_verified_files": 24,
+  "v4_verified_files": 22,
   "major_components": 26,
   "interfaces": 25,
   "xml_and_svg": "PARSED",
   "architectural_alignment": "APPROVED DIAGRAM CORRECTIONS APPLIED; runtime and production approval unverified",
-  "native_drawio_import": "NOT TESTED \u2014 XML structure validated",
+  "native_drawio_import": "NOT TESTED",
   "runtime_tests": "NOT AVAILABLE \u2014 architecture tooling only",
   "visual_inspection": "Updated PNG inspected at presentation aspect ratio; no new visible overlaps",
   "render": "PNG rendered from SVG; draw.io and SVG emitted from the same existing graph",
@@ -14,5 +14,10 @@
   "prior_revision": "65bdd048f392e0e31a3fd7656944b8b9c170032a",
   "scope": "38 graph elements, 25 endpoint pairs and all original parent groupings retained",
   "runtime_changes": "NONE",
-  "review_date": "2026-10-19"
+  "review_date": "2026-10-19",
+  "publication_branch": "master",
+  "unused_assets_removed": [
+    "pubsub.svg",
+    "vertexai.svg"
+  ]
 }

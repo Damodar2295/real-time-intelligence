@@ -180,5 +180,13 @@
     ],
     "added": [],
     "removed": []
+  },
+  "demonstration_publication": {
+    "branch": "master",
+    "removed_unused_assets": [
+      "architecture/gcp-gke-level-1/v4/icons/pubsub.svg",
+      "architecture/gcp-gke-level-1/v4/icons/vertexai.svg"
+    ],
+    "retained": "Final V4 draw.io, PNG, SVG, README, renderer, graph, used icons and validation/provenance records. Previous Git history retained."
   }
 }

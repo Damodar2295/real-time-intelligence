@@ -77,7 +77,7 @@ for cell in cells:
     check(not any(old in cell.get('value','') for old in ('Vertex AI','Pub/Sub','StreamingPull','gateway alternative')), 'Obsolete diagram label')
 
 report = {'package_checks': 'FAIL' if errors else 'PASS', 'errors': errors,
-          'v4_verified_files': len(manifest['v4_files']),
+          'v4_verified_files': len(manifest.get('current_v4_files', manifest['v4_files'])),
           'major_components': len(manifest['major_component_ids']),
           'interfaces': len(graph['edges']), 'xml_and_svg': 'PARSED',
           'architectural_alignment': 'APPROVED DIAGRAM CORRECTIONS APPLIED; runtime and production approval unverified',
