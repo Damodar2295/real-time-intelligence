@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" type="device">
+  <diagram id="component-views/01-real-time-ingestion" name="01 · Real-Time Ingestion">
+    <mxGraphModel grid="1" gridSize="10" page="1" pageScale="1" pageWidth="2560" pageHeight="1440" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="view-title" value="&lt;b&gt;Vantage Real Time Intelligence&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=36;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#FFFFFF;spacing=14;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;spacing=0;align=center;" vertex="1" parent="1" sourceRefs="" componentId="view-title" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
+          <mxGeometry as="geometry" x="50" y="18" width="2460" height="58" />
+        </mxCell>
+        <mxCell id="view-subtitle" value="&lt;b&gt;01 · Real-Time Ingestion&lt;/b&gt;&lt;br&gt;V1 — Baseline Architecture • Level 2 • Required design behavior; runtime implementation not demonstrated" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=24;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#FFFFFF;spacing=14;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;spacing=0;" vertex="1" parent="1" sourceRefs="" componentId="view-subtitle" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
+          <mxGeometry as="geometry" x="50" y="90" width="2460" height="88" />
+        </mxCell>
+        <mxCell id="sources" value="&lt;b&gt;Concurrent sources&lt;/b&gt;&lt;br&gt;Genesys via audio / STT&lt;br&gt;Separate transcript emulator" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=22;fontColor=#002663;fillColor=#EEF3F8;strokeColor=#839CAE;spacing=14;align=left;verticalAlign=middle;" vertex="1" parent="1" sourceRefs="genesys,bridge,stt,test" componentId="sources" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
+          <mxGeometry as="geometry" x="50" y="245" width="360" height="160" />
+        </mxCell>
+        <mxCell id="ingress" value="&lt;b&gt;Transcript ingress&lt;/b&gt;&lt;br&gt;Frame / validate updates&lt;br&gt;Retain call / session identity" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=22;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#A5BAC8;spacing=14;align=left;verticalAlign=middle;" vertex="1" parent="1" sourceRefs="ingress" componentId="ingress" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
+          <mxGeometry as="geometry" x="480" y="245" width="360" height="160" />
+        </mxCell>
+        <mxCell id="queue" value="&lt;b&gt;Redis Streams&lt;/b&gt;&lt;br&gt;E1  E2  E3  E4  E5  E6&lt;br&gt;Concurrent entry publication" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=22;fontColor=#002663;fillColor=#EAF4FF;strokeColor=#006FCF;spacing=14;align=left;verticalAlign=middle;strokeWidth=2;" vertex="1" parent="1" sourceRefs="queue" componentId="queue" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
+          <mxGeometry as="geometry" x="910" y="245" width="420" height="160" />
+        </mxCell>
+        <mxCell id="group" value="Vantage Ingestion Consumer Group • XREADGROUP" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=21;fontColor=#002663;fillColor=#EAF4FF;strokeColor=#B7C9D3;spacing=14;align=left;verticalAlign=middle;shape=swimlane;startSize=44;horizontal=1;fillColor=#002663;swimlaneFillColor=#EAF4FF;fontColor=#FFFFFF;fontStyle=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="1" sourceRefs="" componentId="group" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
+          <mxGeometry as="geometry" x="1410" y="215" width="1100" height="410" />
+        </mxCell>
+        <mxCell id="consumer-0" value="&lt;b&gt;Consumer A&lt;/b&gt;&lt;br&gt;E1, E4&lt;br&gt;Parallel worker instance" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=22;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#A5BAC8;spacing=14;align=left;verticalAlign=middle;" vertex="1" parent="group" sourceRefs="worker" componentId="consumer-0" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
+          <mxGeometry as="geometry" x="40" y="110" width="310" height="150" />
+        </mxCell>
+        <mxCell id="consumer-1" value="&lt;b&gt;Consumer B&lt;/b&gt;&lt;br&gt;E2, E5&lt;br&gt;Parallel worker instance" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=22;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#A5BAC8;spacing=14;align=left;verticalAlign=middle;" vertex="1" parent="group" sourceRefs="worker" componentId="consumer-1" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
+          <mxGeometry as="geometry" x="390" y="110" width="310" height="150" />
+        </mxCell>
+        <mxCell id="consumer-2" value="&lt;b&gt;Consumer C&lt;/b&gt;&lt;br&gt;E3, E6&lt;br&gt;Parallel worker instance" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=22;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#A5BAC8;spacing=14;align=left;verticalAlign=middle;" vertex="1" parent="group" sourceRefs="worker" componentId="consumer-2" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
+          <mxGeometry as="geometry" x="740" y="110" width="310" height="150" />
+        </mxCell>
+        <mxCell id="assignment" value="&lt;b&gt;Illustrative parallel distribution&lt;/b&gt;&lt;br&gt;Actual message assignment depends on consumer availability and read behavior; not fixed round-robin." style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=22;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#FFFFFF;spacing=14;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;spacing=0;" vertex="1" parent="group" sourceRefs="worker" componentId="assignment" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
+          <mxGeometry as="geometry" x="40" y="280" width="1010" height="110" />
+        </mxCell>
+        <mxCell id="processing" value="Worker responsibilities • repeated per consumer; no new deployment boundaries" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=21;fontColor=#002663;fillColor=#EAF4FF;strokeColor=#B7C9D3;spacing=14;align=left;verticalAlign=middle;shape=swimlane;startSize=44;horizontal=1;fillColor=#002663;swimlaneFillColor=#EAF4FF;fontColor=#FFFFFF;fontStyle=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="1" sourceRefs="" componentId="processing" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
+          <mxGeometry as="geometry" x="50" y="690" width="1580" height="255" />
+        </mxCell>
+        <mxCell id="prepare" value="&lt;b&gt;Validate + prepare&lt;/b&gt;&lt;br&gt;Normalize • idempotency&lt;br&gt;Session windows / context" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=22;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#A5BAC8;spacing=14;align=left;verticalAlign=middle;" vertex="1" parent="processing" sourceRefs="worker,state" componentId="prepare" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
+          <mxGeometry as="geometry" x="40" y="75" width="440" height="140" />
+        </mxCell>
+        <mxCell id="handoff" value="&lt;b&gt;Detection handoff&lt;/b&gt;&lt;br&gt;Selected downstream processing&lt;br&gt;Commit boundary remains OPEN" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=22;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#A5BAC8;spacing=14;align=left;verticalAlign=middle;" vertex="1" parent="processing" sourceRefs="coord" componentId="handoff" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
+          <mxGeometry as="geometry" x="570" y="75" width="440" height="140" />
+        </mxCell>
+        <mxCell id="ack" value="&lt;b&gt;XACK&lt;/b&gt;&lt;br&gt;After processing success or&lt;br&gt;verified durable handoff" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=22;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#A5BAC8;spacing=14;align=left;verticalAlign=middle;" vertex="1" parent="processing" sourceRefs="queue,worker" componentId="ack" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
+          <mxGeometry as="geometry" x="1100" y="75" width="440" height="140" />
+        </mxCell>
+        <mxCell id="pending" value="&lt;b&gt;Pending Entries List&lt;/b&gt;&lt;br&gt;Unacknowledged work&lt;br&gt;Recovery ownership / timing OPEN" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=22;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#B29145;spacing=14;align=left;verticalAlign=middle;dashed=1;dashPattern=7 4;" vertex="1" parent="1" sourceRefs="queue,worker" componentId="pending" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
+          <mxGeometry as="geometry" x="1750" y="730" width="760" height="180" />
+        </mxCell>
+        <mxCell id="recover" value="&lt;b&gt;Eligible pending recovery&lt;/b&gt;&lt;br&gt;XAUTOCLAIM only if supported and policy approved.&lt;br&gt;Reprocess idempotently; do not steal live work." style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=22;fontColor=#002663;fillColor=#EAF4FF;strokeColor=#B7C9D3;spacing=14;align=left;verticalAlign=middle;" vertex="1" parent="1" sourceRefs="" componentId="recover" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
+          <mxGeometry as="geometry" x="50" y="1045" width="760" height="200" />
+        </mxCell>
+        <mxCell id="retry" value="&lt;b&gt;Retry / dead-letter considerations&lt;/b&gt;&lt;br&gt;Required design, not implemented. Limits, destination,&lt;br&gt;redrive and durable-handoff / ack policy are TBD." style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=22;fontColor=#002663;fillColor=#EAF4FF;strokeColor=#B7C9D3;spacing=14;align=left;verticalAlign=middle;" vertex="1" parent="1" sourceRefs="" componentId="retry" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
+          <mxGeometry as="geometry" x="875" y="1045" width="760" height="200" />
+        </mxCell>
+        <mxCell id="ops" value="&lt;b&gt;Isolation and operations&lt;/b&gt;&lt;br&gt;Completion order is not guaranteed. Call ownership OPEN.&lt;br&gt;Monitor lag, pending age, latency, retries and DLQ volume.&lt;br&gt;Bound intake; scaling and backpressure policy TBD." style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=22;fontColor=#002663;fillColor=#EAF4FF;strokeColor=#B7C9D3;spacing=14;align=left;verticalAlign=middle;" vertex="1" parent="1" sourceRefs="" componentId="ops" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
+          <mxGeometry as="geometry" x="1700" y="1045" width="810" height="200" />
+        </mxCell>
+        <mxCell id="legend" value="&lt;b&gt;VIEW NOTATION&lt;/b&gt;&lt;br&gt;Blue: logical processing • Amber dashed: failure / required policy • At-least-once handling; no exactly-once claim. Consumer parallelism is not internal API parallelism." style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=22;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#FFFFFF;spacing=14;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;spacing=0;" vertex="1" parent="1" sourceRefs="" componentId="legend" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
+          <mxGeometry as="geometry" x="50" y="1330" width="2460" height="85" />
+        </mxCell>
+        <mxCell id="view-edge-1" value="Transcript updates" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#3872A5;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="sources" target="ingress" sourceRefs="edge-3,edge-4" interfaceId="view-edge-1" decisionStatus="DERIVED FROM edge-3,edge-4" protocolStatus="See source contract; unspecified details OPEN">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="0.0" y="-109.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="view-edge-2" value="Publish entries" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#3872A5;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="ingress" target="queue" sourceRefs="edge-5" interfaceId="view-edge-2" decisionStatus="DERIVED FROM edge-5" protocolStatus="See source contract; unspecified details OPEN">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="0.0" y="-109.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="view-edge-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#3872A5;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="queue" target="group" sourceRefs="edge-6" interfaceId="view-edge-3" decisionStatus="DERIVED FROM edge-6" protocolStatus="See source contract; unspecified details OPEN">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="1370.0" y="325.0" />
+              <mxPoint x="1370.0" y="420.0" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="view-edge-4" value="Each consumer executes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#3872A5;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="group" target="prepare" sourceRefs="worker" interfaceId="view-edge-4" decisionStatus="DERIVED FROM worker" protocolStatus="See source contract; unspecified details OPEN">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="-90.0" y="-13.0" />
+            <Array as="points">
+              <mxPoint x="1960" y="650" />
+              <mxPoint x="310" y="650" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="view-edge-5" value="Detection input" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#3872A5;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="prepare" target="handoff" sourceRefs="edge-7" interfaceId="view-edge-5" decisionStatus="DERIVED FROM edge-7" protocolStatus="See source contract; unspecified details OPEN">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="0.0" y="-89.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="view-edge-6" value="Success boundary" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#3872A5;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="handoff" target="ack" sourceRefs="worker" interfaceId="view-edge-6" decisionStatus="DERIVED FROM worker" protocolStatus="See source contract; unspecified details OPEN">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="0.0" y="-89.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="view-edge-7" value="Interrupted / failed work" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#AA8539;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=1;entryX=0.5;entryY=1;dashed=1;dashPattern=7 4;" edge="1" parent="1" source="handoff" target="pending" sourceRefs="" interfaceId="view-edge-7" decisionStatus="ILLUSTRATIVE / REQUIRED DESIGN" protocolStatus="See source contract; unspecified details OPEN">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="327.5" y="-15.0" />
+            <Array as="points">
+              <mxPoint x="840" y="985" />
+              <mxPoint x="2130" y="985" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="view-edge-8" value="Recovery → worker responsibilities" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#AA8539;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=1;entryX=0.5;entryY=0;dashed=1;dashPattern=7 4;" edge="1" parent="1" source="pending" target="recover" sourceRefs="" interfaceId="view-edge-8" decisionStatus="ILLUSTRATIVE / REQUIRED DESIGN" protocolStatus="See source contract; unspecified details OPEN">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="-242.5" y="-5.0" />
+            <Array as="points">
+              <mxPoint x="2130" y="1010" />
+              <mxPoint x="430" y="1010" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

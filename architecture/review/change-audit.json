@@ -1,192 +1,29 @@
 {
-  "baseline_commit": "b39a64848e8cf11c41acd0be1bb5e0cad45d21a0",
-  "branch": "architecture/v4-final-review",
-  "modified": [
-    "README.md",
-    "architecture/tools/validate_package.py"
-  ],
-  "added": [
-    "architecture/review/v4-preservation.json",
-    "architecture/review/change-audit.json",
-    "architecture/review/validation.json"
-  ],
-  "removed_from_branch_tree": [
-    {
-      "path": "architecture/architecture-guide.md",
-      "sha256": "9b169d87c60554e69abd9ef68d735ec5ca0707361fea6732ee58b935dc22480c",
-      "reason": "Superseded guide or competing options package; recoverable from baseline Git history."
-    },
-    {
-      "path": "architecture/decisions.md",
-      "sha256": "31955107c9e84b666c82a8f4157b7eb3312bf54e2e31d64b29f828b956be3bfe",
-      "reason": "Superseded guide or competing options package; recoverable from baseline Git history."
-    },
-    {
-      "path": "architecture/BUILD.md",
-      "sha256": "dea6483ea74e8a4461a79373f1dfb7ba2c3fd0c86d17273c4f68fb2298f4a0f2",
-      "reason": "Superseded guide or competing options package; recoverable from baseline Git history."
-    },
-    {
-      "path": "architecture/gcp-gke-level-1/options-review/README.md",
-      "sha256": "77746e0bac115b2f55796839ceb3808a99ad9fa2e021f478a63e3a077deb752d",
-      "reason": "Superseded guide or competing options package; recoverable from baseline Git history."
-    },
-    {
-      "path": "architecture/gcp-gke-level-1/options-review/build_options.py",
-      "sha256": "439477017d616818eb059591de8af97b02e37245ab7b73c2f6868f7b594c2b23",
-      "reason": "Superseded guide or competing options package; recoverable from baseline Git history."
-    },
-    {
-      "path": "architecture/gcp-gke-level-1/options-review/diagram_renderer.py",
-      "sha256": "642171ff6bf4b556bb2670babb8226be5be30d54fd10d48644c97b130bdf9ae5",
-      "reason": "Superseded guide or competing options package; recoverable from baseline Git history."
-    },
-    {
-      "path": "architecture/gcp-gke-level-1/options-review/icons/cloud_logging.svg",
-      "sha256": "f7fdd93a1847fdebf174c78cce418fac52198be72893116e7787ca3e1659cf38",
-      "reason": "Superseded guide or competing options package; recoverable from baseline Git history."
-    },
-    {
-      "path": "architecture/gcp-gke-level-1/options-review/icons/cloud_monitoring.svg",
-      "sha256": "804f66b773fcc5cd59a3fb8e0da9ff3de9b69efa99c23f8e1797943647a8e79e",
-      "reason": "Superseded guide or competing options package; recoverable from baseline Git history."
-    },
-    {
-      "path": "architecture/gcp-gke-level-1/options-review/icons/cloud_sql.svg",
-      "sha256": "ffdf8329a098d53313f4a8b10449b33e1cf9f139aaeb4a53e6564c1fad6b8b1b",
-      "reason": "Superseded guide or competing options package; recoverable from baseline Git history."
-    },
-    {
-      "path": "architecture/gcp-gke-level-1/options-review/icons/google_kubernetes_engine.svg",
-      "sha256": "5f44dce3df0483bd0b1a344be07129e054f61cb5fa947aea022db3441c25db5e",
-      "reason": "Superseded guide or competing options package; recoverable from baseline Git history."
-    },
-    {
-      "path": "architecture/gcp-gke-level-1/options-review/icons/identity_and_access_management.svg",
-      "sha256": "16642a394d5eb28be4ea688870dd6cbbcb943b14a1360ce09ba3a03d561fc1eb",
-      "reason": "Superseded guide or competing options package; recoverable from baseline Git history."
-    },
-    {
-      "path": "architecture/gcp-gke-level-1/options-review/icons/memorystore.svg",
-      "sha256": "e1e14c0fa7a2a155cd5626226ea7b49b933641d384c86aa38b1a4fd9470fab6a",
-      "reason": "Superseded guide or competing options package; recoverable from baseline Git history."
-    },
-    {
-      "path": "architecture/gcp-gke-level-1/options-review/icons/neutral-audio.svg",
-      "sha256": "7af0ea57b806b16804ac1ab16a406c657bcec50f3d7c76f9391e48c465e6b530",
-      "reason": "Superseded guide or competing options package; recoverable from baseline Git history."
-    },
-    {
-      "path": "architecture/gcp-gke-level-1/options-review/icons/neutral-branch.svg",
-      "sha256": "7a06d4748696628d109d79d3da91efa6de78ea7073de62e7ce48943643bef31c",
-      "reason": "Superseded guide or competing options package; recoverable from baseline Git history."
-    },
-    {
-      "path": "architecture/gcp-gke-level-1/options-review/icons/neutral-check.svg",
-      "sha256": "28c924f2e3f8b531ccb17023d52ba33a9f14b71f622372bbc1bb724fed7d2360",
-      "reason": "Superseded guide or competing options package; recoverable from baseline Git history."
-    },
-    {
-      "path": "architecture/gcp-gke-level-1/options-review/icons/neutral-cloud.svg",
-      "sha256": "0b2a99659446a7e6e27b610eb9089dbb642049ab28a7c7e4ce27e3b8ede03d36",
-      "reason": "Superseded guide or competing options package; recoverable from baseline Git history."
-    },
-    {
-      "path": "architecture/gcp-gke-level-1/options-review/icons/neutral-screen.svg",
-      "sha256": "03e8f67819994a8abbf59f78f893dfc799044144e9ffbfd77e53eceede0a65f1",
-      "reason": "Superseded guide or competing options package; recoverable from baseline Git history."
-    },
-    {
-      "path": "architecture/gcp-gke-level-1/options-review/icons/neutral-search.svg",
-      "sha256": "2a7707c2a3fac97e2797c4f87ccab56db1f2ebd661448bba71f75635476647e8",
-      "reason": "Superseded guide or competing options package; recoverable from baseline Git history."
-    },
-    {
-      "path": "architecture/gcp-gke-level-1/options-review/icons/neutral-service.svg",
-      "sha256": "63b74ffbdddc5c0b4cbdd926eab96aa4f5f277910fc98b51fc5ef697c9ff72d1",
-      "reason": "Superseded guide or competing options package; recoverable from baseline Git history."
-    },
-    {
-      "path": "architecture/gcp-gke-level-1/options-review/icons/neutral-shield.svg",
-      "sha256": "66dfaaa28bdd2fdcc781769b9dfa19340a1d3115444f651ea728c03ef7b2c8bf",
-      "reason": "Superseded guide or competing options package; recoverable from baseline Git history."
-    },
-    {
-      "path": "architecture/gcp-gke-level-1/options-review/icons/pubsub.svg",
-      "sha256": "bd71cb16b24c5a368fc7913525e093f03e426d06e8917c1f255187e9f6c10217",
-      "reason": "Superseded guide or competing options package; recoverable from baseline Git history."
-    },
-    {
-      "path": "architecture/gcp-gke-level-1/options-review/icons/secret_manager.svg",
-      "sha256": "194b0f81870b265064680007e472d011797d01fbdede0bb4ade28e025a22e7b6",
-      "reason": "Superseded guide or competing options package; recoverable from baseline Git history."
-    },
-    {
-      "path": "architecture/gcp-gke-level-1/options-review/icons/speech-to-text.svg",
-      "sha256": "4500f0f324e32c72b370d00edf84d981ad93c308e07a963e08520632bd425cc1",
-      "reason": "Superseded guide or competing options package; recoverable from baseline Git history."
-    },
-    {
-      "path": "architecture/gcp-gke-level-1/options-review/icons/trace.svg",
-      "sha256": "c8434efa76a4d0d1bcf29e5a2d1d7d520efec8c6c6e4faf7655a423369471405",
-      "reason": "Superseded guide or competing options package; recoverable from baseline Git history."
-    },
-    {
-      "path": "architecture/gcp-gke-level-1/options-review/icons/vertexai.svg",
-      "sha256": "d6a643fad5de9e513bba05af22b685572e5e06b92c3e5495b7ecf56666ff79c0",
-      "reason": "Superseded guide or competing options package; recoverable from baseline Git history."
-    },
-    {
-      "path": "architecture/gcp-gke-level-1/options-review/vantage-options-evaluation.png",
-      "sha256": "ab83a53c942baf0144f182ad0e5d622a601d1ae59b5aed32ed0f4df6d5ff7719",
-      "reason": "Superseded guide or competing options package; recoverable from baseline Git history."
-    },
-    {
-      "path": "architecture/gcp-gke-level-1/options-review/vantage-options-evaluation.svg",
-      "sha256": "d80e78fb612cf812a2a540b7480179098399c815340b8222108d85e81d9cfe3a",
-      "reason": "Superseded guide or competing options package; recoverable from baseline Git history."
-    },
-    {
-      "path": "architecture/gcp-gke-level-1/options-review/vantage-options-overview.png",
-      "sha256": "b81f1f7ea523c3534b84fe49543a474e9c0f125fb50492f4145b80d84b8e3f1a",
-      "reason": "Superseded guide or competing options package; recoverable from baseline Git history."
-    },
-    {
-      "path": "architecture/gcp-gke-level-1/options-review/vantage-options-overview.svg",
-      "sha256": "18ce0652b7f7e1967ad95f6249b3d213ae96e8f1cd26da408bc3a00888dfedc6",
-      "reason": "Superseded guide or competing options package; recoverable from baseline Git history."
-    },
-    {
-      "path": "architecture/gcp-gke-level-1/options-review/vantage-technical-level-1-options-review.drawio",
-      "sha256": "3ee34b942ddd6347afa64a372540d58fe2d2679d20b6bc84ef3c754f4428792d",
-      "reason": "Superseded guide or competing options package; recoverable from baseline Git history."
-    }
-  ],
-  "preserved": "All 24 original V4 files byte-identical; .gitignore unchanged; Git history and other worktrees retained. No application implementation found or removed.",
-  "targeted_correction": {
-    "base_commit": "65bdd048f392e0e31a3fd7656944b8b9c170032a",
-    "scope": "Authorized diagram labels, 16:9 centered-title presentation, existing renderer and documentation consistency. No IDs/endpoints or implementation changed.",
-    "modified": [
-      "README.md",
-      "architecture/gcp-gke-level-1/v4/build_v4.py",
-      "architecture/gcp-gke-level-1/v4/graph-v4.json",
-      "architecture/gcp-gke-level-1/v4/vantage-gcp-gke-technical-level-1-v4.drawio",
-      "architecture/gcp-gke-level-1/v4/vantage-gcp-gke-technical-level-1-v4.svg",
-      "architecture/gcp-gke-level-1/v4/vantage-gcp-gke-technical-level-1-v4.png",
-      "architecture/tools/validate_package.py",
-      "architecture/review/v4-preservation.json",
-      "architecture/review/validation.json",
-      "architecture/review/change-audit.json"
-    ],
-    "added": [],
-    "removed": []
+  "source_commit": "ba3ffb91569d76a2c3b802ea889e53b785e5b006",
+  "publication_branch": "master",
+  "scope": "Architecture-only V1 consolidation, five derived views, README and rendering/validation tooling.",
+  "moved": {
+    "architecture/gcp-gke-level-1/v4": "architecture/v1",
+    "build_v4.py": "architecture/tools/render_architecture.py",
+    "graph-v4.json": "graph-level-1.json",
+    "vantage-gcp-gke-technical-level-1-v4.*": "level-1-architecture.*",
+    "architecture/review/v4-preservation.json": "architecture/review/baseline-provenance.json"
   },
-  "demonstration_publication": {
-    "branch": "master",
-    "removed_unused_assets": [
-      "architecture/gcp-gke-level-1/v4/icons/pubsub.svg",
-      "architecture/gcp-gke-level-1/v4/icons/vertexai.svg"
-    ],
-    "retained": "Final V4 draw.io, PNG, SVG, README, renderer, graph, used icons and validation/provenance records. Previous Git history retained."
-  }
+  "added": [
+    "architecture/v1/component-views/01-real-time-ingestion.{drawio,svg,png}",
+    "architecture/v1/component-views/02-intelligence-processing.{drawio,svg,png}",
+    "architecture/v1/component-views/03-intelligence-delivery.{drawio,svg,png}",
+    "architecture/v1/integration-views/04-component-interactions.{drawio,svg,png}",
+    "architecture/v1/integration-views/05-high-level-flows.{drawio,svg,png}",
+    "architecture/v1/component-graphs.json",
+    "architecture/tools/render_png.cjs"
+  ],
+  "updated": [
+    "README.md",
+    "architecture/tools/validate_package.py",
+    "architecture/review/validation.json",
+    "architecture/review/change-audit.json"
+  ],
+  "removed": "No application implementation or Git history removed. Old active paths replaced through moves.",
+  "runtime_implementation": "None found in source baseline; none introduced or changed."
 }

@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" type="device">
+  <diagram id="component-views/02-intelligence-processing" name="02 · Intelligence Processing">
+    <mxGraphModel grid="1" gridSize="10" page="1" pageScale="1" pageWidth="2560" pageHeight="1440" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="view-title" value="&lt;b&gt;Vantage Real Time Intelligence&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=36;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#FFFFFF;spacing=14;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;spacing=0;align=center;" vertex="1" parent="1" sourceRefs="" componentId="view-title" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
+          <mxGeometry as="geometry" x="50" y="18" width="2460" height="58" />
+        </mxCell>
+        <mxCell id="view-subtitle" value="&lt;b&gt;02 · Intelligence Processing&lt;/b&gt;&lt;br&gt;V1 — Baseline Architecture • Level 2 • Select configured methods; all three do not execute for every event" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=24;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#FFFFFF;spacing=14;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;spacing=0;" vertex="1" parent="1" sourceRefs="" componentId="view-subtitle" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
+          <mxGeometry as="geometry" x="50" y="90" width="2460" height="88" />
+        </mxCell>
+        <mxCell id="worker" value="&lt;b&gt;Prepared detection input&lt;/b&gt;&lt;br&gt;Session-scoped microbatch&lt;br&gt;Validated contract binding TBD" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=22;fontColor=#002663;fillColor=#EEF3F8;strokeColor=#839CAE;spacing=14;align=left;verticalAlign=middle;" vertex="1" parent="1" sourceRefs="worker" componentId="worker" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
+          <mxGeometry as="geometry" x="50" y="610" width="390" height="160" />
+        </mxCell>
+        <mxCell id="coord" value="&lt;b&gt;Detector coordination&lt;/b&gt;&lt;br&gt;Call metadata applicability&lt;br&gt;Select configured methods&lt;br&gt;Scheduling / completion OPEN" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=22;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#A5BAC8;spacing=14;align=left;verticalAlign=middle;" vertex="1" parent="1" sourceRefs="coord" componentId="coord" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
+          <mxGeometry as="geometry" x="550" y="590" width="430" height="200" />
+        </mxCell>
+        <mxCell id="management" value="&lt;b&gt;Signal Management UI / API&lt;/b&gt;&lt;br&gt;Versioned catalog / configuration&lt;br&gt;Domain → Theme → Signal" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=22;fontColor=#002663;fillColor=#EAF4FF;strokeColor=#B7C9D3;spacing=14;align=left;verticalAlign=middle;" vertex="1" parent="1" sourceRefs="management" componentId="management" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
+          <mxGeometry as="geometry" x="550" y="235" width="430" height="160" />
+        </mxCell>
+        <mxCell id="state" value="&lt;b&gt;Bounded same-call context&lt;/b&gt;&lt;br&gt;Worker-updated conversation state&lt;br&gt;History writer / recovery OPEN" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=22;fontColor=#002663;fillColor=#EAF4FF;strokeColor=#B7C9D3;spacing=14;align=left;verticalAlign=middle;" vertex="1" parent="1" sourceRefs="state" componentId="state" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
+          <mxGeometry as="geometry" x="50" y="235" width="390" height="160" />
+        </mxCell>
+        <mxCell id="rules" value="&lt;b&gt;Deterministic detection&lt;/b&gt;&lt;br&gt;Rules • regex • fuzzy&lt;br&gt;Configured entity checks" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=22;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#A5BAC8;spacing=14;align=left;verticalAlign=middle;" vertex="1" parent="1" sourceRefs="rules" componentId="rules" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
+          <mxGeometry as="geometry" x="1110" y="235" width="450" height="160" />
+        </mxCell>
+        <mxCell id="semantic" value="&lt;b&gt;Semantic detection&lt;/b&gt;&lt;br&gt;Embedding → top-K → rerank&lt;br&gt;Model / index compatibility OPEN" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=22;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#A5BAC8;spacing=14;align=left;verticalAlign=middle;" vertex="1" parent="1" sourceRefs="semantic" componentId="semantic" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
+          <mxGeometry as="geometry" x="1110" y="590" width="450" height="180" />
+        </mxCell>
+        <mxCell id="llm" value="&lt;b&gt;LLM detection adapter&lt;/b&gt;&lt;br&gt;Scoped requirement + context&lt;br&gt;Validate returned evidence" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=22;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#A5BAC8;spacing=14;align=left;verticalAlign=middle;" vertex="1" parent="1" sourceRefs="llm" componentId="llm" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
+          <mxGeometry as="geometry" x="1110" y="955" width="450" height="160" />
+        </mxCell>
+        <mxCell id="sql" value="&lt;b&gt;Catalog / vector retrieval&lt;/b&gt;&lt;br&gt;Cloud SQL · PostgreSQL proposed&lt;br&gt;Data authority / hosting OPEN" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=22;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#B29145;spacing=14;align=left;verticalAlign=middle;dashed=1;dashPattern=7 4;" vertex="1" parent="1" sourceRefs="sql" componentId="sql" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
+          <mxGeometry as="geometry" x="1720" y="235" width="460" height="160" />
+        </mxCell>
+        <mxCell id="model" value="&lt;b&gt;SafeChain Integration&lt;/b&gt;&lt;br&gt;Secure LLM Invocation&lt;br&gt;Mandatory • API / hosting OPEN" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=22;fontColor=#002663;fillColor=#EAF4FF;strokeColor=#006FCF;spacing=14;align=left;verticalAlign=middle;spacingLeft=84;strokeWidth=2;" vertex="1" parent="1" sourceRefs="model" componentId="model" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
+          <mxGeometry as="geometry" x="1720" y="955" width="460" height="160" />
+        </mxCell>
+        <mxCell id="resolver" value="&lt;b&gt;Shared Signal Resolution&lt;/b&gt;&lt;br&gt;Receiving boundary&lt;br&gt;Owned by resolution / output&lt;br&gt;Evidence + thresholds; rules OPEN" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=22;fontColor=#002663;fillColor=#EEF3F8;strokeColor=#839CAE;spacing=14;align=left;verticalAlign=middle;" vertex="1" parent="1" sourceRefs="resolver" componentId="resolver" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
+          <mxGeometry as="geometry" x="2020" y="570" width="490" height="220" />
+        </mxCell>
+        <mxCell id="questions" value="&lt;b&gt;Design constraints&lt;/b&gt;&lt;br&gt;Preserve non-LLM paths. No automatic rule → semantic → LLM chain. Partial results, timeouts,&lt;br&gt;combined evidence, source-of-truth and score calibration require explicit contracts." style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=22;fontColor=#002663;fillColor=#EAF4FF;strokeColor=#B7C9D3;spacing=14;align=left;verticalAlign=middle;" vertex="1" parent="1" sourceRefs="" componentId="questions" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
+          <mxGeometry as="geometry" x="50" y="1190" width="2460" height="115" />
+        </mxCell>
+        <mxCell id="legend" value="&lt;b&gt;VIEW NOTATION&lt;/b&gt;&lt;br&gt;Stable edge IDs map to README §12. Amber: proposed interface • Dotted: configuration. Context is preparation input; evidence is not yet an accepted signal." style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=22;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#FFFFFF;spacing=14;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;spacing=0;" vertex="1" parent="1" sourceRefs="" componentId="legend" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
+          <mxGeometry as="geometry" x="50" y="1330" width="2460" height="85" />
+        </mxCell>
+        <mxCell id="view-edge-1" value="edge-7 • input" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#3872A5;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="worker" target="coord" sourceRefs="edge-7" interfaceId="view-edge-1" decisionStatus="DERIVED FROM edge-7" protocolStatus="See source contract; unspecified details OPEN">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="0.0" y="-129.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="view-edge-2" value="edge-18 • config" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#3872A5;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=1;entryX=0.5;entryY=0;dashed=1;dashPattern=2 4;" edge="1" parent="1" source="management" target="coord" sourceRefs="edge-18" interfaceId="view-edge-2" decisionStatus="DERIVED FROM edge-18" protocolStatus="See source contract; unspecified details OPEN">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="0.0" y="-13.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="view-edge-3" value="edge-9 • context" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#3872A5;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="state" target="coord" sourceRefs="edge-9" interfaceId="view-edge-3" decisionStatus="DERIVED FROM edge-9" protocolStatus="See source contract; unspecified details OPEN">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="-132.5" y="-15.0" />
+            <Array as="points">
+              <mxPoint x="245" y="465" />
+              <mxPoint x="675" y="465" />
+              <mxPoint x="765.0" y="465" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="view-edge-4" value="edge-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#3872A5;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="coord" target="rules" sourceRefs="edge-10" interfaceId="view-edge-4" decisionStatus="DERIVED FROM edge-10" protocolStatus="See source contract; unspecified details OPEN">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="0.0" y="-8.0" />
+            <Array as="points">
+              <mxPoint x="1040" y="690" />
+              <mxPoint x="1040" y="315" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="view-edge-5" value="edge-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#3872A5;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="coord" target="semantic" sourceRefs="edge-11" interfaceId="view-edge-5" decisionStatus="DERIVED FROM edge-11" protocolStatus="See source contract; unspecified details OPEN">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="35.0" y="-119.0" />
+            <Array as="points">
+              <mxPoint x="1040" y="690" />
+              <mxPoint x="1040" y="680" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="view-edge-6" value="edge-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#3872A5;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="coord" target="llm" sourceRefs="edge-12" interfaceId="view-edge-6" decisionStatus="DERIVED FROM edge-12" protocolStatus="See source contract; unspecified details OPEN">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="0.0" y="-18.0" />
+            <Array as="points">
+              <mxPoint x="1040" y="690" />
+              <mxPoint x="1040" y="1035" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="view-edge-7" value="edge-17 • retrieval" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#AA8539;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=0;entryX=0;entryY=0.5;dashed=1;dashPattern=7 4;" edge="1" parent="1" source="semantic" target="sql" sourceRefs="edge-17" interfaceId="view-edge-7" decisionStatus="DERIVED FROM edge-17" protocolStatus="See source contract; unspecified details OPEN">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="-30.0" y="-15.0" />
+            <Array as="points">
+              <mxPoint x="1335" y="475" />
+              <mxPoint x="1660" y="475" />
+              <mxPoint x="1660" y="315" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="view-edge-8" value="edge-16 • secure invocation" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#AA8539;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;dashed=1;dashPattern=7 4;" edge="1" parent="1" source="llm" target="model" sourceRefs="edge-16" interfaceId="view-edge-8" decisionStatus="DERIVED FROM edge-16" protocolStatus="See source contract; unspecified details OPEN">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="0.0" y="-109.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="view-edge-9" value="edge-13 • evidence" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#3872A5;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0.5;entryY=0;" edge="1" parent="1" source="rules" target="resolver" sourceRefs="edge-13" interfaceId="view-edge-9" decisionStatus="DERIVED FROM edge-13" protocolStatus="See source contract; unspecified details OPEN">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="115.0" y="-15.0" />
+            <Array as="points">
+              <mxPoint x="1640" y="315" />
+              <mxPoint x="1640" y="520" />
+              <mxPoint x="2265" y="520" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="view-edge-10" value="edge-14 • evidence" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#3872A5;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="semantic" target="resolver" sourceRefs="edge-14" interfaceId="view-edge-10" decisionStatus="DERIVED FROM edge-14" protocolStatus="See source contract; unspecified details OPEN">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="10.0" y="-20.0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="view-edge-11" value="edge-15 • evidence" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#3872A5;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=1;entryX=0.5;entryY=1;" edge="1" parent="1" source="llm" target="resolver" sourceRefs="edge-15" interfaceId="view-edge-11" decisionStatus="DERIVED FROM edge-15" protocolStatus="See source contract; unspecified details OPEN">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="262.5" y="-15.0" />
+            <Array as="points">
+              <mxPoint x="1335" y="1170" />
+              <mxPoint x="2380" y="1170" />
+              <mxPoint x="2380" y="850" />
+              <mxPoint x="2265" y="850" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="model-icon" value="" style="shape=image;imageAspect=1;aspect=fixed;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDA2RkNGIiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTMyIDVsMjMgOXYxOGMwIDEzLTIzIDI2LTIzIDI2UzkgNDUgOSAzMlYxNHpNMjEgMzFsOCA4IDE1LTE3Ii8+PC9nPjwvc3ZnPg==;" vertex="1" parent="model">
+          <mxGeometry as="geometry" x="14" y="54.0" width="52" height="52" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

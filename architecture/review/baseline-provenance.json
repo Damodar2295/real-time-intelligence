@@ -1,0 +1,294 @@
+{
+  "architecture": "Vantage Real Time Intelligence",
+  "designation": "V1 \u2014 Baseline Architecture",
+  "source_commit": "ba3ffb91569d76a2c3b802ea889e53b785e5b006",
+  "source_diagram": "architecture/gcp-gke-level-1/v4/vantage-gcp-gke-technical-level-1-v4.drawio",
+  "active_diagram": "architecture/v1/level-1-architecture.drawio",
+  "source_nodes": {
+    "gcp": {
+      "parent": "1",
+      "title": "GOOGLE CLOUD  |  Confirmed target platform"
+    },
+    "gke": {
+      "parent": "gcp",
+      "title": "GKE APPLICATION RUNTIME  |  Confirmed target; workload boundaries proposed"
+    },
+    "ingestion-zone": {
+      "parent": "gke",
+      "title": ""
+    },
+    "detection-zone": {
+      "parent": "gke",
+      "title": ""
+    },
+    "resolution-zone": {
+      "parent": "gke",
+      "title": ""
+    },
+    "page-title": {
+      "parent": "1",
+      "title": "Vantage Real Time Intelligence"
+    },
+    "page-subtitle": {
+      "parent": "1",
+      "title": ""
+    },
+    "managed-label": {
+      "parent": "gcp",
+      "title": "PLATFORM SERVICES & ENTERPRISE INTEGRATIONS"
+    },
+    "genesys": {
+      "parent": "1",
+      "title": "Genesys Cloud"
+    },
+    "test": {
+      "parent": "1",
+      "title": "Transcript emulator"
+    },
+    "provider": {
+      "parent": "1",
+      "title": "Provider integration"
+    },
+    "stt": {
+      "parent": "gcp",
+      "title": "Speech-to-Text"
+    },
+    "queue": {
+      "parent": "gcp",
+      "title": "Redis Streams"
+    },
+    "state": {
+      "parent": "gcp",
+      "title": "Memorystore for Redis"
+    },
+    "sql": {
+      "parent": "gcp",
+      "title": "Cloud SQL \u00b7 PostgreSQL"
+    },
+    "model": {
+      "parent": "gcp",
+      "title": "SafeChain Integration"
+    },
+    "bridge": {
+      "parent": "ingestion-zone",
+      "title": "Audio acquisition"
+    },
+    "ingress": {
+      "parent": "ingestion-zone",
+      "title": "Transcript ingress"
+    },
+    "worker": {
+      "parent": "ingestion-zone",
+      "title": "Ingestion worker pool"
+    },
+    "coord": {
+      "parent": "detection-zone",
+      "title": "Detector coordination"
+    },
+    "rules": {
+      "parent": "detection-zone",
+      "title": "Deterministic detection"
+    },
+    "semantic": {
+      "parent": "detection-zone",
+      "title": "Semantic detection"
+    },
+    "llm": {
+      "parent": "detection-zone",
+      "title": "LLM detection adapter"
+    },
+    "resolver": {
+      "parent": "resolution-zone",
+      "title": "Shared Signal Resolution"
+    },
+    "publisher": {
+      "parent": "resolution-zone",
+      "title": "Signal publication API"
+    },
+    "management": {
+      "parent": "gke",
+      "title": "Signal Management UI / API"
+    },
+    "later": {
+      "parent": "resolution-zone",
+      "title": "Contextual generation / activation"
+    },
+    "workbench": {
+      "parent": "1",
+      "title": "Signal workbench"
+    },
+    "consumers": {
+      "parent": "1",
+      "title": "Downstream consumers"
+    },
+    "status": {
+      "parent": "1",
+      "title": "DECISION STATUS"
+    },
+    "notes": {
+      "parent": "1",
+      "title": "DATA & TRUST BOUNDARIES"
+    },
+    "telemetry": {
+      "parent": "gcp",
+      "title": "Cloud Observability"
+    },
+    "controls": {
+      "parent": "gcp",
+      "title": "Identity, secrets & network controls"
+    },
+    "governance": {
+      "parent": "gcp",
+      "title": "ENTERPRISE GOVERNANCE"
+    },
+    "label-ingestion": {
+      "parent": "ingestion-zone",
+      "title": "1  INTERACTION INGESTION"
+    },
+    "label-detection": {
+      "parent": "detection-zone",
+      "title": "2  DETECTION & ORCHESTRATION"
+    },
+    "label-resolution": {
+      "parent": "resolution-zone",
+      "title": "3  RESOLUTION & OUTPUT"
+    },
+    "legend": {
+      "parent": "1",
+      "title": "CONNECTIONS & SCOPE"
+    }
+  },
+  "source_interfaces": [
+    {
+      "id": "edge-1",
+      "a": "genesys",
+      "b": "bridge"
+    },
+    {
+      "id": "edge-2",
+      "a": "bridge",
+      "b": "stt"
+    },
+    {
+      "id": "edge-3",
+      "a": "bridge",
+      "b": "ingress"
+    },
+    {
+      "id": "edge-4",
+      "a": "test",
+      "b": "ingress"
+    },
+    {
+      "id": "edge-5",
+      "a": "ingress",
+      "b": "queue"
+    },
+    {
+      "id": "edge-6",
+      "a": "queue",
+      "b": "worker"
+    },
+    {
+      "id": "edge-7",
+      "a": "worker",
+      "b": "coord"
+    },
+    {
+      "id": "edge-8",
+      "a": "worker",
+      "b": "state"
+    },
+    {
+      "id": "edge-9",
+      "a": "state",
+      "b": "coord"
+    },
+    {
+      "id": "edge-10",
+      "a": "coord",
+      "b": "rules"
+    },
+    {
+      "id": "edge-11",
+      "a": "coord",
+      "b": "semantic"
+    },
+    {
+      "id": "edge-12",
+      "a": "coord",
+      "b": "llm"
+    },
+    {
+      "id": "edge-13",
+      "a": "rules",
+      "b": "resolver"
+    },
+    {
+      "id": "edge-14",
+      "a": "semantic",
+      "b": "resolver"
+    },
+    {
+      "id": "edge-15",
+      "a": "llm",
+      "b": "resolver"
+    },
+    {
+      "id": "edge-16",
+      "a": "llm",
+      "b": "model"
+    },
+    {
+      "id": "edge-17",
+      "a": "semantic",
+      "b": "sql"
+    },
+    {
+      "id": "edge-18",
+      "a": "management",
+      "b": "coord"
+    },
+    {
+      "id": "edge-19",
+      "a": "management",
+      "b": "sql"
+    },
+    {
+      "id": "edge-20",
+      "a": "resolver",
+      "b": "publisher"
+    },
+    {
+      "id": "edge-21",
+      "a": "publisher",
+      "b": "workbench"
+    },
+    {
+      "id": "edge-22",
+      "a": "publisher",
+      "b": "sql"
+    },
+    {
+      "id": "edge-23",
+      "a": "resolver",
+      "b": "later"
+    },
+    {
+      "id": "edge-24",
+      "a": "later",
+      "b": "consumers"
+    },
+    {
+      "id": "edge-25",
+      "a": "gke",
+      "b": "telemetry"
+    }
+  ],
+  "permitted_level_1_changes": [
+    "page-subtitle: V1 baseline designation",
+    "legend: interface matrix wording"
+  ],
+  "source_sha256": "8035baaac8e58c828f12054b83d0a26fdf6b5cbbf89b9e6ddae784b58e3ea30e",
+  "status": "Single active baseline; previous revision recoverable from Git. No runtime implementation changes."
+}

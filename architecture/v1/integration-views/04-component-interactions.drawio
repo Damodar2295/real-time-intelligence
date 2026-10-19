@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <mxfile host="app.diagrams.net" type="device">
-  <diagram id="vantage-gcp-gke-technical-level-1-v4" name="Vantage Real Time Intelligence — Level 1 Architecture">
+  <diagram id="integration-views/04-component-interactions" name="04 · Component Interactions">
     <mxGraphModel grid="1" gridSize="10" page="1" pageScale="1" pageWidth="3760" pageHeight="2115" math="0" shadow="0">
       <root>
         <mxCell id="0" />
@@ -23,7 +23,7 @@
         <mxCell id="page-title" value="&lt;b&gt;Vantage Real Time Intelligence&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=44;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#FFFFFF;spacing=14;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;spacing=0;align=center;" vertex="1" parent="1" sourceRefs="" componentId="page-title" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
           <mxGeometry as="geometry" x="40" y="15" width="3680" height="62" />
         </mxCell>
-        <mxCell id="page-subtitle" value="Level 1 Architecture  |  V4 — Final reference  |  Target: Lumi / GCP / GKE  |  Review: 19 October 2026&lt;br&gt;Approved diagram corrections; implementation, service hosting and production approval remain unverified." style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=20;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#FFFFFF;spacing=14;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;spacing=0;" vertex="1" parent="1" sourceRefs="" componentId="page-subtitle" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
+        <mxCell id="page-subtitle" value="V1 — Baseline Architecture  |  Component Interactions  |  All original interface IDs retained&lt;br&gt;Interface category is explicit; synchronous versus asynchronous timing remains OPEN unless documented. Details: README §12." style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=20;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#FFFFFF;spacing=14;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;spacing=0;" vertex="1" parent="1" sourceRefs="" componentId="page-subtitle" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
           <mxGeometry as="geometry" x="40" y="78" width="3680" height="66" />
         </mxCell>
         <mxCell id="managed-label" value="&lt;b&gt;PLATFORM SERVICES &amp;amp; ENTERPRISE INTEGRATIONS&lt;/b&gt;&lt;br&gt;Outside GKE workload grouping • Hosting / integration placement subject to confirmation" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=20;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#FFFFFF;spacing=14;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;spacing=0;" vertex="1" parent="gcp" sourceRefs="" componentId="managed-label" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
@@ -116,13 +116,15 @@
         <mxCell id="label-resolution" value="&lt;b&gt;3  RESOLUTION &amp;amp; OUTPUT&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=20;fontColor=#002663;fillColor=#006FCF;strokeColor=#006FCF;spacing=14;align=left;verticalAlign=middle;fontColor=#FFFFFF;fontStyle=1;" vertex="1" parent="resolution-zone" sourceRefs="" componentId="label-resolution" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
           <mxGeometry as="geometry" x="15" y="0" width="505" height="42" />
         </mxCell>
-        <mxCell id="legend" value="&lt;b&gt;CONNECTIONS &amp;amp; SCOPE&lt;/b&gt;&lt;br&gt;Solid blue: documented data flow   •   Amber dashed: proposed integration   •   Dotted blue: configuration / control   •   Dash-dot blue: telemetry   •   Purple: test input&lt;br&gt;Shaded process groups are visual only. Security boundaries and control inheritance are OPEN. Stable component / interface IDs are embedded and listed in the V4 matrix." style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=22;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#FFFFFF;spacing=14;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;spacing=0;" vertex="1" parent="1" sourceRefs="" componentId="legend" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
+        <mxCell id="legend" value="&lt;b&gt;CONNECTIONS &amp;amp; SCOPE&lt;/b&gt;&lt;br&gt;EVENT: stream / consumer handoff   •   CONFIG: configuration   •   DATA: state / storage access   •   LLM: mandatory SafeChain invocation   •   TELEMETRY: operational signals&lt;br&gt;Blue: logical relationship • Amber: proposed interface • Dotted: control. API timing is OPEN unless documented; interface labels are traceability, not invented endpoints." style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=22;fontColor=#002663;fillColor=#FFFFFF;strokeColor=#FFFFFF;spacing=14;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;spacing=0;" vertex="1" parent="1" sourceRefs="" componentId="legend" decisionStatus="NOTATION" deploymentStatus="NOT VERIFIED">
           <mxGeometry as="geometry" x="40" y="1910" width="3680" height="110" />
         </mxCell>
-        <mxCell id="edge-1" value="Audio • interface OPEN" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#AA8539;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;dashed=1;dashPattern=7 4;" edge="1" parent="1" source="genesys" target="bridge" sourceRefs="R94" interfaceId="edge-1" decisionStatus="PROPOSED interface" protocolStatus="OPEN / not specified">
-          <mxGeometry as="geometry" relative="1" />
+        <mxCell id="edge-1" value="edge-1 · SOURCE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#AA8539;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;dashed=1;dashPattern=7 4;" edge="1" parent="1" source="genesys" target="bridge" sourceRefs="R94" interfaceId="edge-1" decisionStatus="PROPOSED interface" protocolStatus="OPEN / not specified">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="0.0" y="100.0" />
+          </mxGeometry>
         </mxCell>
-        <mxCell id="edge-2" value="gRPC / TLS + results" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#AA8539;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=0;entryX=0.5;entryY=1;dashed=1;dashPattern=7 4;" edge="1" parent="1" source="bridge" target="stt" sourceRefs="R95" interfaceId="edge-2" decisionStatus="PROPOSED interface" protocolStatus="PROPOSED">
+        <mxCell id="edge-2" value="edge-2 · SOURCE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#AA8539;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=0;entryX=0.5;entryY=1;dashed=1;dashPattern=7 4;" edge="1" parent="1" source="bridge" target="stt" sourceRefs="R95" interfaceId="edge-2" decisionStatus="PROPOSED interface" protocolStatus="PROPOSED">
           <mxGeometry as="geometry" relative="1">
             <mxPoint as="offset" x="20.0" y="-49.10714285714283" />
             <Array as="points">
@@ -131,13 +133,17 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge-3" value="Transcript events" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#3872A5;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="bridge" target="ingress" sourceRefs="R96" interfaceId="edge-3" decisionStatus="CONFIRMED logical relationship" protocolStatus="OPEN / not specified">
-          <mxGeometry as="geometry" relative="1" />
+        <mxCell id="edge-3" value="edge-3 · SOURCE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#3872A5;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="bridge" target="ingress" sourceRefs="R96" interfaceId="edge-3" decisionStatus="CONFIRMED logical relationship" protocolStatus="OPEN / not specified">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="0.0" y="-13.0" />
+          </mxGeometry>
         </mxCell>
-        <mxCell id="edge-4" value="WebSocket" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#8A5DB0;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="test" target="ingress" sourceRefs="R65" interfaceId="edge-4" decisionStatus="CONFIRMED logical relationship" protocolStatus="DOCUMENTED WebSocket">
-          <mxGeometry as="geometry" relative="1" />
+        <mxCell id="edge-4" value="edge-4 · SOURCE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#8A5DB0;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="test" target="ingress" sourceRefs="R65" interfaceId="edge-4" decisionStatus="CONFIRMED logical relationship" protocolStatus="DOCUMENTED WebSocket">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="0.0" y="-104.0" />
+          </mxGeometry>
         </mxCell>
-        <mxCell id="edge-5" value="Publish stream entries" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#AA8539;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0.5;entryY=1;dashed=1;dashPattern=7 4;" edge="1" parent="1" source="ingress" target="queue" sourceRefs="R98" interfaceId="edge-5" decisionStatus="PROPOSED interface" protocolStatus="Redis Streams selected; envelope / client contract OPEN">
+        <mxCell id="edge-5" value="edge-5 · EVENT" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#AA8539;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0.5;entryY=1;dashed=1;dashPattern=7 4;" edge="1" parent="1" source="ingress" target="queue" sourceRefs="R98" interfaceId="edge-5" decisionStatus="PROPOSED interface" protocolStatus="Redis Streams selected; envelope / client contract OPEN">
           <mxGeometry as="geometry" relative="1">
             <mxPoint as="offset" x="45.0" y="76.25" />
             <Array as="points">
@@ -147,7 +153,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge-6" value="Consumer-group delivery" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#AA8539;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=1;entryX=0.5;entryY=0;dashed=1;dashPattern=7 4;" edge="1" parent="1" source="queue" target="worker" sourceRefs="R99" interfaceId="edge-6" decisionStatus="PROPOSED interface" protocolStatus="Redis Streams selected; ack / recovery policy OPEN">
+        <mxCell id="edge-6" value="edge-6 · EVENT" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#AA8539;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=1;entryX=0.5;entryY=0;dashed=1;dashPattern=7 4;" edge="1" parent="1" source="queue" target="worker" sourceRefs="R99" interfaceId="edge-6" decisionStatus="PROPOSED interface" protocolStatus="Redis Streams selected; ack / recovery policy OPEN">
           <mxGeometry as="geometry" relative="1">
             <mxPoint as="offset" x="80.0" y="101.25" />
             <Array as="points">
@@ -156,12 +162,12 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge-7" value="Microbatch • gRPC proposed" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#3872A5;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="worker" target="coord" sourceRefs="R92" interfaceId="edge-7" decisionStatus="CONFIRMED logical relationship" protocolStatus="PROPOSED">
+        <mxCell id="edge-7" value="edge-7 · API / OPEN" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#3872A5;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="worker" target="coord" sourceRefs="R92" interfaceId="edge-7" decisionStatus="CONFIRMED logical relationship" protocolStatus="PROPOSED">
           <mxGeometry as="geometry" relative="1">
             <mxPoint as="offset" x="0.0" y="-95.0" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge-8" value="Redis / TLS" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#AA8539;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=0;entryX=0.5;entryY=1;dashed=1;dashPattern=7 4;" edge="1" parent="1" source="worker" target="state" sourceRefs="R68" interfaceId="edge-8" decisionStatus="PROPOSED interface" protocolStatus="PROPOSED">
+        <mxCell id="edge-8" value="edge-8 · DATA" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#AA8539;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=0;entryX=0.5;entryY=1;dashed=1;dashPattern=7 4;" edge="1" parent="1" source="worker" target="state" sourceRefs="R68" interfaceId="edge-8" decisionStatus="PROPOSED interface" protocolStatus="PROPOSED">
           <mxGeometry as="geometry" relative="1">
             <mxPoint as="offset" x="30.0" y="66.25" />
             <Array as="points">
@@ -172,7 +178,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge-9" value="Same-call context" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#AA8539;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=1;entryX=0.5;entryY=0;dashed=1;dashPattern=7 4;" edge="1" parent="1" source="state" target="coord" sourceRefs="R69" interfaceId="edge-9" decisionStatus="PROPOSED interface" protocolStatus="OPEN / not specified">
+        <mxCell id="edge-9" value="edge-9 · DATA" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#AA8539;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=1;entryX=0.5;entryY=0;dashed=1;dashPattern=7 4;" edge="1" parent="1" source="state" target="coord" sourceRefs="R69" interfaceId="edge-9" decisionStatus="PROPOSED interface" protocolStatus="OPEN / not specified">
           <mxGeometry as="geometry" relative="1">
             <mxPoint as="offset" x="0.0" y="166.25" />
             <Array as="points">
@@ -181,55 +187,61 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#3872A5;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="coord" target="rules" sourceRefs="R71" interfaceId="edge-10" decisionStatus="CONFIRMED logical relationship" protocolStatus="OPEN / not specified">
+        <mxCell id="edge-10" value="edge-10 · LOGICAL" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#3872A5;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="coord" target="rules" sourceRefs="R71" interfaceId="edge-10" decisionStatus="CONFIRMED logical relationship" protocolStatus="OPEN / not specified">
           <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="0.0" y="-13.0" />
             <Array as="points">
               <mxPoint x="1995" y="965" />
               <mxPoint x="1995" y="725" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge-11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#3872A5;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="coord" target="semantic" sourceRefs="R72" interfaceId="edge-11" decisionStatus="CONFIRMED logical relationship" protocolStatus="OPEN / not specified">
+        <mxCell id="edge-11" value="edge-11 · LOGICAL" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#3872A5;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="coord" target="semantic" sourceRefs="R72" interfaceId="edge-11" decisionStatus="CONFIRMED logical relationship" protocolStatus="OPEN / not specified">
           <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="-27.5" y="-104.0" />
             <Array as="points">
               <mxPoint x="1995" y="965" />
               <mxPoint x="1995" y="965" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#3872A5;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="coord" target="llm" sourceRefs="R73" interfaceId="edge-12" decisionStatus="CONFIRMED logical relationship" protocolStatus="OPEN / not specified">
+        <mxCell id="edge-12" value="edge-12 · LOGICAL" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#3872A5;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="coord" target="llm" sourceRefs="R73" interfaceId="edge-12" decisionStatus="CONFIRMED logical relationship" protocolStatus="OPEN / not specified">
           <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="0.0" y="-13.0" />
             <Array as="points">
               <mxPoint x="1995" y="965" />
               <mxPoint x="1995" y="1205" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#3872A5;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="rules" target="resolver" sourceRefs="R50,R30" interfaceId="edge-13" decisionStatus="CONFIRMED logical relationship" protocolStatus="OPEN / not specified">
+        <mxCell id="edge-13" value="edge-13 · LOGICAL" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#3872A5;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="rules" target="resolver" sourceRefs="R50,R30" interfaceId="edge-13" decisionStatus="CONFIRMED logical relationship" protocolStatus="OPEN / not specified">
           <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="0.0" y="-38.0" />
             <Array as="points">
               <mxPoint x="2545" y="725" />
               <mxPoint x="2545" y="972.5" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge-14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#3872A5;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="semantic" target="resolver" sourceRefs="R47" interfaceId="edge-14" decisionStatus="CONFIRMED logical relationship" protocolStatus="OPEN / not specified">
+        <mxCell id="edge-14" value="edge-14 · LOGICAL" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#3872A5;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="semantic" target="resolver" sourceRefs="R47" interfaceId="edge-14" decisionStatus="CONFIRMED logical relationship" protocolStatus="OPEN / not specified">
           <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="41.25" y="-111.5" />
             <Array as="points">
               <mxPoint x="2545" y="965" />
               <mxPoint x="2545" y="972.5" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge-15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#3872A5;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="llm" target="resolver" sourceRefs="R93" interfaceId="edge-15" decisionStatus="CONFIRMED logical relationship" protocolStatus="OPEN / not specified">
+        <mxCell id="edge-15" value="edge-15 · LOGICAL" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#3872A5;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="llm" target="resolver" sourceRefs="R93" interfaceId="edge-15" decisionStatus="CONFIRMED logical relationship" protocolStatus="OPEN / not specified">
           <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="0.0" y="12.0" />
             <Array as="points">
               <mxPoint x="2545" y="1205" />
               <mxPoint x="2545" y="972.5" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge-16" value="Secure LLM invocation" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#AA8539;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0.5;entryY=1;dashed=1;dashPattern=7 4;" edge="1" parent="1" source="llm" target="model" sourceRefs="C60" interfaceId="edge-16" decisionStatus="PROPOSED interface" protocolStatus="SafeChain mandatory; API / protocol OPEN">
+        <mxCell id="edge-16" value="edge-16 · LLM" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#AA8539;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0.5;entryY=1;dashed=1;dashPattern=7 4;" edge="1" parent="1" source="llm" target="model" sourceRefs="C60" interfaceId="edge-16" decisionStatus="PROPOSED interface" protocolStatus="SafeChain mandatory; API / protocol OPEN">
           <mxGeometry as="geometry" relative="1">
             <mxPoint as="offset" x="0.0" y="-222.32142857142856" />
             <Array as="points">
@@ -239,9 +251,9 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge-17" value="Vector search • SQL / TLS" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#AA8539;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=0;entryX=0.5;entryY=1;dashed=1;dashPattern=7 4;" edge="1" parent="1" source="semantic" target="sql" sourceRefs="R79" interfaceId="edge-17" decisionStatus="PROPOSED interface" protocolStatus="PROPOSED">
+        <mxCell id="edge-17" value="edge-17 · DATA" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#AA8539;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=0;entryX=0.5;entryY=1;dashed=1;dashPattern=7 4;" edge="1" parent="1" source="semantic" target="sql" sourceRefs="R79" interfaceId="edge-17" decisionStatus="PROPOSED interface" protocolStatus="PROPOSED">
           <mxGeometry as="geometry" relative="1">
-            <mxPoint as="offset" x="-45.0" y="66.25" />
+            <mxPoint as="offset" x="-245.0" y="78.75" />
             <Array as="points">
               <mxPoint x="2260" y="845" />
               <mxPoint x="2505" y="845" />
@@ -250,15 +262,16 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge-18" value="Catalog configuration" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#3872A5;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=0;entryX=0.5;entryY=1;dashed=1;dashPattern=2 4;" edge="1" parent="1" source="management" target="coord" sourceRefs="R62,R70" interfaceId="edge-18" decisionStatus="CONFIRMED logical relationship" protocolStatus="OPEN / not specified">
+        <mxCell id="edge-18" value="edge-18 · CONFIG" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#3872A5;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=0;entryX=0.5;entryY=1;dashed=1;dashPattern=2 4;" edge="1" parent="1" source="management" target="coord" sourceRefs="R62,R70" interfaceId="edge-18" decisionStatus="CONFIRMED logical relationship" protocolStatus="OPEN / not specified">
           <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="87.5" y="-13.0" />
             <Array as="points">
               <mxPoint x="1445" y="1100" />
               <mxPoint x="1735" y="1100" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge-19" value="Catalog • SQL / TLS" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#AA8539;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;dashed=1;dashPattern=7 4;" edge="1" parent="1" source="management" target="sql" sourceRefs="C13,C52,C53" interfaceId="edge-19" decisionStatus="PROPOSED interface" protocolStatus="PROPOSED">
+        <mxCell id="edge-19" value="edge-19 · DATA" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#AA8539;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;dashed=1;dashPattern=7 4;" edge="1" parent="1" source="management" target="sql" sourceRefs="C13,C52,C53" interfaceId="edge-19" decisionStatus="PROPOSED interface" protocolStatus="PROPOSED">
           <mxGeometry as="geometry" relative="1">
             <mxPoint as="offset" x="-15.0" y="525.0" />
             <Array as="points">
@@ -271,15 +284,17 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge-20" value="Accepted signals" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#3872A5;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="resolver" target="publisher" sourceRefs="R32" interfaceId="edge-20" decisionStatus="CONFIRMED logical relationship" protocolStatus="OPEN / not specified">
-          <mxGeometry as="geometry" relative="1" />
+        <mxCell id="edge-20" value="edge-20 · LOGICAL" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#3872A5;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="resolver" target="publisher" sourceRefs="R32" interfaceId="edge-20" decisionStatus="CONFIRMED logical relationship" protocolStatus="OPEN / not specified">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="0.0" y="-13.0" />
+          </mxGeometry>
         </mxCell>
-        <mxCell id="edge-21" value="SSE / WebSocket over HTTPS" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#AA8539;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;dashed=1;dashPattern=7 4;" edge="1" parent="1" source="publisher" target="workbench" sourceRefs="R33,R51" interfaceId="edge-21" decisionStatus="PROPOSED interface" protocolStatus="PROPOSED">
+        <mxCell id="edge-21" value="edge-21 · API / OPEN" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#AA8539;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;dashed=1;dashPattern=7 4;" edge="1" parent="1" source="publisher" target="workbench" sourceRefs="R33,R51" interfaceId="edge-21" decisionStatus="PROPOSED interface" protocolStatus="PROPOSED">
           <mxGeometry as="geometry" relative="1">
             <mxPoint as="offset" x="17.5" y="-97.5" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge-22" value="Persist result • proposed" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#AA8539;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0.5;entryY=0;dashed=1;dashPattern=7 4;" edge="1" parent="1" source="publisher" target="sql" sourceRefs="R34" interfaceId="edge-22" decisionStatus="PROPOSED interface" protocolStatus="PROPOSED">
+        <mxCell id="edge-22" value="edge-22 · DATA" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#AA8539;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0.5;entryY=0;dashed=1;dashPattern=7 4;" edge="1" parent="1" source="publisher" target="sql" sourceRefs="R34" interfaceId="edge-22" decisionStatus="PROPOSED interface" protocolStatus="PROPOSED">
           <mxGeometry as="geometry" relative="1">
             <mxPoint as="offset" x="-225.0" y="-122.5" />
             <Array as="points">
@@ -289,7 +304,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge-23" value="Selective follow-on" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#AA8539;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=1;entryX=0;entryY=0.5;dashed=1;dashPattern=7 4;" edge="1" parent="1" source="resolver" target="later" sourceRefs="R35" interfaceId="edge-23" decisionStatus="PROPOSED interface" protocolStatus="OPEN / not specified">
+        <mxCell id="edge-23" value="edge-23 · LOGICAL" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#AA8539;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=1;entryX=0;entryY=0.5;dashed=1;dashPattern=7 4;" edge="1" parent="1" source="resolver" target="later" sourceRefs="R35" interfaceId="edge-23" decisionStatus="PROPOSED interface" protocolStatus="OPEN / not specified">
           <mxGeometry as="geometry" relative="1">
             <mxPoint as="offset" x="-20.0" y="241.25" />
             <Array as="points">
@@ -298,7 +313,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge-24" value="Delivery contract OPEN" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#AA8539;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;dashed=1;dashPattern=7 4;" edge="1" parent="1" source="later" target="consumers" sourceRefs="R36,R37" interfaceId="edge-24" decisionStatus="PROPOSED interface" protocolStatus="OPEN / not specified">
+        <mxCell id="edge-24" value="edge-24 · API / OPEN" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#AA8539;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=1;exitY=0.5;entryX=0;entryY=0.5;dashed=1;dashPattern=7 4;" edge="1" parent="1" source="later" target="consumers" sourceRefs="R36,R37" interfaceId="edge-24" decisionStatus="PROPOSED interface" protocolStatus="OPEN / not specified">
           <mxGeometry as="geometry" relative="1">
             <mxPoint as="offset" x="17.5" y="-97.5" />
             <Array as="points">
@@ -307,8 +322,9 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge-25" value="Logs / metrics / traces" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#3872A5;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=1;entryX=0.5;entryY=0;dashed=1;dashPattern=9 3 2 3;" edge="1" parent="1" source="gke" target="telemetry" sourceRefs="C44" interfaceId="edge-25" decisionStatus="CONFIRMED telemetry requirement; product PROPOSED" protocolStatus="OPEN / not specified">
+        <mxCell id="edge-25" value="edge-25 · TELEMETRY" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;endFill=1;strokeColor=#3872A5;strokeWidth=1.8;fontFamily=Arial;fontSize=17;labelBackgroundColor=#FFFFFF;fontColor=#002663;jumpStyle=arc;jumpSize=8;exitX=0.5;exitY=1;entryX=0.5;entryY=0;dashed=1;dashPattern=9 3 2 3;" edge="1" parent="1" source="gke" target="telemetry" sourceRefs="C44" interfaceId="edge-25" decisionStatus="CONFIRMED telemetry requirement; product PROPOSED" protocolStatus="OPEN / not specified">
           <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="5.0" y="-13.0" />
             <Array as="points">
               <mxPoint x="1840" y="1600" />
               <mxPoint x="860" y="1600" />

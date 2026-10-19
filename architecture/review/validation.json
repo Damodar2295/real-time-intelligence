@@ -1,23 +1,91 @@
 {
   "package_checks": "PASS",
   "errors": [],
-  "v4_verified_files": 22,
-  "major_components": 26,
-  "interfaces": 25,
-  "xml_and_svg": "PARSED",
-  "architectural_alignment": "APPROVED DIAGRAM CORRECTIONS APPLIED; runtime and production approval unverified",
-  "native_drawio_import": "NOT TESTED",
-  "runtime_tests": "NOT AVAILABLE \u2014 architecture tooling only",
-  "visual_inspection": "Updated PNG inspected at presentation aspect ratio; no new visible overlaps",
-  "render": "PNG rendered from SVG; draw.io and SVG emitted from the same existing graph",
-  "geometry": "Renderer validates containment, sibling overlap and text-height fit",
-  "prior_revision": "65bdd048f392e0e31a3fd7656944b8b9c170032a",
-  "scope": "38 graph elements, 25 endpoint pairs and all original parent groupings retained",
-  "runtime_changes": "NONE",
+  "baseline_component_count": 38,
+  "baseline_interfaces": 25,
+  "views": [
+    {
+      "view": "level-1-architecture",
+      "editable_vertices": 38,
+      "interfaces": 25,
+      "size": [
+        3760,
+        2115
+      ]
+    },
+    {
+      "view": "component-views/01-real-time-ingestion",
+      "editable_vertices": 19,
+      "interfaces": 8,
+      "size": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "view": "component-views/02-intelligence-processing",
+      "editable_vertices": 14,
+      "interfaces": 11,
+      "size": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "view": "component-views/03-intelligence-delivery",
+      "editable_vertices": 12,
+      "interfaces": 6,
+      "size": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "view": "integration-views/04-component-interactions",
+      "editable_vertices": 38,
+      "interfaces": 25,
+      "size": [
+        3760,
+        2115
+      ]
+    },
+    {
+      "view": "integration-views/05-high-level-flows",
+      "editable_vertices": 18,
+      "interfaces": 12,
+      "size": [
+        2560,
+        1440
+      ]
+    }
+  ],
+  "runtime_tests": "NOT AVAILABLE \u2014 architecture-only repository",
+  "native_editor_open": "NOT PERFORMED \u2014 external editor test blocked by automatic approval review; user selected local validation only",
+  "production_approval": "NOT ESTABLISHED; open contracts retained",
+  "export_reproduction": "PASS \u2014 all 18 files byte-identical after regeneration in a temporary directory",
+  "visual_inspection": "All six PNG exports inspected; label placements refined; baseline geometry preserved",
   "review_date": "2026-10-19",
+  "source_commit": "ba3ffb91569d76a2c3b802ea889e53b785e5b006",
   "publication_branch": "master",
-  "unused_assets_removed": [
-    "pubsub.svg",
-    "vertexai.svg"
-  ]
+  "scope": "Documentation, diagrams and architecture tooling only. No application implementation modified.",
+  "artifact_sha256": {
+    "architecture/v1/level-1-architecture.drawio": "bb753891e4e44dfed976dbc6594ad707745bc209006c6726683ad1a5d3ceb9bd",
+    "architecture/v1/level-1-architecture.png": "dee9c333bcdebcb4053559b1666a311129ac7d079c053d130da9bbaf499e0d98",
+    "architecture/v1/level-1-architecture.svg": "10f39827f0802efe974a66d07a4ad47744329dd0c442d67e07c67d8537a9842a",
+    "architecture/v1/component-views/01-real-time-ingestion.png": "483cab5fe0b36f39c6158fd8e3bbab0e9e4bcc9fc3198bab893ed6c0708f099f",
+    "architecture/v1/component-views/01-real-time-ingestion.drawio": "3f94794deebfa2eec97f037ad62047ab8079f55f79c870933e8c78008d652fb4",
+    "architecture/v1/component-views/02-intelligence-processing.png": "279ab0cbe9a66207b0d9d10cafd97f4b5e9e4e82318b3c68b7cebe82fed21bbb",
+    "architecture/v1/component-views/03-intelligence-delivery.svg": "e18ef9192c220c3f54d4d3eb8f4a553a23d19c59c847ec4f10fc02ba0b2dd314",
+    "architecture/v1/component-views/03-intelligence-delivery.png": "90252d976f2a8fc1d2c6b40339ec2e3b10b4ebf04db8e20a6fae4cbf7515c0ce",
+    "architecture/v1/component-views/02-intelligence-processing.svg": "d743be158b4327edf6ba04978ec60c0f84b9f90da9659d6e8145cbb530a053e1",
+    "architecture/v1/component-views/01-real-time-ingestion.svg": "4033de544d64aa8f33538fe47c2f6db4c64589897251568171405b225e93fe9d",
+    "architecture/v1/component-views/02-intelligence-processing.drawio": "7b5eb602bc8a9610563d961cc22b35920df25dbdabe6209461285e35b065d1f4",
+    "architecture/v1/component-views/03-intelligence-delivery.drawio": "4c3d7b381057f64a1765faac88e08e3c78ac6c3f2d0e0a7c6e64899f5db87486",
+    "architecture/v1/integration-views/04-component-interactions.svg": "e239894ada66ad053c7ad79d2010060b000187018d977454d002e58b5d0a30ba",
+    "architecture/v1/integration-views/05-high-level-flows.drawio": "5b104ca734b96aa13a9652093125661d3e537262596c999aaceb4786593e8d42",
+    "architecture/v1/integration-views/04-component-interactions.png": "5ed541739050125775c777a1de752d2b8012a179d9e3c2a24aaac95d0e6972dd",
+    "architecture/v1/integration-views/04-component-interactions.drawio": "509b447f39909377b6f0a16ed4c8132711631cc597e8b6d10cbb4e241e4dff7e",
+    "architecture/v1/integration-views/05-high-level-flows.png": "6164768231cde5046e4ac0f0b93e00b62780a8c6ad585a1e6e39c583eb31cd6e",
+    "architecture/v1/integration-views/05-high-level-flows.svg": "d80f43d85f58cd565dd28dcc0622ae634576c0fa16280e12b5a9e872721c8fd9"
+  }
 }

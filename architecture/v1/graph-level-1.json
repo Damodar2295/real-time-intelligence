@@ -96,7 +96,7 @@
     "page-subtitle": {
       "id": "page-subtitle",
       "title": "",
-      "body": "Level 1 Architecture  |  V4 \u2014 Final reference  |  Target: Lumi / GCP / GKE  |  Review: 19 October 2026\nApproved diagram corrections; implementation, service hosting and production approval remain unverified.",
+      "body": "V1 \u2014 Baseline Architecture  |  Level 1  |  Target: Lumi / GCP / GKE  |  Review: 19 October 2026\nApproved architecture requirements; implementation, service hosting and production approval remain unverified.",
       "x": 40,
       "y": 78,
       "w": 3680,
@@ -598,7 +598,7 @@
     "legend": {
       "id": "legend",
       "title": "CONNECTIONS & SCOPE",
-      "body": "Solid blue: documented data flow   \u2022   Amber dashed: proposed integration   \u2022   Dotted blue: configuration / control   \u2022   Dash-dot blue: telemetry   \u2022   Purple: test input\nShaded process groups are visual only. Security boundaries and control inheritance are OPEN. Stable component / interface IDs are embedded and listed in the V4 matrix.",
+      "body": "Solid blue: documented data flow   \u2022   Amber dashed: proposed integration   \u2022   Dotted blue: configuration / control   \u2022   Dash-dot blue: telemetry   \u2022   Purple: test input\nShaded process groups are visual only. Security boundaries and control inheritance are OPEN. Stable component / interface IDs are embedded and listed in the interface matrix.",
       "x": 40,
       "y": 1910,
       "w": 3680,

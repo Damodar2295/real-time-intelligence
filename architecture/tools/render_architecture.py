@@ -1,9 +1,9 @@
-"""Render the existing editable V4 graph; no runtime implementation."""
+"""Render the authoritative V1 graph and derived explanatory views; no runtime implementation."""
 from pathlib import Path
 import json, textwrap, html, re, base64
 import xml.etree.ElementTree as ET
 
-OUT=Path(__file__).resolve().parent
+OUT=Path(__file__).resolve().parents[1]/'v1'
 NAVY='#002663'; TEAL='#006FCF'; INK='#002663'; GRAY='#3872A5'
 COLORS={'normal':('#FFFFFF','#A5BAC8'),'support':('#EAF4FF','#B7C9D3'),'future':('#FFFFFF','#B29145'),'test':('#F1EBFA','#9879B9'),'decision':('#EAF4FF','#006FCF'),'external':('#EEF3F8','#839CAE'),'section':('#006FCF','#006FCF'),'zone':('#F4F9FF','#83ADD3')}
 class View:
@@ -152,6 +152,7 @@ class View:
 
 
   for parent,names in [('telemetry',['cloud_monitoring','trace']),('controls',['identity_and_access_management'])]:
+   if parent not in self.nodes:continue
    n=self.nodes[parent]
    for k,name in enumerate(names):
     data=base64.b64encode((OUT/'icons'/(name+'.svg')).read_bytes()).decode();x=n['w']-60*(len(names)-k)-10;y=(n['h']-40)/2
@@ -159,12 +160,15 @@ class View:
     ET.SubElement(c,'mxGeometry',x=str(x),y=str(y),width='40',height='40',attrib={'as':'geometry'})
     ET.SubElement(svg,'image',x=str(n['x']+x),y=str(n['y']+y),width='40',height='40',preserveAspectRatio='xMidYMid meet',href='data:image/svg+xml;base64,'+data)
 
-# Preserve the existing graph IDs, geometry, groups and connections.
-graph=json.loads((OUT/'graph-v4.json').read_text())
-v=View('Vantage Real Time Intelligence — Level 1 Architecture',3760,2115)
-v.nodes=graph['nodes'];v.edges=graph['edges']
-mx=ET.Element('mxfile',host='app.diagrams.net',type='device')
-report=v.export(mx,'vantage-gcp-gke-technical-level-1-v4')
-ET.indent(mx)
-ET.ElementTree(mx).write(OUT/'vantage-gcp-gke-technical-level-1-v4.drawio',encoding='utf-8',xml_declaration=True)
-print(json.dumps(report))
+def main():
+ graphs={'level-1-architecture':json.loads((OUT/'graph-level-1.json').read_text())}
+ graphs.update(json.loads((OUT/'component-graphs.json').read_text()))
+ for slug,graph in graphs.items():
+  v=View(graph.get('name','Vantage Real Time Intelligence — V1 Baseline Architecture'),*graph.get('size',[3760,2115]))
+  v.nodes=graph['nodes'];v.edges=graph['edges']
+  (OUT/slug).parent.mkdir(parents=True,exist_ok=True)
+  mx=ET.Element('mxfile',host='app.diagrams.net',type='device')
+  report=v.export(mx,slug)
+  ET.indent(mx);ET.ElementTree(mx).write(OUT/(slug+'.drawio'),encoding='utf-8',xml_declaration=True)
+  print(json.dumps(report))
+if __name__=='__main__':main()
