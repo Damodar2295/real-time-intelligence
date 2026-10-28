@@ -1,0 +1,266 @@
+{
+  "font_fit": "PASS (Arial measured)",
+  "components": [
+    {
+      "id": "gcp",
+      "title_font": 28,
+      "body_font": 22,
+      "text_height": 32.199999999999996,
+      "available_height": 44
+    },
+    {
+      "id": "gke",
+      "title_font": 28,
+      "body_font": 22,
+      "text_height": 32.199999999999996,
+      "available_height": 44
+    },
+    {
+      "id": "page-title",
+      "title_font": 44,
+      "body_font": 22,
+      "text_height": 50.599999999999994,
+      "available_height": 62.0
+    },
+    {
+      "id": "page-subtitle",
+      "title_font": 26,
+      "body_font": 24,
+      "text_height": 57.599999999999994,
+      "available_height": 66.0
+    },
+    {
+      "id": "managed-label",
+      "title_font": 26,
+      "body_font": 22,
+      "text_height": 64.3,
+      "available_height": 70.0
+    },
+    {
+      "id": "genesys",
+      "title_font": 26,
+      "body_font": 22,
+      "text_height": 90.69999999999999,
+      "available_height": 150.0
+    },
+    {
+      "id": "test",
+      "title_font": 26,
+      "body_font": 22,
+      "text_height": 90.69999999999999,
+      "available_height": 150.0
+    },
+    {
+      "id": "provider",
+      "title_font": 26,
+      "body_font": 22,
+      "text_height": 90.69999999999999,
+      "available_height": 140.0
+    },
+    {
+      "id": "stt",
+      "title_font": 26,
+      "body_font": 22,
+      "text_height": 90.69999999999999,
+      "available_height": 160.0
+    },
+    {
+      "id": "queue",
+      "title_font": 26,
+      "body_font": 22,
+      "text_height": 90.69999999999999,
+      "available_height": 160.0
+    },
+    {
+      "id": "state",
+      "title_font": 26,
+      "body_font": 22,
+      "text_height": 117.1,
+      "available_height": 160.0
+    },
+    {
+      "id": "sql",
+      "title_font": 26,
+      "body_font": 22,
+      "text_height": 90.69999999999999,
+      "available_height": 160.0
+    },
+    {
+      "id": "model",
+      "title_font": 26,
+      "body_font": 22,
+      "text_height": 90.69999999999999,
+      "available_height": 160.0
+    },
+    {
+      "id": "bridge",
+      "title_font": 26,
+      "body_font": 22,
+      "text_height": 90.69999999999999,
+      "available_height": 150.0
+    },
+    {
+      "id": "ingress",
+      "title_font": 26,
+      "body_font": 22,
+      "text_height": 90.69999999999999,
+      "available_height": 150.0
+    },
+    {
+      "id": "worker",
+      "title_font": 26,
+      "body_font": 22,
+      "text_height": 90.69999999999999,
+      "available_height": 150.0
+    },
+    {
+      "id": "coord",
+      "title_font": 26,
+      "body_font": 22,
+      "text_height": 90.69999999999999,
+      "available_height": 150.0
+    },
+    {
+      "id": "rules",
+      "title_font": 26,
+      "body_font": 22,
+      "text_height": 90.69999999999999,
+      "available_height": 150.0
+    },
+    {
+      "id": "semantic",
+      "title_font": 26,
+      "body_font": 22,
+      "text_height": 90.69999999999999,
+      "available_height": 150.0
+    },
+    {
+      "id": "llm",
+      "title_font": 26,
+      "body_font": 22,
+      "text_height": 90.69999999999999,
+      "available_height": 150.0
+    },
+    {
+      "id": "resolver",
+      "title_font": 26,
+      "body_font": 22,
+      "text_height": 90.69999999999999,
+      "available_height": 165.0
+    },
+    {
+      "id": "publisher",
+      "title_font": 26,
+      "body_font": 22,
+      "text_height": 90.69999999999999,
+      "available_height": 145.0
+    },
+    {
+      "id": "management",
+      "title_font": 26,
+      "body_font": 22,
+      "text_height": 90.69999999999999,
+      "available_height": 130.0
+    },
+    {
+      "id": "later",
+      "title_font": 26,
+      "body_font": 22,
+      "text_height": 90.69999999999999,
+      "available_height": 110.0
+    },
+    {
+      "id": "workbench",
+      "title_font": 26,
+      "body_font": 22,
+      "text_height": 90.69999999999999,
+      "available_height": 145.0
+    },
+    {
+      "id": "consumers",
+      "title_font": 26,
+      "body_font": 22,
+      "text_height": 90.69999999999999,
+      "available_height": 140.0
+    },
+    {
+      "id": "status",
+      "title_font": 26,
+      "body_font": 22,
+      "text_height": 117.1,
+      "available_height": 191.42857142857144
+    },
+    {
+      "id": "notes",
+      "title_font": 26,
+      "body_font": 22,
+      "text_height": 117.1,
+      "available_height": 200.0
+    },
+    {
+      "id": "telemetry",
+      "title_font": 26,
+      "body_font": 22,
+      "text_height": 90.69999999999999,
+      "available_height": 150.0
+    },
+    {
+      "id": "controls",
+      "title_font": 26,
+      "body_font": 22,
+      "text_height": 90.69999999999999,
+      "available_height": 150.0
+    },
+    {
+      "id": "governance",
+      "title_font": 26,
+      "body_font": 22,
+      "text_height": 90.69999999999999,
+      "available_height": 150.0
+    },
+    {
+      "id": "label-ingestion",
+      "title_font": 28,
+      "body_font": 22,
+      "text_height": 32.199999999999996,
+      "available_height": 42.0
+    },
+    {
+      "id": "label-detection",
+      "title_font": 28,
+      "body_font": 22,
+      "text_height": 32.199999999999996,
+      "available_height": 42.0
+    },
+    {
+      "id": "label-resolution",
+      "title_font": 28,
+      "body_font": 22,
+      "text_height": 32.199999999999996,
+      "available_height": 42.0
+    },
+    {
+      "id": "legend",
+      "title_font": 22,
+      "body_font": 20,
+      "text_height": 105.3,
+      "available_height": 110.0
+    },
+    {
+      "id": "stage-guide",
+      "title_font": 26,
+      "body_font": 22,
+      "text_height": 222.7,
+      "available_height": 315.0
+    }
+  ],
+  "connector_font": 22,
+  "geometry_and_endpoints": "preserved",
+  "details": "Original text retained in draw.io presentationDetail attributes; README untouched",
+  "xml_and_endpoints": "PASS: all IDs, parents, geometry and 26 connections preserved",
+  "visual_review": "PASS: inspected at 1920 \u00d7 1080",
+  "png": "3760 \u00d7 2115",
+  "native_drawio": "Not opened externally; local-only validation",
+  "scope": "Supplementary PON / production stage view; V1 baseline preserved",
+  "source_baseline": "a7b9236"
+}

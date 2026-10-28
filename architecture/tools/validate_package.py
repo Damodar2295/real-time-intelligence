@@ -61,7 +61,26 @@ check(len(re.findall(r'!\[.*?\]\(architecture/v1/.*?\.png\)',readme))==6,'README
 check('SafeChain Integration provides the enterprise-secured interface for LLM invocation within Vantage Real Time Intelligence.' in readme,'Required SafeChain statement missing')
 for e in level1['edges']:check('`'+e['id']+'`' in readme,'Missing interface documentation '+e['id'])
 check(not (ROOT/'architecture/gcp-gke-level-1/v4').exists(),'Competing active V4 directory')
-check(len(list(ROOT.rglob('*.drawio')))==6,'Unexpected diagram count')
+check(len(list(V1.rglob('*.drawio')))==6,'Unexpected baseline diagram count')
+# Supplementary stage view preserves all baseline connections and adds one PON handoff.
+stage=ROOT/'architecture/pon-production/vantage-level-1-pon-production'
+if stage.with_suffix('.drawio').exists():
+    stage_cells=list(ET.parse(stage.with_suffix('.drawio')).iter('mxCell'))
+    stage_ids={c.get('id'):c for c in stage_cells}
+    check(len(stage_cells)==len(stage_ids),'Duplicate stage-view IDs')
+    for key in level1['nodes']:
+        check(key in stage_ids,'Missing stage-view baseline component '+key)
+    for e in level1['edges']:
+        c=stage_ids.get(e['id'])
+        check(c is not None and c.get('source')==e['a'] and c.get('target')==e['b'],'Stage-view endpoint mismatch '+e['id'])
+    direct=stage_ids.get('pon-direct-handoff')
+    check(direct is not None and direct.get('source')=='ingress' and direct.get('target')=='worker','Missing PON direct handoff')
+    check(sum(c.get('edge')=='1' for c in stage_cells)==26,'Unexpected stage-view connector count')
+    for c in stage_cells:
+        if c.get('edge')=='1':check(c.get('source') in stage_ids and c.get('target') in stage_ids,'Dangling stage connector')
+    ET.parse(stage.with_suffix('.svg'))
+    stage_png=stage.with_suffix('.png').read_bytes()
+    check(stage_png[:8]==b'\x89PNG\r\n\x1a\n' and struct.unpack('>II',stage_png[16:24])==(3760,2115),'Stage-view PNG invalid')
 check(len(list(ROOT.rglob('README.md')))==1,'Competing README')
 for p in ROOT.rglob('*'):
     if '.git' in p.parts or not p.is_file():continue
